@@ -1,29 +1,37 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Keyflow Docs",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/logo.png",
+    "light": "/logo/logo.png"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#E0580B",
+    "light": "#ED6A2F",
+    "dark": "#E0580B",
+    "background": {
+      "light": "#FDFDFF",
+      "dark": "#0D0D0D"
+    },
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#E0580B",
+      "to": "#ED6A2F"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:founders@keyflow.space"
+    },
+    {
+      "name": "Sign In",
+      "url": "https://keyflow/space/login"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Get Started",
+    "url": "https://keyflow.space/signup"
   },
   "tabs": [
     {
@@ -38,14 +46,14 @@
       "url": "https://mintlify.com/docs"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "Discord",
+      "icon": "discord",
+      "url": "https://discord.gg/AZv6JqPFX6"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://keyflow.space/blog"
     }
   ],
   "navigation": [
@@ -54,7 +62,21 @@
       "pages": [
         "introduction",
         "quickstart",
-        "development"
+        "terminology",
+        {
+          "group": "Core Concepts",
+          "pages": [
+            "core-concepts/builder",
+            "core-concepts/types",
+            "core-concepts/batch-mode",
+            "core-concepts/credentials",
+            "core-concepts/node-versioning",
+            "core-concepts/external-flows",
+            "core-concepts/share-flows",
+            "core-concepts/triggers",
+            "core-concepts/working-with-files"
+          ]
+        }
       ]
     },
     {
@@ -70,9 +92,7 @@
     },
     {
       "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
+      "pages": ["api-reference/introduction"]
     },
     {
       "group": "Endpoint Examples",
@@ -84,8 +104,13 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/keyflowapp",
+    "linkedin": "https://www.linkedin.com/company/keyflow-space/",
+    "discord": "https://discord.gg/AZv6JqPFX6"
+  },
+  "feedback": {
+    "raiseIssue": true,
+    "suggestEdit": true,
+    "thumbsRating": true
   }
 }

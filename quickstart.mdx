@@ -1,86 +1,90 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: "Quickstart"
+description: "Start automating in under 5 minutes"
 ---
 
-## Setup your development
+### Get started with templates
 
-Learn how to update your docs locally and and deploy them to the public.
+The best way to get started is by using a prebuilt template!
 
-### Edit and preview
+We've built 50+ functional workflows categorized by their use cases for you to browse, explore and learn Keyflow. You can use these to understand how things work or to run out of the box, each is built to be immediately useful
 
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
-  </Accordion>
-</AccordionGroup>
+Get started with [templates here](https://www.keyflow.space/templates)
 
-### Deploy your changes
+For this quickstart guide, we'll pick the <i>["Email Auto-Replier"](https://www.keyflow.space/templates/administration/email-auto-replier)</i> under the `administration` category of the templates. Simply open the template's page using the link and click on the <b>"Use Template"</b> button
 
-<AccordionGroup>
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/quickstart/email-auto-replier-light.png"
+    alt="Email auto-replier automation template in Keyflow"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/quickstart/email-auto-replier-dark.png"
+    alt="Email auto-replier automation template in Keyflow"
+  />
+</Frame>
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+### Running a flow
 
-</AccordionGroup>
+You can simply run the workflow by hitting the run button in the top right corner. Running a workflow will auto-save the current version of your workflow.
 
-## Update your docs
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/quickstart/toolbar-light.png"
+    alt="Toolbar at the top-right of the canvas"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/quickstart/toolbar-dark.png"
+    alt="Toolbar at the top-right of the canvas"
+  />
+</Frame>
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+After hitting run, you will see the workflow in real-time as the blocks are being executed. The outputs of each block will be displayed in the side panel after they have completed processing.
+
+<Note>
+  This template uses the Gmail integration in Keyflow, so you must connect a
+  gmail account first by navigating to the [credentials
+  page](https://keyflow.space/settings/credentials) and connecting your Gmail
+  account
+</Note>
+
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/quickstart/flow-run-output-light.png"
+    alt="Output after running a flow"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/quickstart/flow-run-output-dark.png"
+    alt="Output after running a flow"
+  />
+</Frame>
+
+## Next Steps
+
+Now that you have seen how easily an automation can be run in Keyflow. You can now further explore the platform and Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
 
 <CardGroup>
 
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
+<Card title="Core Concepts" icon="chart-mixed" href="/core-concepts">
+  Learn the features and concepts of building an automation in Keyflow
 </Card>
 
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
+<Card title="Blocks" icon="browser" href="/blocks">
+  Explore various blocks and learn how to use them for your automations.
 </Card>
 
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
+<Card title="Trigger Automations" icon="square-code" href="/triggers">
+  Run a flow automatically based on schedules, API or other integrations.
 </Card>
 
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
+<Card title="Share Automations" icon="paintbrush" href="/share-automations">
+  Share your Keyflow automations with the community and friends.
 </Card>
 
 </CardGroup>

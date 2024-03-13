@@ -1,0 +1,114 @@
+---
+title: "Terminology"
+description: "Learn basic terms used throughout the guide to make it easier to use Keyflow"
+---
+
+## 🧱 What is a Block?
+
+Blocks, short for building blocks, are modular components used to build workflows. Each one is a step in a series of steps towards a goal. Think of them like individual no-code Lego pieces.
+
+You can drag-and-drop them on to the canvas from the block list. We have 8 types of blocks.
+
+1. `Core`
+2. `Data Loaders`
+3. `AI`
+4. `Data Modifiers`
+5. `Flow Control`
+6. `Data Writers`
+7. `Database I/O`
+8. `External Flows (Automation as Nodes)`
+
+Blocks generally take in inputs from other blocks, have some outputs, and can also have internal inputs. Many of these attributes may also be optional. Let's take a look at an example:
+
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/terminology/what-is-block-light.png"
+    alt="Anatomy of a block"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/terminology/what-is-block-dark.png"
+    alt="Anatomy of a block"
+  />
+</Frame>
+
+This is an example of an Ask AI Block. This block has multiple parameters, inputs and an output.
+
+| I/O               | name               | type     |
+| ----------------- | ------------------ | -------- |
+| Input & Parameter | `question`         | string   |
+| Input & Parameter | `context`          | string   |
+| Input             | `function`         | string   |
+| Parameter         | `model_preference` | select   |
+| Parameter         | `json_mode`        | checkbox |
+| Parameter         | `cache_response`   | checkbox |
+| Output            | `chatgpt_response` | string   |
+
+<Tip>
+
+We make custom blocks for enterprise users → [Request here](https://cal.com/keyflow/request-custom-automations)
+
+</Tip>
+
+## What is a Flow?
+
+Flows, short for workflows, are built by connecting blocks to execute specific tasks.
+
+When a workflow is run, data passes from one block to the next, with each block manipulating or generating content along the way. Here is an example of a workflow that I use to automatically draft a response to my emails in my writing style.
+
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/terminology/what-is-flow-light.png"
+    alt="Example of a flow in Keyflow"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/terminology/what-is-flow-dark.png"
+    alt="Example of a flow in Keyflow"
+  />
+</Frame>
+
+<Info>
+  I mark emails I want to generate an reply for with a label auto-reply in my
+  gmail. Keyflow then reads all those emails and generates a reply for all
+  emails in my writing style and saves it as a draft for me to review.
+</Info>
+
+### Building a flow
+
+The flow builder is a large canvas for you to design your personalized workflows. Each block can be found in the Block list on the left side.
+
+Blocks are dragged and dropped onto the canvas one at a time. Once they're on the canvas they're ready to be connected together.
+
+The inputs of one block are derived from the outputs of another.
+
+### The standard format of a flow
+
+Most flows we've built or user build follow a general pattern -> Ingest data, prepare it for the AI, process it with AI and output a result.
+
+<Steps>
+  <Step title="Data Loaders">
+    Flows normally start off with the ingestion of some sort of data. The data
+    being ingested can be thousands of links in a csv, an uploaded file, a
+    scraped website etc. This data is the content
+  </Step>
+  <Step title="Data Modifiers">
+    These blocks are the backbone of our workflow. They are the helper functions
+    that make everything possible. They allow us to perform any number of data
+    manipulation tasks like reformatting strings, reading values from jsons,
+    extracting columns from csv etc.
+  </Step>
+  <Step title="Using AI">
+    Blocks that use AI generally follow. These blocks are the source of
+    reasoning in the workflow and can ingest the loaded data and summarize,
+    answer questions, categorize etc.
+  </Step>
+  <Step title="Data Writers">
+    These are almost always the very last step of our workflows. They touch the
+    outside world and turn the AI processed output into a tangible, valuable
+    result. Blocks that generate files, raise GitHub PRs, post Tweets and more
+    live in this category.
+  </Step>
+</Steps>
