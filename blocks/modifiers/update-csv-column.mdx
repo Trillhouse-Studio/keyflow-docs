@@ -1,0 +1,24 @@
+### Quick Overview
+
+- **What It Does:** Updates an existing CSV file by modifying or adding a new column with the supplied data.
+- **File Types Supported:** CSV files.
+- **Useful For:** Making modifications to a particular column in a CSV file. Useful for adding new data, correcting errors, or enriching existing data.
+
+### Inputs and Outputs
+
+| Feature               | Type               | Description                                                                                                 |
+| --------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------- |
+| csv_file_name         | File               | The CSV file that needs to be updated. It must be in .csv format.                                           |
+| column_index          | Integer            | Represents the position of the column to be updated in the CSV file. The first column is denoted by 0.      |
+| has_headers           | Boolean (Optional) | Indicates whether the first row of the CSV file contains column headers.                                    |
+| is_new_column         | Boolean (Optional) | Indicates whether the column to be updated is a new one that didn't exist in the original file.             |
+| column_contents       | Array of Strings   | Contains the new values to be placed into the specified column. Each value corresponds to a row in the CSV. |
+| updated_csv_file_name | File               | The name of the new CSV file that has been generated with the updated or newly added column.                |
+
+### Use Cases
+
+Think of this node as your go-to tool for any task where you need to update or add a new column in a CSV file:
+
+- **Merging New Data:** When you need to merge new data into an existing dataset.
+- **Correcting Errors:** When corrections are necessary for a dataset due to errors or updates in the data.
+- **Adding Calculated Fields:** If there's a need to add a calculated field or indicator based on other columns in the dataset.

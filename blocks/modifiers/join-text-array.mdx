@@ -1,0 +1,19 @@
+### Quick Overview
+
+- **What It Does:** Combines an array of strings into a single string with customizable separators.
+- **Useful For:** Aggregating multiple string values into a single string for various purposes.
+
+### Inputs and Outputs
+
+| Feature         | Type             | Description                                                                                                                                  |
+| --------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| join_characters | string           | Optional separator to be used between each element of the input array in the final output string.                                            |
+| join_by_newline | boolean          | If set to true, each string in the input array will be separated by a newline in the final output string.                                    |
+| string_array    | array of strings | The input array of strings to be combined into a single string.                                                                              |
+| joined_string   | string           | The complete string resulting from joining all elements from the string_array together, separated by either the join_characters or newlines. |
+
+### Use Cases
+
+- **Combining Text Lines:** Joining multiple lines of text into a single line with a specified character, like a comma, separating each originally separate piece.
+- **Data Assembly:** Assembling data, like names or values, into a format needed for other uses, such as creating a comma-separated list for import/export purposes.
+- **Formatting Output:** Converting output from a list format to a single string for presentation, where each item is clearly divided by a line break or another separator.

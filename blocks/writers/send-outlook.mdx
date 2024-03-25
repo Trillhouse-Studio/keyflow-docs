@@ -1,0 +1,28 @@
+### Quick Overview
+
+- **What It Does:** Sends emails directly from Microsoft Outlook through an automated process.
+- **Inputs Accepted:** message_id (Optional), recipient, subject, body
+- **Output:** email_status reports on the success or failure of the email sending operation.
+- **Useful For:** Automating email communication processes and ensuring consistent communication patterns.
+
+### Inputs and Outputs
+
+| Feature    | Type   | Description                                                                                                                                                       |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| message_id | string | A unique identifier for an email message to respond to. If provided, the node will send a reply to this email rather than creating a new email thread. (Optional) |
+| recipient  | string | The email address of the person who will receive the email. (Mandatory)                                                                                           |
+| subject    | string | The subject line for the email.                                                                                                                                   |
+| body       | string | The main content of the email message.                                                                                                                            |
+
+| Feature      | Type   | Description                                                       |
+| ------------ | ------ | ----------------------------------------------------------------- |
+| email_status | string | Reports on the success or failure of the email sending operation. |
+
+### Use Cases
+
+- **Regular Updates:** Automate the process of sending regular updates or reports to stakeholders.
+- **Trigger-based Workflows:** Create a workflow to respond to certain triggers by sending out emails.
+- **Help Desk Systems:** Implement a help desk system that requires sending acknowledgments, replies, or follow-up messages to users.
+- **Customer Service and Marketing Automation:** Automate routine email correspondence to enhance user experience and engagement.
+
+The OutlookSender node is particularly useful for automating routine email correspondence, enabling you to save time and ensure consistent communication patterns.

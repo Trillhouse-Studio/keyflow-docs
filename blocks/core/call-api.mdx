@@ -1,0 +1,28 @@
+## Call API Node
+
+### Quick Overview
+
+- **What It Does:** Allows you to interact with external web services or APIs by sending requests to retrieve or modify data at a specified URL.
+- **Supported Methods:** GET (retrieve data) and POST (send or modify data).
+- **Useful For:** Connecting and communicating with external services or systems that offer a web API.
+
+### Inputs and Outputs
+
+| Feature | Type   | Description                                                                        |
+| ------- | ------ | ---------------------------------------------------------------------------------- |
+| method  | string | The HTTP method to be used in the API request: GET or POST.                        |
+| url     | string | The destination URL of the API call, starting with https://.                       |
+| headers | object | Additional information sent along with the request, such as authentication tokens. |
+| body    | object | Data sent with the request, typically used with POST requests.                     |
+
+| Output       | Type   | Description                                                               |
+| ------------ | ------ | ------------------------------------------------------------------------- |
+| api_response | string | The raw output response from the API after the node executes the request. |
+
+### Use Cases
+
+- **Retrieving User Data:** Use the node to retrieve user data or trigger remote processes.
+- **Updating Records:** Send requests to modify data in external services or systems.
+- **Real-time Data Requests:** Use the node to request real-time data from another service.
+- **Integrating with Third-Party Services:** Connect to and communicate with third-party services that offer a web API.
+- **Connecting to Backend Systems:** Configure the node to connect and communicate with your own backend systems.

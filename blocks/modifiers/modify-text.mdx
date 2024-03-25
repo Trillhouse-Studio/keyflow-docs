@@ -1,0 +1,21 @@
+### Quick Overview
+
+- **What It Does:** Formats a given string based on the specified formatting condition.
+- **Useful For:** Standardizing textual data by converting text to lowercase or uppercase, capitalizing the first letter of each word, removing extra spaces, or shortening the string to a defined number of tokens.
+
+### Inputs and Outputs
+
+| Feature         | Type    | Description                                                                                                                              |
+| --------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| value           | string  | The string that you want to format.                                                                                                      |
+| formatter       | string  | The formatting you want to apply to the given string. Options include: To Lowercase, To Uppercase, To Propercase, Trim Spaces, Truncate. |
+| max_num_tokens  | integer | The number of tokens (words or characters) to which you want to limit your string. Required if using the "Truncate" formatter.           |
+| formatted_value | string  | The string after the specified formatting has been applied to it.                                                                        |
+
+### Use Cases
+
+- **To Lowercase:** For uniformity in text, like converting email addresses or usernames.
+- **To Uppercase:** For making titles or acronyms stand out.
+- **To Propercase:** For making sure each word starts with a capital letter, often used for names or titles.
+- **Trim Spaces:** For cleaning up the text by removing leading and trailing spaces.
+- **Truncate:** For shortening textual data to a specific length, such as summarizing content or adhering to character limits in databases or other systems.

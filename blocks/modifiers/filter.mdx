@@ -1,0 +1,25 @@
+### Quick Overview
+
+- **What It Does:** Selectively passes through data that meets particular conditions set by the user.
+- **Condition Types Supported:** Empty values, numerical comparisons, boolean states, as well as textual checks like containment, patterns, and more.
+- **Useful For:** Automating the decision-making process about which data points are relevant for the continued operation of your workflow.
+
+### Inputs and Outputs
+
+| Feature            | Type        | Description                                                                                                                                                                                       |
+| ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| condition_type     | Enumeration | Identifies the type of filter condition to apply.                                                                                                                                                 |
+| condition          | String      | Specifies the exact condition to be met for the filtering process.                                                                                                                                |
+| value              | Data        | The actual data to filter.                                                                                                                                                                        |
+| condition_value    | String      | The criterion against which to filter the provided value.                                                                                                                                         |
+| output_blank_value | Boolean     | Decides if a blank value should be output when the filtering condition isn't met.                                                                                                                 |
+| filtered_output    | Data        | The result of the filter operation. Contains either the original input value that met the filter condition, or a blank value if the condition wasn't met and 'output_blank_value' is set to true. |
+
+### Use Cases
+
+- **Filtering out records:** Exclude records that do not meet certain thresholds, like age or price limits.
+- **Empty Value Handling:** Select only those rows from a dataset where a particular column is not empty.
+- **Boolean Field Subsetting:** Include only true or false values from a boolean field.
+- **String Processing:** Process only items with specific keywords, prefixes, or suffixes.
+
+Essentially, the Filter node is a critical component in workflows where data needs to be vetted or cleaned, passing only the entries that fulfill the given criteria.

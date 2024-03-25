@@ -1,0 +1,23 @@
+### Quick Overview
+
+- **What It Does:** Interacts with Google Docs to write or update documents with specified text content.
+- **Supported File Types:** Google Docs format.
+- **Useful For:** Automating the process of creating and updating documents in Google Docs.
+
+### Inputs and Outputs
+
+| Feature                            | Type    | Description                                                    |
+| ---------------------------------- | ------- | -------------------------------------------------------------- |
+| text_content                       | string  | The text to be written to the Google Doc.                      |
+| use_existing_google_doc (optional) | boolean | Write to an existing Google Doc instead of creating a new one. |
+| file_link_or_id (optional)         | string  | The link to a file in Google Drive or the ID of the file.      |
+
+| Feature  | Type   | Description                                          |
+| -------- | ------ | ---------------------------------------------------- |
+| doc_link | string | The link to the newly created or updated Google Doc. |
+
+### Use Cases
+
+- **Creating Reports:** Automating the process of creating reports and saving them in Google Docs format.
+- **Updating Documents:** Appending information to an existing document without manual editing.
+- **Integrating Workflows:** Integrating document-writing capabilities into larger automated workflows that handle various types of data and require documentation or logging.

@@ -41,12 +41,16 @@
   },
   "tabs": [
     {
+      "name": "Learn",
+      "url": "learn"
+    },
+    {
       "name": "API Reference",
       "url": "api-reference"
     },
     {
       "name": "Cookbook",
-      "url": "api-reference"
+      "url": "cookbook"
     }
   ],
   "anchors": [
@@ -102,15 +106,19 @@
         },
         {
           "group": "Data Modifiers",
-          "pages": ["loaders/crawl-web"]
+          "pages": ["blocks/modifiers/text", "blocks/modifiers/modify-text", "blocks/modifiers/create-list", "blocks/modifiers/read-element-list", "blocks/modifiers/json", "blocks/modifiers/read-json", "blocks/modifiers/parse-json", "blocks/modifiers/write-json", "blocks/modifiers/find-replace", "blocks/modifiers/sort-csv", "blocks/modifiers/split-text", "blocks/modifiers/join-text-array", "blocks/modifiers/filter", "blocks/modifiers/chunk-text", "blocks/modifiers/update-csv-column", "blocks/modifiers/sentence-search", "blocks/modifiers/clone"]
+        },
+        {
+          "group": "Flow Control",
+          "pages": ["blocks/flow-control/if-else", "blocks/flow-control/switch"]
         },
         {
           "group": "Data Writers",
-          "pages": ["loaders/crawl-web"]
+          "pages": ["blocks/writers/send-slack-message", "blocks/writers/send-discord-message", "blocks/writers/generate-file", "blocks/writers/create-asana-task", "blocks/writers/send-gmail", "blocks/writers/write-to-google-docs", "blocks/writers/write-to-google-sheets", "blocks/writers/write-to-notion-database", "blocks/writers/write-to-notion-page", "blocks/writers/send-outlook", "blocks/writers/tweet", "blocks/writers/zip-file-writer", "blocks/writers/send-email-notification", "blocks/writers/send-whatsapp"]
         },
         {
           "group": "Database I/O",
-          "pages": ["loaders/crawl-web"]
+          "pages": ["blocks/database/load-cached-output", "blocks/database/postgresql"]
         }
       ]
     },

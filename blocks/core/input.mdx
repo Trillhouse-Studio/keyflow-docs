@@ -1,0 +1,26 @@
+## Input Node
+
+### Quick Overview
+
+- **What It Does:** Allows setting a default value or accepting user input at runtime, which can be used further down the automation flow.
+- **Accepts:** Dynamic input from an end user or an external agent when the automation is called.
+- **Useful For:** Providing flexibility to the automation use case and ensuring consistency and correctness of the input required.
+
+### Inputs and Outputs
+
+I understand now, thank you for the clarification. Here's the revised table:
+
+| Feature              | Type    | Simple Explanation                                                                                                  |
+| -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
+| `default_value`      | string  | A pre-defined default value that will be used unless an override is provided.                                       |
+| `input_name`         | string  | A name assigned to this input, used to dynamically pass values when the automation is invoked.                      |
+| `show_as_user_input` | boolean | Determines whether to prompt the end user to fill in this value when the automation is executed.                    |
+| `input_type`         | string  | Specifies the type of input, which can be text, number, or file. Applicable if "Show As User Input" is set to true. |
+| `output`             | string  | The output string value of this node, either taken from the default value or input at runtime.                      |
+
+### Use Cases
+
+- **Provide a pre-defined default value:** This node is useful when you want to provide a default value that will be used unless an override is provided.
+- **Accept dynamic input:** It allows accepting dynamic input from an end user or an external agent when the automation is called, giving flexibility to the automation use case.
+- **Specify and require particular types of data:** The Input node ensures consistency and correctness of the input required for the automation to function properly.
+- **Create generic, reusable automations:** It is particularly useful in scenarios where you want to create generic, reusable automations that can be customized on-the-fly based on the user's needs or external conditions.
