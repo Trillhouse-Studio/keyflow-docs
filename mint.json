@@ -19,6 +19,12 @@
       "to": "#ED6A2F"
     }
   },
+  "redirects": [
+    {
+      "source": "/source/path",
+      "destination": "/destination/path"
+    }
+  ],  
   "topbarLinks": [
     {
       "name": "Support",
@@ -36,6 +42,10 @@
   "tabs": [
     {
       "name": "API Reference",
+      "url": "api-reference"
+    },
+    {
+      "name": "Cookbook",
       "url": "api-reference"
     }
   ],
@@ -58,36 +68,50 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "terminology",
-        {
-          "group": "Core Concepts",
-          "pages": [
-            "core-concepts/builder",
-            "core-concepts/types",
-            "core-concepts/batch-mode",
-            "core-concepts/credentials",
-            "core-concepts/node-versioning",
-            "core-concepts/external-flows",
-            "core-concepts/share-flows",
-            "core-concepts/triggers",
-            "core-concepts/working-with-files"
-          ]
-        }
-      ]
+      "group": "Getting Started",
+      "pages": ["introduction","quickstart"]
     },
     {
       "group": "Essentials",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "essentials/flows",
+        "essentials/blocks",
+        "essentials/triggers",
+        "essentials/batch-mode",
+        "essentials/user-view"
+      ]
+    },
+    {
+      "group": "Learn",
+      "pages": ["learn/building-flows", "learn/nesting-flows", "learn/using-batch-mode", "learn/connecting-apps", "learn/share-blueprint", "learn/working-with-files", "learn/triggering-flows-gmail", "learn/triggering-flows-api", "learn/schedule-workflows", "learn/user-view-inputs", "learn/updating-blocks"]
+    },
+    {
+      "group": "Blocks",
+      "pages": [
+        {
+          "group": "Core",
+          "pages": ["blocks/core/input", "blocks/core/output", "blocks/core/call-api", "blocks/core/note" ]
+        },
+        {
+          "group": "Data Loaders",
+          "pages": ["blocks/loaders/read-file", "blocks/loaders/read-zip-file", "blocks/loaders/read-from-google-docs", "blocks/loaders/read-from-google-sheets", "blocks/loaders/read-gmail", "blocks/loaders/read-outlook", "blocks/loaders/search-web", "blocks/loaders/crawl-web", "blocks/loaders/scrape-hacker-news", "blocks/loaders/scrape-reddit", "blocks/loaders/extract-csv-columns", "blocks/loaders/extract-csv-rows", "blocks/loaders/get-typeform-responses", "blocks/loaders/scrape-static-website", "blocks/loaders/scrape-dynamic-website", "blocks/loaders/get-youtube-transcript"]
+        },
+        {
+          "group": "AI",
+          "pages": ["blocks/ai/ask-ai", "blocks/ai/ai-filter", "blocks/ai/categorizer", "blocks/ai/define-openai-function", "blocks/ai/find-best-post", "blocks/ai/generate-image", "blocks/ai/scorer", "blocks/ai/embedding-search", "blocks/ai/summarizer", "blocks/ai/text-to-speech", "blocks/ai/speech-to-text", "blocks/ai/fine-tune", "blocks/ai/ai-web-search"]
+        },
+        {
+          "group": "Data Modifiers",
+          "pages": ["loaders/crawl-web"]
+        },
+        {
+          "group": "Data Writers",
+          "pages": ["loaders/crawl-web"]
+        },
+        {
+          "group": "Database I/O",
+          "pages": ["loaders/crawl-web"]
+        }
       ]
     },
     {

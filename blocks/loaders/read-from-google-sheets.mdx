@@ -1,0 +1,21 @@
+Facilitates automated data extraction from Google Sheets.
+Sheet and Mode Selection: Allows selection of specific sheets and data extraction modes.
+
+### Inputs & Outputs
+
+| I/O    | Feature         | Type               | Explanation                                                                                |
+| ------ | --------------- | ------------------ | ------------------------------------------------------------------------------------------ |
+| input  | file_link_or_id | String             | Link or unique ID of the Google Sheets file.                                               |
+| input  | sheet_name      | String (Optional)  | Specific sheet name within the file; defaults to the first sheet.                          |
+| input  | reader_mode     | Enum               | Mode of data extraction: Row-by-Row, Column-by-Column, Specified Row, or Specified Column. |
+| input  | row_index       | Integer (Optional) | Row number to extract from, starting at 0; required for "Specified Row" mode.              |
+| input  | column_index    | Integer (Optional) | Column number to extract from, starting at 0; required for "Specified Column" mode.        |
+| output | sheet_data      | List/String        | Data extracted from the sheet, format based on reader mode.                                |
+
+### Use Cases
+
+- Automated Report Generation: Extracting data for financial reports, surveys, etc.
+- Scheduled Record Updates: Updating records based on sheet data.
+- Data Compilation: Organizing data for various business or analytical purposes.
+
+The Google Sheets Reader Node streamlines the process of extracting data from Google Sheets, making it a valuable tool for tasks that regularly require data from spreadsheets. It ensures accuracy and saves time by automating data retrieval.

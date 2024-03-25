@@ -1,0 +1,22 @@
+Automates email retrieval from Outlook/Microsoft accounts.
+
+### Inputs & Outputs
+
+| I/O    | Feature             | Type              | Explanation                                                                  |
+| ------ | ------------------- | ----------------- | ---------------------------------------------------------------------------- |
+| input  | folder              | String            | Designates the Outlook folder for email retrieval (default: 'Inbox').        |
+| input  | mark_as_read        | Boolean           | Indicates whether emails are marked as read after fetching (default: False). |
+| input  | email_id            | String (Optional) | ID of a specific email for targeted retrieval.                               |
+| output | email_data          | String[]          | List of email details in string format.                                      |
+| output | attached_file_names | String[]          | Names of files attached to the emails.                                       |
+| output | email_ids           | String[]          | Unique IDs of the emails read.                                               |
+
+### Use Cases
+
+The Read Outlook node is ideal for automating email reading tasks from an Outlook/Microsoft account. It's useful in scenarios where you need to:
+
+- Filter important emails automatically.
+- Process email attachments.
+- Manage your inbox by marking emails as read.
+
+This node is particularly beneficial for incorporating email data into other systems or databases, automating information extraction from routine emails, or ensuring backup of essential email content.

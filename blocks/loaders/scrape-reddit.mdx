@@ -1,0 +1,19 @@
+Gathers post titles and URLs from Reddit based on user queries.
+
+### Inputs & Outputs
+
+| I/O    | Feature     | Type               | Explanation                                                                              |
+| ------ | ----------- | ------------------ | ---------------------------------------------------------------------------------------- |
+| input  | query       | String             | The search term for finding Reddit posts, e.g., 'Cat pictures'.                          |
+| input  | subreddit   | String (Optional)  | Specifies the subreddit to scrape, defaults to 'all'.                                    |
+| input  | post_limit  | Integer (Optional) | Maximum number of posts to retrieve, defaults to 10.                                     |
+| input  | time_period | String (Optional)  | Filters posts by time ('hour', 'day', 'week', 'month', 'year', 'all'), default is 'all'. |
+| output | post_titles | String[]           | Array of titles of Reddit posts related to the query.                                    |
+| output | post_urls   | String[]           | Array of URLs of Reddit posts related to the query.                                      |
+
+### Use Cases
+
+- **Market Research**: Aggregating content for industry-specific trends and discussions.
+- **Brand Monitoring**: Tracking mentions and discussions related to a brand or product.
+- **Trend Analysis**: Staying updated with current topics and interests in specific fields.
+- **Information Gathering**: Collecting data on subjects of personal or professional interest.

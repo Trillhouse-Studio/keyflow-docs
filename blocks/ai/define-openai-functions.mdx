@@ -1,0 +1,21 @@
+Assists in defining an OpenAI function by formatting the function request in the exact format required by the OpenAI API.
+
+**Useful For:** Creating functions quickly and efficiently, especially for non-technical users, to integrate applications with OpenAI's infrastructure.
+
+### Inputs & Outputs
+
+| I/O    | Name          | Type   | Simple Explanation                                                                                                                            |
+| ------ | ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| input  | name          | string | The name of the OpenAI function.                                                                                                              |
+| input  | description   | string | A concise explanation of the function's purpose.                                                                                              |
+| input  | parameters    | array  | An array of objects providing details about the function's parameters. Each object includes the name, type, and description of the parameter. |
+| output | function_json | string | The output, a JSON formatted string of the OpenAI function definition, taking into account the inputs and parameters received from the user.  |
+
+### Use Cases
+
+- **Analyzing Reports:** Need to format a function for OpenAI to extract specific details from reports.
+- **Database Updates:** Integrating applications with OpenAI to move information from databases using custom functions.
+- **Form Processing:** Creating OpenAI functions to process forms and extract relevant data.
+- **Archiving Documents:** Formatting functions to extract and save important text from various documents.
+
+The Define OpenAI Function node is your go-to tool for quickly and efficiently creating OpenAI functions, especially if you are unfamiliar with the technical details of OpenAI's function formatting.

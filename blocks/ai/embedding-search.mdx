@@ -1,0 +1,17 @@
+Allows searching through large bodies of text by breaking it down and finding the most relevant parts based on search terms.
+
+### Inputs & Outputs
+
+| I/O    | Name                  | Type                              | Simple Explanation                                                               |
+| ------ | --------------------- | --------------------------------- | -------------------------------------------------------------------------------- |
+| input  | query                 | String                            | A search term or phrase you're looking for in the body of text.                  |
+| input  | num_results           | Number                            | The number of relevant text sections you want to retrieve that match your query. |
+| input  | chunk_size (Optional) | Number                            | The size of each text section, default is 1000 tokens.                           |
+| input  | text                  | String                            | The large body of text you want to search within.                                |
+| output | relevant_chunks       | List of text "chunks" or sections | The most relevant sections to your search query.                                 |
+
+### Use Cases
+
+- **Researching:** Quickly finding specific information within substantial amounts of text.
+- **Filtering Reports:** Searching for specific details within extensive reports.
+- **Extracting Key Sections:** Rapidly extracting essential sections from long articles.

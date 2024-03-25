@@ -1,0 +1,18 @@
+Automates the gathering of news articles from Hacker News based on keywords.
+
+### Inputs & Outputs
+
+| I/O    | Feature     | Type               | Explanation                                          |
+| ------ | ----------- | ------------------ | ---------------------------------------------------- |
+| input  | query       | String (Optional)  | Keywords to filter news articles by titles.          |
+| input  | num_pages   | Integer (Optional) | Number of Hacker News pages to scrape, maximum 5.    |
+| output | post_titles | String[]           | Titles of the news articles matching the filters.    |
+| output | post_links  | String[]           | Web links to the full text of the filtered articles. |
+
+### Use Cases
+
+- **Research and Journalism:** Efficient for journalists and researchers focusing on tech trends and industry updates.
+- **Tech Enthusiasts:** Ideal for tech enthusiasts keen on following the latest in technology and startups.
+- **Community Trend Monitoring:** Useful for tracking popular discussions and trends within the tech community, excluding community labels like "AskHN", "ShowHN", or "LaunchHN".
+
+This node streamlines the process of staying updated on specific topics on Hacker News, eliminating the need for manual search and making it easier to find relevant, topic-specific articles.

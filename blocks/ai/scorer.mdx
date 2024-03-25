@@ -1,0 +1,24 @@
+Assigns a numerical score to an entity based on specific criteria.
+
+**Score Range:** `0` → `100`
+
+**Useful For:** Quantitatively evaluating the quality of an item based on defined criteria.
+
+### Inputs & Outputs
+
+| I/O    | Name                  | Type            | Simple Explanation                                                   |
+| ------ | --------------------- | --------------- | -------------------------------------------------------------------- |
+| input  | item                  | Entity          | The subject that needs to be scored.                                 |
+| input  | criteria              | Standards       | The rules used to evaluate the item.                                 |
+| input  | include_justification | Boolean         | Optional setting for providing a detailed explanation for the score. |
+| output | score                 | Numerical Value | Reflects the assessment based on the provided criteria.              |
+| output | justification         | String          | Detailed explanation for the score (optional).                       |
+
+### Use Cases
+
+- **Comparing Products:** Evaluate and compare different products based on defined criteria.
+- **Content Quality Review:** Quantitatively assess the quality of content such as articles, videos, or images.
+- **Decision-Making Based on Standards:** Use clear, numerical feedback to guide decisions based on defined standards.
+- **Record-Keeping Purposes:** Generate justifications for assessments for understanding and record-keeping.
+
+Overall, the Scorer node is a useful tool for any scenario where a consistent and measurable evaluation of items is required based on specific criteria.

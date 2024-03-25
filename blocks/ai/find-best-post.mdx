@@ -1,0 +1,16 @@
+Identifies the best post that aligns closely with a given query to aid users in locating the most relevant content quickly.
+
+### Inputs and Outputs
+
+| I/O    | Name          | Type             | Simple Explanation                                                                      |
+| ------ | ------------- | ---------------- | --------------------------------------------------------------------------------------- |
+| input  | query         | string           | The user's input, the question or topic they are interested in finding more about.      |
+| input  | titles        | array of strings | A list of post titles to consider when searching for the best post.                     |
+| input  | links         | array of URLs    | Corresponding to the list of titles, this is an array of URLs for the respective posts. |
+| output | best_post_url | string           | The URL of the top post that most accurately matches the query.                         |
+
+### Use Cases
+
+- \*Navigate through a large volume of content to find a post that best fits a specific query or topic.
+- \*Streamline the process of content curation by providing users with the most relevant links based on their interests or search terms.
+- \*Enhance user experience by quickly directing them to the most pertinent content without manually searching through multiple posts.

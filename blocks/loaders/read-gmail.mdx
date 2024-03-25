@@ -1,0 +1,22 @@
+Automates the reading of emails from Gmail
+
+### Inputs & Outputs
+
+| I/O    | Feature             | Type               | Explanation                                                                          |
+| ------ | ------------------- | ------------------ | ------------------------------------------------------------------------------------ |
+| input  | label               | String (Optional)  | Identifies a specific inbox or sub-inbox; defaults to the main inbox if unspecified. |
+| input  | mark_as_read        | Boolean (Optional) | If true, emails are marked as read post-fetch; defaults to false.                    |
+| input  | email_id            | String (Optional)  | Allows fetching a specific email by its unique ID.                                   |
+| output | email_data          | String[]           | Contains email details like sender, subject, date, body, and attachments.            |
+| output | attached_file_names | String[]           | Names of files attached to the fetched emails.                                       |
+| output | email_ids           | String[]           | Unique IDs of the emails read.                                                       |
+
+### Use Cases
+
+- **Automated Customer Support:** Responding automatically to customer queries via email.
+- **Order and Invoice Processing:** Handling order or invoice emails for business operations.
+- **Email Monitoring:** Keeping track of specific email labels for urgent updates or notifications.
+- **Email Archiving:** Regularly backing up emails from designated labels.
+- **Data Extraction:** Pulling information from emails for analysis or reporting.
+
+The Gmail Reader Node is a powerful tool for automating email retrieval and processing, streamlining tasks that rely on email communication. It's particularly beneficial for managing email-based workflows efficiently, ensuring no important communication is missed.

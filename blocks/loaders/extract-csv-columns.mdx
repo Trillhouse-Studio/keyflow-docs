@@ -1,0 +1,17 @@
+Extracts a chosen column from a CSV file, outputting as a string array.
+
+### Inputs & Outputs
+
+| I/O    | Feature            | Type               | Explanation                                                                         |
+| ------ | ------------------ | ------------------ | ----------------------------------------------------------------------------------- |
+| input  | csv_file_name      | File               | The CSV file's name from which data is to be extracted.                             |
+| input  | column_index       | Integer            | Specifies the column index to extract, starting at 0 for the first column.          |
+| input  | has_headers        | Boolean (Optional) | Determines if the first line in the file is a header, excluded from extracted data. |
+| output | csv_column_entries | String Array       | Array of string entries from the selected CSV column.                               |
+
+### Use Cases
+
+- **Data Analysis**: Isolating a column for detailed examination or statistical analysis.
+- **Workflow Integration**: Utilizing column data in subsequent stages of an automation process.
+- **Report Generation**: Extracting specific data for reporting purposes or list creation.
+- **Simplifying Data Access**: Facilitating data extraction for users without extensive data handling expertise, focusing on a single column rather than the full file.

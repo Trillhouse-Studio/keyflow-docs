@@ -1,0 +1,22 @@
+Classifies input data into predefined categories using AI.
+
+**Useful For:** Organizing textual data automatically based on clear categorization criteria.
+
+### Inputs and Outputs
+
+| I/O    | Name                  | Type    | Simple Explanation                                                      |
+| ------ | --------------------- | ------- | ----------------------------------------------------------------------- |
+| input  | include_justification | boolean | Indicates whether to include AI's justification for category selection. |
+| input  | categories            | array   | Contains category objects with category_name and category_description.  |
+| input  | input                 | string  | The input string to be categorized.                                     |
+| output | selected_category     | string  | The chosen category name after categorization process.                  |
+| output | justification         | string  | Explanation provided by the AI for category selection. (optional)       |
+
+### Use Cases
+
+- **Customer Feedback Analysis:** Automatically sort feedback into different themes for analysis.
+- **Product Categorization:** Organize products based on descriptions.
+- **Document Organization:** Categorize and label documents by topic.
+- **Interpretability:** Understand the reasoning behind AI's category selection.
+
+Essentially, the Categorizer node is your go-to tool for automatically organizing textual data into predefined categories based on clear categorization criteria.
