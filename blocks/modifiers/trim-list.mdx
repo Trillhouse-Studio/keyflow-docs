@@ -1,0 +1,25 @@
+## Overview
+
+Trim a list to a specified length or range of indices.
+
+## Block Inputs
+
+| Name          | Type   | Description                                                                                                            |
+| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| `list`        | any[ ] | The list to be trimmed.                                                                                                |
+| `no_of_items` | number | The number of items to keep from the start of the list. Either this or `start_index` and `end_index` must be provided. |
+| `start_index` | number | The starting index from which to include items in the trimmed list.                                                    |
+| `end_index`   | number | The ending index until which to include items in the trimmed list.                                                     |
+
+## Block Outputs
+
+| Name           | Type   | Description                                                                                                                  |
+| -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| `trimmed_list` | any[ ] | The trimmed list containing either the specified number of items from the beginning or the items within the specified range. |
+
+## Use Cases
+
+1. **Limiting List Length:** Trim a list to a specific number of items, useful for pagination or displaying a limited number of results.
+2. **Selecting List Range:** Extract a portion of a list based on specified start and end indices, helpful for focusing on a subset of data.
+3. **Data Cleanup:** Remove unnecessary elements from a list to streamline further processing or analysis.
+4. **Data Filtering:** Select only the relevant items from a list based on a defined range, improving data relevance and accuracy.

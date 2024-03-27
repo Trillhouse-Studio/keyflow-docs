@@ -1,22 +1,18 @@
-### Quick Overview
+## Overview
 
-- **What It Does:** Processes input text line by line and identifies the lines most closely related to a specified search query.
-- **Useful For:** Sifting through large amounts of text to find the most relevant parts for a specific inquiry.
+Processes input text line-by-line and identify the lines most closely related to a specified search query.
+This is a valuable tool for quickly retrieving the most relevant information from within a large text without manual reading.
 
-### Inputs and Outputs
+## Block Inputs
 
-| Name          | Type    | Description                                                                                           |
-| ------------- | ------- | ----------------------------------------------------------------------------------------------------- |
-| num_results   | integer | The maximum number of search results to return. If not specified, default is set to return 5 results. |
-| query         | string  | The text phrase you want to look for within the provided text input.                                  |
-| text          | string  | The larger body of text where the node will look for the query.                                       |
-| search_result | string  | The lines of the input text that are most relevant to the query.                                      |
+| Name          | Type   | Description                                                                                           |
+| ------------- | ------ | ----------------------------------------------------------------------------------------------------- |
+| `num_results` | number | The maximum number of search results to return. If not specified, default is set to return 5 results. |
+| `query`       | string | The text phrase you want to look for within the provided text input.                                  |
+| `text`        | string | The larger body of text where the node will look for the query.                                       |
 
-### Use Cases
+## Block Outputs
 
-- **Searching customer feedback or reviews for mentions of a specific product feature.**
-- **Finding relevant answers or statements in FAQs or support documents.**
-- **Filtering through logs or records to locate specific events or entries.**
-- **Extracting pertinent sentences from a body of text for summarization or analysis.**
-
-The Row Similarity Search node is a valuable tool for quickly retrieving the most relevant information from within a large text without manual reading.
+| Name            | Type   | Description                                                      |
+| --------------- | ------ | ---------------------------------------------------------------- |
+| `search_result` | string | The lines of the input text that are most relevant to the query. |
