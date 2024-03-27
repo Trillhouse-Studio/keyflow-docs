@@ -1,19 +1,26 @@
-Gathers post titles and URLs from Reddit based on user queries.
+## Overview
 
-### Inputs & Outputs
+Gathers post titles and URLs from Reddit based on a search term or query.
 
-| I/O    | Name        | Type               | Explanation                                                                              |
-| ------ | ----------- | ------------------ | ---------------------------------------------------------------------------------------- |
-| input  | query       | String             | The search term for finding Reddit posts, e.g., 'Cat pictures'.                          |
-| input  | subreddit   | String (Optional)  | Specifies the subreddit to scrape, defaults to 'all'.                                    |
-| input  | post_limit  | Integer (Optional) | Maximum number of posts to retrieve, defaults to 10.                                     |
-| input  | time_period | String (Optional)  | Filters posts by time ('hour', 'day', 'week', 'month', 'year', 'all'), default is 'all'. |
-| output | post_titles | String[]           | Array of titles of Reddit posts related to the query.                                    |
-| output | post_urls   | String[]           | Array of URLs of Reddit posts related to the query.                                      |
+## Block Inputs
 
-### Use Cases
+| Name          | Type     | Default | Explanation                                                                                                  |
+| ------------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+| `query`       | string   |         | Search term or query to match.                                                                               |
+| `subreddit`   | string   |         | Name of the specific subreddit to search posts.                                                              |
+| `post_limit`  | number   | 10      | Name of the specific subreddit to search posts. Maximum is 100                                               |
+| `time_period` | selector | all     | Fetch posts within a time period. Can be one of the following: `hour`, `day`, `week`, `month`, `year`, `all` |
 
-- **Market Research**: Aggregating content for industry-specific trends and discussions.
-- **Brand Monitoring**: Tracking mentions and discussions related to a brand or product.
-- **Trend Analysis**: Staying updated with current topics and interests in specific fields.
-- **Information Gathering**: Collecting data on subjects of personal or professional interest.
+## Block Outputs
+
+| Name          | Type      | Explanation          |
+| ------------- | --------- | -------------------- |
+| `post_titles` | string[ ] | Titles of the posts. |
+| `post_links`  | string[ ] | Links of the posts.  |
+
+## Use Cases
+
+1. **Market Research**: Aggregating content for industry-specific trends and discussions.
+2. **Brand Monitoring**: Tracking mentions and discussions related to a brand or product.
+3. **Trend Analysis**: Staying updated with current topics and interests in specific fields.
+4. **Information Gathering**: Collecting data on subjects of personal or professional interest.

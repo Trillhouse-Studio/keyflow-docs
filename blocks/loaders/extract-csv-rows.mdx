@@ -1,16 +1,23 @@
-Reads and converts CSV file contents into a string array.
+## Overview
 
-### Inputs & Outputs
+Reads a CSV file row-wise and converts the contents into a 2D string array.
 
-| I/O    | Name          | Type               | Explanation                                                                  |
-| ------ | ------------- | ------------------ | ---------------------------------------------------------------------------- |
-| input  | csv_file_name | File               | Specifies the CSV file to be processed.                                      |
-| input  | has_headers   | Boolean (Optional) | Indicates if the CSV file includes column headers at the top of each column. |
-| output | csv_rows      | String Array       | An array where each element represents a row from the CSV file as a string.  |
+## Block Inputs
 
-### Use Cases
+| Name            | Type     | Explanation                                                                                                  |
+| --------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `csv_file_name` | file     | The file to read as text.                                                                                    |
+| `has_headers`   | checkbox | If true, it skips the first line of the csv file considering them as headers and reads from the second line. |
 
-- **Data Analysis Automation**: For scenarios needing automated extraction and analysis of CSV data.
-- **Workflow Efficiency**: Integrating CSV row extraction into broader automation workflows, especially where data is transferred to other processes or systems.
-- **Time-Saving**: Beneficial in handling large or numerous CSV files, reducing manual data processing.
-- **Error Reduction**: Eliminates the risk of manual errors in data transcription or extraction processes.
+## Block Outputs
+
+| Name       | Type         | Explanation                                                    |
+| ---------- | ------------ | -------------------------------------------------------------- |
+| `csv_rows` | string[ ][ ] | A 2D string array of row-wise data extracted from the CSV file |
+
+## Use Cases
+
+1. **Data Analysis Automation**: For scenarios needing automated extraction and analysis of CSV data.
+2. **Workflow Efficiency**: Integrating CSV row extraction into broader automation workflows, especially where data is transferred to other processes or systems.
+3. **Time-Saving**: Beneficial in handling large or numerous CSV files, reducing manual data processing.
+4. **Error Reduction**: Eliminates the risk of manual errors in data transcription or extraction processes.

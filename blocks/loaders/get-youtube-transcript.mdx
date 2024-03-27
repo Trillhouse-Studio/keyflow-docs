@@ -1,20 +1,23 @@
-Retrieves transcripts from YouTube videos.
+## Overview
 
-- **Content Extraction**: Focuses on spoken content of videos.
-- **Accessibility Aid**: Useful for creating subtitles or supporting hearing-impaired individuals.
-- **Content Analysis**: Assists in analyzing spoken material in educational or informative videos.
+Retrieves transcripts of a YouTube video.
 
-### Inputs & Outputs
+## Block Inputs
 
-| I/O    | Name       | Type   | Description                                                                                 |
-| ------ | ---------- | ------ | ------------------------------------------------------------------------------------------- |
-| input  | video_link | String | The complete URL of the YouTube video, e.g., "https://www.youtube.com/watch?v=jNQXAC9IVRw". |
-| output | transcript | String | The text of the YouTube video's transcript, dialogue only, without timestamps.              |
+| Name        | Type   | Explanation                                                                                 |
+| ----------- | ------ | ------------------------------------------------------------------------------------------- |
+| `video_url` | string | The complete URL of the YouTube video, e.g., "https://www.youtube.com/watch?v=jNQXAC9IVRw". |
+
+## Block Outputs
+
+| Name         | Type   | Explanation                                     |
+| ------------ | ------ | ----------------------------------------------- |
+| `transcript` | string | The retrieved transcript of the youtube video". |
 
 ### Use Cases
 
-- **Text Quoting**: Extracts spoken content for quoting in text form.
-- **Reading vs. Watching**: Enables reading the video's content instead of watching it, offering a faster, more accessible alternative.
-- **Subtitle Creation**: Facilitates the creation of subtitles for accessibility.
-- **Video Content Analysis**: Suitable for analyzing spoken content in lectures, interviews, and presentations.
-- **Translation Preparation**: Provides a written basis for translating video content into other languages.
+1. **Text Quoting**: Extracts spoken content for quoting in text form.
+2. **Reading vs. Watching**: Enables reading the video's content instead of watching it, offering a faster, more accessible alternative.
+3. **Subtitle Creation**: Facilitates the creation of subtitles for accessibility.
+4. **Video Content Analysis**: Suitable for analyzing spoken content in lectures, interviews, and presentations.
+5. **Translation Preparation**: Provides a written basis for translating video content into other languages.

@@ -1,22 +1,35 @@
-Automates email retrieval from Outlook/Microsoft accounts.
+## Overview
 
-### Inputs & Outputs
+Read any email from your Microsoft Outlook account.
 
-| I/O    | Name                | Type              | Explanation                                                                  |
-| ------ | ------------------- | ----------------- | ---------------------------------------------------------------------------- |
-| input  | folder              | String            | Designates the Outlook folder for email retrieval (default: 'Inbox').        |
-| input  | mark_as_read        | Boolean           | Indicates whether emails are marked as read after fetching (default: False). |
-| input  | email_id            | String (Optional) | ID of a specific email for targeted retrieval.                               |
-| output | email_data          | String[]          | List of email details in string format.                                      |
-| output | attached_file_names | String[]          | Names of files attached to the emails.                                       |
-| output | email_ids           | String[]          | Unique IDs of the emails read.                                               |
+It’s particularly beneficial for managing email-based workflows efficiently, ensuring no important communication is missed.
+This block also allows reading only the mails with specific folders of your outlook account.
 
-### Use Cases
+<Note>
+  To run this block, you will first need to authenticate your Microsoft Outlook
+  account with Keyflow. Navigate to your
+  [credentials](https://keyflow.space/settings/credentials) page to connect.
+</Note>
 
-The Read Outlook node is ideal for automating email reading tasks from an Outlook/Microsoft account. It's useful in scenarios where you need to:
+## Block Inputs
 
-- Filter important emails automatically.
-- Process email attachments.
-- Manage your inbox by marking emails as read.
+| Name     | Type   | Default | Explanation                                                             |
+| -------- | ------ | ------- | ----------------------------------------------------------------------- |
+| `folder` | string | INBOX   | Identifies a specific folder or sub-folder within your outlook account. |
 
-This node is particularly beneficial for incorporating email data into other systems or databases, automating information extraction from routine emails, or ensuring backup of essential email content.
+## Block Outputs
+
+| Name            | Type      | Explanation                                   |
+| --------------- | --------- | --------------------------------------------- |
+| `sender`        | string[ ] | Email ID of the sender.                       |
+| `receiver`      | string[ ] | Email ID of the receiver                      |
+| `email_subject` | string[ ] | Subject of the email                          |
+| `email_body`    | string[ ] | Body of the email (can be HTML or plain text) |
+
+## Use Cases
+
+1. **Automated Customer Support:** Responding automatically to customer queries via email.
+2. **Order and Invoice Processing:** Handling order or invoice emails for business operations.
+3. **Email Monitoring:** Keeping track of specific email labels for urgent updates or notifications.
+4. **Email Archiving:** Regularly backing up emails from designated labels.
+5. **Data Extraction:** Pulling information from emails for analysis or reporting.

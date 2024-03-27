@@ -1,18 +1,29 @@
-Crawls websites to find and list all linked URLs.
+## Overview
 
-### Inputs & Outputs
+Crawls websites to extract (nested) links from a website. Methodically explore and document the web of links within a website, whether for analysis, SEO purposes, or competitive research.
 
-| I/O    | Name     | Type     | Explanation                                                      |
-| ------ | -------- | -------- | ---------------------------------------------------------------- |
-| input  | url      | String   | The full address of the webpage to start the crawl.              |
-| input  | depth    | Integer  | Sets crawl layers, from 1 (just the initial page) to a max of 3. |
-| output | url_list | String[] | Lists all URLs found during the crawl.                           |
+## Block Inputs
 
-### Use Cases
+| Name    | Type   | Default | Explanation                                                       |
+| ------- | ------ | ------- | ----------------------------------------------------------------- |
+| `url`   | string |         | URL of the website to crawl.                                      |
+| `depth` | number | 1       | The number of layers to traverse in the crawl. Maximum value is 3 |
 
-- **Link Collection:** Ideal for compiling a list of all links on a specific website.
-- **Website Structure Analysis:** Helps in understanding the interconnectivity of different pages on a website.
-- **SEO and Web Audit:** Useful for a comprehensive check of website links for SEO or general analysis.
-- **Competitive Insight:** Assists in mapping the link structure of competitor or own websites to gauge content references.
+<Warning>
+  Setting a depth of 3 for the web crawler might take longer processing times as
+  it will crawl nested links with a link which may be exponential. Use it
+  wisely.
+</Warning>
 
-This node is specifically useful for methodically exploring and documenting the web of links within a website, whether for analysis, SEO purposes, or competitive research.
+## Block Outputs
+
+| Name       | Type      | Explanation                 |
+| ---------- | --------- | --------------------------- |
+| `url_list` | string[ ] | List of all the URLs found. |
+
+### **Use Cases**
+
+1. **Link Collection:** Ideal for compiling a list of all links on a specific website.
+2. **Website Structure Analysis:** Helps in understanding the interconnectivity of different pages on a website.
+3. **SEO and Web Audit:** Useful for a comprehensive check of website links for SEO or general analysis.
+4. **Competitive Insight:** Assists in mapping the link structure of competitor or own websites to gauge content references.

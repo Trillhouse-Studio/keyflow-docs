@@ -1,0 +1,34 @@
+## Overview
+
+Search and fetch real-time data from the internet from Google Search using [Serp API](https://serpapi.com/).
+
+<Note>
+  This block currently is only available for Starter, Pro and Enterprise keyflow
+  accounts. To run this block navigate to your
+  [credentials](https://keyflow.space/settings/credentials) page and add your
+  Serp API Key.
+</Note>
+
+## Block Inputs
+
+| Name            | Type   | Default | Explanation                                            |
+| --------------- | ------ | ------- | ------------------------------------------------------ |
+| `query`         | string |         | Search term or query for Google. Max 255 characters    |
+| `results_count` | number | 5       | Maximum number of results to fetch from google. Max 10 |
+
+## Block Outputs
+
+| Name                | Type      | Explanation                                     |
+| ------------------- | --------- | ----------------------------------------------- |
+| `title`             | string[ ] | Titles of web pages for your search results     |
+| `links`             | string[ ] | Links of the web pages for your search results. |
+| `snippets`          | string[ ] | Small excerpts from each of the web pages       |
+| `current_page_link` | string    | Actual Google link for your search query        |
+| `next_page_link`    | string    | Next page's link for your search query,         |
+
+### **Use Cases**
+
+1. **Research Gathering:** Efficiently collects detailed information from various online sources.
+2. **Brand Monitoring:** Tracks online mentions or presence of specific brands, products, or individuals.
+3. **Market Analysis:** Useful for compiling and analyzing search results for market studies or competitive intelligence.
+4. **Real-time Data:** Retrieve real-time data from events and empower your LLMs responses to be aware of it.

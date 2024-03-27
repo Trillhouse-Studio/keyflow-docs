@@ -1,0 +1,32 @@
+## Overview
+
+Read data from a notion page or an individual page inside a database from your Notion account.
+
+It’s particularly beneficial for managing text-heavy workflows efficiently like content editing workflows
+
+<Note>
+  To run this block, you will first need to authenticate your Notion account
+  with Keyflow. Navigate to your
+  [credentials](https://keyflow.space/settings/credentials) page and connect
+  your Notion.
+</Note>
+
+## Block Inputs
+
+| Name      | Type   | Explanation                            |
+| --------- | ------ | -------------------------------------- |
+| `page_id` | string | Link or unique ID of your notion page. |
+
+## Block Outputs
+
+| Name                | Type   | Explanation                                  |
+| ------------------- | ------ | -------------------------------------------- |
+| `content`           | string | Text content retrieved from the notion page. |
+| `raw_json_response` | object | Raw response object from the Notion API.     |
+
+## Use Cases
+
+1. **Content Editing Automations:** Build workflows that use LLMs to edit content of your blogs or any content-heavy source.
+2. **Data Migration**: Move data from Notion pages to another target service of your choice.
+3. **Text Analysis:** Evaluate or processing content automatically using natural language.
+4. **Change Monitoring:** Keep an eye on document modifications by regularly reading the content.

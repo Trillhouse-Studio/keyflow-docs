@@ -1,0 +1,21 @@
+## Overview
+
+Scrape a leet code problem from it's problem ID and retrieve key information that can be then be used by LLMs to generate code solutions on your language of choice.
+
+## Block Inputs
+
+| Name        | Type   | Explanation                             |
+| ----------- | ------ | --------------------------------------- |
+| `problemId` | number | Problem number of the leetcode problem. |
+
+## Block Outputs
+
+| Name             | Type   | Explanation                                                   |
+| ---------------- | ------ | ------------------------------------------------------------- |
+| `title`          | string | Titles of the problem.                                        |
+| `content`        | string | Problem description of the problem outlining the requirements |
+| `codeDefinition` | string | Function definition expected by the leetcode editor           |
+
+## Use Cases
+
+2. **Compare solutions**: Generate solutions based on various algorithms coded by GPT and reason them for educational purposes

@@ -1,18 +1,23 @@
-Automates the gathering of news articles from Hacker News based on keywords.
+## Overview
 
-### Inputs & Outputs
+Automates the gathering of news articles from Hacker News based on a search query. Stay updated on specific topics on Hacker News, eliminating the need for manual search and making it easier to find relevant, topic-specific articles.
 
-| I/O    | Name        | Type               | Explanation                                          |
-| ------ | ----------- | ------------------ | ---------------------------------------------------- |
-| input  | query       | String (Optional)  | Keywords to filter news articles by titles.          |
-| input  | num_pages   | Integer (Optional) | Number of Hacker News pages to scrape, maximum 5.    |
-| output | post_titles | String[]           | Titles of the news articles matching the filters.    |
-| output | post_links  | String[]           | Web links to the full text of the filtered articles. |
+## Block Inputs
 
-### Use Cases
+| Name        | Type   | Default | Explanation                                                                    |
+| ----------- | ------ | ------- | ------------------------------------------------------------------------------ |
+| `query`     | string |         | Search term or query to match.                                                 |
+| `num_pages` | number | 1       | The number of pages to retrieve results matching the query. Maximum value is 5 |
 
-- **Research and Journalism:** Efficient for journalists and researchers focusing on tech trends and industry updates.
-- **Tech Enthusiasts:** Ideal for tech enthusiasts keen on following the latest in technology and startups.
-- **Community Trend Monitoring:** Useful for tracking popular discussions and trends within the tech community, excluding community labels like "AskHN", "ShowHN", or "LaunchHN".
+## Block Outputs
 
-This node streamlines the process of staying updated on specific topics on Hacker News, eliminating the need for manual search and making it easier to find relevant, topic-specific articles.
+| Name          | Type      | Explanation          |
+| ------------- | --------- | -------------------- |
+| `post_titles` | string[ ] | Titles of the posts. |
+| `post_links`  | string[ ] | Links of the posts.  |
+
+## Use Cases
+
+1. **Research and Journalism:** Efficient for journalists and researchers focusing on tech trends and industry updates.
+2. **Tech Enthusiasts:** Ideal for tech enthusiasts keen on following the latest in technology and startups.
+3. **Community Trend Monitoring:** Useful for tracking popular discussions and trends within the tech community, excluding community labels like "AskHN", "ShowHN", or "LaunchHN".
