@@ -1,8 +1,8 @@
 ## Overview
 
-Read all the pages and it's properties from a notion database.
+Extract all database properties and it's type of a notion database.
 
-It’s particularly beneficial for managing text-heavy workflows efficiently like content editing workflows
+It’s particularly beneficial for generating content for your notion database by LLMs. When database properties are provided within the context, LLMs generate accurate shape of the content which can then instantly be used to add to your notion database.
 
 <Note>
   To run this block, you will first need to authenticate your Notion account
@@ -19,9 +19,10 @@ It’s particularly beneficial for managing text-heavy workflows efficiently lik
 
 ## Block Outputs
 
-| Name           | Type      | Explanation                                         |
-| -------------- | --------- | --------------------------------------------------- |
-| `{properties}` | string[ ] | A list of values inside each individual properties. |
+| Name                | Type   | Explanation                                                                          |
+| ------------------- | ------ | ------------------------------------------------------------------------------------ |
+| `properties_json`   | object | JSON containing the property name and it's corresponding field type in the database. |
+| `raw_json_response` | object | Raw JSON response from the Notion API.                                               |
 
 <Note>
   The block outputs are variable for Read Notion Page because as it depends on
@@ -34,6 +35,3 @@ It’s particularly beneficial for managing text-heavy workflows efficiently lik
 ## Use Cases
 
 1. **Content Editing Automations:** Build workflows that use LLMs to edit content of your blogs or any content-heavy source.
-2. **Data Migration**: Move data from Notion pages to another target service of your choice.
-3. **Text Analysis:** Evaluate or processing content automatically using natural language.
-4. **Change Monitoring:** Keep an eye on document modifications by regularly reading the content.

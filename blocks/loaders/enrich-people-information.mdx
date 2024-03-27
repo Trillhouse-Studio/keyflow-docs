@@ -1,0 +1,30 @@
+## Overview
+
+Find out more about an individual within a company. This block simplifies the process of gathering contact information of a person making it a perfect match for automations trying to find out the right person or conduct market research on important figures.
+
+By inputting trivial information like a person's name, region and country. This node scours through various data providers to enrich that data and aims to provide you with a comprehensive profile that might include email addresses, job title, linked in url and other data.
+
+## Block Inputs
+
+## Block Inputs
+
+| Name         | Type     | Explanation                       |
+| ------------ | -------- | --------------------------------- |
+| `first_name` | string   | First name of the person.         |
+| `last_name`  | string   | Last name of the person           |
+| `region`     | number   | Region of the person.             |
+| `country`    | selector | Residential country of the person |
+
+## Block Outputs
+
+| Name            | Type   | Explanation                      |
+| --------------- | ------ | -------------------------------- |
+| `job_title`     | string | Current job title of the person. |
+| `linkedin_url`  | string | LinkedIn profile of the person   |
+| `email_address` | string | Email ID of the person           |
+| `other_data`    | object | Additional data found (if any)   |
+
+## Use Cases
+
+1. **Lead Generation:** Generate warm leads by enriching information of several potential clients or users.
+2. **Research Information** Research and process information from people.
