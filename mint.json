@@ -24,7 +24,7 @@
       "source": "/source/path",
       "destination": "/destination/path"
     }
-  ],  
+  ],
   "topbarLinks": [
     {
       "name": "Support",
@@ -73,7 +73,7 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["introduction","quickstart"]
+      "pages": ["introduction", "quickstart", "terminology"]
     },
     {
       "group": "Essentials",
@@ -87,26 +87,92 @@
     },
     {
       "group": "Learn",
-      "pages": ["learn/building-flows", "learn/nesting-flows", "learn/using-batch-mode", "learn/connecting-apps", "learn/share-blueprint", "learn/working-with-files", "learn/triggering-flows-gmail", "learn/triggering-flows-api", "learn/schedule-workflows", "learn/user-view-inputs", "learn/updating-blocks"]
+      "pages": [
+        "learn/building-flows",
+        "learn/nesting-flows",
+        "learn/using-batch-mode",
+        "learn/connecting-apps",
+        "learn/share-blueprint",
+        "learn/working-with-files",
+        "learn/triggering-flows-gmail",
+        "learn/triggering-flows-api",
+        "learn/schedule-workflows",
+        "learn/user-view-inputs",
+        "learn/updating-blocks"
+      ]
     },
     {
       "group": "Blocks",
       "pages": [
         {
           "group": "Core",
-          "pages": ["blocks/core/input", "blocks/core/output", "blocks/core/call-api", "blocks/core/note" ]
+          "pages": [
+            "blocks/core/input",
+            "blocks/core/output",
+            "blocks/core/call-api",
+            "blocks/core/note"
+          ]
         },
         {
           "group": "Data Loaders",
-          "pages": ["blocks/loaders/read-file", "blocks/loaders/read-zip-file", "blocks/loaders/read-from-google-docs", "blocks/loaders/read-from-google-sheets", "blocks/loaders/read-gmail", "blocks/loaders/read-outlook", "blocks/loaders/search-web", "blocks/loaders/crawl-web", "blocks/loaders/scrape-hacker-news", "blocks/loaders/scrape-reddit", "blocks/loaders/extract-csv-columns", "blocks/loaders/extract-csv-rows", "blocks/loaders/get-typeform-responses", "blocks/loaders/scrape-static-website", "blocks/loaders/scrape-dynamic-website", "blocks/loaders/get-youtube-transcript"]
+          "pages": [
+            "blocks/loaders/read-file",
+            "blocks/loaders/read-zip-file",
+            "blocks/loaders/read-from-google-docs",
+            "blocks/loaders/read-from-google-sheets",
+            "blocks/loaders/read-gmail",
+            "blocks/loaders/read-outlook",
+            "blocks/loaders/search-web",
+            "blocks/loaders/crawl-web",
+            "blocks/loaders/scrape-hacker-news",
+            "blocks/loaders/scrape-reddit",
+            "blocks/loaders/extract-csv-columns",
+            "blocks/loaders/extract-csv-rows",
+            "blocks/loaders/get-typeform-responses",
+            "blocks/loaders/scrape-static-website",
+            "blocks/loaders/scrape-dynamic-website",
+            "blocks/loaders/get-youtube-transcript"
+          ]
         },
         {
           "group": "AI",
-          "pages": ["blocks/ai/ask-ai", "blocks/ai/ai-filter", "blocks/ai/categorizer", "blocks/ai/define-openai-function", "blocks/ai/find-best-post", "blocks/ai/generate-image", "blocks/ai/scorer", "blocks/ai/embedding-search", "blocks/ai/summarizer", "blocks/ai/text-to-speech", "blocks/ai/speech-to-text", "blocks/ai/fine-tune", "blocks/ai/ai-web-search"]
+          "pages": [
+            "blocks/ai/ask-ai",
+            "blocks/ai/ai-filter",
+            "blocks/ai/categorizer",
+            "blocks/ai/define-openai-function",
+            "blocks/ai/find-best-post",
+            "blocks/ai/generate-image",
+            "blocks/ai/scorer",
+            "blocks/ai/embedding-search",
+            "blocks/ai/summarizer",
+            "blocks/ai/text-to-speech",
+            "blocks/ai/speech-to-text",
+            "blocks/ai/fine-tune",
+            "blocks/ai/ai-web-search"
+          ]
         },
         {
           "group": "Data Modifiers",
-          "pages": ["blocks/modifiers/text", "blocks/modifiers/modify-text", "blocks/modifiers/create-list", "blocks/modifiers/read-element-list", "blocks/modifiers/json", "blocks/modifiers/read-json", "blocks/modifiers/parse-json", "blocks/modifiers/write-json", "blocks/modifiers/find-replace", "blocks/modifiers/sort-csv", "blocks/modifiers/split-text", "blocks/modifiers/join-text-array", "blocks/modifiers/filter", "blocks/modifiers/chunk-text", "blocks/modifiers/update-csv-column", "blocks/modifiers/sentence-search", "blocks/modifiers/clone"]
+          "pages": [
+            "blocks/modifiers/text",
+            "blocks/modifiers/modify-text",
+            "blocks/modifiers/create-list",
+            "blocks/modifiers/read-element-list",
+            "blocks/modifiers/json",
+            "blocks/modifiers/read-json",
+            "blocks/modifiers/parse-json",
+            "blocks/modifiers/write-json",
+            "blocks/modifiers/find-replace",
+            "blocks/modifiers/sort-csv",
+            "blocks/modifiers/split-text",
+            "blocks/modifiers/join-text-array",
+            "blocks/modifiers/filter",
+            "blocks/modifiers/chunk-text",
+            "blocks/modifiers/update-csv-column",
+            "blocks/modifiers/sentence-search",
+            "blocks/modifiers/clone"
+          ]
         },
         {
           "group": "Flow Control",
@@ -114,11 +180,29 @@
         },
         {
           "group": "Data Writers",
-          "pages": ["blocks/writers/send-slack-message", "blocks/writers/send-discord-message", "blocks/writers/generate-file", "blocks/writers/create-asana-task", "blocks/writers/send-gmail", "blocks/writers/write-to-google-docs", "blocks/writers/write-to-google-sheets", "blocks/writers/write-to-notion-database", "blocks/writers/write-to-notion-page", "blocks/writers/send-outlook", "blocks/writers/tweet", "blocks/writers/zip-file-writer", "blocks/writers/send-email-notification", "blocks/writers/send-whatsapp"]
+          "pages": [
+            "blocks/writers/send-slack-message",
+            "blocks/writers/send-discord-message",
+            "blocks/writers/generate-file",
+            "blocks/writers/create-asana-task",
+            "blocks/writers/send-gmail",
+            "blocks/writers/write-to-google-docs",
+            "blocks/writers/write-to-google-sheets",
+            "blocks/writers/write-to-notion-database",
+            "blocks/writers/write-to-notion-page",
+            "blocks/writers/send-outlook",
+            "blocks/writers/tweet",
+            "blocks/writers/zip-file-writer",
+            "blocks/writers/send-email-notification",
+            "blocks/writers/send-whatsapp"
+          ]
         },
         {
           "group": "Database I/O",
-          "pages": ["blocks/database/load-cached-output", "blocks/database/postgresql"]
+          "pages": [
+            "blocks/database/load-cached-output",
+            "blocks/database/postgresql"
+          ]
         }
       ]
     },
