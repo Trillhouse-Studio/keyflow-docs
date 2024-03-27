@@ -76,16 +76,6 @@
       "pages": ["introduction", "quickstart", "terminology"]
     },
     {
-      "group": "Essentials",
-      "pages": [
-        "essentials/flows",
-        "essentials/blocks",
-        "essentials/triggers",
-        "essentials/batch-mode",
-        "essentials/user-view"
-      ]
-    },
-    {
       "group": "Learn",
       "pages": [
         "learn/building-flows",
