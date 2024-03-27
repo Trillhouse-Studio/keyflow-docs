@@ -1,28 +1,47 @@
-## Call API Node
+## Overview
 
-### Quick Overview
+Call API blocks enables you to call external HTTP-based APIs. It helps you to retrieve or modify resources at the specified URL.
 
-- **What It Does:** Allows you to interact with external web services or APIs by sending requests to retrieve or modify data at a specified URL.
-- **Supported Methods:** GET (retrieve data) and POST (send or modify data).
-- **Useful For:** Connecting and communicating with external services or systems that offer a web API.
+## Block Inputs
 
-### Inputs and Outputs
+| Name    | Type     | Description                                                                                               |
+| ------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| method  | selector | The HTTP method of the API request. Can be one of the following: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`. |
+| url     | string   | The specified URL to make the API call. Must start with "https://".                                       |
+| headers | object   | Headers to be sent along with the request, such as authentication headers, content type headers etc.      |
+| body    | object   | Data to be sent with the request, typically used with mutation requests like POST, PUT, PATCH or DELETE.  |
 
-| Name    | Type   | Description                                                                        |
-| ------- | ------ | ---------------------------------------------------------------------------------- |
-| method  | string | The HTTP method to be used in the API request: GET or POST.                        |
-| url     | string | The destination URL of the API call, starting with https://.                       |
-| headers | object | Additional information sent along with the request, such as authentication tokens. |
-| body    | object | Data sent with the request, typically used with POST requests.                     |
+## Block Outputs
 
-| Output       | Type   | Description                                                               |
-| ------------ | ------ | ------------------------------------------------------------------------- |
-| api_response | string | The raw output response from the API after the node executes the request. |
+| Name         | Type   | Description                                                           |
+| ------------ | ------ | --------------------------------------------------------------------- |
+| api_response | object | The raw output response from the API call.                            |
+| status_code  | string | HTTP status code of the response. For example, 200 or 201 or 400 etc. |
 
-### Use Cases
+## Adding headers or body object
 
-- **Retrieving User Data:** Use the node to retrieve user data or trigger remote processes.
-- **Updating Records:** Send requests to modify data in external services or systems.
-- **Real-time Data Requests:** Use the node to request real-time data from another service.
-- **Integrating with Third-Party Services:** Connect to and communicate with third-party services that offer a web API.
-- **Connecting to Backend Systems:** Configure the node to connect and communicate with your own backend systems.
+There are several different ways you can provide the headers or body to your Call API block:
+
+1. Static - Manually set the properties of the object beforehand from the side panel.
+2. Dynamic - Pass the entire object through an input handle at runtime.
+3. Hybrid - Set some of properties of the object through the side panel but accept dynamic inputs from the flow at runtime.
+
+### Method 1 - Static
+
+Let's say you want to add headers. Simply click on the block to open the side panel. You'll see the headers section where you can click "+ Add headers" to add header properties or click the "X" icon to remove the property.
+
+### Method 2 - Dynamic
+
+Simply connect an incoming output object of a block to be used as a header or body.
+
+### Method 3 - Hybrid
+
+Using this approach, you can provide certain properties beforehand and accept certain properties at runtime from another block's output. Click on the block to open the side panel. Now click on "+ Add headers" to add a header property. You can then provide the static values as shown in Method 1 above.
+
+To allow accepting dynamic properties to the headers or body object, Only specify the "Key" property of the header and leave the value as blank. You should then see a new handle called `headers.YOUR_KEY_NAME` has been added automatically. You can specify the type of the property and simply connect any block's output to be used inside the object.
+
+## Use Cases
+
+1. **Real-time Data Requests:** Request or modify real-time data from another resource.
+2. **Integrating with Third-Party Services:** Connect with third-party integrations that aren't yet provided as a first-hand support in Keyflow.
+3. **Connecting to Backend Systems:** Communicate with custom backend services.

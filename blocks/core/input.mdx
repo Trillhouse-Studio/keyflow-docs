@@ -1,26 +1,30 @@
-## Input Node
+## Overview
 
-### Quick Overview
+It allows setting a default value or accepting user input at runtime, which can be used further down the automation flow.
+The input block allows setting accepting inputs into your flows. While building your automation, you can provide a test value to mock a incoming inputs.
 
-- **What It Does:** Allows setting a default value or accepting user input at runtime, which can be used further down the automation flow.
-- **Accepts:** Dynamic input from an end user or an external agent when the automation is called.
-- **Useful For:** Providing flexibility to the automation use case and ensuring consistency and correctness of the input required.
+## Block Inputs
 
-### Inputs and Outputs
+| Name         | Type     | Description                                                                                                                     |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `input_name` | string   | A name or label of the input, This name will identify the input in user view, external flows, share as form and app.            |
+| `test_value` | string   | A default value to mock the input when running a flow manually.                                                                 |
+| `input_type` | selector | Specifies the type of input field in user view and form/app view. It can be either `text`, `number`, `boolean`,`file`, `audio`. |
 
-I understand now, thank you for the clarification. Here's the revised table:
+## Block Outputs
 
-| Name                 | Type    | Description                                                                                                         |
-| -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
-| `default_value`      | string  | A pre-defined default value that will be used unless an override is provided.                                       |
-| `input_name`         | string  | A name assigned to this input, used to dynamically pass values when the automation is invoked.                      |
-| `show_as_user_input` | boolean | Determines whether to prompt the end user to fill in this value when the automation is executed.                    |
-| `input_type`         | string  | Specifies the type of input, which can be text, number, or file. Applicable if "Show As User Input" is set to true. |
-| `output`             | string  | The output string value of this node, either taken from the default value or input at runtime.                      |
+| Name            | Type   | Description                                                               |
+| --------------- | ------ | ------------------------------------------------------------------------- |
+| `{input_value}` | string | The input value provided to the flow. Defaults to test_value of the block |
 
-### Use Cases
+<Note>
+  The name of the output handle `{input_value}` changes dynamically based on the
+  `input_name`. So if the `input_name` is `gender`, The output handle would also
+  be `gender` representing the incoming value of the input block.
+</Note>
 
-- **Provide a pre-defined default value:** This node is useful when you want to provide a default value that will be used unless an override is provided.
-- **Accept dynamic input:** It allows accepting dynamic input from an end user or an external agent when the automation is called, giving flexibility to the automation use case.
-- **Specify and require particular types of data:** The Input node ensures consistency and correctness of the input required for the automation to function properly.
-- **Create generic, reusable automations:** It is particularly useful in scenarios where you want to create generic, reusable automations that can be customized on-the-fly based on the user's needs or external conditions.
+## Use Cases
+
+1. **Provide a pre-defined default value:** Provide a default value to the flow that will be used unless a value is being input from outside.
+2. **Dynamic, Genertic and Reusable automations:** Build flows that can be customized on-the-fly based on the user's input or use existing flows as blocks using external flow blocks.
+3. **Form inputs and User View:** Show appropriate input fields for the flow in form view or user view.
