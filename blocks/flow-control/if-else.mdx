@@ -1,0 +1,31 @@
+## Overview
+
+Evaluates a condition and directs the order of execution based on whether the condition is met or not.
+
+## Block Inputs
+
+| Name              | Type     | Description                                                        |
+| ----------------- | -------- | ------------------------------------------------------------------ |
+| `condition_type`  | selector | Identifies the type of filter condition to apply.                  |
+| `condition`       | string   | Specifies the exact condition to be met for the filtering process. |
+| `value`           | any      | The actual data to filter.                                         |
+| `condition_value` | string   | The criterion against which to filter the provided value.          |
+
+## Block Outputs
+
+| Name      | Type | Description                                                |
+| --------- | ---- | ---------------------------------------------------------- |
+| `if_true` | any  | Output value provided in inputs if the condition is true.  |
+| `else`    | any  | Output value provided in inputs if the condition is false. |
+
+<Note>
+  If condition provided evalues to true, only the sub flow connected to
+  `if_true` will be executed. Otherwise if the condition evalutes to be false,
+  only the subflow connected to `else` output handle will be executed.
+</Note>
+
+## Use Cases
+
+1. **Conditional Data Processing:** Utilize different branches of a workflow based on varying conditions.
+2. **Dynamic Routing:** Direct data flow dynamically depending on certain criteria being met.
+3. **Error Handling:** Handle different error scenarios or edge cases within a process flow.
