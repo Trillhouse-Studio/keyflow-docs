@@ -1,20 +1,16 @@
-## Output Node
+## Overview
 
-### Quick Overview
+The Output block serves a specific purpose throughout the app. It accepts any input value and allows you to assign a name to it. This named output can then be used to easily view the output of the flow in user view or use the output of the flow as input for another block when using external flows.
 
-- **What It Does:** Compiles the provided inputs into a named output that can be used elsewhere.
-- **Useful For:** Clearly labeling and passing data from one stage of an automation to another.
+## Block Inputs
 
-### Inputs and Outputs
+| Name          | Type     | Description                                                                                                             |
+| ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `output`      | any      | The value or data to be named.                                                                                          |
+| `output_name` | string   | The label/name you assign to the value. If not provided, the output will still be recorded but without a specific name. |
+| `output_type` | selector | The type of the value. Can be one of the following: `any` or `any[]`                                                    |
 
-| Name                           | Type   | Description                                                                                                         |
-| ------------------------------ | ------ | ------------------------------------------------------------------------------------------------------------------- |
-| #output (any)                  | Any    | The value or data that you want to name and pass on as the output.                                                  |
-| output_name (string, optional) | String | The label you assign to the output. If not provided, the output will still be recorded but without a specific name. |
+## Use Cases
 
-### Use Cases
-
-- **Data Transfer:** Use it to pass data from one stage of automation to another.
-- **Returning Results:** Enables returning results to a triggering agent.
-- **Complex Automations:** Handy in complex automations where tracking and utilizing specific pieces of data is crucial.
-- **Data Processing:** Use it for results from data processing and calculation outputs.
+1. **View flow results in user view:** An output block enables viewing the output of a flow when in user view.
+2. **Complex Automations:** When using external flow blocks, the output of a flow can be passed in as inputs to other blocks.
