@@ -164,12 +164,12 @@
             "blocks/modifiers/text",
             "blocks/modifiers/modify-text",
             "blocks/modifiers/create-list",
-            "blocks/modifiers/read-element-list",
+            "blocks/modifiers/read-list-element",
             "blocks/modifiers/json",
-            "blocks/modifiers/read-json",
             "blocks/modifiers/parse-json",
+            "blocks/modifiers/read-json",
             "blocks/modifiers/write-json",
-            "blocks/modifiers/find-replace",
+            "blocks/modifiers/find-and-replace",
             "blocks/modifiers/sort-csv",
             "blocks/modifiers/split-text",
             "blocks/modifiers/join-text-array",
@@ -177,7 +177,10 @@
             "blocks/modifiers/chunk-text",
             "blocks/modifiers/update-csv-column",
             "blocks/modifiers/sentence-search",
-            "blocks/modifiers/clone"
+            "blocks/modifiers/clone",
+            "blocks/modifiers/translate",
+            "blocks/modifiers/trim-list",
+            "blocks/modifiers/flatten-list"
           ]
         },
         {

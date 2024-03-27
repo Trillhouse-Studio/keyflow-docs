@@ -1,22 +1,23 @@
-### Quick Overview
+## Overview
 
-- **What It Does:** Creates a vector with a specified size and a specific element repeated in accordance with the provided specifications.
-- **Element Types Supported:** Any data type can be chosen as the element to be duplicated.
-- **Useful For:** Generating arrays or vectors with repetitive elements and populating them with default values for various programming and testing tasks.
+Translate text from one language to another target language.
 
-### Inputs and Outputs
+## Block Inputs
 
-| Name                | Type    | Description                                                                                                                                                                                                                               |
-| ------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Element             | Any     | The item to be duplicated in the resulting vector. Can be of any data type.                                                                                                                                                               |
-| Array Size To Match | Array   | Optional input to decide the size of the generated vector. Specifies the size based on another array provided.                                                                                                                            |
-| Number of Copies    | Integer | Another way of deciding the size of the created vector. If provided, the vector will create a number of copies of the input element equal to this parameter.                                                                              |
-| Array of Elements   | Array   | The list produced by the operator. Will have the same length as "Array Size to Match" if provided, or will be as long as specified by the "Number of Copies" parameter. Each element of the list will be the same as the 'Element' input. |
+| Name              | Type     | Description                                                                                                                                                                               |
+| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `text`            | string   | The text to be translated.                                                                                                                                                                |
+| `target_language` | selector | The target language for translation. For a list of supported languages, refer to the [Google Cloud Translate Languages Documentation](https://cloud.google.com/translate/docs/languages). |
 
-### Use Cases
+## Block Outputs
 
-- **Initializing Arrays:** Handy for initializing arrays with specific sizes and populating them with default values.
-- **Programming Data Configurations:** Useful for programming tasks requiring arrays of certain sizes with repetitive elements.
-- **Testing Code:** Helpful for testing code that requires arrays with specific lengths and elements.
+| Name              | Type   | Description                                           |
+| ----------------- | ------ | ----------------------------------------------------- |
+| `translated_text` | string | The translated text in the specified target language. |
 
-The Duplicate Operator is a useful tool for generating arrays or vectors with repetitive elements and can be used in various programming and testing scenarios.
+## Use Cases
+
+1. **Multilingual Communication:** Translate text to communicate effectively with speakers of different languages.
+2. **Global Content Localization:** Adapt content for international audiences by translating it into various languages.
+3. **Cross-Cultural Collaboration:** Facilitate collaboration across language barriers by providing translated text.
+4. **Language Learning:** Assist in language learning by providing translations for better comprehension.

@@ -1,21 +1,35 @@
-### Quick Overview
+## Overview
 
-- **What It Does:** Merges two separate pieces of text using a user-defined pattern.
-- **Input Types:** String, Template
-- **Useful For:** Standardizing text combinations for various automation and text processing tasks.
+Merge several different of texts or inputs using a pre-defined format. This block is your solution for standardizing text combinations and prompts for various automation and text processing tasks. You can define how to combine the input strings and create a new combined text.
 
-### Inputs and Outputs
+## Block Inputs
 
-| Name            | Type     | Description                                                                                     |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------- |
-| format          | Template | Indicates how to combine the two input strings. Uses `{input1}` and `{input2}` as placeholders. |
-| input1          | String   | Represents the first string to be combined. (Optional)                                          |
-| input2          | String   | Represents the second string to be combined. (Optional)                                         |
-| combined_string | String   | The final text resulting from merging input1 and input2 according to the format.                |
+| Name      | Type     | Description                                                                                     |
+| --------- | -------- | ----------------------------------------------------------------------------------------------- |
+| `format`  | Template | Indicates how to combine the two input strings. Uses `{input1}` and `{input2}` as placeholders. |
+| `input_1` | String   | Represents the first string to be combined. (Optional)                                          |
+| `input_2` | String   | Represents the second string to be combined. (Optional)                                         |
 
-### Use Cases
+<Note>
+  `input_1` and `input_2` are dynamic handles meaning that they change based on
+  different inputs of the block, in this case it depends on the `format` input.
+  The default value for the format field is "`{input_1}` `{input_2}`". The block
+  creates a new input handle for any word wrapped within curly braces "{}".
+  Thus, by default the two input handles are _input_1_ and _input_2_.
 
-- **Personalized Messages:** Create custom messages by combining different text elements.
-- **Report Formatting:** Standardize the combination of data for reports.
-- **Automated Workflows:** Construct structured text in automation processes.
-- **Textual Information Integration:** Bring together textual information from separate sources in a consistent manner.
+You can add your custom handles using the format specified and use those handles for better readibility and flexibility.
+
+</Note>
+
+## Block Outputs
+
+| Name   | Type   | Description                                                               |
+| ------ | ------ | ------------------------------------------------------------------------- |
+| `text` | String | The final text resulting from merging all the inputs to the given format. |
+
+## Use Cases
+
+1. **Personalized Messages:** Create custom messages by combining different text elements.
+2. **Report Formatting:** Standardize the combination of data for reports.
+3. **Prompt Engineering:** Construct structured prompts for LLMs in automation processes.
+4. **Textual Information Integration:** Bring together textual information from separate sources in a consistent manner.

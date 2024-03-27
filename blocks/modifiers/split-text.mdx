@@ -1,19 +1,23 @@
-### Quick Overview
+## Overview
 
-- **What It Does:** Takes a single string and divides it into multiple parts based on specified characters or a newline.
-- **Useful For:** Organizing or analyzing parts of a text independently.
+Divide a single string into multiple parts based on specified characters or a newline. This functionality aids in organizing or analyzing parts of a text independently.
 
-### Inputs and Outputs
+## Block Inputs
 
-| Name             | Type     | Description                                                                                                       |
-| ---------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| stringData       | string   | The input string to be split into a string array.                                                                 |
-| split_characters | string   | Characters that the original string should be split on. If not specified, the default character is a comma (,).   |
-| newline_split    | boolean  | Indicates whether to split the string on a newline (\n) character. If selected, split_characters will be ignored. |
-| split_result     | string[] | String array where each element represents a portion of the original string that was split.                       |
+| Name               | Type    | Description                                                                                                         |
+| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------- |
+| `string`           | string  | The input string to be split into a string array.                                                                   |
+| `split_characters` | string  | Characters that the original string should be split on. If not specified, the default character is a comma (,).     |
+| `newline_split`    | boolean | Indicates whether to split the string on a newline (\n) character. If selected, `split_characters` will be ignored. |
 
-### Use Cases
+## Block Outputs
 
-- **Dividing Text:** This node can be used to divide a long text into sentences or words for further analysis or manipulation.
-- **Processing Lists:** It is helpful in separating values from a comma-separated list to process each item individually.
-- **Extracting Elements:** Useful for extracting specific elements from standardized blocks of text like logs, configuration files, or structured data.
+| Name           | Type      | Description                                                                                 |
+| -------------- | --------- | ------------------------------------------------------------------------------------------- |
+| `string_array` | string[ ] | String array where each element represents a portion of the original string that was split. |
+
+## Use Cases
+
+1. Dividing Text: This node can be used to divide a long text into sentences or words for further analysis or manipulation.
+2. Processing Lists: It is helpful in separating values from a comma-separated list to process each item individually.
+3. Extracting Elements: Useful for extracting specific elements from standardized blocks of text like logs, configuration files, or structured data.
