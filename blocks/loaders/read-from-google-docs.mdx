@@ -1,23 +1,30 @@
-Retrieves text from Google Docs, making it available for further processing.
+## Overview
 
-**Useful for** Automated text extraction for analysis, report generation, content repurposing, document backup, or migration.
+Read data from a specific sheet of your Google Docs.
 
-🗂️ **Supported Documents:** Google Docs documents, via link or ID.
+It streamlines the process of extracting data from Google Docs, making it instrumental for any requirement that involves the automated retrieval textual data.
 
-### Inputs & Outputs
+<Note>
+  To run this block, you will first need to authenticate your Google account
+  with Keyflow. Navigate to your
+  [credentials](https://keyflow.space/settings/credentials) page and connect
+  your Google Docs using "Read & Write Google Docs"
+</Note>
 
-| I/O    | Name            | Type   | Description                                          |
-| ------ | --------------- | ------ | ---------------------------------------------------- |
-| input  | file_link_or_id | String | Input the Google Doc link or unique file ID to read. |
-| output | doc_content     | String | The resulting text content from the Google Doc.      |
+## Block Inputs
 
-### Use Cases
+| Name              | Type   | Explanation                           |
+| ----------------- | ------ | ------------------------------------- |
+| `file_link_or_id` | string | Link or unique ID of your Google Doc. |
 
-This block is a key player in workflows that involve extracting text from Google Docs for automation purposes, including:
+## Block Outputs
 
-- **Document Storer:** Secure and store vital content from Google Docs.
-- **Text Analysis:** Evaluate or process Google Docs content automatically.
-- **Content Migration:** Shift written material from Google Docs to other formats or platforms.
-- **Change Monitoring:** Keep an eye on document modifications by regularly reading the content.
+| Name          | Type         | Explanation                              |
+| ------------- | ------------ | ---------------------------------------- |
+| `doc_content` | string[ ][ ] | The data retrieved from your Google Doc. |
 
-In essence, this block is instrumental for any requirement that involves the automated retrieval of text from Google Docs for your digital processes.
+## Use Cases
+
+1. **Data Migration**: Move data from Google Docs to another target service of your choice.
+2. **Text Analysis:** Evaluate or processing Google Docs content automatically using natural language.
+3. **Change Monitoring:** Keep an eye on document modifications by regularly reading the content.

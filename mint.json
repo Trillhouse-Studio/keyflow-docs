@@ -118,8 +118,8 @@
           "pages": [
             "blocks/loaders/read-file",
             "blocks/loaders/read-zip-file",
-            "blocks/loaders/read-from-google-docs",
             "blocks/loaders/read-from-google-sheets",
+            "blocks/loaders/read-from-google-docs",
             "blocks/loaders/read-gmail",
             "blocks/loaders/read-outlook",
             "blocks/loaders/search-web",
