@@ -1,0 +1,25 @@
+## Overview
+
+Evaluates a criterion against a list of cases and only executes the block in the subflow connected to that case.
+
+## Block Inputs
+
+| Name        | Type   | Description                                      |
+| ----------- | ------ | ------------------------------------------------ |
+| `cases`     | list   | List of cases to compare against the criterion.  |
+| `criterion` | string | The value to compare with each case in the list. |
+
+## Block Outputs
+
+The output handles are dynamically named after the cases provided in the list.
+
+<Note>
+  Only the subflow connected to the output handle corresponding to the matched
+  case will be executed.
+</Note>
+
+## Use Cases
+
+1. **Dynamic Case-based Processing:** Perform different actions based on the criterion matching specific cases.
+2. **Conditional Data Routing:** Route data flow dynamically based on various case scenarios.
+3. **Multi-Scenario Handling:** Handle different scenarios or conditions within a process flow by branching based on cases.
