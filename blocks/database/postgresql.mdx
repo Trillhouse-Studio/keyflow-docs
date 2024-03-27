@@ -1,0 +1,29 @@
+## Overview
+
+The PostgreSQL block executes a SQL query on a PostgreSQL database and returns the response.
+
+<Note>
+  To run this block, you will first need to add the connection string of your
+  PostgreSQL databaseso that it's encrypted and stored securely within Keyflow.
+  Navigate to your [credentials](https://keyflow.space/settings/credentials)
+  page and connect add connection string to "PostgreSQL" integration
+</Note>
+
+## Block Inputs
+
+| Name    | Type   | Description                                                 |
+| ------- | ------ | ----------------------------------------------------------- |
+| `query` | string | The SQL query to be executed on the PostgreSQL database.    |
+| `data`  | object | Optional data object to be used as parameters in the query. |
+
+## Block Outputs
+
+| Name             | Type   | Description                                                   |
+| ---------------- | ------ | ------------------------------------------------------------- |
+| `query_response` | string | The json string response returned by the PostgreSQL database. |
+
+## Use Cases
+
+1. **Data Retrieval:** Fetch data from a PostgreSQL database to be used in subsequent steps of the workflow.
+2. **Data Manipulation:** Execute SQL queries to perform data manipulation operations such as insert, update, or delete.
+3. **Database Integration:** Integrate PostgreSQL databases with automation workflows for streamlined data processing.
