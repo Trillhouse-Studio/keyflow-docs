@@ -1,0 +1,31 @@
+## Overview
+
+Create tasks for your Asana project, a popular project management tool.
+
+<Note>
+  To run this block, you will first need to authenticate your Asana account with
+  Keyflow. Navigate to your
+  [credentials](https://keyflow.space/settings/credentials) page and connect
+  with Asana.
+</Note>
+
+## Block Inputs
+
+| Name        | Type   | Description                                                                                                                                       |
+| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `task_body` | object | The API body for creating a task in Asana. Refer to the [Asana API documentation](https://developers.asana.com/reference/createtask) for details. |
+
+## Block Outputs
+
+| Name           | Type   | Description                                                           |
+| -------------- | ------ | --------------------------------------------------------------------- |
+| `task_gid`     | string | The unique identifier (GID) of the created task in Asana.             |
+| `raw_response` | object | The raw response received from the Asana API after creating the task. |
+
+## Use Cases
+
+1. **Task Management**: Seamlessly integrate task creation functionality into automated workflows.
+2. **Project Automation**: Automate the creation of tasks based on specific triggers or events.
+3. **Workflow Integration**: Integrate Asana task creation into existing business processes or applications.
+4. **Collaborative Workflows**: Streamline collaboration by automatically generating tasks for team members.
+5. **Efficiency Enhancement**: Enhance productivity by automating repetitive task creation processes.

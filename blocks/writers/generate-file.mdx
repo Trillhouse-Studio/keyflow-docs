@@ -1,26 +1,26 @@
 ## Overview
 
-- **What It Does:** Takes the text you provide and turns it into a digital file in one of several common formats (.pdf, .docx, .txt, .csv).
-- **File Types Supported:** PDF, DOCX, TXT, CSV.
-- **Useful For:** Creating digital documents for various purposes, such as drafting formal documents, creating reports, saving notes, or organizing data tables.
+The Generate File block converts provided text into a digital file in one of several common format. It offers versatility and convenience for various document creation needs.
 
-### Inputs and Outputs
+<Check>**Supported file types include** .pdf, .csv, .txt, .md, and .docx</Check>
 
-| Name          | Type   | Description                                                                                |
-| ------------- | ------ | ------------------------------------------------------------------------------------------ |
-| file_name     | string | The name you want to give to the file you are creating. Do not include the file extension. |
-| file_type     | enum   | The file format you want to create, such as .pdf, .docx, .txt, .csv.                       |
-| file_contents | string | The actual content or text that you want to put inside your file.                          |
+## Block Inputs
 
-| Name                | Type   | Description                                                                 |
-| ------------------- | ------ | --------------------------------------------------------------------------- |
-| generated_file_name | string | The full name of the file that was created, including its format extension. |
+| Name            | Type     | Description                                                                                             |
+| --------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| `file_name`     | string   | The desired name of the file to be created (without the file extension).                                |
+| `file_type`     | selector | The format for the generated file. Can be one of the following: `.pdf`, `.docx`, `.txt`, `.csv`, `.md`. |
+| `file_contents` | string   | The text content to be included in the file.                                                            |
 
-### Use Cases
+## Block Outputs
 
-- **Drafting Formal Documents:** Creating formal documents in various formats.
-- **Creating Reports:** Generating reports in PDF or DOCX format.
-- **Saving Notes:** Quickly saving important notes as a TXT file.
-- **Organizing Data Tables:** Converting data into a CSV format for analysis.
+| Name                  | Type   | Description                                                          |
+| --------------------- | ------ | -------------------------------------------------------------------- |
+| `generated_file_name` | string | The full name of the generated file, including its format extension. |
 
-Essentially, the Generate File node is your go-to tool whenever you need to create digital documents for your computer projects.
+## Use Cases
+
+1. **Drafting Formal Documents:** Create formal documents in various formats to meet specific requirements.
+2. **Creating Reports:** Generate professional reports in PDF or DOCX formats for presentations or sharing.
+3. **Saving Notes:** Quickly save and organize important notes as TXT files for easy reference.
+4. **Organizing Data Tables:** Convert tabular data into CSV format for further analysis or integration with other tools.

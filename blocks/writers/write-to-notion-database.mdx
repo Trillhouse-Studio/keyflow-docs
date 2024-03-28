@@ -1,21 +1,31 @@
 ## Overview
 
-- **What It Does:** Interfaces directly with Notion to add new rows of data to an existing Notion database from an external automation system or workflow.
-- **Supported Operations:** Adding new information to a Notion database for organization or analysis, capturing form responses, synchronizing data between Notion and other platforms or services.
-- **Useful For:** Automating data entry into Notion from an autonomous workflow.
+Add pages to an existing Notion Database along with its properties and contents of the page itself. This block is particularly beneficial for efficiently managing text-heavy workflows, such as content editing workflows.
 
-### Inputs and Outputs
+<Note>
+  To run this block, you will first need to authenticate your Notion account
+  with Keyflow. Navigate to your
+  [credentials](https://keyflow.space/settings/credentials) page and connect
+  your Notion.
+</Note>
 
-| Name          | Type             | Description                                                                                                                      |
-| ------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| column_values | Array of strings | Represents the values to be written to each column in the Notion database, matching the type specified in the database's schema. |
-| database_id   | String           | Indicates the URL or unique identifier of the Notion database where the data will be written.                                    |
+## Block Inputs
 
-### Use Cases
+| Name              | Type   | Description                                                                                                                                                                                           |
+| ----------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `database_id`     | string | The URL or unique identifier of the Notion database where the data will be written.                                                                                                                   |
+| `properties_json` | object | A JSON object specifying all available fields in the Notion database. This can be retrieved using the [Extract Notion Database Properties Block](/blocks/loaders/extract-notion-database-properties). |
+| `values`          | object | Represents the values to be written to each column in the Notion database, matching the type specified in the database's schema.                                                                      |
 
-Think of this node as your go-to tool for adding information to a Notion database from an external workflow:
+## Block Outputs
 
-- **Automatically logging data for organization or analysis purposes.**
-- **Capturing form responses and recording them directly into a Notion database.**
-- **Synchronizing data between Notion and other platforms by adding new entries automatically whenever updates are detected elsewhere.**
-- **Adaptable to various use cases where data entry into Notion from an autonomous workflow is required.**
+| Name      | Type   | Description                                               |
+| --------- | ------ | --------------------------------------------------------- |
+| `page_id` | string | The page ID of the new Notion page added to the database. |
+
+## Use Cases
+
+1. **Automatically Logging Data:** Organize or analyze data by automatically logging it into a Notion database.
+2. **Capturing Form Responses:** Record form responses directly into a Notion database for easy tracking and analysis.
+3. **Synchronizing Data:** Ensure seamless data synchronization between Notion and other platforms by automatically adding new entries whenever updates are detected elsewhere.
+4. **Adaptable to Various Use Cases:** Use it in any scenario where data entry into Notion from an autonomous workflow is required.

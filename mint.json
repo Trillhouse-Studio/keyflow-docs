@@ -195,7 +195,7 @@
             "blocks/writers/write-to-notion-page",
             "blocks/writers/send-outlook",
             "blocks/writers/tweet",
-            "blocks/writers/zip-file-writer",
+            "blocks/writers/write-zip-file",
             "blocks/writers/send-email-notification",
             "blocks/writers/send-whatsapp"
           ]
