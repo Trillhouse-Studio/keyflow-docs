@@ -55,11 +55,6 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
       "name": "Discord",
       "icon": "discord",
       "url": "https://discord.gg/AZv6JqPFX6"
@@ -90,6 +85,10 @@
         "learn/user-view-inputs",
         "learn/updating-blocks"
       ]
+    },
+    {
+      "group": "Cookbook",
+      "pages": ["cookbook/index"]
     },
     {
       "group": "Blocks",

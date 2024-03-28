@@ -1,23 +1,27 @@
+---
+title: Clone
+---
+
 ## Overview
 
-Translate text from one language to another target language.
+Create an array with repetitive elements based on a specified input element and array size.
 
 ## Block Inputs
 
-| Name              | Type     | Description                                                                                                                                                                               |
-| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `text`            | string   | The text to be translated.                                                                                                                                                                |
-| `target_language` | selector | The target language for translation. For a list of supported languages, refer to the [Google Cloud Translate Languages Documentation](https://cloud.google.com/translate/docs/languages). |
+| Name                  | Type   | Description                                                                                                    |
+| --------------------- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| `element`             | any    | The element to be cloned throughout the resulting array.                                                       |
+| `array_size_to_match` | any[ ] | Optional array input that determines the size of the new array. The size is based on the length of this array. |
+| `number_of_copies`    | number | Specifies the number of times the input element will be repeated in the array.                                 |
 
 ## Block Outputs
 
-| Name              | Type   | Description                                           |
-| ----------------- | ------ | ----------------------------------------------------- |
-| `translated_text` | string | The translated text in the specified target language. |
+| Name                | Type   | Description                               |
+| ------------------- | ------ | ----------------------------------------- |
+| `array_of_elements` | any[ ] | The resulting array with cloned elements. |
 
-## Use Cases
+### Use Cases
 
-1. **Multilingual Communication:** Translate text to communicate effectively with speakers of different languages.
-2. **Global Content Localization:** Adapt content for international audiences by translating it into various languages.
-3. **Cross-Cultural Collaboration:** Facilitate collaboration across language barriers by providing translated text.
-4. **Language Learning:** Assist in language learning by providing translations for better comprehension.
+1. **Array Initialization:** Efficiently initialize arrays with specific sizes and predefined elements.
+2. **Programming Tasks:** Useful for programming tasks requiring arrays with repetitive elements.
+3. **Testing Purposes:** Facilitates testing code that necessitates arrays with specific lengths and identical elements.
