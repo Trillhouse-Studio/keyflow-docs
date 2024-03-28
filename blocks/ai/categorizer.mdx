@@ -1,22 +1,27 @@
-Classifies input data into predefined categories using AI.
+## Overview
 
-**Useful For:** Organizing textual data automatically based on clear categorization criteria.
+Classifies text data into predefined categories using AI.
 
-### Inputs and Outputs
+## Block Inputs
 
-| I/O    | Name                  | Type    | Description                                                             |
-| ------ | --------------------- | ------- | ----------------------------------------------------------------------- |
-| input  | include_justification | boolean | Indicates whether to include AI's justification for category selection. |
-| input  | categories            | array   | Contains category objects with category_name and category_description.  |
-| input  | input                 | string  | The input string to be categorized.                                     |
-| output | selected_category     | string  | The chosen category name after categorization process.                  |
-| output | justification         | string  | Explanation provided by the AI for category selection. (optional)       |
+| Name                    | Type     | Description                                                                                                  |
+| ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `categories`            | list     | Information about all the categories: A list of `category_name` and `category_description` for the AI model. |
+| `input`                 | string   | The input string to be categorized.                                                                          |
+| `include_justification` | boolean  | When enabled, the model also returns reasoning or explaination for the AI's response.                        |
+| `model`                 | selector | LLM Model to be used for inference. Can be one of the following supported models.                            |
+| `cache_response`        | boolean  | When enabled, it saves you AI calls by returning the same response if the inputs to the LLM has not changed. |
 
-### Use Cases
+## Block Outputs
 
-- **Customer Feedback Analysis:** Automatically sort feedback into different themes for analysis.
-- **Product Categorization:** Organize products based on descriptions.
-- **Document Organization:** Categorize and label documents by topic.
-- **Interpretability:** Understand the reasoning behind AI's category selection.
+| Name                | Type   | Description                                                       |
+| ------------------- | ------ | ----------------------------------------------------------------- |
+| `selected_category` | string | The chosen category name after the categorization process.        |
+| `justification`     | string | Explanation provided by the AI for category selection. (optional) |
 
-Essentially, the Categorizer node is your go-to tool for automatically organizing textual data into predefined categories based on clear categorization criteria.
+## Use Cases
+
+1. **Customer Feedback Analysis:** Automatically sort feedback into different themes for analysis.
+2. **Product Categorization:** Organize products based on descriptions.
+3. **Document Organization:** Categorize and label documents by topic.
+4. **Interpretability:** Understand the reasoning behind AI's category selection.

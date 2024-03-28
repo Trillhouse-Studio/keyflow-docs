@@ -134,18 +134,22 @@
           "group": "AI",
           "pages": [
             "blocks/ai/ask-ai",
-            "blocks/ai/ai-filter",
-            "blocks/ai/categorizer",
             "blocks/ai/define-openai-function",
-            "blocks/ai/find-best-post",
-            "blocks/ai/generate-image",
             "blocks/ai/scorer",
-            "blocks/ai/embedding-search",
-            "blocks/ai/summarizer",
+            "blocks/ai/generate-image",
+            "blocks/ai/describe-image",
+            "blocks/ai/query-image",
+            "blocks/ai/find-best-post",
+            "blocks/ai/categorizer",
+            "blocks/ai/ai-filter",
             "blocks/ai/text-to-speech",
             "blocks/ai/speech-to-text",
-            "blocks/ai/fine-tune",
-            "blocks/ai/ai-web-search"
+            "blocks/ai/embedding-search",
+            "blocks/ai/summarizer",
+            "blocks/ai/ai-web-search",
+            "blocks/ai/extract-single-item",
+            "blocks/ai/extract-text-ocr",
+            "blocks/ai/perplexity-web-search"
           ]
         },
         {

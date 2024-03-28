@@ -1,19 +1,24 @@
-Utilizes AI to transform written descriptions into visual images.
+## Overview
 
-**Useful For:** Creating visuals for social media, educational materials, storyboarding, or any scenario requiring quick and creative visual representation.
+Generate images from prompt texts or image description using SOTA AI Models.
 
-### Inputs & Outputs
+## Block Inputs
 
-| I/O    | Name                  | Type         | Description                                                                                                       |
-| ------ | --------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------- |
-| input  | prompt                | string       | User-provided description of the desired image.                                                                   |
-| input  | num_images (Optional) | integer      | Determines the quantity of images to generate (Default: 1, Maximum: 10).                                          |
-| input  | image_size (Optional) | enumerated   | Selects the resolution of the generated images (Options: 256x256, 512x512, 1024x1024 pixels, Default: 1024x1024). |
-| output | image_urls            | list of URLs | Points to the generated images corresponding to the input prompt.                                                 |
+| Name         | Type     | Default   | Description                                                                                               |
+| ------------ | -------- | --------- | --------------------------------------------------------------------------------------------------------- |
+| `prompt`     | string   |           | Input description or prompt text for the AI model.                                                        |
+| `num_images` | number   | 1         | Determines the quantity of images to generate Maximum is 10.                                              |
+| `image_size` | selector | 512 x 512 | Resolution of the generated images. Can be one of the following: `256 x 256`, `512 x 512`, `1024 x 1024`. |
 
-### Use Cases
+## Block Outputs
 
-- **Content Creation:** Provides visually captivating images for social media, marketing, or educational purposes.
-- **Conceptual Visualization:** Useful for creating visuals to convey a specific concept or idea.
-- **Exploring AI Creativity:** Offers a convenient and innovative solution for exploring the intersection of AI and creativity.
-- **Quick Visual Representation:** Ideal for scenarios requiring quick and creative visual representation without the need for human artists.
+| Name         | Type      | Description                                                                                  |
+| ------------ | --------- | -------------------------------------------------------------------------------------------- |
+| `image_urls` | string[ ] | File paths for all the generate images which can be used as an input for other image blocks. |
+
+## Use Cases
+
+1. **Content Creation:** Provides visually captivating images for social media, marketing, or educational purposes.
+2. **Conceptual Visualization:** Useful for creating visuals to convey a specific concept or idea.
+3. **Exploring AI Creativity:** Offers a convenient and innovative solution for exploring the intersection of AI and creativity.
+4. **Quick Visual Representation:** Ideal for scenarios requiring quick and creative visual representation without the need for human artists.

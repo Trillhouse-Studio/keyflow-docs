@@ -1,19 +1,24 @@
+## Overview
+
 Processes data by applying a natural language condition to each input.
 
-**Functionality:** Uses powerful language-model algorithms to interpret the condition and input, deciding whether the input meets the specified condition.
+## Block Inputs
 
-**When To Use:** Can be used for sorting or categorizing textual data according to specific criteria expressed in natural language.
+| Name             | Type     | Description                                                                                                   |
+| ---------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| `input`          | string   | The text to apply the filter on.                                                                              |
+| `condition`      | string   | The natural language condition you want to be applied to the inputs.                                          |
+| `model`          | selector | LLM Model to be used for inference. Can be one of the following supported models.                             |
+| `cache_response` | boolean  | When enabled, it saves you AI calls by returning the same response if the inputs to the LLM have not changed. |
 
-### Inputs & Outputs
+## Block Outputs
 
-| I/O    | Name            | Type   | Description                                                                                                                                                                                  |
-| ------ | --------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| input  | condition       | String | The natural language condition you want to be applied to the inputs.                                                                                                                         |
-| input  | input           | String | The content you want the filter to be applied to.                                                                                                                                            |
-| output | filtered_output | String | The result of the AI Filter's evaluation. If the input data meets the specified condition, you will receive the same input data here. If it does not meet the condition, this will be empty. |
+| Name              | Type   | Description                                                                                                                                                                                  |
+| ----------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `filtered_output` | string | The result of the AI Filter's evaluation. If the input data meets the specified condition, you will receive the same input data here. If it does not meet the condition, this will be empty. |
 
-### Use Cases
+## Use Cases
 
-- **Filtering Customer Inquiries:** Identifying and separating inquiries based on specific criteria expressed in natural language.
-- **Data Categorization:** Sorting textual data according to specified conditions.
-- **Automated Decision Making:** Making dynamic decisions based on textual content in complex automation processes.
+1. **Filtering Customer Inquiries:** Identifying and separating inquiries based on specific criteria expressed in natural language.
+2. **Data Categorization:** Sorting textual data according to specified conditions.
+3. **Automated Decision Making:** Making dynamic decisions based on textual content in complex automation processes.

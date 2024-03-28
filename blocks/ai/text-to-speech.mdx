@@ -1,19 +1,24 @@
-The Text to Speech block is designed to convert text input into spoken audio. It enables users to transform written content into an MP3 audio file.
+## Overview
 
-Ideal for creating audio versions of text documents, articles, or other written materials.
+Convert text input into spoken audio using AI.
 
-### **Inputs**
+## Block Inputs
 
-| I/O    | Name          | Data Type | Description                                                                                       |
-| ------ | ------------- | --------- | ------------------------------------------------------------------------------------------------- |
-| input  | text          | String    | The text content that needs to be converted into speech.                                          |
-| input  | new_filename  | String    | The desired name for the resulting MP3 file. This helps in organizing and identifying the output. |
-| output | mp3_file_name | File      | The name of the created MP3 file, which contains the audio version of the input text.             |
+| Name           | Type   | Description                                              |
+| -------------- | ------ | -------------------------------------------------------- |
+| `text`         | string | The text content that needs to be converted into speech. |
+| `new_filename` | string | The desired name for the resulting MP3 file.             |
 
-### **Use Cases**
+## Block Outputs
 
-- **Educational Purposes**: For creating audio lessons or lectures from written materials.
-- **Accessibility**: Assisting visually impaired users by providing audio versions of text.
-- **Content Creation**: Generating voiceovers for videos, presentations, or podcasts.
-- **Language Learning**: Assisting in language learning by providing audible examples of text.
-- **Personalized Alerts and Notifications**: Creating custom audio messages for use in apps or websites.
+| Name            | Type | Description                                                                           |
+| --------------- | ---- | ------------------------------------------------------------------------------------- |
+| `mp3_file_name` | file | The name of the created MP3 file, which contains the audio version of the input text. |
+
+## Use Cases
+
+1. **Educational Purposes**: For creating audio lessons or lectures from written materials.
+2. **Accessibility**: Assisting visually impaired users by providing audio versions of text.
+3. **Content Creation**: Generating voiceovers for videos, presentations, or podcasts.
+4. **Language Learning**: Assisting in language learning by providing audible examples of text.
+5. **Personalized Alerts and Notifications**: Creating custom audio messages for use in apps or websites.
