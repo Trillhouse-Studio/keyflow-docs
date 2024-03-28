@@ -1,0 +1,32 @@
+## Overview
+
+Harness the power of the [Exa API (formerly Metaphor)](https://exa.ai/) to conduct AI-driven web searches, enabling you to find relevant websites based on your query.
+
+<Note>
+  This block currently is only available for Starter, Pro and Enterprise keyflow
+  accounts. To run this block navigate to your
+  [credentials](https://keyflow.space/settings/credentials) page and add your
+  Exa API Key.
+</Note>
+
+## Block Inputs
+
+| Name          | Type   | Default | Description                                                    |
+| ------------- | ------ | ------- | -------------------------------------------------------------- |
+| `query`       | string |         | The search term or phrase used to find relevant websites.      |
+| `url`         | string |         | (Optional) The URL of a website to find similar links.         |
+| `num_results` | number | 5       | The number of relevant website URLs to retrieve. Default is 5. |
+
+## Block Outputs
+
+| Name           | Type      | Description                                                       |
+| -------------- | --------- | ----------------------------------------------------------------- |
+| `website_urls` | string[ ] | An array of website URLs that are relevant to the provided query. |
+
+## Use Cases
+
+1. **Finding Relevant Websites:** Quickly discover relevant websites based on specific search queries.
+2. **Exploring Similar Links:** Find websites similar to a given URL for further exploration.
+3. **Research and Information Gathering:** Gather information and resources from various websites related to a topic.
+4. **Content Curation:** Collect a list of websites to curate content or gather references for articles or projects.
+5. **Competitor Analysis:** Analyze competitor websites or related sources to gather insights and information.

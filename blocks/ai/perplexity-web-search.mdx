@@ -1,0 +1,33 @@
+## Overview
+
+Leverage [Perplexity API](https://perplexity.ai/) to retrieve responses relevant using online up-to-date information on the web. It is particularly useful when you want AI responses to be more accurate or need your answers to be relevant based on real-time information.
+
+<Note>
+  Pro and Enterprise Keyflow accounts can add their own API Keys for unlimited
+  block execution and aid with usage management. Navigate to
+  [credentials](https://keyflow.space/settings/credentials) page to add your
+  Perplexity API key.
+</Note>
+
+## Block Inputs
+
+| Name    | Type     | Description                                                                                                     |
+| ------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `query` | string   | The search query to be used for retrieving relevant web responses.                                              |
+| `model` | selector | The model to be used for inference. Can be one of the following: `sonar-small-online` and `small-medium-online` |
+
+## Block Outputs
+
+| Name       | Type   | Description                                      |
+| ---------- | ------ | ------------------------------------------------ |
+| `response` | string | The response generated based on the input query. |
+
+## Use Cases
+
+1. **Quick Information Retrieval:** Retrieve up-to-date information from the web in response to specific queries.
+2. **Real-Time Data Analysis:** Obtain relevant data from online sources for real-time analysis.
+3. **Market Research:** Gather insights from recent online data for market research purposes.
+4. **Current Events Monitoring:** Stay updated on current events by fetching recent information from the web.
+5. **Answering User Queries:** Provide users with accurate and timely responses by fetching relevant data from online sources.
+
+This block enhances the capability to retrieve relevant and up-to-date information from the web, making it a valuable tool for various applications such as data analysis, market research, and real-time information retrieval.

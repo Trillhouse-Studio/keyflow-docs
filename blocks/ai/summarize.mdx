@@ -1,17 +1,24 @@
+## Overview
+
 Condenses extensive text into concise, informative summaries using GPT, which processes text in manageable sections.
 
-**Useful for:** Use this block when you need to distill lengthy articles, reports, or documents into a shortened form to grasp the main ideas quickly without going through the entire text. It is particularly useful for getting a quick understanding of large volumes of information.
+## Block Inputs
 
-### Inputs and Outputs
+| Name             | Type     | Description                                                                                                  |
+| ---------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `text`           | string   | The extensive piece of text you wish to summarize.                                                           |
+| `model`          | selector | LLM Model to be used for inference. Can be one of the following supported models.                            |
+| `cache_response` | boolean  | When enabled, it saves you AI calls by returning the same response if the inputs to the LLM has not changed. |
 
-| I/O    | Name    | Type   | Description                                                                                  |
-| ------ | ------- | ------ | -------------------------------------------------------------------------------------------- |
-| input  | text    | string | The extensive piece of text you wish to summarize.                                           |
-| output | summary | string | The condensed version of the input text, which retains the essential points and information. |
+## Block Outputs
 
-### Use Cases
+| Name      | Type   | Description                                                                                  |
+| --------- | ------ | -------------------------------------------------------------------------------------------- |
+| `summary` | string | The condensed version of the input text, which retains the essential points and information. |
 
-- **Summarizing Articles and Reports:** Quickly grasp the main ideas of lengthy articles and reports.
-- **Distilling Large Documents:** Get a quick understanding of large volumes of information.
-- **Grasping Essential Points:** Condense extensive text to retain essential points and information.
-- **Understanding Lengthy Text:** Get a quick understanding of complex and lengthy text.
+## Use Cases
+
+1. **Summarizing Articles and Reports:** Quickly grasp the main ideas of lengthy articles and reports.
+2. **Distilling Large Documents:** Get a quick understanding of large volumes of information.
+3. **Grasping Essential Points:** Condense extensive text to retain essential points and information.
+4. **Understanding Lengthy Text:** Get a quick understanding of complex and lengthy text.

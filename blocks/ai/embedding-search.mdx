@@ -1,17 +1,24 @@
-Allows searching through large bodies of text by breaking it down and finding the most relevant parts based on search terms.
+## Overview
 
-### Inputs & Outputs
+Search through large bodies of text by breaking it down and finding the most relevant parts based on a search query.
 
-| I/O    | Name                  | Type                              | Description                                                                      |
-| ------ | --------------------- | --------------------------------- | -------------------------------------------------------------------------------- |
-| input  | query                 | String                            | A search term or phrase you're looking for in the body of text.                  |
-| input  | num_results           | Number                            | The number of relevant text sections you want to retrieve that match your query. |
-| input  | chunk_size (Optional) | Number                            | The size of each text section, default is 1000 tokens.                           |
-| input  | text                  | String                            | The large body of text you want to search within.                                |
-| output | relevant_chunks       | List of text "chunks" or sections | The most relevant sections to your search query.                                 |
+## Block Inputs
 
-### Use Cases
+| Name          | Type   | Description                                                  |
+| ------------- | ------ | ------------------------------------------------------------ |
+| `query`       | string | A search term or phrase to search in the text.               |
+| `num_results` | number | Number of relevant text sections to be retrieved.            |
+| `chunk_size`  | number | Size of each text section in tokens. Default is 1000 tokens. |
+| `text`        | string | The large body of text you want to search within.            |
 
-- **Researching:** Quickly finding specific information within substantial amounts of text.
-- **Filtering Reports:** Searching for specific details within extensive reports.
-- **Extracting Key Sections:** Rapidly extracting essential sections from long articles.
+## Block Outputs
+
+| Name              | Type      | Description                                      |
+| ----------------- | --------- | ------------------------------------------------ |
+| `relevant_chunks` | string[ ] | The most relevant sections to your search query. |
+
+## Use Cases
+
+1. **Researching:** Quickly finding specific information within substantial amounts of text.
+2. **Filtering Reports:** Searching for specific details within extensive reports.
+3. **Extracting Key Sections:** Rapidly extracting essential sections from long articles.

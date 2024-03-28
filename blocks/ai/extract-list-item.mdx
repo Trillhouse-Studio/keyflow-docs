@@ -1,0 +1,28 @@
+## Overview
+
+Extract a list of values for a particular item from text using AI.
+
+## Block Inputs
+
+| Name                 | Type    | Description                                                                                                  |
+| -------------------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+| `items`              | list    | A list of items that accepts `name` and `description` fields for each item.                                  |
+| `additional_context` | string  | Additional context or information to enhance the extraction process.                                         |
+| `cache_response`     | boolean | When enabled, it saves you AI calls by returning the same response if the inputs to the LLM has not changed. |
+
+## Block Outputs
+
+<Note>
+  The output handles of type `string[ ]` are dynamically added as the items
+  provided in the list.
+</Note>
+
+## Use Cases
+
+1. **Extracting Keywords:** Extracting a list of keywords associated with each document in a collection.
+2. **Topic Identification:** Extracting a list of topics or themes from a set of articles or documents.
+3. **Attribute Extraction:** Extracting a list of attributes such as color, size, and material from a product description.
+4. **Entity Extraction:** Extracting a list of entities such as names, locations, or organizations from a piece of text.
+5. **Summary Generation:** Extracting a list of key points or summaries from a longer document or article.
+
+This documentation provides information about the Extract List Item block, which extracts a list of values for a specific item from text using AI.
