@@ -1,23 +1,30 @@
 ## Overview
 
-- **What It Does:** Interacts with Google Docs to write or update documents with specified text content.
-- **Supported File Types:** Google Docs format.
-- **Useful For:** Automating the process of creating and updating documents in Google Docs.
+Interact with Google Docs to write or update documents with specified text content. It supports Google Docs format and is valuable for automating document creation and updates.
 
-### Inputs and Outputs
+<Note>
+  To run this block, you will first need to authenticate your Google account
+  with Keyflow. Navigate to your
+  [credentials](https://keyflow.space/settings/credentials) page and connect
+  your Google Docs using "Read & Write Google Docs"
+</Note>
 
-| Name                               | Type    | Description                                                    |
-| ---------------------------------- | ------- | -------------------------------------------------------------- |
-| text_content                       | string  | The text to be written to the Google Doc.                      |
-| use_existing_google_doc (optional) | boolean | Write to an existing Google Doc instead of creating a new one. |
-| file_link_or_id (optional)         | string  | The link to a file in Google Drive or the ID of the file.      |
+## Block Inputs
 
-| Name     | Type   | Description                                          |
-| -------- | ------ | ---------------------------------------------------- |
-| doc_link | string | The link to the newly created or updated Google Doc. |
+| Name                      | Type    | Description                                                                                              |
+| ------------------------- | ------- | -------------------------------------------------------------------------------------------------------- |
+| `text_content`            | string  | The text to be written to the Google Doc.                                                                |
+| `use_existing_google_doc` | boolean | Write to an existing Google Doc instead of creating a new one.                                           |
+| `file_link_or_id`         | string  | Link or unique ID of your Google Doc. Only to be provided when `use_existing_google_doc` is set to true. |
 
-### Use Cases
+## Block Outputs
 
-- **Creating Reports:** Automating the process of creating reports and saving them in Google Docs format.
-- **Updating Documents:** Appending information to an existing document without manual editing.
-- **Integrating Workflows:** Integrating document-writing capabilities into larger automated workflows that handle various types of data and require documentation or logging.
+| Name      | Type   | Description                                          |
+| --------- | ------ | ---------------------------------------------------- |
+| `doc_url` | string | The link to the newly created or updated Google Doc. |
+
+## Use Cases
+
+1. **Creating Reports:** Automating the process of creating reports and saving them in Google Docs format.
+2. **Updating Documents:** Appending information to an existing document without manual editing.
+3. **Integrating Workflows:** Integrating document-writing capabilities into larger automated workflows that handle various types of data and require documentation or logging.

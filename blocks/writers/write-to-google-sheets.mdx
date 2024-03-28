@@ -1,22 +1,49 @@
 ## Overview
 
-- **What It Does:** Automates the process of adding data to a Google Sheets file.
-- **Inputs:**
-  | Name | Type | Description |
-  | ------------------------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | #data | List of strings | Data to be written to the Google Sheet. |
-  | use_existing_google_sheet (Optional) | Boolean | Indicates whether to write to an existing Google Sheet (true) or to create a new one (false). |
-  | sheet_link_or_id (Optional) | Link or ID | Link to the existing Google Sheet in Google Drive or the sheet's ID. |
-  | sheet_name (Optional) | String | The name of the specific sheet within the Google Sheet file where data will be written. |
-  | writer_mode | String | Specifies how the data will be written to the sheet. Options include "Add New Row", "Add New Column", "Add to Specified Row", or "Add to Specified Column". |
-  | row_index (Optional) | Number | Index of the row when adding data to a specified row, starting from 0. |
-  | column_index (Optional) | Number | Index of the column when adding data to a specified column, starting from 0. |
-- **Output:**
-  | Name | Type | Description |
-  | ---------- | ---- | -------------------------------------------------------- |
-  | sheet_link | Link | The link to the Google Sheet where the data was written. |
-- **Use Cases:**
-  - Automate data entry into a Google Sheet.
-  - Create new sheets or update existing ones with new data programmatically.
-  - Organize collected data into structured tables within Google Sheets.
-  - Share real-time data outputs by writing to a centrally accessible Google Sheet.
+The Write to Google Sheets block automates the process of adding data to a Google Sheets file. It supports writing data to both new and existing Google Sheets and offers various options for specifying where and how the data should be added.
+
+<Note>
+  To run this block, you will first need to authenticate your Google account
+  with Keyflow. Navigate to your
+  [credentials](https://keyflow.space/settings/credentials) page and connect
+  your Google Sheets using "Read & Write Google Sheets".
+</Note>
+
+## Block Inputs
+
+| Name                        | Type    | Description                                                                                                                                                              |
+| --------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `data`                      | any[ ]  | The data to be written to the Google Sheet.                                                                                                                              |
+| `use_existing_google_sheet` | boolean | When enabled, the data is written to an existing Google Sheet otherwise a new Google Sheet is created, if false.                                                         |
+| `sheet_link_or_id`          | string  | The link or ID of the existing Google Sheet in Google Drive. Only used when `use_existing_google_sheet` is true                                                          |
+| `sheet_name`                | string  | The name of the specific sheet within the Google Sheet file where data will be written.                                                                                  |
+| `writer_mode`               | string  | Specifies how the data will be written to the sheet. Can be one of the following: `Add New Row`, `Add New Column`, `Add to Specified Row`, or `Add to Specified Column`. |
+| `row_index`                 | number  | The index of the row when adding data to a specified row, starting from 0. Only used when `writer_mode` is set to "Specified Row"                                        |
+| `column_index`              | number  | The index of the column when adding data to a specified column, starting from 0. Only used when `writer_mode` is set to "Specified Column"                               |
+
+## Block Outputs
+
+| Name         | Type | Description                                              |
+| ------------ | ---- | -------------------------------------------------------- |
+| `sheet_link` | link | The link to the Google Sheet where the data was written. |
+
+## Writer Modes
+
+The "Writer Modes" parameter in the Write to Google Sheets block allows you to specify how the data should be written to the Google Sheet. Here are the available writer modes:
+
+1. **Add New Row**: This mode appends the provided data as a new row at the end of the specified sheet.
+
+2. **Add New Column**: With this mode, the data is added as a new column to the specified sheet. Each element in the provided data list corresponds to a cell in the new column.
+
+3. **Add to Specified Row**: When using this mode, you can specify a particular row index where the data should be added. The provided data will overwrite the existing data in the specified row.
+
+4. **Add to Specified Column**: Similar to the previous mode, this mode allows you to specify a particular column index where the data should be added. The provided data will overwrite the existing data in the specified column.
+
+Choose the appropriate writer mode based on your requirements to ensure that the data is written to the Google Sheet as desired.
+
+## Use Cases
+
+1. **Automate Data Entry**: Streamline the process of entering data into a Google Sheet automatically.
+2. **Dynamic Reporting**: Create new sheets or update existing ones with new data programmatically for dynamic reporting.
+3. **Data Organization**: Organize collected data into structured tables within Google Sheets for easy management and analysis.
+4. **Real-Time Data Sharing**: Share real-time data outputs by writing to a centrally accessible Google Sheet.

@@ -1,0 +1,31 @@
+## Overview
+
+Create a zip file containing multiple files with specified names and contents using the Write Zip File block.
+
+<Check>
+  **Supported file types include** .pdf, .csv, .txt, and .md inside the zip
+  files.
+</Check>
+
+## Block Inputs
+
+| Name            | Type      | Description                                                                                                           |
+| --------------- | --------- | --------------------------------------------------------------------------------------------------------------------- |
+| `zip_file_name` | file      | The name you want to give to the zip file you are creating.                                                           |
+| `file_type`     | selector  | The type of files to include in the zip file. Supported file types include .pdf, .json, .csv, .txt, .html, and .docx. |
+| `file_names`    | string[ ] | A list of file names for the files to be included in the zip file.                                                    |
+| `file_contents` | string[ ] | A list of content strings for each file to be included in the zip file.                                               |
+
+## Block Outputs
+
+| Name            | Type   | Description                       |
+| --------------- | ------ | --------------------------------- |
+| `zip_file_name` | string | The name of the created zip file. |
+
+## Use Cases
+
+1. **Document Compilation:** Create a zip file containing various documents for distribution or archiving purposes.
+2. **Backup Creation:** Generate a zip file to back up multiple files for storage or sharing.
+3. **Data Compression:** Compress multiple text files or data sets into a single zip file to save storage space.
+4. **File Transfer:** Prepare a zip file with multiple files for easy transfer over networks or via email attachments.
+5. **Batch Processing:** Group files together in a zip archive to streamline batch processing or analysis workflows.

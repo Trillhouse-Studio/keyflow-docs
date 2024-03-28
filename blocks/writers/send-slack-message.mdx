@@ -1,26 +1,24 @@
-### Overview
+## Overview
 
-- The Send Slack Message Node is designed to automate sending messages to Slack channels.
-- It streamlines communication within a team or organization by enabling programmatic message sending.
-- This node is particularly useful in integrating Slack notifications into various automated workflows or applications.
+Send sending messages to Slack channels, streamlining communication within a team or organization.
 
-### Inputs
+## Block Inputs
 
-| Input Name    | Data Type | Description                                                             |
-| ------------- | --------- | ----------------------------------------------------------------------- |
-| slack_message | String    | The text of the message that will be sent to a specified Slack channel. |
-| slack_channel | String    | The target Slack channel where the message will be posted.              |
+| Input Name      | Data Type | Description                                                |
+| --------------- | --------- | ---------------------------------------------------------- |
+| `slack_message` | string    | The message that to send to a Slack channel.               |
+| `slack_channel` | string    | The target Slack channel where the message will be posted. |
 
-### Outputs
+## Block Outputs
 
-| Output Name    | Data Type | Description                                                                                               |
-| -------------- | --------- | --------------------------------------------------------------------------------------------------------- |
-| message_status | String    | The status of the sent message indicating whether it was successfully posted to the Slack channel or not. |
+| Output Name      | Data Type | Description                                                                                               |
+| ---------------- | --------- | --------------------------------------------------------------------------------------------------------- |
+| `message_status` | string    | The status of the sent message indicating whether it was successfully posted to the Slack channel or not. |
 
-### Use Cases
+## Use Cases
 
-- **Automated Alerts**: Sending automated notifications or alerts, such as system status updates or transaction confirmations, to a Slack channel.
-- **Integration with Business Workflows**: Post updates or reminders related to business processes directly to relevant Slack channels.
-- **Project Management**: Updating team members on project statuses, milestones, or deadlines.
-- **Data Reporting**: Sharing automated data reports or analytics summaries in Slack for easy team access.
-- **Bot Communication**: Using the node in chatbots or automated assistants for sending tailored messages based on user interactions or requests.
+1. **Automated Alerts**: Sending automated notifications or alerts, such as system status updates or transaction confirmations, to a Slack channel.
+   2 **Integration with Business Workflows**: Post updates or reminders related to business processes directly to relevant Slack channels.
+2. **Project Management**: Updating team members on project statuses, milestones, or deadlines.
+3. **Data Reporting**: Sharing automated data reports or analytics summaries in Slack for easy team access.
+4. **Bot Communication**: Using the node in chatbots or automated assistants for sending tailored messages based on user interactions or requests.

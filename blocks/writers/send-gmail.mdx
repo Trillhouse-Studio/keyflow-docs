@@ -1,24 +1,37 @@
 ## Overview
 
-- **What It Does:** Sends emails to specified recipients using a Gmail account.
-- **Useful For:** Automating email communication and sending notifications, alerts, or marketing material.
+Send an email or create a draft email from your Google Mail (Gmail) account.
 
-### Inputs and Outputs
+It’s particularly beneficial for managing email-based workflows efficiently, ensuring no important communication is missed.
 
-| Name            | Type    | Description                                      |
-| --------------- | ------- | ------------------------------------------------ |
-| recipient_email | string  | Enter the recipient's email address.             |
-| email_subject   | string  | Enter the subject of the email.                  |
-| send_as_html    | boolean | Send email as HTML. (optional, default is False) |
-| email_body      | string  | The content of the email message.                |
+<Note>
+  To run this block, you will first need to authenticate your Google account
+  with Keyflow. Navigate to your
+  [credentials](https://keyflow.space/settings/credentials) page and connect
+  your Google Mail using "Read Edit & Send Emails"
+</Note>
 
-| Name         | Type   | Description                                                                                           |
-| ------------ | ------ | ----------------------------------------------------------------------------------------------------- |
-| email_status | string | The status of the email sent. It informs if the email was sent successfully or if the sending failed. |
+## Block Inputs
 
-### Use Cases
+| Name              | Type    | Description                                                      |
+| ----------------- | ------- | ---------------------------------------------------------------- |
+| `recipient_email` | string  | The email address of the recipient.                              |
+| `email_body`      | string  | The content of the email message.                                |
+| `email_subject`   | string  | The subject of the email.                                        |
+| `message_id`      | string  | Message ID of an email to reply to.                              |
+| `send_as_html`    | boolean | When enabled, the mimetype of the email is set and sent as HTML. |
+| `send_as_draft`   | boolean | When enabled, the email is saved as "Draft" in your gmail.       |
 
-- **Automated Emails:** Sending automated emails after a certain event in an application.
-- **Notifications:** Dispatching notifications to users or stakeholders at the end of a process or to inform them of important updates.
-- **Marketing Material:** Distributing personalized content or marketing material to a list of recipients.
-- **Standardized Communication:** Any other situation where email communication can be standardized and automated to save time and ensure consistency.
+## Block Outputs
+
+| Name           | Type   | Description                                                                                           |
+| -------------- | ------ | ----------------------------------------------------------------------------------------------------- |
+| `email_status` | string | The status of the email sent. It informs if the email was sent successfully or if the sending failed. |
+| `message_id`   | string | Message ID of the new email sent or created.                                                          |
+
+## Use Cases
+
+1. **Automated Emails:** Sending automated emails after a certain event in an application.
+2. **Notifications:** Dispatching notifications to users or stakeholders at the end of a process or to inform them of important updates.
+3. **Marketing Material:** Distributing personalized content or marketing material to a list of recipients.
+4. **Standardized Communication:** Any other situation where email communication can be standardized and automated to save time and ensure consistency.

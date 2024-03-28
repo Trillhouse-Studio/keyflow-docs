@@ -1,0 +1,33 @@
+## Overview
+
+Write data to an existing or new Notion page.
+
+<Note>
+  To run this block, you will first need to authenticate your Notion account
+  with Keyflow. Navigate to your
+  [credentials](https://keyflow.space/settings/credentials) page and connect
+  your Notion.
+</Note>
+
+## Block Inputs
+
+| Name                | Type    | Description                                                                                         |
+| ------------------- | ------- | --------------------------------------------------------------------------------------------------- |
+| `data`              | any     | The data to be written to the Notion page.                                                          |
+| `new_page_title`    | string  | Title of the new Notion page to be created. Required only if `use_existing_page` is set to `false`. |
+| `use_existing_page` | boolean | When enabled, writes an existing Notion page otherwise creates a new page if false.                 |
+| `page_id`           | string  | Notion page ID to write data. Needed when `use_existing_page` is enabled.                           |
+| `parent_page_id`    | string  | Parent page ID under which the new page must be created. Can be left empty                          |
+
+## Block Outputs
+
+| Name      | Type   | Description                                |
+| --------- | ------ | ------------------------------------------ |
+| `page_id` | string | Notion page ID where the data was written. |
+
+## Use Cases
+
+1. **Update Existing Page:** Write data to an existing Notion page.
+2. **Create New Page:** Create a new Notion page and write data to it.
+3. **Automate Data Entry:** Automate the process of entering data into Notion pages from external workflows or systems.
+4. **Structured Data Organization:** Organize and structure data within Notion pages for better management and analysis.
