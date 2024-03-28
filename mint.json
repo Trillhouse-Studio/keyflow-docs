@@ -19,12 +19,6 @@
       "to": "#ED6A2F"
     }
   },
-  "redirects": [
-    {
-      "source": "/source/path",
-      "destination": "/destination/path"
-    }
-  ],
   "topbarLinks": [
     {
       "name": "Support",
@@ -105,28 +99,28 @@
         {
           "group": "Data Loaders",
           "pages": [
-            "blocks/loaders/read-file",
-            "blocks/loaders/read-zip-file",
-            "blocks/loaders/read-from-google-sheets",
-            "blocks/loaders/read-from-google-docs",
-            "blocks/loaders/search-google",
-            "blocks/loaders/crawl-web",
-            "blocks/loaders/scrape-hacker-news",
-            "blocks/loaders/scrape-leetcode",
-            "blocks/loaders/read-gmail",
-            "blocks/loaders/read-outlook",
-            "blocks/loaders/scrape-reddit",
-            "blocks/loaders/extract-csv-rows",
-            "blocks/loaders/get-typeform-responses",
-            "blocks/loaders/extract-csv-columns",
-            "blocks/loaders/scrape-website",
-            "blocks/loaders/scrape-advanced-website",
-            "blocks/loaders/enrich-company-information",
-            "blocks/loaders/enrich-people-information",
-            "blocks/loaders/get-youtube-transcript",
-            "blocks/loaders/read-notion-page",
-            "blocks/loaders/read-notion-database",
-            "blocks/loaders/extract-notion-database-properties"
+            "blocks/data-loaders/read-file",
+            "blocks/data-loaders/read-zip-file",
+            "blocks/data-loaders/read-from-google-sheets",
+            "blocks/data-loaders/read-from-google-docs",
+            "blocks/data-loaders/search-google",
+            "blocks/data-loaders/crawl-web",
+            "blocks/data-loaders/scrape-hacker-news",
+            "blocks/data-loaders/scrape-leetcode",
+            "blocks/data-loaders/read-gmail",
+            "blocks/data-loaders/read-outlook",
+            "blocks/data-loaders/scrape-reddit",
+            "blocks/data-loaders/extract-csv-rows",
+            "blocks/data-loaders/get-typeform-responses",
+            "blocks/data-loaders/extract-csv-columns",
+            "blocks/data-loaders/scrape-website",
+            "blocks/data-loaders/scrape-advanced-website",
+            "blocks/data-loaders/enrich-company-information",
+            "blocks/data-loaders/enrich-people-information",
+            "blocks/data-loaders/get-youtube-transcript",
+            "blocks/data-loaders/read-notion-page",
+            "blocks/data-loaders/read-notion-database",
+            "blocks/data-loaders/extract-notion-database-properties"
           ]
         },
         {
@@ -154,26 +148,26 @@
         {
           "group": "Data Modifiers",
           "pages": [
-            "blocks/modifiers/text",
-            "blocks/modifiers/modify-text",
-            "blocks/modifiers/create-list",
-            "blocks/modifiers/read-list-element",
-            "blocks/modifiers/json",
-            "blocks/modifiers/parse-json",
-            "blocks/modifiers/read-json",
-            "blocks/modifiers/write-json",
-            "blocks/modifiers/find-and-replace",
-            "blocks/modifiers/sort-csv",
-            "blocks/modifiers/split-text",
-            "blocks/modifiers/join-text-array",
-            "blocks/modifiers/filter",
-            "blocks/modifiers/chunk-text",
-            "blocks/modifiers/update-csv-column",
-            "blocks/modifiers/sentence-search",
-            "blocks/modifiers/clone",
-            "blocks/modifiers/translate",
-            "blocks/modifiers/trim-list",
-            "blocks/modifiers/flatten-list"
+            "blocks/data-modifiers/text",
+            "blocks/data-modifiers/modify-text",
+            "blocks/data-modifiers/create-list",
+            "blocks/data-modifiers/read-list-element",
+            "blocks/data-modifiers/json",
+            "blocks/data-modifiers/parse-json",
+            "blocks/data-modifiers/read-json",
+            "blocks/data-modifiers/write-json",
+            "blocks/data-modifiers/find-and-replace",
+            "blocks/data-modifiers/sort-csv",
+            "blocks/data-modifiers/split-text",
+            "blocks/data-modifiers/join-text-array",
+            "blocks/data-modifiers/filter",
+            "blocks/data-modifiers/chunk-text",
+            "blocks/data-modifiers/update-csv-column",
+            "blocks/data-modifiers/sentence-search",
+            "blocks/data-modifiers/clone",
+            "blocks/data-modifiers/translate",
+            "blocks/data-modifiers/trim-list",
+            "blocks/data-modifiers/flatten-list"
           ]
         },
         {
@@ -183,27 +177,27 @@
         {
           "group": "Data Writers",
           "pages": [
-            "blocks/writers/send-slack-message",
-            "blocks/writers/send-discord-message",
-            "blocks/writers/generate-file",
-            "blocks/writers/create-asana-task",
-            "blocks/writers/send-gmail",
-            "blocks/writers/write-to-google-docs",
-            "blocks/writers/write-to-google-sheets",
-            "blocks/writers/write-to-notion-database",
-            "blocks/writers/write-to-notion-page",
-            "blocks/writers/send-outlook",
-            "blocks/writers/tweet",
-            "blocks/writers/write-zip-file",
-            "blocks/writers/send-email-notification",
-            "blocks/writers/send-whatsapp"
+            "blocks/data-writers/send-slack-message",
+            "blocks/data-writers/send-discord-message",
+            "blocks/data-writers/generate-file",
+            "blocks/data-writers/create-asana-task",
+            "blocks/data-writers/send-gmail",
+            "blocks/data-writers/write-to-google-docs",
+            "blocks/data-writers/write-to-google-sheets",
+            "blocks/data-writers/write-to-notion-database",
+            "blocks/data-writers/write-to-notion-page",
+            "blocks/data-writers/send-outlook",
+            "blocks/data-writers/tweet",
+            "blocks/data-writers/write-zip-file",
+            "blocks/data-writers/send-email-notification",
+            "blocks/data-writers/send-whatsapp"
           ]
         },
         {
           "group": "Database I/O",
           "pages": [
-            "blocks/database/load-cached-output",
-            "blocks/database/postgresql"
+            "blocks/database-io/load-cached-output",
+            "blocks/database-io/postgresql"
           ]
         }
       ]
