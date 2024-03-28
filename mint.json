@@ -1,5 +1,11 @@
 {
   "$schema": "https://mintlify.com/schema.json",
+  "analytics": {
+    "posthog": {
+      "apiKey": "phc_PsVwZfJy0Vrz19oOCFsXngtAITUEM9y4TYDw18Bsvn7",
+      "apiHost": "https://app.posthog.com/"
+    }
+  },
   "name": "Keyflow Docs",
   "logo": {
     "dark": "/logo/logo.png",
