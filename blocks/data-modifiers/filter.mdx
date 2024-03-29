@@ -4,25 +4,44 @@ title: Filter
 
 ## Overview
 
-The Filter block selectively passes through data that meets particular conditions set by the user.
+Selectively passes through data that meets particular condition also known as a criteria. When you need to reduce or filter elements from a list, Filter block is the one you need.
 
 It supports various condition types such as empty values, numerical comparisons, boolean states, and text-based matching conditions. The Filter block is a critical component in workflows where data needs to be vetted or cleaned, passing only the entries that fulfill the given criteria.
 
 ## Block Inputs
 
-| Name                 | Type        | Description                                                                       |
-| -------------------- | ----------- | --------------------------------------------------------------------------------- |
-| `condition_type`     | Enumeration | Identifies the type of filter condition to apply.                                 |
-| `condition`          | String      | Specifies the exact condition to be met for the filtering process.                |
-| `value`              | Data        | The actual data to filter.                                                        |
-| `condition_value`    | String      | The criterion against which to filter the provided value.                         |
-| `output_blank_value` | Boolean     | Decides if a blank value should be output when the filtering condition isn't met. |
+| Name                 | Type     | Description                                                                                        |
+| -------------------- | -------- | -------------------------------------------------------------------------------------------------- |
+| `value`              | any[ ]   | The actual data to filter.                                                                         |
+| `condition_value`    | any[ ]   | The criterion against which to filter the values. If not provided, the value is also the criterion |
+| `condition_type`     | selector | Identifies the type of filter condition to apply.                                                  |
+| `condition`          | any      | Specifies the condition to be met for the filtering process.                                       |
+| `output_blank_value` | boolean  | When enabled, outputs a blank value if it doesn't match the filtering condition.                   |
 
 ## Block Outputs
 
 | Name              | Type | Description                                                                                                                                                                                       |
 | ----------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `filtered_output` | Data | The result of the filter operation. Contains either the original input value that met the filter condition, or a blank value if the condition wasn't met and 'output_blank_value' is set to true. |
+
+## Available list of conditions
+
+- **Is empty:** Checks if the value is empty.
+- **Is not empty:** Checks if the value is not empty.
+- **[Number] is greater than:** Checks if the number is greater than the specified value.
+- **[Number] is less than:** Checks if the number is less than the specified value.
+- **[Number] is equal to:** Checks if the number is equal to the specified value.
+- **[Boolean] is true:** Checks if the boolean value is true.
+- **[Boolean] is false:** Checks if the boolean value is false.
+- **[Text] is exact match of:** Checks if the text is an exact match of the specified value.
+- **[Text] contains:** Checks if the text contains the specified value.
+- **[Text] does not contains:** Checks if the text does not contain the specified value.
+- **[Text] is in:** Checks if the text is in the specified list of values.
+- **[Text] is not in:** Checks if the text is not in the specified list of values.
+- **[Text] starts with:** Checks if the text starts with the specified value.
+- **[Text] does not starts with:** Checks if the text does not start with the specified value.
+- **[Text] ends with:** Checks if the text ends with the specified value.
+- **[Text] does not ends with:** Checks if the text does not end with the specified value.
 
 ## Use Cases
 
