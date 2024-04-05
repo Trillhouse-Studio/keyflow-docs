@@ -45,12 +45,12 @@
       "url": "learn"
     },
     {
-      "name": "API Reference",
-      "url": "api-reference"
-    },
-    {
       "name": "Cookbook",
       "url": "cookbook"
+    },
+    {
+      "name": "API Reference",
+      "url": "api-reference"
     }
   ],
   "anchors": [
@@ -60,15 +60,29 @@
       "url": "https://discord.gg/AZv6JqPFX6"
     },
     {
-      "name": "Blog",
+      "name": "Changelog",
       "icon": "newspaper",
-      "url": "https://keyflow.space/blog"
+      "url": "https://keyflow.space/changelog"
     }
   ],
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["introduction", "quickstart", "terminology"]
+      "pages": ["introduction", "quickstart", "terminology",{
+        "group": "Core Concepts",
+        "pages": [
+          "core-concepts/blocks",
+          "core-concepts/builder",
+          "core-concepts/types",
+          "core-concepts/batch-mode",
+          "core-concepts/credentials",
+          "core-concepts/node-versioning",
+          "core-concepts/external-flows",
+          "core-concepts/share-flows",
+          "core-concepts/triggers",
+          "core-concepts/working-with-files"
+        ]
+      }]
     },
     {
       "group": "Learn",
@@ -209,15 +223,10 @@
       ]
     },
     {
-      "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
-    },
-    {
       "group": "Endpoint Examples",
       "pages": [
         "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/endpoint/create"
       ]
     }
   ],

@@ -1,0 +1,52 @@
+---
+title: "Blocks"
+description: "Learn about blocks used throughout the Keyflow to create automation workflows"
+---
+
+## 🧱 What is a Block?
+
+Blocks, short for building blocks, are modular components used to build workflows. Each one is a step in a series of steps towards a goal. Think of them like individual no-code Lego pieces.
+
+You can drag-and-drop them on to the canvas from the block list. We have 8 types of blocks.
+
+1. `Core`
+2. `Data Loaders`
+3. `AI`
+4. `Data Modifiers`
+5. `Flow Control`
+6. `Data Writers`
+7. `Database I/O`
+8. `External Flows (Automation as Nodes)`
+
+Blocks generally take in inputs from other blocks, have some outputs, and can also have internal inputs. Many of these attributes may also be optional. Let's take a look at an example:
+
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/terminology/what-is-block-light.png"
+    alt="Anatomy of a block"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/terminology/what-is-block-dark.png"
+    alt="Anatomy of a block"
+  />
+</Frame>
+
+This is an example of an Ask AI Block. This block has multiple parameters, inputs and an output.
+
+| I/O               | name               | type     |
+| ----------------- | ------------------ | -------- |
+| Input & Parameter | `question`         | string   |
+| Input & Parameter | `context`          | string   |
+| Input             | `function`         | string   |
+| Parameter         | `model_preference` | select   |
+| Parameter         | `json_mode`        | checkbox |
+| Parameter         | `cache_response`   | checkbox |
+| Output            | `chatgpt_response` | string   |
+
+<Tip>
+
+We make custom blocks for enterprise users → [Request here](https://cal.com/keyflow/request-custom-automations)
+
+</Tip>
