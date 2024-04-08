@@ -41,14 +41,6 @@
   },
   "tabs": [
     {
-      "name": "Learn",
-      "url": "learn"
-    },
-    {
-      "name": "Cookbook",
-      "url": "cookbook"
-    },
-    {
       "name": "API Reference",
       "url": "api-reference"
     }
@@ -68,41 +60,21 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["introduction", "quickstart", "terminology",{
-        "group": "Core Concepts",
-        "pages": [
-          "core-concepts/blocks",
-          "core-concepts/builder",
-          "core-concepts/types",
-          "core-concepts/batch-mode",
-          "core-concepts/credentials",
-          "core-concepts/node-versioning",
-          "core-concepts/external-flows",
-          "core-concepts/share-flows",
-          "core-concepts/triggers",
-          "core-concepts/working-with-files"
-        ]
-      }]
-    },
-    {
-      "group": "Learn",
       "pages": [
-        "learn/building-flows",
-        "learn/nesting-flows",
-        "learn/using-batch-mode",
-        "learn/connecting-apps",
-        "learn/share-blueprint",
-        "learn/working-with-files",
-        "learn/triggering-flows-gmail",
-        "learn/triggering-flows-api",
-        "learn/schedule-workflows",
-        "learn/user-view-inputs",
-        "learn/updating-blocks"
+        "introduction",
+        "quickstart",
+        "terminology",
+        {
+          "group": "Core Concepts",
+          "pages": [
+            "core-concepts/blocks",
+            "core-concepts/flows",
+            "core-concepts/batch-mode",
+            "core-concepts/integrations",
+            "core-concepts/block-versioning"
+          ]
+        }
       ]
-    },
-    {
-      "group": "Cookbook",
-      "pages": ["cookbook/index"]
     },
     {
       "group": "Blocks",
@@ -157,10 +129,11 @@
             "blocks/ai/ai-filter",
             "blocks/ai/text-to-speech",
             "blocks/ai/speech-to-text",
-            "blocks/ai/embedding-search",
+            "blocks/ai/similarity-search",
             "blocks/ai/summarizer",
             "blocks/ai/ai-web-search",
             "blocks/ai/extract-single-item",
+            "blocks/ai/extract-list-item",
             "blocks/ai/extract-text-ocr",
             "blocks/ai/perplexity-web-search"
           ]
@@ -192,7 +165,11 @@
         },
         {
           "group": "Flow Control",
-          "pages": ["blocks/flow-control/if-else", "blocks/flow-control/switch"]
+          "pages": [
+            "blocks/flow-control/if-else",
+            "blocks/flow-control/switch",
+            "blocks/flow-control/mux"
+          ]
         },
         {
           "group": "Data Writers",
@@ -224,10 +201,7 @@
     },
     {
       "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create"
-      ]
+      "pages": ["api-reference/endpoint/get", "api-reference/endpoint/create"]
     }
   ],
   "footerSocials": {

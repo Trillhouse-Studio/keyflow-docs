@@ -14,14 +14,15 @@ Gathers post titles and URLs from Reddit based on a search term or query.
 | `subreddit`   | string   |         | Name of the specific subreddit to search posts.                                                              |
 | `post_limit`  | number   | 10      | Name of the specific subreddit to search posts. Maximum is 100                                               |
 | `time_period` | selector | all     | Fetch posts within a time period. Can be one of the following: `hour`, `day`, `week`, `month`, `year`, `all` |
-| `type`        | selector | search  | Fetch posts based on the tags. Can be one of the following: `hot`, `new`, `top`, `rising`, `search`          |
+| `sort_by`     | selector | search  | Fetch posts based on the tags. Can be one of the following: `hot`, `new`, `top`, `rising`, `search`          |
 
 ## Block Outputs
 
-| Name          | Type      | Explanation          |
-| ------------- | --------- | -------------------- |
-| `post_titles` | string[ ] | Titles of the posts. |
-| `post_links`  | string[ ] | Links of the posts.  |
+| Name           | Type      | Explanation            |
+| -------------- | --------- | ---------------------- |
+| `post_titles`  | string[ ] | Titles of the posts.   |
+| `post_links`   | string[ ] | Links of the posts.    |
+| `post_content` | string[ ] | Contents of the posts. |
 
 ## Use Cases
 

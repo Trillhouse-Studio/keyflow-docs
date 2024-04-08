@@ -1,0 +1,32 @@
+---
+title: Mux
+---
+
+## Overview
+
+The Mux (Multiplexer) block takes multiple inputs and outputs the first non-null value among them. It is designed to work in conjunction with a [**Switch Block**](/blocks/flow-control/switch) based on specific conditions or criteria. and allows you to efficiently handle scenarios where you have multiple sources of data and need to prioritize them based on availability.
+
+## Block Inputs
+
+| Name      | Type | Description             |
+| --------- | ---- | ----------------------- |
+| `input_1` | any  | The first input value.  |
+| `input_2` | any  | The second input value. |
+
+<Note>
+  To allow accepting more than than 2 inputs, You can clik the "+" or "-" icon
+  below the input name to add or remove new input handles that you can connect
+  other blocks to.
+</Note>
+
+## Block Outputs
+
+| Name     | Type | Description                                      |
+| -------- | ---- | ------------------------------------------------ |
+| `output` | any  | The first non-null value among the input values. |
+
+## Use Cases
+
+1. Ensure data integrity by selecting the most relevant or accurate input value among multiple options.
+2. Streamline decision-making processes by automatically choosing the appropriate input value based on specific conditions.
+3. Optimize workflows by dynamically selecting inputs based on real-time data or user interactions.
