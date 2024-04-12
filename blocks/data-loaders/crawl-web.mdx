@@ -8,16 +8,24 @@ Crawls websites to extract (nested) links from a website. Methodically explore a
 
 ## Block Inputs
 
-| Name    | Type   | Default | Explanation                                                       |
-| ------- | ------ | ------- | ----------------------------------------------------------------- |
-| `url`   | string |         | URL of the website to crawl.                                      |
-| `depth` | number | 1       | The number of layers to traverse in the crawl. Maximum value is 3 |
+| Name               | Type   | Default | Explanation                                                              |
+| ------------------ | ------ | ------- | ------------------------------------------------------------------------ |
+| `url`              | string |         | URL of the website to crawl.                                             |
+| `depth`            | number | 1       | The number of layers to traverse in the crawl. Maximum value is 3        |
+| `domain_whitelist` | list   |         | Limit the crawler to only visit links that belong to the set of domains. |
 
 <Warning>
   Setting a depth of 3 for the web crawler might take longer processing times as
   it will crawl nested links with a link which may be exponential. Use it
   wisely.
 </Warning>
+
+<Info>
+  The domain whitelist accepts domains such as "keyflow.space",
+  "www.keyflow.space", or "docs.keyflow.space" etc. You can also write urls like
+  "https://keyflow.space" and the crawler will automatically use ONLY the domain
+  name in it.
+</Info>
 
 ## Block Outputs
 
