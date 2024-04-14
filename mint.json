@@ -71,7 +71,11 @@
             "core-concepts/flows",
             "core-concepts/batch-mode",
             "core-concepts/integrations",
-            "core-concepts/block-versioning"
+            "core-concepts/block-versioning",
+            "core-concepts/external-flows",
+            "core-concepts/share-flows",
+            "core-concepts/triggers",
+            "core-concepts/working-with-files"
           ]
         }
       ]

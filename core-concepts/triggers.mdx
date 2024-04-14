@@ -1,9 +1,20 @@
 ---
 title: Triggers
-description: Learn about the Triggers in Keyflow.
+description: Invoking your automation remotely or based on an event.
 ---
 
-Triggers allow you to automate your workflows and run them remotely.
+Kickstart your automation remotely based on specific events, schedules, or API requests to handle your custom needs.
 
-Trigger options are:
-`API Trigger` `Gmail Trigger` `Schedule Trigger`
+1. **API Triggers**: Invoke an automation using API requests. Whether you prefer curl commands, Postman, or coding in your programming language of choice, API Triggers provide the flexibility to run automation remotely with ease.
+
+2. **Gmail Triggers**: Trigger automation in response to Gmail events in your account, such as the addition or removal of new emails or specific labels within your Gmail account. This trigger also passes the contents of the email to your flow as input. This includes the sender's email ID and name, the receiver's email ID and name, subject, body, and attachments (if any).
+
+3. **Scheduled Triggers**: Automate tasks on a predefined schedule using cron expressions. Scheduled Triggers enable you to trigger automation at fixed intervals, ensuring timely execution of critical tasks without manual intervention.
+
+<Note>
+  To configure Gmail Triggers, you will first need to authenticate your Gmail account with Keyflow. Navigate to your
+  [credentials](https://keyflow.space/settings/credentials) page and connect
+  your Google Mail using "Read Edit & Send Emails"
+</Note>
+
+With these diverse trigger options at your disposal, you can streamline your automation to handle day-to-day business or personal processes within Keyflow.
