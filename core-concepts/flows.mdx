@@ -42,25 +42,17 @@ Here is a basic mental model we use to build flows:
 
 <Steps>
   <Step title="Loading data">
-    Flows normally start off with the ingestion of some sort of data. The data
-    being ingested can be thousands of links in a csv, an uploaded file, a
-    website url etc.
+    You can load data from files, the apps you use or the open internet
   </Step>
   <Step title="Transform data (optional)">
-    These blocks are the backbone of our workflow. They are the helper functions
-    that make everything possible. They allow us to perform any number of data
-    manipulation tasks like reformatting strings, reading values from jsons,
-    extracting columns from csv etc.
+    Use data modifiers blocks to modify the data
   </Step>
-  <Step title="Analyzing with AI">
-    AI Blocks are the source of reasoning in the workflow and can summarize,
-    answer questions, categorize etc. on the content.
+  <Step title="Analyzing with AI">Use AI blocks to analyze the data</Step>
+  <Step title="Transform data (optional)">
+    Use data modifiers blocks to modify the data
   </Step>
   <Step title="Take Action">
-    These are almost always the very last step of our workflows. They touch the
-    outside world and turn the AI processed output into a tangible, valuable
-    result. Blocks that generate files, interact with Google Sheets, Notion
-    Databases and more live in this category.
+    Write the data or take action on the apps you already use{" "}
   </Step>
 </Steps>
 
