@@ -1,34 +1,79 @@
 ---
-title: "Quickstart"
-description: "Start automating in under 5 minutes"
+title: Quickstart
+description: Start automating in under 5 minutes
 ---
 
-### Get started with templates
+## Basic terminology
 
-The best way to get started is by using a prebuilt template!
+1. `flow` -- process or workflow you want to automate
+2. `blocks` -- logical units that perform an action
 
-We've built 50+ functional workflows categorized by their use cases for you to browse, explore and learn Keyflow. You can use these to understand how things work or to run out of the box, each is built to be immediately useful
+**Blocks** are building blocks that build up your process or workflows called **flows**.
 
-Get started with [templates here](https://www.keyflow.space/templates)
+## Start with our examples
 
-For this quickstart guide, we'll pick the <i>["Email Auto-Replier"](https://www.keyflow.space/templates/administration/email-auto-replier)</i> under the `administration` category of the templates. Simply open the template's page using the link and click on the <b>"Use Template"</b> button
+The best way to experience the power of Keyflow is by running a flow. We have built over 60 flows you can try right away. [Check them out here](https://www.keyflow.space/templates)
+
+Let’s go through an example to understand how a flow works. We will pick [“Newsletter digest”](https://www.keyflow.space/templates/personal/newsletter-digest) for demonstration purposes.
 
 <Frame>
   <img
     className="block dark:hidden"
-    src="/images/quickstart/email-auto-replier-light.png"
+    src="/images/quickstart/newsletter-digest-light.png"
     alt="Email auto-replier automation template in Keyflow"
   />
   <img
     className="hidden dark:block"
-    src="/images/quickstart/email-auto-replier-dark.png"
+    src="/images/quickstart/newsletter-digest-dark.png"
     alt="Email auto-replier automation template in Keyflow"
   />
 </Frame>
 
-### Running a flow
+### Loading Data
 
-You can simply run the workflow by hitting the run button in the top right corner. Running a workflow will auto-save the current version of your workflow.
+We start the flow with a **Read Gmail** block that reads data from my inbox. In this particular case, it reads at most 5 most recent emails with label **"Keyflow/newsletter"** applied to it.
+
+<Note>
+  💡 The output of a block can be connected to inputs of other blocks. Here we
+  connect `sender`, `email_body` and `email_subject` output of Gmail block to a
+  text block named as "Newsletter Content".
+</Note>
+
+### Modifying It
+
+Text block allows us to format text with any number of inputs. Here we take data from gmail format in the following string.
+
+```shell
+Sender's Email: {email}
+
+Email Subject: {subject}
+Email Body: {body}
+```
+
+Notice that Text block is in **batch mode**, which means, it processes a list of emails and for each email, it creates the text format you see above. You can learn more about [Batch mode in Core Concepts](/core-concepts/batch-mode).
+
+Later we take the AI responses join it into one string (text) seperated by new line using Join Text Array block.
+
+Now we have data we can pass for AI analysis!
+
+### AI Analysis
+
+We take Join Text Array output which is all our summarized newsletter email data and pass it as context to Ask AI block. This gives the AI context on all our emails. Now we can ask it any question in plain english!
+
+Here we ask it to create a bullet point digest of all my news letter. The exact question is bit more detailed. You can think of the question as a prompt . The better you prompt the model, the better results you get. Here is a guide on [writing better prompts]().
+
+### Taking Actions
+
+Once AI has analysed the data, we can take actions on any apps we use. We can save it Notion, Google Docs, Google Sheets, or we can send it in an email or as an Whatsapp message. The sky is the limit! Here we send the output newsletter digest and send it as a message in our discord community.
+
+<Tip>
+  Don’t see your favourite app? [Request integrations
+  here](https://cal.com/keyflow/request-custom-automations)
+</Tip>
+
+## Running a flow
+
+Now we understand how the flow functions. Let’s run it! You can simply run a flow by hitting the run button in the top right corner. Running a workflow will auto-save the current version of your workflow.
 
 <Frame>
   <img
@@ -65,25 +110,53 @@ After hitting run, you will see the workflow in real-time as the blocks are bein
   />
 </Frame>
 
+## Automating flows
+
+Keyflow is all about removing friction and automating your life. Running a flow by clicking a button is cool but we don’t want to manually trigger them everytime we need something done.
+
+You can create triggers to automatically run your flows! You can automatically trigger them:
+
+1. On a schedule
+2. When you receive an email
+3. When you remove/delete an email
+4. When you apply or remove a label to an email
+5. When you upload a file to Google Drive (coming soon ✨)
+6. via our API
+
+<Tip>
+  Want to trigger on custom event? [Request a custom event
+  trigger](https://cal.com/keyflow/request-custom-automations)
+</Tip>
+
 ## Next Steps
 
-Now that you have seen how easily an automation can be run in Keyflow. You can now further explore the platform and Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+Now that you have seen how easily an automation can be run in Keyflow. You can now dive in and explore Keyflow. You can start here --
 
 <CardGroup>
 
-<Card title="Core Concepts" icon="chart-mixed" href="/core-concepts">
+<Card
+  title="Core Concepts"
+  iconType="duotone"
+  icon="seedling"
+  href="/core-concepts"
+>
   Learn the features and concepts of building an automation in Keyflow
 </Card>
 
-<Card title="Blocks" icon="browser" href="/blocks">
+<Card title="Blocks" iconType="duotone" icon="block-brick-fire" href="/blocks">
   Explore various blocks and learn how to use them for your automations.
 </Card>
 
-<Card title="Trigger Automations" icon="square-code" href="/triggers">
+<Card title="Triggers" iconType="duotone" icon="webhook" href="/triggers">
   Run a flow automatically based on schedules, API or other integrations.
 </Card>
 
-<Card title="Share Automations" icon="paintbrush" href="/share-automations">
+<Card
+  title="Share Automations"
+  iconType="duotone"
+  icon="bullhorn"
+  href="/share-automations"
+>
   Share your Keyflow automations with the community and friends.
 </Card>
 
