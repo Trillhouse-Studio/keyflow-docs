@@ -1,47 +1,60 @@
 ---
 title: Introduction
-description: "Welcome to Keyflow documentation"
+description: Overview of Keyflow
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.png"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.png"
-  alt="Hero Dark"
-/>
+## Welcome to **Keyflow** 👋
 
-## Welcome to the **Keyflow** 👋
+We help businesses rapidly and visually build AI agents without writing any code. Our AI agents can automate parts of businesses using the same AI tech that powers ChatGPT, Claude, Google Gemini, and Meta AI.
 
-We help businesses build powerful workflows and automations without writing a single line of code. Keyflow offers an intuitive and collaborative platform to create AI-powered workflow called `flows` using modular components called `blocks`.
-The first step to world-class documentation is setting up your editing environments.
+What you see below is a workflow a.k.a flow built in Keyflow’s canvas. A flow is built by connecting logical components called blocks.
+
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/hero-light.png"
+    alt="Hero Light"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/hero-dark.png"
+    alt="Hero Dark"
+  />
+</Frame>
+
+Let’s get started with some important topics
 
 <CardGroup cols={2}>
-  <Card title="Builder Guide" icon="palette">
-    Customize your docs to your company's colors and brands
+  <Card
+    title="Blocks"
+    iconType="duotone"
+    icon="block-brick-fire"
+    href="/core-concepts/blocks"
+  >
+    Building blocks used to create a workflow
   </Card>
   <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
+    title="Flows"
+    iconType="duotone"
+    icon="diagram-subtask"
+    href="/core-concepts/flows"
   >
-    Automatically generate endpoints from an OpenAPI spec
+    Workflows or Standard Operating Procedures of your company
   </Card>
   <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
+    title="Triggers"
+    iconType="duotone"
+    icon="webhook"
+    href="/core-concepts/triggers"
   >
-    Build interactive features and designs to guide your users
+    Ways to trigger your flows without logging into Keyflow
   </Card>
   <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/showcase"
+    title="API Reference"
+    iconType="duotone"
+    icon="books"
+    href="/api-reference"
   >
-    Check out our showcase of our favorite documentation
+    Keyflow API for technical folks!
   </Card>
 </CardGroup>

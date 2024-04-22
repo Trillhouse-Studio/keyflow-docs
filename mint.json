@@ -41,6 +41,10 @@
   },
   "tabs": [
     {
+      "name": "Cookbook",
+      "url": "cookbook"
+    },
+    {
       "name": "API Reference",
       "url": "api-reference"
     }
@@ -63,7 +67,6 @@
       "pages": [
         "introduction",
         "quickstart",
-        "terminology",
         {
           "group": "Core Concepts",
           "pages": [
@@ -72,13 +75,21 @@
             "core-concepts/batch-mode",
             "core-concepts/integrations",
             "core-concepts/block-versioning",
-            "core-concepts/external-flows",
+            "core-concepts/ai-agents",
+            "core-concepts/nesting-flows",
             "core-concepts/share-flows",
             "core-concepts/triggers",
-            "core-concepts/working-with-files"
+            "core-concepts/working-with-files",
+            "core-concepts/app-view",
+            "core-concepts/chat-view",
+            "core-concepts/blueprints"
           ]
         }
       ]
+    },
+    {
+      "group": "Cookbook",
+      "pages": ["cookbook/index"]
     },
     {
       "group": "Blocks",
@@ -205,7 +216,7 @@
     },
     {
       "group": "Endpoint Examples",
-      "pages": ["api-reference/endpoint/get", "api-reference/endpoint/create"]
+      "pages": ["api-reference/endpoint/create"]
     }
   ],
   "footerSocials": {

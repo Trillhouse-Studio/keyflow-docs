@@ -1,23 +1,23 @@
 ---
-title: "Flows"
-description: "A collection of blocks connected together to automate a task"
+title: Flows
+description: Process or workflows you automate
 ---
 
 ## What is a Flow?
 
-Flows, short for workflows, are built by connecting blocks to execute specific tasks.
+Flows, short for workflows, are built by connecting blocks to automate your business processes. A flow allows you to visually see the process you want to automate. Most of our customers use Keyflow to automate processes that require reasoning and intelligence.
 
-When a workflow is run, data passes from one block to the next, with each block manipulating or generating content along the way. Here is an example of a workflow that I use to automatically draft a response to my emails in my writing style.
+They automate these processes using Large Language Models technology that powers apps like ChatGPT, Claude, Google Gemini and Meta AI.
 
 <Frame>
   <img
     className="block dark:hidden"
-    src="/images/terminology/what-is-flow-light.png"
+    src="/images/core-concepts/what-is-flow-light.png"
     alt="Example of a flow in Keyflow"
   />
   <img
     className="hidden dark:block"
-    src="/images/terminology/what-is-flow-dark.png"
+    src="/images/core-concepts/what-is-flow-dark.png"
     alt="Example of a flow in Keyflow"
   />
 </Frame>
@@ -38,28 +38,30 @@ The inputs of one block are derived from the outputs of another.
 
 ### The standard format of a flow
 
-Most flows we've built or user build follow a general pattern -> Ingest data, prepare it for the AI, process it with AI and output a result.
+Here is a basic mental model we use to build flows:
 
 <Steps>
-  <Step title="Data Loaders">
+  <Step title="Loading data">
     Flows normally start off with the ingestion of some sort of data. The data
     being ingested can be thousands of links in a csv, an uploaded file, a
-    scraped website etc. This data is the content
+    website url etc.
   </Step>
-  <Step title="Data Modifiers">
+  <Step title="Transform data (optional)">
     These blocks are the backbone of our workflow. They are the helper functions
     that make everything possible. They allow us to perform any number of data
     manipulation tasks like reformatting strings, reading values from jsons,
     extracting columns from csv etc.
   </Step>
-  <Step title="Using AI">
-    AI Blocks are the source of reasoning in the workflow and can ingest the
-    loaded data and summarize, answer questions, categorize etc.
+  <Step title="Analyzing with AI">
+    AI Blocks are the source of reasoning in the workflow and can summarize,
+    answer questions, categorize etc. on the content.
   </Step>
-  <Step title="Data Writers">
+  <Step title="Take Action">
     These are almost always the very last step of our workflows. They touch the
     outside world and turn the AI processed output into a tangible, valuable
     result. Blocks that generate files, interact with Google Sheets, Notion
     Databases and more live in this category.
   </Step>
 </Steps>
+
+You can run a flow manually or trigger them automatically by setting up [Triggers](/core-concept/triggers).

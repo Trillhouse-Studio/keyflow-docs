@@ -1,20 +1,32 @@
 ---
 title: Triggers
-description: Invoking your automation remotely or based on an event.
+description: Automatically trigger your flows
 ---
 
-Kickstart your automation remotely based on specific events, schedules, or API requests to handle your custom needs.
+You can set Triggers to a flow to kick them off based on an certain events. We have three types of triggers.
 
-1. **API Triggers**: Invoke an automation using API requests. Whether you prefer curl commands, Postman, or coding in your programming language of choice, API Triggers provide the flexibility to run automation remotely with ease.
+## Scheduled Triggers
 
-2. **Gmail Triggers**: Trigger automation in response to Gmail events in your account, such as the addition or removal of new emails or specific labels within your Gmail account. This trigger also passes the contents of the email to your flow as input. This includes the sender's email ID and name, the receiver's email ID and name, subject, body, and attachments (if any).
+This trigger allows you to schedule your flows. You can schedule them as cron jobs. Cron is a powerful syntax that allows you to define a schedule. Learn more about Cron Syntax
 
-3. **Scheduled Triggers**: Automate tasks on a predefined schedule using cron expressions. Scheduled Triggers enable you to trigger automation at fixed intervals, ensuring timely execution of critical tasks without manual intervention.
+## Gmail Triggers
+
+This allows you trigger your flows when the following events happen in your gmail inbox.
+
+3. You receive an email
+4. You delete an email
+5. You apply a label to an email
+6. You remove a label to an email
+
+This trigger also passes the contents of the email to your flow as input. This includes the sender's email ID and name, the receiver's email ID and name, subject, body, and attachments (if any).
 
 <Note>
-  To configure Gmail Triggers, you will first need to authenticate your Gmail account with Keyflow. Navigate to your
+  To configure Gmail Triggers, you will first need to authenticate your Gmail
+  account with Keyflow. Navigate to your
   [credentials](https://keyflow.space/settings/credentials) page and connect
   your Google Mail using "Read Edit & Send Emails"
 </Note>
 
-With these diverse trigger options at your disposal, you can streamline your automation to handle day-to-day business or personal processes within Keyflow.
+## API Triggers
+
+You can also trigger your workflows as an API. This the most flexible way to trigger your flows outside your Keyflow. You can check out our API reference here.
