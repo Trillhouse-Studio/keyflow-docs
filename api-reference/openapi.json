@@ -11,7 +11,65 @@
     }
   ],
   "paths": {
-    "/trigger": {
+    "/trigger/actions/{action_id}": {
+      "post": {
+        "summary": "Resumes a workflow with the human feedback",
+        "description": "Resumes a workflow with the human feedback",
+        "requestBody":{
+          "required": true,
+          "content":{
+            "application/json":{
+              "schema":{
+                "$ref":"#/components/schemas/Continue"
+              }
+            }
+          }
+        },
+        "responses":{
+          "201": {
+            "description": "Successful operation",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "$ref":"#/components/schemas/ContinueResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "security":[{
+          "apiKey": []
+        }]
+      }
+    },
+    "/flows/{flow_id}/run/{run_id}/status": {
+      "get": {
+        "summary": "Returns the status of the workflow",
+        "description": "Returns the status of the workflow",
+        "responses":{
+          "201": {
+            "description": "Successful operation",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "$ref":"#/components/schemas/StatusResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "security":[{
+          "apiKey": []
+        }]
+      }
+    },
+    "/flows/{flow_id}/trigger": {
       "post": {
         "summary": "Triggers a flow programatically using API",
         "description": "Triggers a flow programatically using API",
@@ -27,7 +85,14 @@
         },
         "responses": {
           "201": {
-            "description": "Successful operation"
+            "description": "Successful operation",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "$ref":"#/components/schemas/TriggerResponse"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad request"
@@ -36,6 +101,198 @@
         "security": [
           {
             "apiKey": []
+          }
+        ]
+      }
+    },
+    "/flows": {
+      "get":{
+        "summary": "Returns a list of all workflows of the user",
+        "description": "Returns a list of all workflows of the user",
+        "responses":{
+          "201": {
+            "description": "Successful operation",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "$ref":"#/components/schemas/AllFlowsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "security":[
+          {
+            "apiKey":[]
+          }
+        ]
+      }
+    },
+    "/flows/in_progress": {
+      "get":{
+        "summary":"Returns a list of all workflows that are in progress",
+        "description": "Returns a list of all workflows that are in progress",
+        "responses":{
+          "201": {
+            "description": "Successful operation",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "$ref":"#/components/schemas/RunningFlowsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "security":[
+          {
+            "apiKey":[]
+          }
+        ]
+      }
+    },
+    "/flows/{flow_id}/inputs": {
+      "get":{
+        "summary": "Returns the inputs of the run of workflow",
+        "description": "Returns the inputs of the run of workflow",
+        "responses":{
+          "201": {
+            "description": "Successful operation",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "$ref":"#/components/schemas/InputsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "security":[
+          {
+            "apiKey":[]
+          }
+        ]
+      }
+    },
+    "/flows/{flow_id}/stop": {
+      "post": {
+        "summary": "Stops the running flow of specified workflow",
+        "description": "Stops the running flow of specified workflow",
+        "responses":{
+          "201": {
+            "description": "Successful operation",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "type":"string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "security":[
+          {
+            "apiKey":[]
+          }
+        ]
+      }
+    },
+    "/triggers/actions?status=PENDING": {
+      "get":{
+        "summary": "Returns all actions that are pending and need input",
+        "description": "Returns all actions that are pending and need input",
+        "responses": {
+          "201": {
+            "description": "Successful operation",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "$ref":"#/components/schemas/PendingResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "security":[
+          {
+            "apiKey": []
+          }
+        ]
+      }
+    },
+    "/public/upload": {
+      "post": {
+        "summary": "Use this API to upload a file to Keyflow",
+        "description": "Use this API to upload a file to Keyflow",
+        "requestBody":{
+          "required": true,
+          "content":{
+            "application/json": {
+              "schema":{
+                "$ref":"#/components/schemas/Upload"
+              }
+            }
+          }
+        },
+        "responses":{
+          "201": {
+            "description": "Successful operation",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "type":"string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "security":[
+          {
+            "apiKey":[]
+          }
+        ]
+      }
+    },
+    "/files": {
+      "get":{
+        "summary": "Returns a list of all files",
+        "description": "Returns a list of all files",
+        "responses": {
+          "201": {
+            "description": "Successful operation",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "$ref":"#/components/schemas/FilesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "security":[
+          {
+            "apiKey":[]
           }
         ]
       }
@@ -58,6 +315,147 @@
             "sender_email": "someone@example.com",
             "email_subject": "Test Email Subject",
             "email_body": "Test Body"
+          }
+        }
+      },
+      "TriggerResponse": {
+          "type":"object",
+          "properties":{
+            "run_id": {
+              "type": "string"
+            }
+          },
+          "example":{
+            "run_id": "Target-Flow-Id"
+          }
+      },
+
+      "Continue":{
+        "type":"object",
+        "required": ["flow_id", "inputs"],
+        "additionalProperties": false,
+        "properties":{
+          "flow_id": {
+            "type": "string"
+          },
+          "inputs":{
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "example": {
+          "flow_id": "Your-flow-id",
+          "inputs":{
+            "text": "Generate a reply draft for the recent mail received"
+          }
+        }
+      },
+      "ContinueResponse":{
+        "type":"object",
+        "properties":{
+          "run_link": {
+            "type": "string"
+          }
+        }
+      },
+
+      "StatusResponse":{
+        "type":"object",
+        "properties":{
+          "status": {
+            "type":"string"
+          },
+          "logs":{
+            "type":"array",
+            "properties":{
+              "type":"object",
+              "properties":{
+                "node_1":{
+                  "type":"object",
+                  "properties":true
+                }
+              }
+            }
+          },
+          "outputs": {
+            "type":"object",
+            "properties":{
+              "output_1":{
+                "type":"string"
+              }
+            }
+          }
+        }
+      },
+
+      "AllFlowsResponse":{
+        "type":"object",
+        "properties":{
+          "flow_id":"Your-flow-id"
+        }
+      },
+
+      "RunningFlowResponse":{
+        "type":"array",
+        "properties":{
+          "type":"object",
+          "properties":{
+            "flow_id": "Your-flow-id"
+          }
+        }
+      },
+
+      "InputsResponse":{
+        "type":"object",
+        "properties":{
+          "inputs":{
+            "type":"array",
+            "properties":{
+              "input_name":"string",
+              "input_type":"string",
+              "description":"string",
+              "title":"string"
+            }
+          }
+        }
+      },
+
+      "PendingResponse":{
+        "type":"array",
+        "properties":{
+          "type":"object",
+          "properties":{
+            "action_id": "Your-action-id",
+            "run_id": "Your-run-id",
+            "flow_id":"Your-flow-id"
+          }
+        }
+      },
+
+      "Upload": {
+        "type":"object",
+        "required":["flow_id", "run_id", "files"],
+        "additionalProperties": false,
+        "properties":{
+          "flow_id": {
+            "type": "string"
+          },
+          "run_id":{
+            "type": "string"
+          },
+          "files":{
+            "type":"array"          }
+        }
+      },
+
+      "FilesResponse":{
+        "type":"array",
+        "properties":{
+          "type":"object",
+          "properties":{
+            "file_path": "Your-file-path",
+            "scope": "RUN | FLOW | SPACE",
+            "origin": "UPLOADED | GENERATED"
           }
         }
       }

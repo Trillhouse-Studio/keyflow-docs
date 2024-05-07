@@ -204,8 +204,21 @@
       ]
     },
     {
-      "group": "Endpoint Examples",
-      "pages": ["api-reference/endpoint/get", "api-reference/endpoint/create"]
+      "group": "Endpoint",
+      "pages": [
+        {
+          "group": "Flows",
+          "pages": ["api-reference/endpoint/flows/get_flow_status", "api-reference/endpoint/flows/get_all_flows", "api-reference/endpoint/flows/get_running_flows", "api-reference/endpoint/flows/get_flow_inputs", "api-reference/endpoint/flows/stop_flow", "api-reference/endpoint/flows/trigger_flow_api", "api-reference/endpoint/flows/continue_flow"]
+        },
+        {
+          "group": "Actions",
+          "pages": ["api-reference/endpoint/actions/get_pending_actions"]
+        },
+        {
+          "group": "Files",
+          "pages": ["api-reference/endpoint/files/get_files", "api-reference/endpoint/files/upload_file"] 
+        }
+      ]
     }
   ],
   "footerSocials": {
