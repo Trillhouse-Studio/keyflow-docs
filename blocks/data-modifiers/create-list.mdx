@@ -2,30 +2,35 @@
 title: Create List
 ---
 
-## Overview
+### **Overview:**
 
-Create a list from multiple seperate inputs and get a unified structure.
+The `Create List` block is designed to streamline the process of combining multiple inputsinto a single cohesive list. This block is flexible and can handle inputs containing various data types, making it a versatile tool for data manipulation.
 
-## Block Inputs
+---
 
-| Name      | Type | Description                |
-| --------- | ---- | -------------------------- |
-| `input_1` | any  | First element of the list  |
-| `input_2` | any  | Second element of the list |
+### Inputs & Outputs
+
+| I/O    | Feature                      | Type  | Simple Explanation                                                                        |
+| ------ | ---------------------------- | ----- | ----------------------------------------------------------------------------------------- |
+| input  | `input_1`                    | any   | The first element you want to include in your list.                                       |
+| input  | `input_2`                    | any   | The second element you want to add to the list containing the first one.                  |
+| input  | additional inputs (optional) | any   | You can add more elements as needed by clicking the "+" or "-" icon below the input name. |
+| output | `list`                       | any[] | A unified list containing all separate inputs combined into one.                          |
 
 <Note>
-  To build a list of more than 2 inputs, You can clik the "+" or "-" icon below
-  the input name to add or remove new input handles that you can connect other
-  blocks to.
+  To build a list of more than two inputs, you can click the "+" or "-" icon
+  below the input name to add or remove new input handles that you can connect
+  other blocks to.
 </Note>
 
-## Block Outputs
+---
 
-| Name   | Type   | Description                                          |
-| ------ | ------ | ---------------------------------------------------- |
-| `list` | any[ ] | A list of all the seperate inputs combined into one. |
+### Use Cases
 
-## Use Cases
+Imagine how this block could save time in various scenarios:
 
-1. **Batch Processing:** Particularly useful when needing to create a single list to process in batch mode.
-2. **Writing data:** Blocks like Write to Google Sheets etc required a list of data to be provided in order to process data.
+- **Batch Processing:** This block streamlines creating a single list for batch processing tasks, enhancing efficiency when handling large datasets.
+- **Data Submission:** When utilizing blocks like "Write to Google Sheets," providing a unified list enables seamless submission and accurate data processing.
+- **Dynamic Data Assembly:** Whether compiling user-generated content from different sources or aggregating project tasks from team members, this tool simplifies gathering diverse items into an organized collection.
+
+In summary, whenever there's a need for gathering related items into one easy-to-manage collection, the `Create List` block comes in handy!

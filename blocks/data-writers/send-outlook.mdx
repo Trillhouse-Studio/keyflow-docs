@@ -2,9 +2,9 @@
 title: Send Outlook
 ---
 
-## Overview
+### **Overview:**
 
-Send emails from your Microsoft Outlook account, enabling efficient management of email-based workflows and ensuring important communications are not missed. This block also supports savings emails as draft in your Outlook account.
+The `Outlook Sender` block allows users to send emails from their Microsoft Outlook account, facilitating the efficient management of email workflows and ensuring that critical communications are timely. This block also features an option to save emails as drafts in your Outlook account.
 
 <Note>
   To run this block, you will first need to authenticate your Microsoft Outlook
@@ -12,27 +12,28 @@ Send emails from your Microsoft Outlook account, enabling efficient management o
   [credentials](https://keyflow.space/settings/credentials) page to connect.
 </Note>
 
-## Block Inputs
+---
 
-| Name              | Type    | Description                                                |
-| ----------------- | ------- | ---------------------------------------------------------- |
-| `recipient_email` | string  | The email address of the recipient.                        |
-| `email_body`      | string  | The content of the email message.                          |
-| `email_subject`   | string  | The subject of the email.                                  |
-| `message_id`      | string  | Message ID of an email to reply to.                        |
-| `send_as_draft`   | boolean | When enabled, the email is saved as "Draft" in your gmail. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature           | Type      | Simple Explanation                                                            |
+| ------ | ----------------- | --------- | ----------------------------------------------------------------------------- |
+| input  | `recipient_email` | string    | The email address of the recipient who will receive the message.              |
+| input  | `email_body`      | string    | The main content of the email message you wish to send.                       |
+| input  | `email_subject`   | string    | The subject line for the email being sent.                                    |
+| input  | `message_id`      | string    | Optional; ID of an existing email which you're replying to.                   |
+| input  | `send_as_draft`   | boolean   | When enabled, saves the email as a "Draft" instead of sending it immediately. |
+| output | `email_status`    | string    | Indicates whether the email was sent successfully or if an error occurred.    |
 
-| Name           | Type   | Description                                                       |
-| -------------- | ------ | ----------------------------------------------------------------- |
-| `email_status` | string | Reports on the success or failure of the email sending operation. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Regular Updates:** Automate the process of sending regular updates or reports to stakeholders.
-2. **Trigger-based Workflows:** Create a workflow to respond to certain triggers by sending out emails.
-3. **Help Desk Systems:** Implement a help desk system that requires sending acknowledgments, replies, or follow-up messages to users.
-4. **Customer Service and Marketing Automation:** Automate routine email correspondence to enhance user experience and engagement.
+Consider how this block can streamline various processes:
 
-The OutlookSender node is particularly useful for automating routine email correspondence, enabling you to save time and ensure consistent communication patterns.
+- **Regular Updates:** Automatically trigger and send regular updates or reports to stakeholders, ensuring they stay informed without additional manual effort.
+- **Trigger-based Workflows:** Set up responsive workflows that send out emails when specific events occur (e.g., new submissions or status changes).
+- **Help Desk Systems:** Enhance customer service by sending automatic acknowledgments and follow-up messages within a help desk system.
+- **Customer Service and Marketing Automation:** Maintain consistent communication through automated correspondence in marketing campaigns or customer engagement strategies.
+
+The `Outlook Sender` block is essential for automating routine email tasks, helping save time while fostering efficient communication patterns through Microsoft Outlook!

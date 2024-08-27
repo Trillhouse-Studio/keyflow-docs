@@ -2,29 +2,32 @@
 title: Generate File
 ---
 
-## Overview
+### **Overview:**
 
-The Generate File block converts provided text into a digital file in one of several common format. It offers versatility and convenience for various document creation needs.
+The `Generate File` block is a powerful tool that allows users to convert provided text into various digital file formats, ensuring flexibility and convenience for diverse documentation needs.
 
 <Check>**Supported file types include** .pdf, .csv, .txt, .md, and .docx</Check>
 
-## Block Inputs
+---
 
-| Name            | Type     | Description                                                                                             |
-| --------------- | -------- | ------------------------------------------------------------------------------------------------------- |
-| `file_name`     | string   | The desired name of the file to be created (without the file extension).                                |
-| `file_type`     | selector | The format for the generated file. Can be one of the following: `.pdf`, `.docx`, `.txt`, `.csv`, `.md`. |
-| `file_contents` | string   | The text content to be included in the file.                                                            |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature               | Type     | Simple Explanation                                                                                            |
+| ------ | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| input  | `file_name`           | string   | Specify the name of the file you wish to create (excluding the extension).                                    |
+| input  | `file_type`           | selector | Choose the desired format for your generated file from these options: `.pdf`, `.docx`, `.txt`, `.csv`, `.md`. |
+| input  | `file_contents`       | string   | Provide the text content that should be included in your generated file.                                      |
+| output | `generated_file_name` | string   | The complete name of the created file along with its format extension.                                        |
 
-| Name                  | Type   | Description                                                          |
-| --------------------- | ------ | -------------------------------------------------------------------- |
-| `generated_file_name` | string | The full name of the generated file, including its format extension. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Drafting Formal Documents:** Create formal documents in various formats to meet specific requirements.
-2. **Creating Reports:** Generate professional reports in PDF or DOCX formats for presentations or sharing.
-3. **Saving Notes:** Quickly save and organize important notes as TXT files for easy reference.
-4. **Organizing Data Tables:** Convert tabular data into CSV format for further analysis or integration with other tools.
+Consider how this block can enhance productivity across various scenarios:
+
+- **Drafting Formal Documents:** Streamline your process for creating official documents in formats like DOCX or PDF to meet specific organizational standards.
+- **Creating Reports:** Efficiently generate professional-quality reports in PDF or DOCX formats tailored for presentations or collaborative sharing.
+- **Saving Notes:** Quickly transform important notes into TXT files, providing an organized references tool accessible anytime.
+- **Organizing Data Tables:** Simplify data analysis by converting structured data into CSV format which can easily integrate with other analytical tools.
+
+In summary, whenever there's a requirement to generate files from textual content in different formats, the `Generate File` block is an invaluable resource!

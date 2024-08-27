@@ -2,40 +2,42 @@
 title: Crawl Web
 ---
 
-## Overview
+### **Overview:**
 
-Crawls websites to extract (nested) links from a website. Methodically explore and document the web of links within a website, whether for analysis, SEO purposes, or competitive research.
+The `Crawl Web` block is designed to systematically explore websites and extract (nested) links for various purposes, such as analysis, SEO enhancements, or competitive research.
 
-## Block Inputs
+---
 
-| Name               | Type   | Default | Explanation                                                              |
-| ------------------ | ------ | ------- | ------------------------------------------------------------------------ |
-| `url`              | string |         | URL of the website to crawl.                                             |
-| `depth`            | number | 1       | The number of layers to traverse in the crawl. Maximum value is 3        |
-| `domain_whitelist` | list   |         | Limit the crawler to only visit links that belong to the set of domains. |
+### Inputs & Outputs
+
+| I/O    | Feature                       | Type     | Simple Explanation                                                   |
+| ------ | ----------------------------- | -------- | -------------------------------------------------------------------- |
+| input  | `url`                         | string   | The URL of the website you wish to crawl.                            |
+| input  | `depth`                       | number   | Determines how many layers deep the crawler will go; max value is 3. |
+| input  | `domain_whitelist` (optional) | list     | Restricts crawling to specified domains only.                        |
+| output | `url_list`                    | string[] | A collection of all URLs found during the crawl process.             |
 
 <Warning>
   Setting a depth of 3 for the web crawler might take longer processing times as
-  it will crawl nested links with a link which may be exponential. Use it
+  it will crawl nested links with exponential growth in complexity. Use it
   wisely.
 </Warning>
 
 <Info>
   The domain whitelist accepts domains such as "keyflow.space",
-  "www.keyflow.space", or "docs.keyflow.space" etc. You can also write urls like
-  "https://keyflow.space" and the crawler will automatically use ONLY the domain
-  name in it.
+  "www.keyflow.space", or "docs.keyflow.space". You can also specify full URLs
+  like "https://keyflow.space", and only the domain name will be processed by
+  the crawler automatically.
 </Info>
+---
 
-## Block Outputs
+### Use Cases
 
-| Name       | Type      | Explanation                 |
-| ---------- | --------- | --------------------------- |
-| `url_list` | string[ ] | List of all the URLs found. |
+Consider how this block can be beneficial in various scenarios:
 
-## Use Cases
+- **Link Collection:** Ideal for gathering all hyperlinks on a targeted website, which can assist marketers or researchers looking for resources.
+- **Website Structure Analysis:** Use this tool to visualize and understand how different pages interconnect within a site, aiding developers in optimizations.
+- **SEO and Web Audit:** Conduct thorough checks on internal and external links found across a website to improve SEO strategies or identify broken links.
+- **Competitive Insight:** Map out the link structure of competitor sites or analyze your own sites for strategic content placement based on observed patterns.
 
-1. **Link Collection:** Ideal for compiling a list of all links on a specific website.
-2. **Website Structure Analysis:** Helps in understanding the interconnectivity of different pages on a website.
-3. **SEO and Web Audit:** Useful for a comprehensive check of website links for SEO or general analysis.
-4. **Competitive Insight:** Assists in mapping the link structure of competitor or own websites to gauge content references.
+In summary, whenever you need to reveal or analyze hidden connections within websites, the `Crawl Web` block proves invaluable!

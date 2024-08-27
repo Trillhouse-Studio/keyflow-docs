@@ -2,29 +2,32 @@
 title: Ask AI
 ---
 
-## Overview
+### **Overview:**
 
-Interact with a large language model (LLM) using prompts that may be questions or actions such as summarizing information, generating ideas, or reasoning. It has the capability to understand additional context that can help refine its responses, and for more technical needs, It can be directed to provide structured output via predefined functions like OpenAI Functions or enabling JSON mode for LLM responses.
+The `Ask AI` block allows users to interact with a large language model (LLM) through various prompts, including inquiries and actions such as summarization, idea generation, or reasoning. It effectively handles additional context to improve response relevance and offers structured outputs through predefined functions like OpenAI Functions or JSON mode.
 
-## Block Inputs
+---
 
-| Name             | Type     | Description                                                                                                                              |
-| ---------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `question`       | string   | The core question you wish to ask the LLM. Clear and detailed questions yield better answers.                                            |
-| `context`        | string   | Background information or specific situation related to the question. Enhances the relevance of the response.                            |
-| `function`       | string   | Provide OpenAI functions to models from the GPT family. An OpenAI function can be easily created using the Define OpenAI Function block. |
-| `model`          | selector | LLM Model to be used for inference. Can be one of the following supported models.                                                        |
-| `json_mode`      | boolean  | When enabled, the response of the AI models are strictly JSON.                                                                           |
-| `cache_response` | boolean  | When enabled, it saves you AI calls by returning the same response if the inputs to the LLM has not changed.                             |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O     | Feature               | Type        | Simple Explanation                                                                                                                          |
+| ------- | --------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| input   | `question`            | string      | The main inquiry you want to present to the LLM. Clear and detailed questions lead to more accurate responses.                              |
+| input   | `context`             | string      | Background details related to your question that improve the specificity of the response.                                                   |
+| input   | `function`            | string      | Enables the provision of OpenAI functions for models in the GPT family; these can be defined easily using the Define OpenAI Function block. |
+| input   | `model`               | selector    | The specific LLM model that will generate an inference based on your inputs.                                                                |
+| input   | `json_mode`           | boolean     | Activating this ensures the AI's output is formatted strictly in JSON format when responding.                                               |
+| input   | `cache_response`      | boolean     | Enabling this feature allows repeated responses without additional AI calls if inputs remain unchanged, optimizing performance.             |
+| output  | `response`            | string      | The LLM's response, formatted as a string if `json_mode` is enabled.                                                                        |
 
-| Name       | Type   | Description                                                    |
-| ---------- | ------ | -------------------------------------------------------------- |
-| `response` | string | LLMs Response. Can be a JSON string if `json_mode` is enabled. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Generating Data:** Fill gaps within a piece of text using AI or generate relevant content of your choice based on a context and/or question.
-2. **Additional Context:** Provides more background information for a complete answer, significantly enhancing the response's relevance.
-3. **Specific Function Requirement:** Guides the response toward a particular objective or function, adding a layer of focus to the interaction with GPT models.
+Consider how this block could be utilized effectively:
+
+- **Generating Data:** Imagine you're drafting a report but lack certain pieces of information; by asking specific questions within given contexts, you can fill those gaps efficiently.
+- **Enhancing Responses:** When dealing with complex queries that require deeper insights, providing context helps shape a more complete and relevant answer from the LLM.
+- **Function-Specific Responses:** If you need tailored outputs like data structuring (e.g., as JSON), guiding the interaction toward a particular function ensures clarity and purpose in communication.
+
+In essence, whenever there's a need for dynamic interactions with language models while maximizing output relevance and utility, the `Ask AI` block is an essential tool!

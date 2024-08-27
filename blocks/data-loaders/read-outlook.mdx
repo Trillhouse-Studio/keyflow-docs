@@ -2,12 +2,9 @@
 title: Read Outlook
 ---
 
-## Overview
+### **Overview:**
 
-Read any email from your Microsoft Outlook account.
-
-It’s particularly beneficial for managing email-based workflows efficiently, ensuring no important communication is missed.
-This block also allows reading only the mails with specific folders of your outlook account.
+The `Read Outlook` block allows you to efficiently access emails from your Microsoft Outlook account. It is invaluable for managing email workflows and ensuring that important communications are not overlooked. This block also grants the flexibility to read only the emails housed in specific folders of your Outlook account.
 
 <Note>
   To run this block, you will first need to authenticate your Microsoft Outlook
@@ -15,25 +12,28 @@ This block also allows reading only the mails with specific folders of your outl
   [credentials](https://keyflow.space/settings/credentials) page to connect.
 </Note>
 
-## Block Inputs
+---
 
-| Name     | Type   | Default | Explanation                                                             |
-| -------- | ------ | ------- | ----------------------------------------------------------------------- |
-| `folder` | string | INBOX   | Identifies a specific folder or sub-folder within your outlook account. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature         | Type     | Simple Explanation                                                                         |
+| ------ | --------------- | -------- | ------------------------------------------------------------------------------------------ |
+| input  | `folder`        | string   | Identifies a specific folder or sub-folder within your Outlook account (default is INBOX). |
+| output | `sender`        | string[] | Email ID of the sender(s).                                                                 |
+| output | `receiver`      | string[] | Email ID of the receiver(s).                                                               |
+| output | `email_subject` | string[] | Subject line of the email(s).                                                              |
+| output | `email_body`    | string[] | Body of the email(s) (can be HTML or plain text).                                          |
 
-| Name            | Type      | Explanation                                   |
-| --------------- | --------- | --------------------------------------------- |
-| `sender`        | string[ ] | Email ID of the sender.                       |
-| `receiver`      | string[ ] | Email ID of the receiver                      |
-| `email_subject` | string[ ] | Subject of the email                          |
-| `email_body`    | string[ ] | Body of the email (can be HTML or plain text) |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Automated Customer Support:** Responding automatically to customer queries via email.
-2. **Order and Invoice Processing:** Handling order or invoice emails for business operations.
-3. **Email Monitoring:** Keeping track of specific email labels for urgent updates or notifications.
-4. **Email Archiving:** Regularly backing up emails from designated labels.
-5. **Data Extraction:** Pulling information from emails for analysis or reporting.
+Consider how this block could enhance productivity in various scenarios:
+
+- **Automated Customer Support:** Facilitate automatic responses to customer inquiries via email, ensuring swift communication.
+- **Order and Invoice Processing:** Manage and handle order or invoice-related emails seamlessly, which can improve operational efficiency.
+- **Email Monitoring:** Set up monitoring for specific folders or labels that require immediate attention for urgent updates or notifications.
+- **Email Archiving:** Regularly back up important emails from designated folders, providing an organized history for future reference.
+- **Data Extraction:** Extract relevant information from received emails for analysis or detailed reporting purposes.
+
+In summary, by utilizing the `Read Outlook` block, users can streamline their email management processes across various use cases!

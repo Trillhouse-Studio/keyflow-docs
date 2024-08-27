@@ -2,33 +2,30 @@
 title: Input
 ---
 
-## Overview
+### **Overview:**
 
-It allows setting a default value or accepting user input at runtime, which can be used further down the automation flow.
-The input block allows setting accepting inputs into your flows. While building your automation, you can provide a test value to mock a incoming inputs.
+The `Input Configuration` block serves as a customizable input handler that allows users to define parameters for user inputs in a versatile manner. This block supports various types of input selections, making it adaptable for different application contexts.
 
-## Block Inputs
+---
 
-| Name         | Type     | Description                                                                                                                     |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `input_name` | string   | A name or label of the input, This name will identify the input in user view, external flows, share as form and app.            |
-| `test_value` | string   | A default value to mock the input when running a flow manually.                                                                 |
-| `input_type` | selector | Specifies the type of input field in user view and form/app view. It can be either `text`, `number`, `boolean`,`file`, `audio`. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature         | Type     | Simple Explanation                                                                                              |
+| ------ | --------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| input  | `input_name`    | string   | A name or label for the input, which identifies this parameter in various views.                                |
+| input  | `test_value`    | string   | A preset value used as a default when running the flow manually.                                                |
+| input  | `input_type`    | selector | Determines the type of input field displayed to users; options include text, number, boolean, file, audio.      |
+| output | `{input_value}` | string   | The actual value received from the user through this configuration; defaults to the test_value specified above. |
 
-| Name            | Type   | Description                                                               |
-| --------------- | ------ | ------------------------------------------------------------------------- |
-| `{input_value}` | string | The input value provided to the flow. Defaults to test_value of the block |
+---
 
-<Note>
-  The name of the output handle `{input_value}` changes dynamically based on the
-  `input_name`. So if the `input_name` is `gender`, The output handle would also
-  be `gender` representing the incoming value of the input block.
-</Note>
+### Use Cases
 
-## Use Cases
+This block can be beneficial in numerous scenarios:
 
-1. **Provide a pre-defined default value:** Provide a default value to the flow that will be used unless a value is being input from outside.
-2. **Dynamic, Genertic and Reusable automations:** Build flows that can be customized on-the-fly based on the user's input or use existing flows as blocks using external flow blocks.
-3. **Form inputs and User View:** Show appropriate input fields for the flow in form view or user view.
+- **Form Creation:** Simplifies building dynamic forms where each field can be customized easily via names and types.
+- **User Input Handling:** Ideal for applications requiring varied data entry formats (like uploading files or entering numbers) while maintaining consistent backend handling.
+- **Testing Flows:** Facilitates manual testing by allowing testers to set default values before initiating flows without needing full data integration.
+- **Data Collection:** Efficiently collects information from end-users on platforms like surveys or feedback forms with clearly labeled inputs.
+
+In conclusion, whenever there's a requirement to gather diverse forms of user inputs seamlessly and flexibly within an application context, the `Input Configuration` block provides a streamlined solution!

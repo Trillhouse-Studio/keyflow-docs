@@ -2,9 +2,9 @@
 title: AI Web Search
 ---
 
-## Overview
+### **Overview:**
 
-Harness the power of the [Exa API (formerly Metaphor)](https://exa.ai/) to conduct AI-driven web searches, enabling you to find relevant websites based on your query.
+The `AI Web Search` block empowers users to perform AI-driven web searches, enabling the discovery of relevant websites based on a specified query.
 
 <Note>
   This block currently is only available for Starter, Pro and Enterprise keyflow
@@ -13,24 +13,27 @@ Harness the power of the [Exa API (formerly Metaphor)](https://exa.ai/) to condu
   Exa API Key.
 </Note>
 
-## Block Inputs
+---
 
-| Name          | Type   | Default | Description                                                    |
-| ------------- | ------ | ------- | -------------------------------------------------------------- |
-| `query`       | string |         | The search term or phrase used to find relevant websites.      |
-| `url`         | string |         | (Optional) The URL of a website to find similar links.         |
-| `num_results` | number | 5       | The number of relevant website URLs to retrieve. Default is 5. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature        | Type     | Simple Explanation                                                         |
+| ------ | -------------- | -------- | -------------------------------------------------------------------------- |
+| input  | `query`        | string   | The search term or phrase used to find relevant websites.                  |
+| input  | `url`          | string   | (Optional) The URL of a website to find similar links.                     |
+| input  | `num_results`  | number   | The number of relevant website URLs to retrieve; defaults to 5.            |
+| output | `website_urls` | string[] | An array containing website URLs that are pertinent to the provided query. |
 
-| Name           | Type      | Description                                                       |
-| -------------- | --------- | ----------------------------------------------------------------- |
-| `website_urls` | string[ ] | An array of website URLs that are relevant to the provided query. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Finding Relevant Websites:** Quickly discover relevant websites based on specific search queries.
-2. **Exploring Similar Links:** Find websites similar to a given URL for further exploration.
-3. **Research and Information Gathering:** Gather information and resources from various websites related to a topic.
-4. **Content Curation:** Collect a list of websites to curate content or gather references for articles or projects.
-5. **Competitor Analysis:** Analyze competitor websites or related sources to gather insights and information.
+Consider how this block can be utilized in various scenarios:
+
+- **Finding Relevant Websites:** This feature expedites the process of discovering important websites simply by entering specific search queries.
+- **Exploring Similar Links:** Utilize this functionality when looking for websites that share similarities with an existing URL, enhancing research capabilities.
+- **Research and Information Gathering:** As part of academic or professional research projects, you can efficiently collect information from diverse resources online related to a particular topic.
+- **Content Curation:** Perfect for content creators aiming to compile references or resources from numerous sites into one organized list for articles or projects.
+- **Competitor Analysis:** Leverage it in business development by uncovering insights through analyzing competitor websites and gathering related data.
+
+In essence, whenever there's a need for finding online information tailored around specific themes or topics, the `AI Web Search` block proves indispensable!

@@ -2,28 +2,31 @@
 title: Modify Text
 ---
 
-## Overview
+### **Overview:**
 
-Format a given string based on the specified formatting condition. This block is your go-to tool for standardizing textual data by converting text to lowercase or uppercase, capitalizing the first letter of each word, removing extra spaces, or shortening the string to a defined number of tokens.
+The `Modify Text` block is designed to standardize textual data according to specific formatting conditions. This block provides functionality for transforming strings by converting them to lowercase or uppercase, capitalizing each word, trimming extra spaces, and truncating the string based on a defined number of tokens.
 
-## Block Inputs
+---
 
-| Name             | Type   | Description                                                                                                                              |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `value`          | string | The string that you want to format.                                                                                                      |
-| `formatter`      | string | The formatting you want to apply to the given string. Options include: To Lowercase, To Uppercase, To Propercase, Trim Spaces, Truncate. |
-| `max_num_tokens` | number | The number of tokens (words or characters) to which you want to limit your string. Required if using the "Truncate" formatter.           |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature                                  | Type   | Simple Explanation                                                                                                           |
+| ------ | ---------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| input  | `value`                                  | string | The string that you want to format.                                                                                          |
+| input  | `formatter`                              | string | Specifies the formatting action to apply. Options include: To Lowercase, To Uppercase, To Propercase, Trim Spaces, Truncate. |
+| input  | `max_num_tokens` (required for Truncate) | number | The maximum number of tokens (words or characters) allowed if using the "Truncate" formatter.                                |
+| output | `formatted_value`                        | string | The resulting string after applying the specified formatting operation.                                                      |
 
-| Name              | Type   | Description                                |
-| ----------------- | ------ | ------------------------------------------ |
-| `formatted_value` | string | The string after the specified formatting. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **To Lowercase:** For uniformity in text, like converting email addresses or usernames.
-2. **To Uppercase:** For making titles or acronyms stand out.
-3. **To Propercase:** For ensuring each word starts with a capital letter, often used for names or titles.
-4. **Trim Spaces:** For cleaning up the text by removing leading and trailing spaces.
-5. **Truncate:** For shortening textual data to a specific length, such as summarizing content or adhering to character limits in databases or other systems.
+Consider how this block can enhance your text processing tasks:
+
+- **To Lowercase:** When managing user accounts by converting email addresses uniformly—ensuring consistency across databases.
+- **To Uppercase:** In a situation where you need promotional banners or key terms accentuated—this feature makes certain items more noticeable.
+- **To Propercase:** Useful while preparing a formal list of names; it ensures that titles and names are displayed neatly with appropriate capitalization.
+- **Trim Spaces:** An effective first step in cleaning up user-generated content or form inputs where spacing errors may occur frequently.
+- **Truncate:** Ideal for summarizing lengthy descriptions into bite-sized catchphrases—a perfect fit for social media posts or brief reports.
+
+In summary, whenever there’s a need to manipulate text formats quickly and efficiently, the `Modify Text` block serves as an invaluable resource!

@@ -2,27 +2,30 @@
 title: Extract CSV Column
 ---
 
-## Overview
+### **Overview:**
 
-Extract a specific column from your CSV file.
+The `Extract CSV Column` block is designed to simplify the extraction of a specific column from a CSV file. This functionality allows users to easily access relevant data without dealing with unnecessary information.
 
-## Block Inputs
+---
 
-| Name            | Type     | Explanation                                                                                                  |
-| --------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `csv_file_name` | file     | The file to read as text.                                                                                    |
-| `column_index`  | number   | Index of the column to be read. Indexing starts at 0.                                                        |
-| `has_headers`   | checkbox | If true, it skips the first line of the csv file considering them as headers and reads from the second line. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature         | Type     | Simple Explanation                                                                               |
+| ------ | --------------- | -------- | ------------------------------------------------------------------------------------------------ |
+| input  | `csv_file_name` | file     | The file that contains the CSV data you want to extract from.                                    |
+| input  | `column_index`  | number   | Specifies which column to read, starting the count at 0 for the first column.                    |
+| input  | `has_headers`   | checkbox | When checked, will skip the first line (headers) and start reading from the second line of data. |
+| output | `csv_column`    | string[] | The array containing all values from the specified column extracted from the CSV file.           |
 
-| Name         | Type      | Explanation                                           |
-| ------------ | --------- | ----------------------------------------------------- |
-| `csv_column` | string[ ] | The specified column data extracted from the CSV file |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Data Analysis**: Isolating a column for detailed examination or statistical analysis.
-2. **Workflow Integration**: Utilizing column data in subsequent stages of an automation process.
-3. **Report Generation**: Extracting specific data for reporting purposes or list creation.
-4. **Simplifying Data Access**: Facilitating data extraction for users without extensive data handling expertise, focusing on a single column rather than the full file.
+Consider how this block can enhance various tasks:
+
+- **Data Analysis:** When conducting statistical research, extracting only necessary columns helps focus on key metrics without distraction.
+- **Workflow Integration:** In automated processes, you might need specific data processed further down your workflow; this block makes it straightforward by isolating crucial information.
+- **Report Generation:** Efficiently create reports by pulling relevant column data directly, streamlining your documentation process with only pertinent details.
+- **Simplifying Data Access:** For users unfamiliar with extensive datasets but needing particular information, this tool lets them handle just one specified column effortlessly.
+
+In summary, when you need fast and effective access to selected pieces of data within a CSV, the `Extract CSV Column` block proves indispensable!

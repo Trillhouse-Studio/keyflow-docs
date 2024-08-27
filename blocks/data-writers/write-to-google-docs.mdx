@@ -2,33 +2,36 @@
 title: Write to Google Docs
 ---
 
-## Overview
+### **Overview:**
 
-Interact with Google Docs to write or update documents with specified text content. It supports Google Docs format and is valuable for automating document creation and updates.
+The `Google Docs Interaction` block enables automated writing or updating of documents with specified content. It is designed to work seamlessly with Google Docs format, significantly enhancing efficiency in document creation and management.
 
 <Note>
   To run this block, you will first need to authenticate your Google account
   with Keyflow. Navigate to your
   [credentials](https://keyflow.space/settings/credentials) page and connect
-  your Google Docs using "Read & Write Google Docs"
+  your Google Docs using "Read & Write Google Docs."
 </Note>
 
-## Block Inputs
+---
 
-| Name                      | Type    | Description                                                                                              |
-| ------------------------- | ------- | -------------------------------------------------------------------------------------------------------- |
-| `text_content`            | string  | The text to be written to the Google Doc.                                                                |
-| `use_existing_google_doc` | boolean | Write to an existing Google Doc instead of creating a new one.                                           |
-| `file_link_or_id`         | string  | Link or unique ID of your Google Doc. Only to be provided when `use_existing_google_doc` is set to true. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature                         | Type    | Simple Explanation                                                                                            |
+| ------ | ------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------- |
+| input  | `text_content`                  | string  | The specific text you wish to insert into the Google Document.                                                |
+| input  | `use_existing_google_doc`       | boolean | Choose whether to write to an existing document instead of generating a new one.                              |
+| input  | `file_link_or_id` (conditional) | string  | This should contain the link or unique identifier of your Google Doc, only required if using an existing doc. |
+| output | `doc_url`                       | string  | Provides the link to either the newly created or updated Google Document.                                     |
 
-| Name      | Type   | Description                                          |
-| --------- | ------ | ---------------------------------------------------- |
-| `doc_url` | string | The link to the newly created or updated Google Doc. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Creating Reports:** Automating the process of creating reports and saving them in Google Docs format.
-2. **Updating Documents:** Appending information to an existing document without manual editing.
-3. **Integrating Workflows:** Integrating document-writing capabilities into larger automated workflows that handle various types of data and require documentation or logging.
+Consider how this block can enhance productivity in various situations:
+
+- **Creating Reports:** Streamline your reporting processes by automating report generation and saving them directly in Google Docs, ensuring consistent formatting.
+- **Updating Documents:** Effortlessly append new data or information to existing documents without having to manually edit every instance.
+- **Integrating Workflows:** Incorporate this block into larger automated workflows that process various types of data while maintaining robust documentation practices.
+
+In summary, the `Google Docs Interaction` block is ideal for any task where automating document creation or updates leads to increased efficiency and accuracy!

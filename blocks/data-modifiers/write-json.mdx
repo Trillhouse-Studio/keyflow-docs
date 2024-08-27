@@ -2,26 +2,29 @@
 title: Write JSON
 ---
 
-## Overview
+### **Overview:**
 
-Modify JSON data by adding or updating key-value pairs. This block allows modifying a JSON object without the need for manual editing or custom code.
+The `Write JSON` block enables users to efficiently add or update key-value pairs within a JSON object. This block eliminates the need for manual interventions or custom coding, making it particularly useful for automation and data management.
 
-## Block Inputs
+---
 
-| Name         | Type   | Description                                                                                                                       |
-| ------------ | ------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| `key`        | string | List of comma-separated keys representing the keys in the JSON object where the value will be added or updated.                   |
-| `json`       | object | The original JSON data to update. If not provided, creates a new JSON object.                                                     |
-| `json_value` | string | List of comma-separated values that will be added or updated in the JSON data, can be a new or updated value for an existing key. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature        | Type   | Simple Explanation                                                                                                                    |
+| ------ | -------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| input  | `key`          | string | A list of comma-separated keys that specify which keys in the JSON object will have their values added or updated.                    |
+| input  | `json`         | object | The original JSON data designated for updating. If this is absent, a new JSON object will be created instead.                         |
+| input  | `json_value`   | string | A list of comma-separated values to be added or updated in conjunction with the specified keys; can represent new or existing values. |
+| output | `updated_json` | object | The modified version of the original JSON that reflects all changes made by updating or adding values for the specified keys.         |
 
-| Name           | Type   | Description                                                                                                                  |
-| -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| `updated_json` | object | The new version of the original JSON, now containing the changes made by adding or updating the value for the specified key. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Updating Configuration Settings:** Easily insert new values into a JSON object or update existing values for configuration purposes.
-2. **Modifying API Response Data:** Ensure that response data from an API contains up-to-date information by using this block.
-3. **Dynamic Updating of JSON Content:** Simplify tasks involving the manipulation of JSON content within automated processes.
+Consider how this block can streamline various processes:
+
+- **Updating Configuration Settings:** When managing application settings, use this block to effortlessly inject new parameters into your configuration without manually editing files.
+- **Modifying API Response Data:** If you're working with responses from external APIs, apply this block to ensure that your data remains current by updating key information right away.
+- **Dynamic Updating of JSON Content:** In automated workflows where you frequently modify data structures, use this tool to maintain up-to-date records without extensive coding efforts.
+
+In summary, whenever there's a need to adjust key-value pairs within a JSON structure, the `Write JSON` block provides an effective solution!

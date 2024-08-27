@@ -3,32 +3,60 @@ title: "Quickstart"
 description: "Start automating in under 5 minutes"
 ---
 
-### Get started with templates
+## Basic Terminology
 
-The best way to get started is by using a prebuilt template!
+`flow`: process or workflow you want to automate
 
-We've built 50+ functional workflows categorized by their use cases for you to browse, explore and learn Keyflow. You can use these to understand how things work or to run out of the box, each is built to be immediately useful
+`blocks` : logical units that perform an action
 
-Get started with [templates here](https://www.keyflow.space/templates)
+`blocks` are building blocks that build up your process or workflows called `flows`
 
-For this quickstart guide, we'll pick the <i>["Email Auto-Replier"](https://www.keyflow.space/templates/administration/email-auto-replier)</i> under the `administration` category of the templates. Simply open the template's page using the link and click on the <b>"Use Template"</b> button
+## Start with our examples
 
-<Frame>
-  <img
-    className="block dark:hidden"
-    src="/images/quickstart/email-auto-replier-light.png"
-    alt="Email auto-replier automation template in Keyflow"
-  />
-  <img
-    className="hidden dark:block"
-    src="/images/quickstart/email-auto-replier-dark.png"
-    alt="Email auto-replier automation template in Keyflow"
-  />
-</Frame>
+The best way to experience the power of Keyflow is by running a `flow`. We have built some example `flows` you can try right away. **Check them out here**
+
+Let’s go through an example to understand how a `flow` works. We will pick _“Newsletter digest”_ for demonstration purposes.
+
+---screenshot of newsletter digest flow---
+
+### Loading data
+
+We start the `flow` with a `Read Gmail block` that reads data from my inbox. In this particular case, it reads the `20` most recent emails with label `newsletter` applied to it.
+
+> 💡 The data a `block` returns can be connected to inputs of other `blocks` . Here we connect `email_body` and `email_subject` output of Gmail block to a text block.
+
+### Modifying data
+
+Text block allows us to format text with any number of inputs. Here we take data like `email_body` and `email_subject` and format in the following string.
+
+```jsx
+Email Subject: {subject}
+Email Body: {body}
+```
+
+Notice that Text block is in batch mode, which means, it processes a list of emails and for each email, it creates the text format you see above. You can learn more about **Batch mode in Core Concepts.**
+
+Next we take a list of formatted text from Text block and join it into one string (text) using Join Text Array block. We separate each email in this text with “===================” demiliter.
+
+Now we have data we can pass for AI analysis!
+
+### AI Analysis
+
+We take Join Text Array output which is all our newsletter email data and pass it as `context` to Ask AI block. This gives the AI context on all our emails. Now we can ask it any question in plain english!
+
+Here we ask it to create a bullet point digest of all my news letter. The exact question is bit more detailed. You can think of the question as a `prompt` . The better you prompt the model, the better results you get. Here is a guide on how to write better prompts.
+
+### Taking Actions
+
+Once AI has analysed the data, we can take actions on any apps we use. We can save it Notion, Google Docs, Google Sheets, or we c.n send it in an email or as an Whatsapp message. The sky is the limit!
+
+> ℹ Don’t see your favourite app? Request it here
+
+In our case, we will send it to ourselves as an email using Send Email Notification block. This will send an email to the recipient from founders@keyflow.space. If you want to send an email from your inbox, use our Gmail or Outlook blocks.
 
 ### Running a flow
 
-You can simply run the workflow by hitting the run button in the top right corner. Running a workflow will auto-save the current version of your workflow.
+Now we understand how the flow functions. Let’s run it! You can simply run a `flow` by hitting the run button in the top right corner. Running a workflow will auto-save the current version of your workflow.
 
 <Frame>
   <img
@@ -64,6 +92,50 @@ After hitting run, you will see the workflow in real-time as the blocks are bein
     alt="Output after running a flow"
   />
 </Frame>
+
+## Automating Flows
+
+Keyflow is all about removing friction and automating your life. Running a `flow` by clicking a button is cool but we don’t want to manually trigger them everytime we need something done.
+
+You can create triggers to automatically run your flows! You can automatically trigger them:
+
+1. On a schedule
+2. When you receive an email
+3. When you remove/delete an email
+4. When you apply or remove a label to an email
+5. When you upload a file to Google Drive (coming soon ✨)
+6. via our API
+
+> ℹ️ Want to trigger on custom event? Request a custom event trigger
+
+### Get started with templates
+
+The best way to get started is by using a prebuilt template!
+
+We've built 50+ functional workflows categorized by their use cases for you to browse, explore and learn Keyflow. You can use these to understand how things work or to run out of the box, each is built to be immediately useful
+
+Get started with [templates here](https://www.keyflow.space/templates)
+
+For this quickstart guide, we'll pick the <i>["Email Auto-Replier"](https://www.keyflow.space/templates/administration/email-auto-replier)</i> under the `administration` category of the templates. Simply open the template's page using the link and click on the <b>"Use Template"</b> button
+
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/quickstart/email-auto-replier-light.png"
+    alt="Email auto-replier automation template in Keyflow"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/quickstart/email-auto-replier-dark.png"
+    alt="Email auto-replier automation template in Keyflow"
+  />
+</Frame>
+
+### Running a flow
+
+You can simply run the workflow by hitting the run button in the top right corner. Running a workflow will auto-save the current version of your workflow.
+
+After hitting run, you will see the workflow in real-time as the blocks are being executed. The outputs of each block will be displayed in the side panel after they have completed processing.
 
 ## Next Steps
 

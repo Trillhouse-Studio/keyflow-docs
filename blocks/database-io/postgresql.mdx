@@ -13,21 +13,23 @@ The PostgreSQL block executes a SQL query on a PostgreSQL database and returns t
   page and connect add connection string to "PostgreSQL" integration
 </Note>
 
-## Block Inputs
+### Inputs & Outputs
 
-| Name    | Type   | Description                                                 |
-| ------- | ------ | ----------------------------------------------------------- |
-| `query` | string | The SQL query to be executed on the PostgreSQL database.    |
-| `data`  | object | Optional data object to be used as parameters in the query. |
+| I/O    | Feature           | Type   | Simple Explanation                                               |
+| ------ | ----------------- | ------ | ---------------------------------------------------------------- |
+| input  | `query`           | string | The SQL query you want to run on the PostgreSQL database.        |
+| input  | `data` (optional) | object | A set of parameters to format your query dynamically if needed.  |
+| output | `query_response`  | string | The JSON string containing the response from the executed query. |
 
-## Block Outputs
+---
 
-| Name             | Type   | Description                                                   |
-| ---------------- | ------ | ------------------------------------------------------------- |
-| `query_response` | string | The json string response returned by the PostgreSQL database. |
+### Use Cases
 
-## Use Cases
+Explore how this block enhances functionality across various applications:
 
-1. **Data Retrieval:** Fetch data from a PostgreSQL database to be used in subsequent steps of the workflow.
-2. **Data Manipulation:** Execute SQL queries to perform data manipulation operations such as insert, update, or delete.
-3. **Database Integration:** Integrate PostgreSQL databases with automation workflows for streamlined data processing.
+- **Dynamic Reporting:** When generating reports, use this block to run complex SQL queries that aggregate sales data over time, allowing stakeholders to make informed decisions based on real-time insights.
+- **User Data Management:** In user-centric services like subscription apps, retrieve specific user profiles or preferences by executing tailored queries, ensuring personalized experiences for users.
+- **Data Migration:** During system upgrades or migrations, leverage this block to execute necessary data retrieval operations from old databases before transferring it into new structures.
+- **Batch Processing:** For processing large datasets, such as analyzing customer transactions monthly or retrieving logs for error analysis across multiple entries efficiently using batch SQL commands.
+
+In essence, the `PostgreSQL Query Executor` block serves as a powerful tool in managing and manipulating your database interactions effortlessly!

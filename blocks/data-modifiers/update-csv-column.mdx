@@ -2,30 +2,31 @@
 title: Update CSV Column
 ---
 
-## Overview
+### **Overview:**
 
-The Update CSV Column block modifies an existing CSV file by updating or adding a new column with the supplied data.
+The `Update CSV Column` block allows users to efficiently modify an existing CSV file by either updating a designated column with new data or adding a new column altogether.
 
-## Block Inputs
+---
 
-| Name              | Type      | Description                                                                                                 |
-| ----------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
-| `csv_file_name`   | file      | The CSV file that needs to be updated. It must be in .csv format.                                           |
-| `column_index`    | number    | Represents the position of the column to be updated in the CSV file. The first column is denoted by 0.      |
-| `has_headers`     | boolean   | Indicates whether the first row of the CSV file contains column headers.                                    |
-| `is_new_column`   | boolean   | Indicates whether the column to be updated is a new one that didn't exist in the original file.             |
-| `column_contents` | string[ ] | Contains the new values to be placed into the specified column. Each value corresponds to a row in the CSV. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature                 | Type     | Simple Explanation                                                                                         |
+| ------ | ----------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| input  | `csv_file_name`         | file     | The target CSV file that needs modification, which must be in .csv format.                                 |
+| input  | `column_index`          | number   | Identifies the position of the column to update (0 for the first column).                                  |
+| input  | `has_headers`           | boolean  | Indicates whether the first row contains headers, helping determine how to process incoming data.          |
+| input  | `is_new_column`         | boolean  | Specifies if the designated column for updating is newly created or has existed previously.                |
+| input  | `column_contents`       | string[] | New values that will populate into the specified column; each entry aligns with a row in the original CSV. |
+| output | `updated_csv_file_name` | file     | The resultant new CSV file name generated after incorporating updates or new columns.                      |
 
-| Name                    | Type | Description                                                                                  |
-| ----------------------- | ---- | -------------------------------------------------------------------------------------------- |
-| `updated_csv_file_name` | file | The name of the new CSV file that has been generated with the updated or newly added column. |
+---
 
-## Use Cases
+### Use Cases
 
-Think of this node as your go-to tool for any task where you need to update or add a new column in a CSV file:
+Here’s how this block can streamline various tasks:
 
-1. **Merging New Data:** When you need to merge new data into an existing dataset.
-2. **Correcting Errors:** When corrections are necessary for a dataset due to errors or updates in the data.
-3. **Adding Calculated Fields:** If there's a need to add a calculated field or indicator based on other columns in the dataset.
+- **Merging New Data:** Suppose you’ve collected additional metrics from an ongoing project and need to integrate these into your existing dataset—this block facilitates seamless merging without losing any previous information.
+- **Correcting Errors:** If you discover discrepancies within your dataset due to incorrect entries, this tool allows easy corrections by replacing erroneous values in designated columns effectively.
+- **Adding Calculated Fields:** When analyzing sales data over different periods, you might want to add a calculated “growth rate” field based on other figures—this block enables creating dynamic fields directly linked to your underlying data.
+
+In essence, any scenario requiring updates or enhancements within a CSV can be efficiently handled using the `Update CSV Column` block!

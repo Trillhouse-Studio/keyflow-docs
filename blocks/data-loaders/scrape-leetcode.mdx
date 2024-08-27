@@ -2,24 +2,30 @@
 title: Scrape Leetcode
 ---
 
-## Overview
+### **Overview:**
 
-Scrape a leet code problem from it's problem ID and retrieve key information that can be then be used by LLMs to generate code solutions on your language of choice.
+The `Scrape Leetcode` block is built to simplify the extraction of essential information from LeetCode problems using their unique problem ID. This functionality enables seamless interaction with Language Learning Models (LLMs) for generating coding solutions tailored to your preferred programming language.
 
-## Block Inputs
+---
 
-| Name        | Type   | Explanation                             |
-| ----------- | ------ | --------------------------------------- |
-| `problemId` | number | Problem number of the leetcode problem. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature          | Type   | Simple Explanation                                                             |
+| ------ | ---------------- | ------ | ------------------------------------------------------------------------------ |
+| input  | `problemId`      | number | The unique identifier for the LeetCode problem you wish to scrape.             |
+| output | `title`          | string | The title of the specified LeetCode problem.                                   |
+| output | `content`        | string | A detailed description of the problem, including requirements and constraints. |
+| output | `codeDefinition` | string | The expected function signature as required by the LeetCode editor.            |
 
-| Name             | Type   | Explanation                                                   |
-| ---------------- | ------ | ------------------------------------------------------------- |
-| `title`          | string | Titles of the problem.                                        |
-| `content`        | string | Problem description of the problem outlining the requirements |
-| `codeDefinition` | string | Function definition expected by the leetcode editor           |
+---
 
-## Use Cases
+### Use Cases
 
-2. **Compare solutions**: Generate solutions based on various algorithms coded by GPT and reason them for educational purposes
+Consider how this block can enhance workflows in various contexts:
+
+- **Educational Tool:** Use this block to extract problems and their descriptions for teaching purposes, allowing students to engage with real coding challenges.
+- **Algorithm Research:** Researchers can compare algorithm implementations by scraping various problems, helping them analyze different solution strategies based on GPT-generated code.
+- **Language Adaptation:** Developers working in multiple languages can retrieve a single problem's details and generate corresponding solutions across different programming languages efficiently.
+- **Coding Practice Consolidation:** If you're preparing for coding interviews, gather multiple practice problems in one step instead of manually browsing through each one individually.
+
+In essence, whenever you need quick access to structured data from LeetCode problems for solution generation or analysis, the `Scrape LeetCode` block proves invaluable!

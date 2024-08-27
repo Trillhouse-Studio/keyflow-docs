@@ -2,26 +2,29 @@
 title: Extract CSV Rows
 ---
 
-## Overview
+### **Overview:**
 
-Reads a CSV file row-wise and converts the contents into a 2D string array.
+The `Extract CSV Rows` block is designed to efficiently read CSV files row-wise and convert the data into a manageable 2D string array. This functionality allows for seamless integration of CSV data into various workflows, supporting diverse applications in data processing.
 
-## Block Inputs
+---
 
-| Name            | Type     | Explanation                                                                                                  |
-| --------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `csv_file_name` | file     | The file to read as text.                                                                                    |
-| `has_headers`   | checkbox | If true, it skips the first line of the csv file considering them as headers and reads from the second line. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature         | Type       | Simple Explanation                                                                                                          |
+| ------ | --------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------- |
+| input  | `csv_file_name` | file       | The CSV file to be read as text, providing the source of your row-wise data.                                                |
+| input  | `has_headers`   | checkbox   | If checked, it skips the first line of the CSV file, treating them as headers and starting extraction from the second line. |
+| output | `csv_rows`      | string[][] | A 2D string array containing row-wise data extracted from the specified CSV file.                                           |
 
-| Name       | Type         | Explanation                                                    |
-| ---------- | ------------ | -------------------------------------------------------------- |
-| `csv_rows` | string[ ][ ] | A 2D string array of row-wise data extracted from the CSV file |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Data Analysis Automation**: For scenarios needing automated extraction and analysis of CSV data.
-2. **Workflow Efficiency**: Integrating CSV row extraction into broader automation workflows, especially where data is transferred to other processes or systems.
-3. **Time-Saving**: Beneficial in handling large or numerous CSV files, reducing manual data processing.
-4. **Error Reduction**: Eliminates the risk of manual errors in data transcription or extraction processes.
+Consider how this block can enhance efficiency in various situations:
+
+- **Data Analysis Automation:** Imagine needing to extract information from multiple CSV files for analysis; this block automates that process, allowing for immediate insights without manual intervention.
+- **Workflow Efficiency:** When integrating data extraction into larger automated workflows (e.g., transferring extracted data to other applications), this block serves as a crucial component.
+- **Time-Saving:** In cases involving large datasets across numerous CSV files, utilizing this block significantly decreases manual handling time by automating extraction processes.
+- **Error Reduction:** By eliminating manual transcription errors associated with copying data from CSVs manually, this tool enhances accuracy in your datasets.
+
+In summary, whenever there’s a requirement for systematic processing of structured data contained within a CSV format, the `Extract CSV Rows` block provides an effective solution!

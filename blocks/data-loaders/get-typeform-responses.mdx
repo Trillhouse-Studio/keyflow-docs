@@ -2,28 +2,29 @@
 title: Get Typeform Responses
 ---
 
-## Overview
+### **Overview:**
 
-Retrieves and organizes responses from a specific Typeform survey into a list. Routinely manage and interpret data from Typeform surveys, providing a convenient and efficient approach to response collection and organization.
+The `Get Typeform Responses` block is designed to retrieve and organize responses from a specific Typeform survey into a manageable list. This functionality allows for routine management and interpretation of survey data, simplifying the process of response collection.
 
-## Block Inputs
+---
 
-| Name           | Type   | Default | Explanation                                                   |
-| -------------- | ------ | ------- | ------------------------------------------------------------- |
-| `form_id`      | file   |         | The unique identifier of the Typeform survey to extract data. |
-| `num_response` | number | 5       | Specify the maximum number of responses to retrieve.          |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature        | Type     | Simple Explanation                                                                       |
+| ------ | -------------- | -------- | ---------------------------------------------------------------------------------------- |
+| input  | `form_id`      | file     | The unique identifier of the Typeform survey to extract data from.                       |
+| input  | `num_response` | number   | Specify the maximum number of responses you wish to retrieve, with a default value of 5. |
+| output | `responses`    | string[] | An organized list containing the retrieved survey responses.                             |
 
-| Name      | Type        | Explanation                                                         |
-| --------- | ----------- | ------------------------------------------------------------------- |
-| responses | `string[ ]` | The output that contains an organized list of the survey responses. |
+---
 
-## Use Cases
+### Use Cases
 
-The "Get Typeform Responses" node is a valuable component for various scenarios involving Typeform data:
+Consider how this block can enhance your workflow in various contexts:
 
-1. **Feedback Analysis:** Makes analyzing customer or employee feedback a breeze.
-2. **Survey Data Aggregation:** Streamlines the collection of survey results for further evaluation.
-3. **Market Research:** Quickly gathers consumer insights and preferences from survey data.
-4. **Academic Research:** Effortlessly compiles research data from surveys for analysis.
+- **Feedback Analysis:** Utilize this block to analyze customer or employee feedback systematically, facilitating easier identification of trends and insights.
+- **Survey Data Aggregation:** Effortlessly gather results from surveys across different platforms for comprehensive evaluation and reporting.
+- **Market Research:** Streamline the process of collecting consumer preferences through surveys, allowing for quicker analysis and decision-making based on valuable insights.
+- **Academic Research:** Compile data efficiently from academic surveys, ensuring that researchers have easy access to organized information for their studies.
+
+In summary, whenever there's a need to pull together survey data into an easily interpretable format, the `Get Typeform Responses` block is an essential tool!

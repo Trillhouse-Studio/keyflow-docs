@@ -2,29 +2,35 @@
 title: Extract Single Item
 ---
 
-## Overview
+### **Overview:**
 
-Extract a single value for each item from a text using AI.
+The `Extract Single Item` block leverages AI to systematically extract a single value for each item within a provided text. This functionality aids in efficiently handling and processing lists, ensuring relevant data can be retrieved swiftly.
 
-## Block Inputs
+---
 
-| Name                 | Type    | Description                                                                                                  |
-| -------------------- | ------- | ------------------------------------------------------------------------------------------------------------ |
-| `items`              | list    | A list of items that accepts `name` and `description` fields for each item.                                  |
-| `additional_context` | string  | Additional context or information to enhance the extraction process.                                         |
-| `cache_response`     | boolean | When enabled, it saves you AI calls by returning the same response if the inputs to the LLM has not changed. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O   | Feature              | Type    | Simple Explanation                                                                                         |
+| ----- | -------------------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| input | `items`              | list    | A collection of items that includes fields for `name` and `description` for each item.                     |
+| input | `additional_context` | string  | Extra information to provide context, enhancing the extraction process.                                    |
+| input | `cache_response`     | boolean | Enables response caching, helping minimize AI calls by reusing the same output if inputs remain unchanged. |
 
 <Note>
-  The output handles of type `string` are dynamically added as the items
-  provided in the list.
+  The output handles of type `string` are dynamically generated based on the
+  items provided in the list.
 </Note>
 
-## Use Cases
+---
 
-1. **Product Information Extraction:** Extracting specific details such as price or availability from a list of products.
-2. **Event Details Extraction:** Retrieving essential information like date, time, and location from a list of events.
-3. **Contact Information Extraction:** Extracting contact details such as name, email, and phone number from a list of contacts.
-4. **Inventory Management:** Extracting key attributes like quantity and location from a list of inventory items.
-5. **Document Parsing:** Extracting metadata or key points from a list of documents.
+### Use Cases
+
+Consider these practical scenarios where this block can be particularly beneficial:
+
+- **Product Information Extraction:** By providing a list of product descriptions, you can efficiently retrieve essential details like price or availability without manual effort.
+- **Event Details Extraction:** Given a roster of events, this tool simplifies extracting critical data such as dates, times, and locations—particularly useful for event planning or scheduling.
+- **Contact Information Extraction:** For businesses managing numerous contacts, utilize this feature to quickly gather pertinent information like names and phone numbers from comprehensive lists.
+- **Inventory Management:** Streamline your inventory processes by extracting key attributes such as quantity and location from diverse inventory items collectively.
+- **Document Parsing:** When reviewing multiple documents at once, use this function to extract crucial metadata or highlight significant points easily.
+
+In summary, whenever there’s a need to glean specific values from sets of items effectively, the `Extract Single Item` block is an invaluable resource!

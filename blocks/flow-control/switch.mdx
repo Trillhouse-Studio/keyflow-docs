@@ -2,28 +2,34 @@
 title: Switch
 ---
 
-## Overview
+### **Overview:**
 
-Evaluates a criterion against a list of cases and only executes the block in the subflow connected to that case.
+The `Case Evaluator` block is designed to execute specific subflows based on a defined criterion evaluated against a list of cases. This functionality enables dynamic and conditional processing, allowing for tailored actions based on varying input scenarios.
 
-## Block Inputs
+---
 
-| Name        | Type   | Description                                      |
-| ----------- | ------ | ------------------------------------------------ |
-| `cases`     | list   | List of cases to compare against the criterion.  |
-| `criterion` | string | The value to compare with each case in the list. |
+### Inputs & Outputs
 
-## Block Outputs
-
-The output handles are dynamically named after the cases provided in the list.
+| I/O    | Feature                           | Type   | Simple Explanation                                                   |
+| ------ | --------------------------------- | ------ | -------------------------------------------------------------------- |
+| input  | `cases`                           | list   | A collection of cases used for comparison against the criterion.     |
+| input  | `criterion`                       | string | The value that will be compared with each case in the provided list. |
+| output | `{case_name}` (dynamically named) | any    | Executes the connected subflow corresponding to the matched case.    |
 
 <Note>
   Only the subflow connected to the output handle corresponding to the matched
   case will be executed.
 </Note>
 
-## Use Cases
+---
 
-1. **Dynamic Case-based Processing:** Perform different actions based on the criterion matching specific cases.
-2. **Conditional Data Routing:** Route data flow dynamically based on various case scenarios.
-3. **Multi-Scenario Handling:** Handle different scenarios or conditions within a process flow by branching based on cases.
+### Use Cases
+
+Consider how this block can enhance your workflows in practical situations:
+
+- **Dynamic Case-based Processing:** In a customer support application, you might want different responses triggered depending on issue categories (like billing, technical support, etc.), enabling targeted assistance without manual intervention.
+- **Conditional Data Routing:** For an e-commerce platform, use this block to navigate orders through various processing lanes based on criteria such as payment status (e.g., pending payment versus confirmed), ensuring efficient order management.
+
+- **Multi-Scenario Handling:** Imagine a health monitoring app that sends alerts according to different patient data readings; by employing this block, you can process multiple condition evaluations seamlessly within one flow and respond accordingly.
+
+In general, whenever decisions need to be made or actions taken based on varying conditions or scenarios, the `Case Evaluator` block serves as an essential tool!

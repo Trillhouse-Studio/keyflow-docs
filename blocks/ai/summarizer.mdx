@@ -2,27 +2,30 @@
 title: Summarizer
 ---
 
-## Overview
+### **Overview:**
 
-Condenses extensive text into concise, informative summaries using GPT, which processes text in manageable sections.
+The `Summarizer` block is designed to condense extensive text into concise, informative summaries utilizing an advanced language model. This block efficiently processes text in manageable sections, making it user-friendly for diverse applications.
 
-## Block Inputs
+---
 
-| Name             | Type     | Description                                                                                                  |
-| ---------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `text`           | string   | The extensive piece of text you wish to summarize.                                                           |
-| `model`          | selector | LLM Model to be used for inference. Can be one of the following supported models.                            |
-| `cache_response` | boolean  | When enabled, it saves you AI calls by returning the same response if the inputs to the LLM has not changed. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature          | Type     | Simple Explanation                                                                                |
+| ------ | ---------------- | -------- | ------------------------------------------------------------------------------------------------- |
+| input  | `text`           | string   | The extensive piece of text you wish to summarize.                                                |
+| input  | `model`          | selector | LLM Model to be used for inference. You can select from a range of supported models.              |
+| input  | `cache_response` | boolean  | When enabled, it saves on AI calls by returning the same response if the inputs have not changed. |
+| output | `summary`        | string   | The condensed version of the input text that retains essential points and information.            |
 
-| Name      | Type   | Description                                                                                  |
-| --------- | ------ | -------------------------------------------------------------------------------------------- |
-| `summary` | string | The condensed version of the input text, which retains the essential points and information. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Summarizing Articles and Reports:** Quickly grasp the main ideas of lengthy articles and reports.
-2. **Distilling Large Documents:** Get a quick understanding of large volumes of information.
-3. **Grasping Essential Points:** Condense extensive text to retain essential points and information.
-4. **Understanding Lengthy Text:** Get a quick understanding of complex and lengthy text.
+Consider how this block enhances productivity in various situations:
+
+- **Summarizing Articles and Reports:** When faced with lengthy articles or reports, this tool allows you to quickly grasp main ideas without reading every detail.
+- **Distilling Large Documents:** For professionals working with comprehensive documents, consolidating vast amounts of information into key takeaways facilitates better decision-making.
+- **Grasping Essential Points:** In educational settings or during meetings, extracting crucial points from extensive texts supports efficient communication and understanding.
+- **Understanding Lengthy Text:** If you're analyzing complex materials—such as legal documents or research papers—this block helps simplify comprehension by summarizing the critical elements.
+
+In essence, whenever there is a need to condense lengthy materials into digestible formats, the `Summarizer` block proves invaluable!

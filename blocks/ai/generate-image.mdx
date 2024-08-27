@@ -2,27 +2,30 @@
 title: Generate Image
 ---
 
-## Overview
+### **Overview:**
 
-Generate images from prompt texts or image description using SOTA AI Models.
+The `Generate Image` block enables users to create images from descriptive text prompts or image descriptions utilizing state-of-the-art AI models. This feature is designed to provide a seamless experience in generating high-quality visuals.
 
-## Block Inputs
+---
 
-| Name         | Type     | Default   | Description                                                                                               |
-| ------------ | -------- | --------- | --------------------------------------------------------------------------------------------------------- |
-| `prompt`     | string   |           | Input description or prompt text for the AI model.                                                        |
-| `num_images` | number   | 1         | Determines the quantity of images to generate Maximum is 10.                                              |
-| `image_size` | selector | 512 x 512 | Resolution of the generated images. Can be one of the following: `256 x 256`, `512 x 512`, `1024 x 1024`. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature      | Type     | Simple Explanation                                                                                                                  |
+| ------ | ------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| input  | `prompt`     | string   | The description or prompt text that guides the AI model in generating the image.                                                    |
+| input  | `num_images` | number   | Specifies the number of images to generate, with a maximum limit of 10.                                                             |
+| input  | `image_size` | selector | Defines the resolution for the generated images, options include: <br /> - `256 x 256` <br /> - `512 x 512` <br /> - `1024 x 1024`. |
+| output | `image_urls` | string[] | Provides file paths for all generated images, which can be used as inputs in other image processing blocks.                         |
 
-| Name         | Type      | Description                                                                                  |
-| ------------ | --------- | -------------------------------------------------------------------------------------------- |
-| `image_urls` | string[ ] | File paths for all the generate images which can be used as an input for other image blocks. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Content Creation:** Provides visually captivating images for social media, marketing, or educational purposes.
-2. **Conceptual Visualization:** Useful for creating visuals to convey a specific concept or idea.
-3. **Exploring AI Creativity:** Offers a convenient and innovative solution for exploring the intersection of AI and creativity.
-4. **Quick Visual Representation:** Ideal for scenarios requiring quick and creative visual representation without the need for human artists.
+Consider how this block can enhance various projects and workflows:
+
+- **Content Creation:** Imagine developing visually appealing graphics for your social media feeds or marketing campaigns—this block generates captivating images tailored to your specific needs.
+- **Conceptual Visualization:** If you need an illustration that embodies an abstract idea or theme, simply provide a descriptive prompt that captures your vision.
+- **Exploring AI Creativity:** By leveraging this functionality, you can experiment with unique art styles and concepts created through AI-generated visuals—an exciting avenue for artists and creators.
+- **Quick Visual Representation:** In scenarios where fast turnaround times are essential (like presentations or reports), this block serves as a go-to tool for producing quick yet creative imagery without relying on traditional artistic workflows.
+
+In summary, whether for personal projects or professional endeavors requiring visual elements, the `Generate Image` block provides an innovative solution to fulfill those needs effectively!

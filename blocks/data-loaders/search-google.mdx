@@ -2,37 +2,40 @@
 title: Search Google
 ---
 
-## Overview
+### **Overview:**
 
-Search and fetch real-time data from the internet from Google Search using [Serp API](https://serpapi.com/).
+The `Google Search` block is designed to facilitate the searching and fetching of real-time data from Google using the [Serp API](https://serpapi.com/). This powerful tool allows users to obtain relevant search results efficiently, perfect for a variety of applications.
 
 <Note>
   This block currently is only available for Starter, Pro and Enterprise keyflow
-  accounts. To run this block navigate to your
+  accounts. To run this block, navigate to your
   [credentials](https://keyflow.space/settings/credentials) page and add your
   Serp API Key.
 </Note>
 
-## Block Inputs
+---
 
-| Name            | Type   | Default | Explanation                                            |
-| --------------- | ------ | ------- | ------------------------------------------------------ |
-| `query`         | string |         | Search term or query for Google. Max 255 characters    |
-| `results_count` | number | 5       | Maximum number of results to fetch from google. Max 10 |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature             | Type      | Simple Explanation                                                                                      |
+| ------ | ------------------- | --------- | ------------------------------------------------------------------------------------------------------- |
+| input  | `query`             | string    | The search term or query for Google, with a maximum length of 255 characters.                           |
+| input  | `results_count`     | number    | Specifies the maximum number of results to fetch from Google, up to a limit of 10.                      |
+| output | `title`             | string[]  | An array containing the titles of web pages returned in your search results.                            |
+| output | `links`             | string[]  | An array providing the links to these web pages.                                                        |
+| output | `snippets`          | string[]  | A collection of small excerpts from each sourced web page.                                              |
+| output | `current_page_link` | string    | The actual link for your current Google search query directly on Google's site.                         |
+| output | `next_page_link`    | string    | null/undefined if no next page exists; provides a link for accessing further result pages if available. |
 
-| Name                | Type      | Explanation                                     |
-| ------------------- | --------- | ----------------------------------------------- |
-| `title`             | string[ ] | Titles of web pages for your search results     |
-| `links`             | string[ ] | Links of the web pages for your search results. |
-| `snippets`          | string[ ] | Small excerpts from each of the web pages       |
-| `current_page_link` | string    | Actual Google link for your search query        |
-| `next_page_link`    | string    | Next page's link for your search query,         |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Research Gathering:** Efficiently collects detailed information from various online sources.
-2. **Brand Monitoring:** Tracks online mentions or presence of specific brands, products, or individuals.
-3. **Market Analysis:** Useful for compiling and analyzing search results for market studies or competitive intelligence.
-4. **Real-time Data:** Retrieve real-time data from events and empower your LLMs responses to be aware of it.
+Consider how this block can enhance various real-world scenarios:
+
+- **Research Gathering:** Ideal for efficiently collecting detailed information across multiple online sources like articles or studies when conducting extensive research.
+- **Brand Monitoring:** Enables tracking mentions and online visibility concerning specific brands or products by monitoring search engine results regularly.
+- **Market Analysis:** Useful in compiling insights and analyzing competitive data by gathering relevant information found during market studies based on targeted queries.
+- **Real-time Data Retrieval:** Provides immediate data acquisition about unfolding events—perfectly suited for applications where keeping users updated with current trends is essential.
+
+In summary, whenever you need quick access to comprehensive real-time information through internet searches, the `Search Google` block proves invaluable!

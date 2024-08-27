@@ -29,10 +29,6 @@
     {
       "name": "Support",
       "url": "mailto:founders@keyflow.space"
-    },
-    {
-      "name": "Sign In",
-      "url": "https://keyflow/space/login"
     }
   ],
   "topbarCtaButton": {
@@ -63,13 +59,16 @@
       "pages": [
         "introduction",
         "quickstart",
-        "terminology",
         {
           "group": "Core Concepts",
           "pages": [
             "core-concepts/blocks",
             "core-concepts/flows",
             "core-concepts/batch-mode",
+            "core-concepts/nesting-flows",
+            "core-concepts/ai-agents",
+            "core-concepts/app-view",
+            "core-concepts/chat-view",
             "core-concepts/integrations",
             "core-concepts/block-versioning",
             "core-concepts/external-flows",
@@ -107,16 +106,16 @@
             "blocks/data-loaders/read-outlook",
             "blocks/data-loaders/scrape-reddit",
             "blocks/data-loaders/extract-csv-rows",
-            "blocks/data-loaders/get-typeform-responses",
             "blocks/data-loaders/extract-csv-columns",
+            "blocks/data-loaders/get-typeform-responses",
             "blocks/data-loaders/scrape-website",
-            "blocks/data-loaders/scrape-advanced-website",
             "blocks/data-loaders/enrich-company-information",
             "blocks/data-loaders/enrich-people-information",
             "blocks/data-loaders/get-youtube-transcript",
             "blocks/data-loaders/read-notion-page",
             "blocks/data-loaders/read-notion-database",
-            "blocks/data-loaders/extract-notion-database-properties"
+            "blocks/data-loaders/extract-notion-database-properties",
+            "blocks/data-loaders/read-json"
           ]
         },
         {
@@ -128,7 +127,6 @@
             "blocks/ai/generate-image",
             "blocks/ai/describe-image",
             "blocks/ai/query-image",
-            "blocks/ai/find-best-post",
             "blocks/ai/categorizer",
             "blocks/ai/ai-filter",
             "blocks/ai/text-to-speech",
@@ -139,7 +137,10 @@
             "blocks/ai/extract-single-item",
             "blocks/ai/extract-list-item",
             "blocks/ai/extract-text-ocr",
-            "blocks/ai/perplexity-web-search"
+            "blocks/ai/perplexity-web-search",
+            "blocks/ai/translate",
+            "blocks/ai/cohere-rag"
+
           ]
         },
         {
@@ -151,7 +152,6 @@
             "blocks/data-modifiers/read-list-element",
             "blocks/data-modifiers/json",
             "blocks/data-modifiers/parse-json",
-            "blocks/data-modifiers/read-json",
             "blocks/data-modifiers/write-json",
             "blocks/data-modifiers/find-and-replace",
             "blocks/data-modifiers/sort-csv",
@@ -162,9 +162,9 @@
             "blocks/data-modifiers/update-csv-column",
             "blocks/data-modifiers/sentence-search",
             "blocks/data-modifiers/clone",
-            "blocks/data-modifiers/translate",
             "blocks/data-modifiers/trim-list",
-            "blocks/data-modifiers/flatten-list"
+            "blocks/data-modifiers/flatten-list",
+            "blocks/data-modifiers/concat-lists"
           ]
         },
         {
@@ -191,7 +191,8 @@
             "blocks/data-writers/tweet",
             "blocks/data-writers/write-zip-file",
             "blocks/data-writers/send-email-notification",
-            "blocks/data-writers/send-whatsapp"
+            "blocks/data-writers/send-whatsapp",
+            "blocks/data-writers/send-text-message"
           ]
         },
         {
@@ -208,15 +209,11 @@
       "pages": [
         {
           "group": "Flows",
-          "pages": ["api-reference/endpoint/flows/get_flow_status", "api-reference/endpoint/flows/get_all_flows", "api-reference/endpoint/flows/get_running_flows", "api-reference/endpoint/flows/get_flow_inputs", "api-reference/endpoint/flows/stop_flow", "api-reference/endpoint/flows/trigger_flow_api", "api-reference/endpoint/flows/continue_flow"]
-        },
-        {
-          "group": "Actions",
-          "pages": ["api-reference/endpoint/actions/get_pending_actions"]
+          "pages": ["api-reference/endpoint/flows/trigger_flow_api"]
         },
         {
           "group": "Files",
-          "pages": ["api-reference/endpoint/files/get_files", "api-reference/endpoint/files/upload_file"] 
+          "pages": ["api-reference/endpoint/files/upload_file"] 
         }
       ]
     }

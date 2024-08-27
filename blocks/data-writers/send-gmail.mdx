@@ -2,40 +2,37 @@
 title: Send Gmail
 ---
 
-## Overview
+### **Overview:**
 
-Send an email or create a draft email from your Google Mail (Gmail) account.
-
-It’s particularly beneficial for managing email-based workflows efficiently, ensuring no important communication is missed.
+The `Send Email` block facilitates sending emails or creating draft emails directly from your Google Mail (Gmail) account. This functionality is especially useful for managing email-based workflows, ensuring that no important communications slip through the cracks.
 
 <Note>
-  To run this block, you will first need to authenticate your Google account
-  with Keyflow. Navigate to your
-  [credentials](https://keyflow.space/settings/credentials) page and connect
-  your Google Mail using "Read Edit & Send Emails"
+  To run this block, authenticate your Google account with Keyflow by visiting
+  your [credentials](https://keyflow.space/settings/credentials) page and
+  connecting your Gmail with "Read Edit & Send Emails."
 </Note>
+---
 
-## Block Inputs
+### Inputs & Outputs
 
-| Name              | Type    | Description                                                      |
-| ----------------- | ------- | ---------------------------------------------------------------- |
-| `recipient_email` | string  | The email address of the recipient.                              |
-| `email_body`      | string  | The content of the email message.                                |
-| `email_subject`   | string  | The subject of the email.                                        |
-| `message_id`      | string  | Message ID of an email to reply to.                              |
-| `send_as_html`    | boolean | When enabled, the mimetype of the email is set and sent as HTML. |
-| `send_as_draft`   | boolean | When enabled, the email is saved as "Draft" in your gmail.       |
+| I/O   | Feature           | Type          | Simple Explanation                                                |
+| ----- | ----------------- | ------------- | ----------------------------------------------------------------- |
+| input | `recipient_email` | string        | The email address of the recipient you wish to send a message to. |
+| input | `email_body`      | string        | The content of the email message you want to send.                |
+| input | `email_subject`   | string        | The subject line of the email being sent.                         |
+| input | `message_id`      | string        | An identifier for an existing email if you are replying to it.    |
+| input | `send_as_html`    | boolean       | Enables sending the email in HTML format if set to true.          |
+| input | -**input**-       | -**boolean**- | -If enabled, saves as "Draft" in your Gmail when set to true.-    |
 
-## Block Outputs
+---
 
-| Name           | Type   | Description                                                                                           |
-| -------------- | ------ | ----------------------------------------------------------------------------------------------------- |
-| `email_status` | string | The status of the email sent. It informs if the email was sent successfully or if the sending failed. |
-| `message_id`   | string | Message ID of the new email sent or created.                                                          |
+### Use Cases
 
-## Use Cases
+Consider these scenarios where this block proves highly beneficial:
 
-1. **Automated Emails:** Sending automated emails after a certain event in an application.
-2. **Notifications:** Dispatching notifications to users or stakeholders at the end of a process or to inform them of important updates.
-3. **Marketing Material:** Distributing personalized content or marketing material to a list of recipients.
-4. **Standardized Communication:** Any other situation where email communication can be standardized and automated to save time and ensure consistency.
+- **Automated Emails:** Ideal for triggering automated responses after specific events occur within applications.
+- **Notifications:** Effectively dispatch notifications to users or stakeholders upon completion of processes or when critical updates arise.
+- **Marketing Material:** Seamlessly distribute personalized marketing materials or content tailored for a list of recipients.
+- **Standardized Communication:** Streamline scenarios requiring standardized communication through emails, thus saving time and reducing manual errors.
+
+In essence, whenever there's a need for efficient and effective email management, the `Send Email` block is a valuable asset!

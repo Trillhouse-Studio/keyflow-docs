@@ -2,9 +2,9 @@
 title: Create Asana Task
 ---
 
-## Overview
+### **Overview:**
 
-Create tasks for your Asana project, a popular project management tool.
+The `Create Asana Task` block simplifies the process of generating tasks within an Asana project, a widely-used project management tool. This block ensures effortless task creation and integrates smoothly into your workflows.
 
 <Note>
   To run this block, you will first need to authenticate your Asana account with
@@ -12,24 +12,26 @@ Create tasks for your Asana project, a popular project management tool.
   [credentials](https://keyflow.space/settings/credentials) page and connect
   with Asana.
 </Note>
+---
 
-## Block Inputs
+### Inputs & Outputs
 
-| Name        | Type   | Description                                                                                                                                       |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `task_body` | object | The API body for creating a task in Asana. Refer to the [Asana API documentation](https://developers.asana.com/reference/createtask) for details. |
+| I/O    | Feature        | Type   | Simple Explanation                                                                                                                                             |
+| ------ | -------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| input  | `task_body`    | object | The structured API body for creating a task in Asana. Visit the [Asana API documentation](https://developers.asana.com/reference/createtask) for more details. |
+| output | `task_gid`     | string | The globally unique identifier (GID) for the newly created task in Asana.                                                                                      |
+| output | `raw_response` | object | The raw response received from the Asana API after successfully creating the task.                                                                             |
 
-## Block Outputs
+---
 
-| Name           | Type   | Description                                                           |
-| -------------- | ------ | --------------------------------------------------------------------- |
-| `task_gid`     | string | The unique identifier (GID) of the created task in Asana.             |
-| `raw_response` | object | The raw response received from the Asana API after creating the task. |
+### Use Cases
 
-## Use Cases
+Explore realistic scenarios where this block enhances efficiency:
 
-1. **Task Management**: Seamlessly integrate task creation functionality into automated workflows.
-2. **Project Automation**: Automate the creation of tasks based on specific triggers or events.
-3. **Workflow Integration**: Integrate Asana task creation into existing business processes or applications.
-4. **Collaborative Workflows**: Streamline collaboration by automatically generating tasks for team members.
-5. **Efficiency Enhancement**: Enhance productivity by automating repetitive task creation processes.
+- **Task Management:** Integrate task creation directly into automated processes to keep projects organized without manual intervention.
+- **Project Automation:** Generate tasks automatically based on specific triggers or events, ensuring that nothing falls through the cracks in your project timelines.
+- **Workflow Integration:** Incorporate automatic task creation within existing business systems to streamline operations and improve tracking.
+- **Collaborative Workflows:** Facilitate teamwork by automatically assigning tasks to team members, maintaining clarity on responsibilities without additional overhead.
+- **Efficiency Enhancement:** Increase productivity by eliminating repetitive manual entries required for standardizing routine tasks across projects.
+
+In conclusion, whenever there's a need for streamlined task generation in your Asana projects, the `Create Asana Task` block is an essential tool!

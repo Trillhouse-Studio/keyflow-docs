@@ -2,34 +2,37 @@
 title: If-else
 ---
 
-## Overview
+### **Overview:**
 
-Evaluates a condition and directs the order of execution based on whether the condition is met or not.
+The `Conditional Execution` block allows for the evaluation of specific conditions to determine the flow of execution. This block effectively directs operations based on whether the specified condition is fulfilled, providing flexibility in processing data dynamically.
 
-## Block Inputs
+---
 
-| Name              | Type     | Description                                                        |
-| ----------------- | -------- | ------------------------------------------------------------------ |
-| `condition_type`  | selector | Identifies the type of filter condition to apply.                  |
-| `condition`       | string   | Specifies the exact condition to be met for the filtering process. |
-| `value`           | any      | The actual data to filter.                                         |
-| `condition_value` | string   | The criterion against which to filter the provided value.          |
+### Inputs & Outputs
 
-## Block Outputs
-
-| Name      | Type | Description                                                |
-| --------- | ---- | ---------------------------------------------------------- |
-| `if_true` | any  | Output value provided in inputs if the condition is true.  |
-| `else`    | any  | Output value provided in inputs if the condition is false. |
+| I/O    | Feature           | Type     | Simple Explanation                                              |
+| ------ | ----------------- | -------- | --------------------------------------------------------------- |
+| input  | `condition_type`  | selector | Defines which type of condition is applied for filtering.       |
+| input  | `condition`       | string   | The specific condition required to trigger a particular action. |
+| input  | `value`           | any      | The data that needs to be evaluated against the condition.      |
+| input  | `condition_value` | string   | The standard or benchmark used for comparison with the value.   |
+| output | `if_true`         | any      | Returns this value if the conditions are met successfully.      |
+| output | _else_            | _any_    | _Returns this value if the conditions are not met._             |
 
 <Note>
-  If condition provided evalues to true, only the sub flow connected to
-  `if_true` will be executed. Otherwise if the condition evalutes to be false,
-  only the subflow connected to `else` output handle will be executed.
+  When a provided condition evaluates to true, only the subflow connected to
+  `if_true` will be executed. Conversely, if it evaluates to false, only the
+  subflow connected to _else_ will proceed.
 </Note>
 
-## Use Cases
+---
 
-1. **Conditional Data Processing:** Utilize different branches of a workflow based on varying conditions.
-2. **Dynamic Routing:** Direct data flow dynamically depending on certain criteria being met.
-3. **Error Handling:** Handle different error scenarios or edge cases within a process flow.
+### Use Cases
+
+Consider how this block can enhance operational efficiency in various situations:
+
+- **Conditional Workflow Management:** When developing workflows that require different actions based on user inputs or environmental factors, this block allows seamless transitions between those paths.
+- **Dynamic Content Generation:** In scenarios like personalized marketing offers, depending on whether a user meets certain criteria (like age or spending habits), different offers can be generated automatically.
+- **Automated Alerting System:** For monitoring applications, conditional execution enables real-time alerts when specific thresholds are crossed—such as notifying support teams when system errors occur.
+
+In summary, whenever there’s a necessity for directing processes based on varying conditions, the `Conditional Execution` block proves invaluable!

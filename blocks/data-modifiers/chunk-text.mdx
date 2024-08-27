@@ -2,24 +2,29 @@
 title: Chunk Text
 ---
 
-## Overview
+### **Overview:**
 
-The Chunk Text block splits a long string of text into smaller, more manageable pieces based on the specified number of characters.
+The `Chunk Text` block is designed to efficiently divide long strings of text into smaller, more manageable segments based on a user-defined character count. This functionality is useful for various applications where handling large amounts of text needs to be simplified.
 
-## Block Inputs
+---
 
-| Name         | Type   | Description                                             |
-| ------------ | ------ | ------------------------------------------------------- |
-| `chunk_size` | number | Specifies the number of characters for each text piece. |
-| `text`       | string | The body of text to be split into smaller pieces.       |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature       | Type     | Simple Explanation                                                                           |
+| ------ | ------------- | -------- | -------------------------------------------------------------------------------------------- |
+| input  | `chunk_size`  | number   | Determines the maximum number of characters in each piece of text.                           |
+| input  | `text`        | string   | The full body of text that you wish to split into smaller segments.                          |
+| output | `text_chunks` | string[] | An array containing all the created text chunks, each limited by the specified `chunk_size`. |
 
-| Name          | Type      | Description                                                      |
-| ------------- | --------- | ---------------------------------------------------------------- |
-| `text_chunks` | string[ ] | List of text chunks, each with a specified number of characters. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Conforming to external validations:** When working with limitations on text size, such as API requests that only accept a certain number of characters at a time.
-2. **Text analysis:** Analyzing smaller sections can be more manageable or comparing chunks of text against each other.
+Consider how this block can enhance efficiency and clarity in diverse scenarios:
+
+- **API Interaction:** When submitting data through APIs that impose limits on payload sizes, this block allows you to easily conform your requests without exceeding these constraints.
+- **Sentiment Analysis:** If you're processing customer feedback or social media posts, breaking down large texts makes it simpler to analyze sentiments in manageable pieces.
+- **Content Monitoring:** For content moderation purposes, separating lengthy comments or messages allows for a thorough examination while preventing overwhelm from large volumes of unprocessed information.
+- **Educational Tools:** When teaching reading comprehension, educators can utilize this block to break texts into sections that are easier for students to digest and understand.
+
+In conclusion, whether it's about meeting external limitations or enhancing readability during analysis processes, the `Chunk Text` block proves invaluable!

@@ -2,29 +2,32 @@
 title: Enrich Company Information
 ---
 
-## Overview
+### **Overview:**
 
-Find out more insights about a company. This block simplifies the process of gathering company information that is ideal for situations demanding market research, business development or competitive analysis.
+The `Enrich Company Information` block is designed to streamline the process of gathering essential company information, making it an invaluable tool for market research, business development, or competitive analysis.
 
-## Block Inputs
+---
 
-## Block Inputs
+### Inputs & Outputs
 
-| Name          | Type   | Explanation                |
-| ------------- | ------ | -------------------------- |
-| `domain_name` | string | Domain name of the company |
+| I/O    | Feature          | Type     | Simple Explanation                                           |
+| ------ | ---------------- | -------- | ------------------------------------------------------------ |
+| input  | `domain_name`    | string   | The domain name of the company you want to research.         |
+| output | `company_name`   | string   | The name of the company associated with the provided domain. |
+| output | `industry`       | string   | The primary industry in which the company operates.          |
+| output | `country`        | string   | The country where the company's headquarters is located.     |
+| output | `linkedin_url`   | string   | LinkedIn URL of the company's official page (if available).  |
+| output | `annual_revenue` | string   | Estimated annual revenue for the company (if available).     |
 
-## Block Outputs
+---
 
-| Name             | Type   | Explanation                               |
-| ---------------- | ------ | ----------------------------------------- |
-| `company_name`   | string | Name of the company                       |
-| `industry`       | string | The target industry of the company        |
-| `country`        | string | Country of origin or headquarters         |
-| `linkedin_url`   | string | LinkedIn URL of the company page (if any) |
-| `annual_revenue` | string | Annual revenue (if any)                   |
+### Use Cases
 
-## Use Cases
+Consider how this block could enhance your activities:
 
-1. **Lead Generation:** Generate warm leads by enriching information of several potential clients or users.
-2. **Research Information** Enrich existing database with details and real-time information about a company.
+- **Lead Generation:** Utilize this block to gather detailed insights on potential clients or users, enriching your database for effective sales outreach.
+- **Competitive Analysis:** When analyzing competitors, you can collect key data about their operations and financials that can inform your strategic decisions.
+- **Market Research:** For understanding trends within a specific industry segment, retrieving relevant data on various companies aids in identifying growth opportunities.
+- **Business Development:** When exploring partnerships or investment opportunities, leverage this block to acquire necessary background information about target companies.
+
+In essence, whenever there's a need for vital insights into a company's profile and performance metrics, the `Enrich Company Information` block proves to be an indispensable resource!

@@ -2,26 +2,30 @@
 title: Split Text
 ---
 
-## Overview
+### **Overview:**
 
-Divide a single string into multiple parts based on specified characters or a newline. This functionality aids in organizing or analyzing parts of a text independently.
+The `Split Text` block is an essential tool for breaking a single string into multiple parts based on specified characters or newline characters. This functionality simplifies the organization and analysis of different segments of text, allowing for independent manipulation.
 
-## Block Inputs
+---
 
-| Name               | Type    | Description                                                                                                         |
-| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------- |
-| `string`           | string  | The input string to be split into a string array.                                                                   |
-| `split_characters` | string  | Characters that the original string should be split on. If not specified, the default character is a comma (,).     |
-| `newline_split`    | boolean | Indicates whether to split the string on a newline (\n) character. If selected, `split_characters` will be ignored. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature            | Type     | Simple Explanation                                                                                                                          |
+| ------ | ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| input  | `string`           | string   | The input string you want to split into an array of strings.                                                                                |
+| input  | `split_characters` | string   | Characters that define where the original string will be divided. Defaults to a comma (,) if not specified.                                 |
+| input  | `newline_split`    | boolean  | A flag indicating whether to also split the string on newline (\n) characters; selecting this will ignore any values in `split_characters`. |
+| output | `string_array`     | string[] | The resulting array where each element represents a segment of the original string obtained from the split operation.                       |
 
-| Name           | Type      | Description                                                                                 |
-| -------------- | --------- | ------------------------------------------------------------------------------------------- |
-| `string_array` | string[ ] | String array where each element represents a portion of the original string that was split. |
+---
 
-## Use Cases
+### Use Cases
 
-1. Dividing Text: This node can be used to divide a long text into sentences or words for further analysis or manipulation.
-2. Processing Lists: It is helpful in separating values from a comma-separated list to process each item individually.
-3. Extracting Elements: Useful for extracting specific elements from standardized blocks of text like logs, configuration files, or structured data.
+Consider how this block can enhance your workflow in various scenarios:
+
+- **Dividing Text:** When analyzing lengthy documents, you may need to separate dialogues or paragraphs for deeper comprehension and editing.
+- **Processing Lists:** If you frequently work with CSV data, this feature allows you to efficiently extract individual items from comma-separated values for further processing.
+- **Extracting Elements:** In situations involving predefined formats like logs or configuration files, use this block to isolate specific elements swiftly and handle them as needed.
+- **Data Cleanup:** Transform messy strings into organized arrays that can simplify validation tasks during data entry.
+
+In conclusion, whenever there is a need to dissect a complex string into manageable pieces, the `Split Text` block proves invaluable!

@@ -1,13 +1,17 @@
 ---
 title: "Blocks"
-description: "No-code lego pieces for your flow"
+description: "Logical units and building blocks of a flow"
 ---
 
 ## 🧱 What is a Block?
 
-Blocks, short for building blocks, are modular components used to build workflows. Each one is a step in a series of steps towards a goal. Think of them like individual no-code Lego pieces.
+Blocks, short for building blocks, are logical units used to build flows. You can think of them as No-code lego pieces that you can connect to create a flow.
 
-You can drag-and-drop them on to the canvas from the block list. We have 8 types of blocks.
+Each block runs some code in background to carry out a function in your flow.
+
+You can add a block to your canvas by dragging and dropping them from the block list.
+
+We have 7 types of blocks:
 
 1. `Core`
 2. `Data Loaders`
@@ -16,9 +20,8 @@ You can drag-and-drop them on to the canvas from the block list. We have 8 types
 5. `Flow Control`
 6. `Data Writers`
 7. `Database I/O`
-8. `External Flows (Automation as Nodes)`
 
-Blocks generally take in inputs from other blocks, have some outputs, and can also have internal inputs. Many of these attributes may also be optional. Let's take a look at an example:
+All blocks take some inputs and produce some outputs. To configure a block you can simply click on it. It will open a side bar with configurable inputs.
 
 <Frame>
   <img
@@ -33,17 +36,21 @@ Blocks generally take in inputs from other blocks, have some outputs, and can al
   />
 </Frame>
 
-This is an example of an Ask AI Block. This block has multiple parameters, inputs and an output.
+You may also see inputs and output as handles on the left and right side of the block respectively.
 
-| I/O               | name               | type     |
-| ----------------- | ------------------ | -------- |
-| Input & Parameter | `question`         | string   |
-| Input & Parameter | `context`          | string   |
-| Input             | `function`         | string   |
-| Parameter         | `model_preference` | select   |
-| Parameter         | `json_mode`        | checkbox |
-| Parameter         | `cache_response`   | checkbox |
-| Output            | `chatgpt_response` | string   |
+You can connect blocks using these handles. Output data of a block can be connected to a input data of another block!
+
+Connect as many blocks as you like. This creates a `flow` .
+
+## Updating blocks
+
+We make regular changes to all blocks to add functionality, improve performance and fix bugs. After we update a block, we preserve the older version of the blocks for flows that are already in use. We do this to avoid breaking your deployed flows. You will also see a notification on outdated blocks in flows to update them to newest version.
+
+---image of a block prompting update---
+
+We highly recommend you keep the blocks in your workflows up-to date with the newest version for improved performance and better functionality.
+
+We will send out emails when we make updates to blocks so you don’t miss any updates :)
 
 <Tip>
 

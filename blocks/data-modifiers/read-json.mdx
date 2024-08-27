@@ -2,26 +2,30 @@
 title: Read JSON
 ---
 
-## Overview
+### **Overview:**
 
-Extract specific pieces of information from a JSON object. Simplify extracting specific values from a JSON object for data analysis, reporting, or data pipeline preprocessing.
+The `Read JSON` block simplifies the extraction of specific values from a JSON object, enabling efficient data analysis, reporting, and preprocessing in data pipelines.
 
-## Block Inputs
+---
 
-| Name   | Type   | Description                                                            |
-| ------ | ------ | ---------------------------------------------------------------------- |
-| `keys` | string | List of comma-separated keys for extracting values from the JSON data. |
-| `json` | object | The JSON from which values will be extracted.                          |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature       | Type   | Simple Explanation                                                                                  |
+| ------ | ------------- | ------ | --------------------------------------------------------------------------------------------------- |
+| input  | `keys`        | string | A list of comma-separated keys to specify which values to extract from the JSON object.             |
+| input  | `json`        | object | The source JSON object containing the data you want to extract values from.                         |
+| output | `json_values` | string | A consolidated string of all extracted values corresponding to the specified keys in the JSON data. |
 
-| Name          | Type   | Description                                               |
-| ------------- | ------ | --------------------------------------------------------- |
-| `json_values` | string | Consolidates all the extracted values from the JSON data. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Data Extraction:** Useful for retrieving specific pieces of data from a JSON structure.
-2. **Data Analysis:** Simplifies the process of extracting and analyzing data from JSON sources.
-3. **Reporting:** Can be used to extract relevant information for reporting purposes.
-4. **Data Pipeline Preprocessing:** Helps in the preprocessing stage of a data pipeline by extracting required data from JSON.
+Here are practical scenarios where this block can be incredibly useful:
+
+- **Data Extraction:** When operational teams require specific information (like sales figures or customer details) from complex JSON responses received from APIs, this block enables straightforward retrieval.
+- **Data Analysis:** If your analytics team needs to pull certain metrics (like clicks or conversions) for deeper insights without dealing with every part of a verbose dataset, this tool streamlines that process.
+- **Reporting Needs:** For creating reports based on key performance indicators gathered in a structured format like JSON, use this block to focus on only the relevant parts for your stakeholders.
+
+- **Data Pipeline Preprocessing:** In environments where you manage incoming data flows that may include redundant information or excessive detail (such as logs), utilizing this feature allows for efficient slicing down to essential elements needed for further processing.
+
+In conclusion, whenever there's a need to simplify value extraction from complex JSON structures while preparing data for analysis or reporting tasks, the `Read JSON` block proves invaluable!

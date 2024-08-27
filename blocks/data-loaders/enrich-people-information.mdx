@@ -2,33 +2,31 @@
 title: Enrich People Information
 ---
 
-## Overview
+### **Overview:**
 
-Find out more about an individual within a company. This block simplifies the process of gathering contact information of a person making it a perfect match for automations trying to find out the right person or conduct market research on important figures.
+The `Enrich People Information` block is designed to simplify the process of gathering detailed contact information for individuals within a company. This block efficiently enhances initial inputs, such as a person’s name, region, and country, by scouring various data sources to provide a comprehensive profile. The resulting information may include email addresses, job titles, LinkedIn URLs, and other relevant data.
 
-By inputting trivial information like a person's name, region and country. This node scours through various data providers to enrich that data and aims to provide you with a comprehensive profile that might include email addresses, job title, linked in url and other data.
+---
 
-## Block Inputs
+### Inputs & Outputs
 
-## Block Inputs
+| I/O    | Feature         | Type     | Simple Explanation                                          |
+| ------ | --------------- | -------- | ----------------------------------------------------------- |
+| input  | `first_name`    | string   | The first name of the individual you want to research.      |
+| input  | `last_name`     | string   | The last name of the individual you want to research.       |
+| input  | `region`        | number   | The region where this individual is located.                |
+| input  | `country`       | selector | The residential country of the individual being researched. |
+| output | `job_title`     | string   | Current job title held by the individual being researched.  |
+| output | `linkedin_url`  | string   | URL link to LinkedIn profile of this person.                |
+| output | `email_address` | string   | Email ID associated with this individual.                   |
+| output | `other_data`    | object   | Additional data found (if any) in an object format.         |
 
-| Name         | Type     | Explanation                       |
-| ------------ | -------- | --------------------------------- |
-| `first_name` | string   | First name of the person.         |
-| `last_name`  | string   | Last name of the person           |
-| `region`     | number   | Region of the person.             |
-| `country`    | selector | Residential country of the person |
+---
 
-## Block Outputs
+### Use Cases
 
-| Name            | Type   | Explanation                      |
-| --------------- | ------ | -------------------------------- |
-| `job_title`     | string | Current job title of the person. |
-| `linkedin_url`  | string | LinkedIn profile of the person   |
-| `email_address` | string | Email ID of the person           |
-| `other_data`    | object | Additional data found (if any)   |
+- **Lead Generation:** Effortlessly generate warm leads by enriching crucial details about potential clients or users from minimal initial information.
+- **Market Research:** Streamline your market research efforts by quickly gathering comprehensive profiles on important figures in specific regions or industries.
+- **Networking Opportunities:** Enhance networking strategies by identifying key decision-makers within organizations based on their enriched contact data.
 
-## Use Cases
-
-1. **Lead Generation:** Generate warm leads by enriching information of several potential clients or users.
-2. **Research Information** Research and process information from people.
+In summary, whenever there is a need for refining basic identifiers into actionable contact profiles, the `Enrich People Information` block proves invaluable!

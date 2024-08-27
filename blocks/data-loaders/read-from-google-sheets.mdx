@@ -2,11 +2,9 @@
 title: Read From Google Sheets
 ---
 
-## Overview
+### **Overview:**
 
-Read data from a specific sheet of your Google Sheets.
-
-It streamlines the process of extracting data from Google Sheets, making it a valuable tool for tasks that regularly retrieve data from spreadsheets and saves time by automating data retrieval.
+The `Read Google Sheets Data` block efficiently extracts data from a specified sheet within your Google Sheets. This process automates data retrieval, making it a valuable asset for tasks that require regular data access from spreadsheets.
 
 <Note>
   To run this block, you will first need to authenticate your Google account
@@ -15,24 +13,27 @@ It streamlines the process of extracting data from Google Sheets, making it a va
   your Google Sheets using "Read & Write Google Sheets"
 </Note>
 
-## Block Inputs
+---
 
-| Name              | Type     | Explanation                                                                                         |
-| ----------------- | -------- | --------------------------------------------------------------------------------------------------- |
-| `file_link_or_id` | string   | Link or unique ID of your Google Sheet.                                                             |
-| `sheet_name`      | string   | Specific sheet name within the file; defaults to the first sheet.                                   |
-| `reader_mode`     | selector | Mode of data retrieval: `Row-by-Row`, `Column-by-Column`, `Specified Row`, or `Specified Column`.   |
-| `row_index`       | number   | Index of the row to read., starting at 0; Required when using "Specified Row" as reader_mode.       |
-| `column_name`     | string   | Name of the column to read. Starts with 'A'. Required when using "Specified Column" as reader_mode. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature                  | Type       | Simple Explanation                                                                                                      |
+| ------ | ------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------- |
+| input  | `file_link_or_id`        | string     | The link or unique ID of the specific Google Sheet you want to read data from.                                          |
+| input  | `sheet_name`             | string     | The name of the specific sheet within the file; defaults to the first sheet if not provided.                            |
+| input  | `reader_mode`            | selector   | The mode for retrieving data: options include `Row-by-Row`, `Column-by-Column`, `Specified Row`, or `Specified Column`. |
+| input  | `row_index` (optional)   | number     | The index of the row to read, starting at 0; required only when using "Specified Row" as reader_mode.                   |
+| input  | `column_name` (optional) | string     | The name of the column to read, beginning with 'A'; required when using "Specified Column" as reader_mode.              |
+| output | `sheet_data`             | string[][] | Contains the retrieved sheet data organized in rows and columns.                                                        |
 
-| Name         | Type         | Explanation                            |
-| ------------ | ------------ | -------------------------------------- |
-| `sheet_data` | string[ ][ ] | The data retrieved from Google Sheets. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Automated Report Generation:** Extracting data for financial reports, surveys, etc.
-2. **Scheduled Record Updates:** Updating records based on sheet data.
-3. **Data Migration**: Move data from Google Sheets to another target service of your choice.
+Consider how this block can enhance efficiency in various scenarios:
+
+- **Automated Report Generation:** Seamlessly extract relevant information for financial reports or surveys without manual copy-pasting.
+- **Scheduled Record Updates:** Easily update records in other applications based on real-time changes made in your Google Sheets.
+- **Data Migration:** Facilitate moving datasets from Google Sheets into another system, which could streamline processes like integration or analysis.
+
+In essence, whenever there is a need for quick and reliable access to spreadsheet information, the `Read Google Sheets Data` block proves invaluable!

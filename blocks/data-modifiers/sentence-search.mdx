@@ -2,21 +2,30 @@
 title: Sentence Search
 ---
 
-## Overview
+### **Overview:**
 
-Processes input text line-by-line and identify the lines most closely related to a specified search query.
-This is a valuable tool for quickly retrieving the most relevant information from within a large text without manual reading.
+The `Sentence Search` block is an efficient tool designed to process input text line-by-line and identify the lines that are most relevant to a specified search query. This feature allows users to quickly retrieve important information from large text bodies without the need for manual reading.
 
-## Block Inputs
+---
 
-| Name          | Type   | Description                                                                                           |
-| ------------- | ------ | ----------------------------------------------------------------------------------------------------- |
-| `num_results` | number | The maximum number of search results to return. If not specified, default is set to return 5 results. |
-| `query`       | string | The text phrase you want to look for within the provided text input.                                  |
-| `text`        | string | The larger body of text where the node will look for the query.                                       |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature         | Type   | Simple Explanation                                                                      |
+| ------ | --------------- | ------ | --------------------------------------------------------------------------------------- |
+| input  | `text`          | string | The larger body of text where the block will perform its search for the given query.    |
+| input  | `query`         | string | The phrase or keyword you wish to find within the provided text.                        |
+| input  | `num_results`   | number | Specifies the maximum number of search results to return; defaults to 5 if not defined. |
+| output | `search_result` | string | Returns lines from the input text that closely match your specified query.              |
 
-| Name            | Type   | Description                                                      |
-| --------------- | ------ | ---------------------------------------------------------------- |
-| `search_result` | string | The lines of the input text that are most relevant to the query. |
+---
+
+### Use Cases
+
+Here are some scenarios where this block can be particularly useful:
+
+- **Information Retrieval:** When conducting research, this block helps locate specific details or quotes across extensive articles or documents without needing to sift through everything manually.
+- **Customer Support:** Support teams can use this tool to find relevant responses in help center articles based on customer inquiries, enhancing response efficiency.
+- **Content Review:** If you're reviewing reports or documentation drafts, leverage this feature to quickly pull pertinent feedback related directly to key topics addressed.
+- **Data Analysis:** In data annotation tasks, utilize this block for extracting critical insights from lengthy datasets by searching for keywords linked with specific analysis points.
+
+In summary, whenever there’s a need for quick and effective extraction of relevant information based on defined criteria, look no further than the `Sentence Search` block!

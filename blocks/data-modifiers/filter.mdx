@@ -2,48 +2,52 @@
 title: Filter
 ---
 
-## Overview
+### **Overview:**
 
-Selectively passes through data that meets particular condition also known as a criteria. When you need to reduce or filter elements from a list, Filter block is the one you need.
+The `Filter` block is designed to selectively pass through data based on specific criteria, allowing you to refine or eliminate undesired elements from a list. It supports a range of condition types such as handling empty values, performing numerical comparisons, evaluating boolean states, and matching text-based conditions. This block plays a vital role in workflows where data validation and cleansing are essential by ensuring that only entries meeting the defined criteria are processed.
 
-It supports various condition types such as empty values, numerical comparisons, boolean states, and text-based matching conditions. The Filter block is a critical component in workflows where data needs to be vetted or cleaned, passing only the entries that fulfill the given criteria.
+---
 
-## Block Inputs
+### Inputs & Outputs
 
-| Name                 | Type     | Description                                                                                        |
-| -------------------- | -------- | -------------------------------------------------------------------------------------------------- |
-| `value`              | any[ ]   | The actual data to filter.                                                                         |
-| `condition_value`    | any[ ]   | The criterion against which to filter the values. If not provided, the value is also the criterion |
-| `condition_type`     | selector | Identifies the type of filter condition to apply.                                                  |
-| `condition`          | any      | Specifies the condition to be met for the filtering process.                                       |
-| `output_blank_value` | boolean  | When enabled, outputs a blank value if it doesn't match the filtering condition.                   |
+| I/O    | Feature              | Type     | Simple Explanation                                                                                                                                                                        |
+| ------ | -------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| input  | `value`              | any[]    | The actual data that you want to filter through.                                                                                                                                          |
+| input  | `condition_value`    | any[]    | The criterion against which the values will be filtered; if omitted, the value itself is used as the criterion.                                                                           |
+| input  | `condition_type`     | selector | Specifies which type of filter condition will be applied during filtering.                                                                                                                |
+| input  | `condition`          | any      | Defines the specific condition required for each value during filtering operations.                                                                                                       |
+| input  | `output_blank_value` | boolean  | Determines whether to output a blank value when no matches are found based on the filtering condition set above.                                                                          |
+| output | `filtered_output`    | Data     | Contains either those original inputs that matched your specified filter conditions or outputs an empty result if `output_blank_value` is true but no entries met your provided criteria. |
 
-## Block Outputs
+---
 
-| Name              | Type | Description                                                                                                                                                                                       |
-| ----------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `filtered_output` | Data | The result of the filter operation. Contains either the original input value that met the filter condition, or a blank value if the condition wasn't met and 'output_blank_value' is set to true. |
+## Available List of Conditions
 
-## Available list of conditions
-
-- **Is empty:** Checks if the value is empty.
-- **Is not empty:** Checks if the value is not empty.
-- **[Number] is greater than:** Checks if the number is greater than the specified value.
-- **[Number] is less than:** Checks if the number is less than the specified value.
-- **[Number] is equal to:** Checks if the number is equal to the specified value.
-- **[Boolean] is true:** Checks if the boolean value is true.
-- **[Boolean] is false:** Checks if the boolean value is false.
-- **[Text] is exact match of:** Checks if the text is an exact match of the specified value.
-- **[Text] contains:** Checks if the text contains the specified value.
-- **[Text] does not contains:** Checks if the text does not contain the specified value.
-- **[Text] starts with:** Checks if the text starts with the specified value.
-- **[Text] does not starts with:** Checks if the text does not start with the specified value.
-- **[Text] ends with:** Checks if the text ends with the specified value.
-- **[Text] does not ends with:** Checks if the text does not end with the specified value.
+- **Is empty:** Confirms if an entry has no content.
+- **Is not empty:** Validates whether there’s content present.
+- **[Number] is greater than:** Checks for numbers exceeding a given threshold.
+- **[Number] is less than:** Validates numbers falling below specified limits.
+- **[Number] is equal to:** Verifies if numbers match exactly with expected values.
+- **[Boolean] is true:** Ensures only true values pass through from boolean fields.
+- **[Boolean] is false:** Ensures only false values pass through from boolean fields.
+- **[Text] is exact match of:** Validates that strings completely correspond with given benchmarks without deviation.
+- **[Text] contains:** Checks whether strings have specific segments included within them.
+- **[Text] does not contain:** Filters out strings lacking certain specified segments or words.
+- **[Text] starts with:** Verifies that strings commence with defined prefixes for targeted inclusion in results.
+- **[Text] does not start with:** Excludes items whose string representations do not start according to specifications provided here .
+- **[Text] ends with**: Checks if strings conclude appropriately according particular suffix requirements outlined here . -** [Text ] does not end** :Excludes unintended matches by confirming final determined suffixes prior established parameters .
 
 ## Use Cases
 
-1. **Filtering out records:** Exclude records that do not meet certain thresholds, like age or price limits.
-2. **Empty Value Handling:** Select only those rows from a dataset where a particular column is not empty.
-3. **Boolean Field Subsetting:** Include only true or false values from a boolean field.
-4. **String Processing:** Process only items with specific keywords, prefixes, or suffixes.
+Imagine how this block can enhance your data processing tasks:
+
+1. **_Filtering Out Records:_** Efficiently remove records failing certain benchmarks—for example, excluding customers younger than legal age or products priced beyond budget constraints during inventory assessments.
+
+2. **_Empty Value Handling:_** Utilized effectively within large datasets across different collections—to isolate rows containing complete information by focusing solely upon populated attributes where critical analyses must take place .
+
+3 . **_ Boolean Field Subsetting :_** Streamlining decisions involving flags¾ leveraging this technology allows analyses limited strictly just selecting options classified either “true” versus "false".
+
+4 .**_ String Processing :_** Specifically target only terms featuring known keywords; forward-thinking marketers may course correct messaging strategy accordingly.\*;
+a retail manager may actively manage what inventory enters promotional functions ”
+
+In essence , wherever filtering down lists based upon relevant qualifications aids better clarity/consolidation +safeguards usability integrity....the "Filter" Block proves invaluable!

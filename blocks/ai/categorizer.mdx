@@ -2,30 +2,31 @@
 title: Categorizer
 ---
 
-## Overview
+### **Overview:**
 
-Classifies text data into predefined categories using AI.
+The `Categorizer` block streamlines the process of classifying text data into predefined categories using AI. This block is essential for transforming unstructured text into structured, actionable insights.
 
-## Block Inputs
+---
 
-| Name                    | Type     | Description                                                                                                  |
-| ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `categories`            | list     | Information about all the categories: A list of `category_name` and `category_description` for the AI model. |
-| `input`                 | string   | The input string to be categorized.                                                                          |
-| `include_justification` | boolean  | When enabled, the model also returns reasoning or explaination for the AI's response.                        |
-| `model`                 | selector | LLM Model to be used for inference. Can be one of the following supported models.                            |
-| `cache_response`        | boolean  | When enabled, it saves you AI calls by returning the same response if the inputs to the LLM has not changed. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O   | Feature                 | Type     | Simple Explanation                                                                                                                          |
+| ----- | ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| input | `categories`            | list     | A list containing all the category names and their descriptions that will guide the AI in classifying input text.                           |
+| input | `input`                 | string   | The actual text string that you wish to classify according to your predefined categories.                                                   |
+| input | `include_justification` | boolean  | When enabled, it ensures that the categorization process also provides reasoning or explanation for its choices.                            |
+| input | `model`                 | selector | Specifies which LLM model to utilize for inference from the available supported models.                                                     |
+| input | `cache_response`        | boolean  | When activated, this feature stores previous AI responses and returns them if the inputs have not changed, saving time on subsequent calls. |
 
-| Name                | Type   | Description                                                       |
-| ------------------- | ------ | ----------------------------------------------------------------- |
-| `selected_category` | string | The chosen category name after the categorization process.        |
-| `justification`     | string | Explanation provided by the AI for category selection. (optional) |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Customer Feedback Analysis:** Automatically sort feedback into different themes for analysis.
-2. **Product Categorization:** Organize products based on descriptions.
-3. **Document Organization:** Categorize and label documents by topic.
-4. **Interpretability:** Understand the reasoning behind AI's category selection.
+Consider how this block can enhance efficiency in diverse situations:
+
+- **Customer Feedback Analysis:** Automatically classify customer feedback into themes or topics such as satisfaction, service issues, or product features—enabling quicker decision-making on areas needing attention.
+- **Product Categorization:** Sort and categorize various products based on their descriptions without manual effort, ensuring a well-organized catalog for easier viewing.
+- **Document Organization:** Implement an automatic labeling system where documents related to specific topics get categorized appropriately—streamlining access and retrieval.
+- **Interpretability Enhancement:** Understand why certain decisions were made by analyzing justification provided by AI when processing inputs; this adds depth to AI-driven insights.
+
+In summary, any scenario requiring enhanced organization of textual information can benefit greatly from utilizing the `Categorizer` block!

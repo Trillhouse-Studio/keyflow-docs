@@ -2,26 +2,31 @@
 title: Define OpenAI Function
 ---
 
-## Overview
+### **Overview:**
 
-Define OpenAI Function assists in defining an OpenAI function by formatting the function request in the exact format required by the OpenAI API.
+The `Define OpenAI Function` block is designed to assist users in defining an OpenAI function by formatting the function request according to the exact specifications required by the OpenAI API.
 
-## Block Inputs
+---
 
-| Name          | Type   | Description                                                                                                       |
-| ------------- | ------ | ----------------------------------------------------------------------------------------------------------------- |
-| `name`        | string | The name of the OpenAI function.                                                                                  |
-| `description` | string | A concise explanation of the function's purpose.                                                                  |
-| `parameters`  | list   | An list of objects providing details about the function's parameters. This includes `name`, `type`, `description` |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature         | Type   | Simple Explanation                                                                                                     |
+| ------ | --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| input  | `name`          | string | The name you wish to assign to the OpenAI function.                                                                    |
+| input  | `description`   | string | A concise explanation of what the function does.                                                                       |
+| input  | `parameters`    | list   | A list of objects that detail each parameter for the function, including its `name`, `type`, and a brief description.  |
+| output | `function_json` | object | The JSON object representation that defines your OpenAI function, ready for integration with other blocks like Ask AI. |
 
-| `function_json` | object | The output JSON jobject defining the OpenAI function definition, that can then be connected with the Ask AI block. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Creating Functions:** Quickly and efficiently create functions for non-technical users to integrate applications with OpenAI's infrastructure.
-2. **Automating Reports:** Format a function for OpenAI to extract specific details from reports, streamlining analysis processes.
-3. **Database Integration:** Integrate applications with OpenAI to move information from databases using custom functions tailored to specific requirements.
-4. **Form Processing:** Develop OpenAI functions to process forms and extract relevant data, simplifying data extraction tasks.
-5. **Document Archiving:** Format functions to extract and save important text from various documents, facilitating document management workflows.
+Consider how this block can enhance productivity in different scenarios:
+
+- **Creating Functions:** Enables non-technical users to easily create functions for integrating various applications with OpenAI's services without requiring programming skills.
+- **Automating Reports:** Formats specific functions aimed at extracting detailed insights from reports, significantly enhancing analysis workflows.
+- **Database Integration:** Facilitates smooth communication between applications and databases through custom-made functions tailored for specific data retrieval tasks.
+- **Form Processing:** Helps in developing responsive functions capable of processing submitted forms, thus streamlining data extraction and organization efforts.
+- **Document Archiving:** Supports users in constructing functions designed to extract critical information from a wide range of documents, improving document management efficiency.
+
+In summary, whenever there is a need for creating or defining APIs that interact with OpenAI functionalities, the `Define OpenAI Function` block serves as an essential tool!

@@ -2,28 +2,31 @@
 title: Scorer
 ---
 
-## Overview
+### **Overview:**
 
-Assigns a numerical score to an input based on specific criteria using the power of LLM.
+The `Scorer` block leverages the power of LLM to assign a numerical score to an input based on specific criteria.
 
-## Block Inputs
+---
 
-| Name                    | Type    | Description                                                                             |
-| ----------------------- | ------- | --------------------------------------------------------------------------------------- |
-| `item`                  | string  | The subject, entity or text that needs to be scored.                                    |
-| `criteria`              | string  | The description of rules or scoring criteria to use for evaluation.                     |
-| `include_justification` | boolean | When enabled, the model also returns reasoning or explaination for the evaluated score. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature                            | Type    | Simple Explanation                                                 |
+| ------ | ---------------------------------- | ------- | ------------------------------------------------------------------ |
+| input  | `item`                             | string  | The subject, entity, or text that needs to be scored.              |
+| input  | `criteria`                         | string  | The description of rules or scoring criteria used for evaluation.  |
+| input  | `include_justification` (optional) | boolean | When enabled, the model returns reasoning for the evaluated score. |
+| output | `score`                            | number  | Reflects the assessment based on the provided criteria.            |
+| output | `justification` (optional)         | string  | Detailed explanation for the score if justification is enabled.    |
 
-| Name            | Type   | Description                                             |
-| --------------- | ------ | ------------------------------------------------------- |
-| `score`         | number | Reflects the assessment based on the provided criteria. |
-| `justification` | string | Detailed explanation for the score (if any).            |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Comparing Products:** Evaluate and compare different products based on defined criteria.
-2. **Content Quality Review:** Quantitatively assess the quality of content such as articles, videos, or images.
-3. **Decision-Making Based on Standards:** Use clear, numerical feedback to guide decisions based on defined standards.
-4. **Record-Keeping Purposes:** Generate justifications for assessments for understanding and record-keeping.
+Consider how this block can enhance decision-making in various contexts:
+
+- **Comparing Products:** If you run an e-commerce site and want to rate various products for customers, this block can evaluate them based on parameters like price, quality, and user reviews.
+- **Content Quality Review:** For content creators assessing their blog articles or videos, using defined quality metrics will help quantify effectiveness and engagement levels.
+- **Decision-Making Based on Standards:** Organizations can utilize numerical scores from employee performance evaluations by applying consistent scoring criteria for better transparency in promotions and raises.
+- **Record-Keeping Purposes:** In academic settings or compliance-related fields, generate justifications that accompany assessments which aid in understanding decisions made over time.
+
+In summary, whenever there’s a necessity to assess items against defined standards quantitatively, the `Scorer` block serves as a critical tool!

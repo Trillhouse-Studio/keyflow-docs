@@ -2,33 +2,34 @@
 title: Read From Google Docs
 ---
 
-## Overview
+### **Overview:**
 
-Read data from a specific sheet of your Google Docs.
-
-It streamlines the process of extracting data from Google Docs, making it instrumental for any requirement that involves the automated retrieval textual data.
+The `Read Google Docs` block is an efficient tool designed for extracting textual data from specific sheets within your Google Docs. It automates the retrieval process, simplifying various tasks that require accessing information stored in documents.
 
 <Note>
   To run this block, you will first need to authenticate your Google account
   with Keyflow. Navigate to your
   [credentials](https://keyflow.space/settings/credentials) page and connect
-  your Google Docs using "Read & Write Google Docs"
+  your Google Docs using "Read & Write Google Docs."
 </Note>
 
-## Block Inputs
+---
 
-| Name              | Type   | Explanation                           |
-| ----------------- | ------ | ------------------------------------- |
-| `file_link_or_id` | string | Link or unique ID of your Google Doc. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature           | Type       | Simple Explanation                                                             |
+| ------ | ----------------- | ---------- | ------------------------------------------------------------------------------ |
+| input  | `file_link_or_id` | string     | The link or unique ID of the Google Doc from which you want to read data.      |
+| output | `doc_content`     | string[][] | The extracted text data organized from the specified sheet of your Google Doc. |
 
-| Name          | Type         | Explanation                              |
-| ------------- | ------------ | ---------------------------------------- |
-| `doc_content` | string[ ][ ] | The data retrieved from your Google Doc. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Data Migration**: Move data from Google Docs to another target service of your choice.
-2. **Text Analysis:** Evaluate or processing Google Docs content automatically using natural language.
-3. **Change Monitoring:** Keep an eye on document modifications by regularly reading the content.
+Consider how this block can streamline several important processes:
+
+- **Data Migration:** Easily transfer data from a Google Doc into another service for analysis or storage, ensuring smooth transitions and up-to-date information availability.
+- **Text Analysis:** Automatically evaluate or process content from your documents using natural language processing, helping derive insights effortlessly.
+- **Change Monitoring:** Regularly monitor modifications made to documents by retrieving current content consistently, thus staying informed on any updates.
+
+In essence, whether it's transferring information or analyzing text patterns, the `Read Google Docs` block provides a straightforward solution for handling document-based tasks efficiently!

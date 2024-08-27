@@ -2,19 +2,29 @@
 title: Output
 ---
 
-## Overview
+### **Overview:**
 
-The Output block serves a specific purpose throughout the app. It accepts any input value and allows you to assign a name to it. This named output can then be used to easily view the output of the flow in user view or use the output of the flow as input for another block when using external flows.
+The `Output` block is created to facilitate the management of data outputs within your application. It allows you to capture any input value and assign a meaningful name to it, ensuring easy identification and usability in later processes. This block not only enhances visibility in user views but also enables seamless integration with other blocks for complex automation tasks.
 
-## Block Inputs
+---
 
-| Name          | Type     | Description                                                                                                             |
-| ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `output`      | any      | The value or data to be named.                                                                                          |
-| `output_name` | string   | The label/name you assign to the value. If not provided, the output will still be recorded but without a specific name. |
-| `output_type` | selector | The type of the value. Can be one of the following: `any` or `any[]`                                                    |
+### Inputs & Outputs
 
-## Use Cases
+| I/O   | Feature       | Type     | Simple Explanation                                                                                         |
+| ----- | ------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| input | `output`      | any      | The value or data that you want to name for future reference.                                              |
+| input | `output_name` | string   | The label assigned to the output value; if omitted, the output will be recorded without a designated name. |
+| input | `output_type` | selector | Specifies the type of value; can be either `any` or `any[]`, determining how it can be processed later.    |
 
-1. **View flow results in user view:** An output block enables viewing the output of a flow when in user view.
-2. **Complex Automations:** When using external flow blocks, the output of a flow can be passed in as inputs to other blocks.
+---
+
+### Use Cases
+
+Think about how this block effectively supports various operational scenarios:
+
+- **User Interface Integration:** When users require insights into workflows, utilizing the Output block lets them view results instantly during their interactions.
+- **Data Pipelining:** In scenarios where datasets must flow from one operation to another, naming outputs aids clarity when passing information between different blocks within an automation.
+- **Dynamic Reporting:** If generating reports based on filtered data outcomes, this block enables easy identification of each dataset by its assigned name for better organization and presentation.
+- **Variable Management in Automations:** For multistep processes where various inputs are derived from prior calculations or user entries, using named outputs simplifies tracking and referencing as they pass through subsequent operations.
+
+In summary, whether you're looking for improved visibility in user-facing applications or facilitating complex workflows through streamlined data handling, the `Output` block is essential for effective application management!

@@ -2,28 +2,31 @@
 title: Find Best Post
 ---
 
-## Overview
+### **Overview:**
 
-Identify the best post that aligns closely with a given query to aid users in locating the most relevant content quickly.
+The `Find Best Post` block is designed to assist users in identifying the most relevant post that aligns with a specified query. This block simplifies the content discovery process by delivering accurate results efficiently.
 
-## Block Inputs
+---
 
-| Name             | Type      | Description                                                                                                   |
-| ---------------- | --------- | ------------------------------------------------------------------------------------------------------------- |
-| `query`          | string    | The question/topic regarding which the post needs to be found.                                                |
-| `titles`         | string[ ] | A list of post titles to consider when searching for the best post.                                           |
-| `links`          | string[ ] | Corresponding to the list of titles, this is an array of URLs for the respective posts.                       |
-| `model`          | selector  | LLM Model to be used for inference. Can be one of the following supported models.                             |
-| `cache_response` | boolean   | When enabled, it saves you AI calls by returning the same response if the inputs to the LLM have not changed. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature          | Type     | Simple Explanation                                                                                          |
+| ------ | ---------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
+| input  | `query`          | string   | The specific question or topic for which the best matching post is to be found.                             |
+| input  | `titles`         | string[] | An array of potential post titles that will be evaluated against the provided query.                        |
+| input  | `links`          | string[] | A list of URLs corresponding to each title, linking directly to their respective posts.                     |
+| input  | `model`          | selector | The LLM Model selected for inference, offering various options based on supported models.                   |
+| input  | `cache_response` | boolean  | Enables caching responses, thus reducing AI calls by returning previous outputs if inputs remain unchanged. |
+| output | `best_post_url`  | string   | The URL leading to the highest-ranking post corresponding closely with the given query."                    |
 
-| Name            | Type   | Description                                                     |
-| --------------- | ------ | --------------------------------------------------------------- |
-| `best_post_url` | string | The URL of the top post that most accurately matches the query. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Navigate Through Content:** Easily find a post that best fits a specific query or topic among a large volume of content.
-2. **Content Curation:** Streamline the process of content curation by providing users with the most relevant links based on their interests or search terms.
-3. **Enhance User Experience:** Improve user experience by quickly directing them to the most pertinent content without manually searching through multiple posts.
+Consider how this block can enhance efficiency in numerous situations:
+
+- **Content Discovery:** When you're searching for information on a niche subject, this tool quickly identifies and provides links to the most relevant posts without manual sifting through options.
+- **Efficient Research:** For researchers compiling literature or articles around a specific topic, it helps swiftly locate and access pertinent resources based on defined questions.
+- **User Guidance:** In customer service or support settings, it directs users promptly to solutions or guides tailored precisely for their inquiries.
+
+In conclusion, when there’s a need for pinpointing related content efficiently amidst vast data points, the `Find Best Post` block effectively streamlines that process!

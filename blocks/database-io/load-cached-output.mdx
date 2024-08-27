@@ -2,27 +2,28 @@
 title: Load Cached Output
 ---
 
-## Overview
+### **Overview:**
 
-Retrieve previously computed output data of a block from any flow within your account using a unique identifier. This helps to by-pass long or heavy computation of a block if it has already been executed once.
+The `Load Cached Output` block enables users to efficiently retrieve previously computed data from any block within your account by utilizing a unique identifier. This feature significantly reduces computation time for tasks that have already been executed, ensuring faster operations and improved workflow efficiency.
 
-The unique identifer can be copied from the block's title bar. Navigate to the run history of the flow where the already executed blocks exist. You should then see a copy button to the right of "Batch" mode checkbox. Click the copy button to copy the unique identifier to your clipboard and paste in inside the `cache_id` field of your Load Cached Output block.
+---
 
-## Block Inputs
+### Inputs & Outputs
 
-| Name       | Type   | Description                                |
-| ---------- | ------ | ------------------------------------------ |
-| `cache_id` | string | The copied unique identifier from a block. |
+| I/O    | Feature    | Type   | Simple Explanation                                                                |
+| ------ | ---------- | ------ | --------------------------------------------------------------------------------- |
+| input  | `cache_id` | string | A unique identifier copied from the title bar of the block you want to reference. |
+| output | `data`     | any    | The retrieved output data from the specified block, ready for further processing. |
 
-## Block Outputs
+---
 
-| Name   | Type | Description     |
-| ------ | ---- | --------------- |
-| `data` | any  | The retreived . |
+### Use Cases
 
-## Use Cases
+Consider how this block can enhance productivity in various scenarios:
 
-1. **Continuing Workflow:** Retrieve data from a previous step to continue a multi-step workflow.
-2. **Accessing Commonly Used Data:** Quickly access commonly used data without regenerating it.
-3. **Restoring Process State:** Restore the state of an automated process after a pause or system restart.
-4. **Saving and Retrieving States:** Essential for saving and retrieving states, user sessions, workflow progress, or vital data across different stages of the automation.
+- **Workflow Continuation:** If you're managing a multi-step process, utilize this block to quickly fetch results from an earlier stage, allowing you to proceed without repetitive computations.
+- **Quick Access Management:** For frequently used outputs, such as forms or reports generated in prior runs, leverage this feature to access them instantly without recalculating.
+- **State Restoration:** Should your automated processes experience interruptions, utilize cached outputs to restore their state smoothly instead of starting over from scratch.
+- **User Session Preservation:** In applications requiring user interaction over multiple stages (like online shopping carts), retrieve previous selections or status seamlessly using cached identifiers.
+
+In conclusion, the `Load Cached Output` block is invaluable whenever there's a need for efficient and quick access to previously processed data!

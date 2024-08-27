@@ -2,26 +2,29 @@
 title: Scrape Hacker News
 ---
 
-## Overview
+### **Overview:**
 
-Automates the gathering of news articles from Hacker News based on a search query. Stay updated on specific topics on Hacker News, eliminating the need for manual search and making it easier to find relevant, topic-specific articles.
+The `Scrape Hacker News` block automates the gathering of news articles from Hacker News based on a specified search query. This block helps users stay updated on specific topics by eliminating the need for manual searches, thus simplifying the process of finding relevant, topic-specific articles.
 
-## Block Inputs
+---
 
-| Name        | Type   | Default | Explanation                                                                    |
-| ----------- | ------ | ------- | ------------------------------------------------------------------------------ |
-| `query`     | string |         | Search term or query to match.                                                 |
-| `num_pages` | number | 1       | The number of pages to retrieve results matching the query. Maximum value is 5 |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature       | Type     | Simple Explanation                                                                         |
+| ------ | ------------- | -------- | ------------------------------------------------------------------------------------------ |
+| input  | `query`       | string   | The search term or query used to find matching articles.                                   |
+| input  | `num_pages`   | number   | The number of pages to retrieve results that correspond to the query (maximum value is 5). |
+| output | `post_titles` | string[] | An array containing titles of the posts retrieved.                                         |
+| output | `post_links`  | string[] | An array containing links to the respective posts.                                         |
 
-| Name          | Type      | Explanation          |
-| ------------- | --------- | -------------------- |
-| `post_titles` | string[ ] | Titles of the posts. |
-| `post_links`  | string[ ] | Links of the posts.  |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Research and Journalism:** Efficient for journalists and researchers focusing on tech trends and industry updates.
-2. **Tech Enthusiasts:** Ideal for tech enthusiasts keen on following the latest in technology and startups.
-3. **Community Trend Monitoring:** Useful for tracking popular discussions and trends within the tech community, excluding community labels like "AskHN", "ShowHN", or "LaunchHN".
+Consider how this block can streamline processes in practical situations:
+
+- **Research and Journalism:** Journalists and researchers can use this block for efficient information gathering focused on technology trends and industry updates without sifting through irrelevant data.
+- **Tech Enthusiasts:** Individuals passionate about technology can effortlessly keep track of new developments, innovations, and startups by querying specific topics.
+- **Community Trend Monitoring:** Track popular discussions within the tech community effectively; this tool excludes posts labeled as "AskHN," "ShowHN," or "LaunchHN", concentrating solely on valuable conversations.
+
+In summary, whenever there's a necessity to fetch article content based on particular interests or queries, the `Scrape Hacker News` block is an invaluable resource!

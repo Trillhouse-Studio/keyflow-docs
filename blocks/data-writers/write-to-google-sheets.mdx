@@ -2,9 +2,9 @@
 title: Write to Google Sheets
 ---
 
-## Overview
+### **Overview:**
 
-The Write to Google Sheets block automates the process of adding data to a Google Sheets file. It supports writing data to both new and existing Google Sheets and offers various options for specifying where and how the data should be added.
+The `Write to Google Sheets` block automates the process of adding data to a Google Sheets file. It supports writing data to both new and existing Google Sheets, providing various options for specifying where and how the data should be added.
 
 <Note>
   To run this block, you will first need to authenticate your Google account
@@ -13,41 +13,43 @@ The Write to Google Sheets block automates the process of adding data to a Googl
   your Google Sheets using "Read & Write Google Sheets".
 </Note>
 
-## Block Inputs
+---
 
-| Name                        | Type    | Description                                                                                                                                                              |
-| --------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `data`                      | any[ ]  | The data to be written to the Google Sheet.                                                                                                                              |
-| `use_existing_google_sheet` | boolean | When enabled, the data is written to an existing Google Sheet otherwise a new Google Sheet is created, if false.                                                         |
-| `sheet_link_or_id`          | string  | The link or ID of the existing Google Sheet in Google Drive. Only used when `use_existing_google_sheet` is true                                                          |
-| `sheet_name`                | string  | The name of the specific sheet within the Google Sheet file where data will be written.                                                                                  |
-| `writer_mode`               | string  | Specifies how the data will be written to the sheet. Can be one of the following: `Add New Row`, `Add New Column`, `Add to Specified Row`, or `Add to Specified Column`. |
-| `row_index`                 | number  | The index of the row when adding data to a specified row, starting from 0. Only used when `writer_mode` is set to "Specified Row"                                        |
-| `column_index`              | number  | The index of the column when adding data to a specified column, starting from 0. Only used when `writer_mode` is set to "Specified Column"                               |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature                     | Type    | Simple Explanation                                                                                                                            |
+| ------ | --------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| input  | `data`                      | any[]   | The data that you want to write into the Google Sheet.                                                                                        |
+| input  | `use_existing_google_sheet` | boolean | If true, writes data into an existing worksheet; if false, creates a new worksheet.                                                           |
+| input  | `sheet_link_or_id`          | string  | The link or ID of the pre-existing sheet in Google Drive (only applicable when using an existing sheet).                                      |
+| input  | `sheet_name`                | string  | The specific name of the sheet within your spreadsheet where the data will be recorded.                                                       |
+| input  | `writer_mode`               | string  | Determines how the entries are inserted: can be set as `Add New Row`, `Add New Column`, `Add to Specified Row`, or `Add to Specified Column`. |
+| input  | `row_index`                 | number  | The index of the row when adding data to a specified row, starting from 0. Only used when `writer_mode` is set to "Specified Row"             |
+| input  | `column_index`              | number  | The index of the column when adding data to a specified column, starting from 0. Only used when `writer_mode` is set to "Specified Column"    |
+| output | `sheet_link`                | string  | The link to the Google Sheet where the data was written.                                                                                      |
 
-| Name         | Type | Description                                              |
-| ------------ | ---- | -------------------------------------------------------- |
-| `sheet_link` | link | The link to the Google Sheet where the data was written. |
+---
 
-## Writer Modes
+### Writer Modes
 
-The "Writer Modes" parameter in the Write to Google Sheets block allows you to specify how the data should be written to the Google Sheet. Here are the available writer modes:
+The "Writer Modes" parameter in the Write to Google Sheets block allows you to specify how you want your entries written down in sheets.
 
-1. **Add New Row**: This mode appends the provided data as a new row at the end of the specified sheet.
+1. **Add New Row**: Appends provided data as a new row at the end of a specified sheet.
+2. **Add New Column**: Inserts each element from provided data lists sequentially into cells downwards within a newly created column.
+3. **Add to Specified Row**: Enables targeting a particular row index for appending provided information directly there—replacing existing content if necessary.
+4. **Add to Specified Column**: Similar functionality for columns; overwrites values in a selected column with supplied list contents.
 
-2. **Add New Column**: With this mode, the data is added as a new column to the specified sheet. Each element in the provided data list corresponds to a cell in the new column.
+---
 
-3. **Add to Specified Row**: When using this mode, you can specify a particular row index where the data should be added. The provided data will overwrite the existing data in the specified row.
+### Use Cases
 
-4. **Add to Specified Column**: Similar to the previous mode, this mode allows you to specify a particular column index where the data should be added. The provided data will overwrite the existing data in the specified column.
+Consider these real-world applications where this block may prove beneficial:
 
-Choose the appropriate writer mode based on your requirements to ensure that the data is written to the Google Sheet as desired.
+- **Automate Data Entry:** Streamlining frequent reports—like weekly sales numbers—as they get populated directly into designated spreadsheets without manual involvement.
+- **Dynamic Reporting:** Creating moments-based reporting structures by generating new sheets regularly or updating current ones according precisely correct approaches defined through parameters.
 
-## Use Cases
+- **Data Organization:** Collecting survey results or any accumulated user feedback effectively turns chaotic mind dumps into well-partitioned repository tables that afford meaningful analysis insights later on.
 
-1. **Automate Data Entry**: Streamline the process of entering data into a Google Sheet automatically.
-2. **Dynamic Reporting**: Create new sheets or update existing ones with new data programmatically for dynamic reporting.
-3. **Data Organization**: Organize collected data into structured tables within Google Sheets for easy management and analysis.
-4. **Real-Time Data Sharing**: Share real-time data outputs by writing to a centrally accessible Google Sheet.
+- **Real-Time Data Sharing:** Experimenting over tools like applications yielding statistics can allow results updates auto-pushed back onto shared drives fostering collaboration team-wide effortlessly nurtured through this automated process instead spending hours on tidying records by hand!
+
+In summary, whenever there's a requirement tap complex datasets into manageable formats electronically writable onto widespread platforms like GSheets? Look no further than leveraging these blocks!

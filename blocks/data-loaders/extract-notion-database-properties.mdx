@@ -2,11 +2,9 @@
 title: Extract Notion Database Properties
 ---
 
-## Overview
+### **Overview:**
 
-Extract all database properties and it's type of a notion database.
-
-It’s particularly beneficial for generating content for your notion database by LLMs. When database properties are provided within the context, LLMs generate accurate shape of the content which can then instantly be used to add to your notion database.
+The `Extract Database Properties` block is designed to retrieve all properties and their types from a Notion database. This functionality is especially valuable when generating content using LLMs, as having clear property definitions enables the generation of accurate content shapes that can be directly integrated into your Notion database.
 
 <Note>
   To run this block, you will first need to authenticate your Notion account
@@ -15,27 +13,32 @@ It’s particularly beneficial for generating content for your notion database b
   your Notion.
 </Note>
 
-## Block Inputs
+---
 
-| Name          | Type   | Explanation                                |
-| ------------- | ------ | ------------------------------------------ |
-| `database_id` | string | Link or unique ID of your notion database. |
+### Inputs & Outputs
 
-## Block Outputs
-
-| Name                | Type   | Explanation                                                                          |
-| ------------------- | ------ | ------------------------------------------------------------------------------------ |
-| `properties_json`   | object | JSON containing the property name and it's corresponding field type in the database. |
-| `raw_json_response` | object | Raw JSON response from the Notion API.                                               |
+| I/O    | Feature             | Type   | Simple Explanation                                                                                          |
+| ------ | ------------------- | ------ | ----------------------------------------------------------------------------------------------------------- |
+| input  | `database_id`       | string | The link or unique ID of your Notion database that you wish to extract properties from.                     |
+| output | `properties_json`   | object | Returns a JSON object containing property names along with their corresponding field types in the database. |
+| output | `raw_json_response` | object | Provides the raw JSON response fetched from the Notion API, reflecting current database structure.          |
 
 <Note>
-  The block outputs are variable for Read Notion Page because as it depends on
-  the notion database and the properties it has. When you set the `database_id`
-  input, All your notion database properties will automatically be added as
-  individual handles which you can then connect to other blocks directly to use
-  that data.
+  The block outputs are variable for Read Notion Page because it depends on the
+  notion database and its specific properties. When setting the `database_id`,
+  all relevant properties will be automatically included as separate handles for
+  direct connections to other blocks.
 </Note>
 
-## Use Cases
+---
 
-1. **Content Editing Automations:** Build workflows that use LLMs to edit content of your blogs or any content-heavy source.
+### Use Cases
+
+Consider how this block can enhance productivity:
+
+- **Content Generation Facilitation:** By clearly defining the structure of user-generated databases, this tool allows LLMs to create tailored content that fits seamlessly within existing data frameworks.
+- **Dynamic Workflow Automation:** Integrating with various APIs, users can automate workflows involving content updates or modifications based on updated property information pulled directly through this block.
+- **Database Structure Understanding:** For teams managing extensive databases, extracting property details simplifies communication regarding data usage and modification across departments.
+- **Enhanced Content Curation:** Whether synthesizing ideas for new articles or organizing research materials, understanding each property's type allows better categorization based on intended use.
+
+In summary, whenever there’s a need for clarity in gathering detailed metadata about a Notion database's structure, the `Extract Database Properties` block proves invaluable!

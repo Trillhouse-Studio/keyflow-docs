@@ -2,27 +2,30 @@
 title: AI Filter
 ---
 
-## Overview
+### **Overview:**
 
-Processes data by applying a natural language condition to each input.
+The `AI Filter` block is designed to process input data by applying a specified natural language condition, facilitating effective data filtering and decision-making.
 
-## Block Inputs
+---
 
-| Name             | Type     | Description                                                                                                   |
-| ---------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
-| `input`          | string   | The text to apply the filter on.                                                                              |
-| `condition`      | string   | The natural language condition you want to be applied to the inputs.                                          |
-| `model`          | selector | LLM Model to be used for inference. Can be one of the following supported models.                             |
-| `cache_response` | boolean  | When enabled, it saves you AI calls by returning the same response if the inputs to the LLM have not changed. |
+### Inputs & Outputs
 
-## Block Outputs
+| I/O    | Feature           | Type     | Simple Explanation                                                                                                                                                    |
+| ------ | ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| input  | `input`           | string   | The text to apply the filter on.                                                                                                                                      |
+| input  | `condition`       | string   | The natural language condition that will dictate how the inputs are filtered.                                                                                         |
+| input  | `model`           | selector | Select from a range of supported LLM models for carrying out inference based on provided inputs.                                                                      |
+| input  | `cache_response`  | boolean  | When enabled, this feature saves AI calls by returning the same response if the inputs have not changed since the last processing instance.                           |
+| output | `filtered_output` | string   | - This represents the filtered result of your data evaluation. If your input satisfies the defined condition, it appears here unchanged; otherwise, it will be empty. |
 
-| Name              | Type   | Description                                                                                                                                                                                  |
-| ----------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `filtered_output` | string | The result of the AI Filter's evaluation. If the input data meets the specified condition, you will receive the same input data here. If it does not meet the condition, this will be empty. |
+---
 
-## Use Cases
+### Use Cases
 
-1. **Filtering Customer Inquiries:** Identifying and separating inquiries based on specific criteria expressed in natural language.
-2. **Data Categorization:** Sorting textual data according to specified conditions.
-3. **Automated Decision Making:** Making dynamic decisions based on textual content in complex automation processes.
+Consider how this block can enhance various processes:
+
+- **Filtering Customer Inquiries:** Efficiently identify and isolate customer inquiries that meet certain criteria expressed in everyday language, ensuring prompt responses.
+- **Data Categorization:** Automatically sort and organize textual information into distinct categories based on predefined conditions—useful for managing large datasets or incoming messages.
+- **Automated Decision Making:** Incorporate dynamic decision capabilities into automation workflows whereby textual content determines subsequent actions or outputs in a streamlined manner.
+
+In essence, when there is a need to filter or make decisions based on textual data seamlessly, the `AI Filter` block emerges as an essential tool!
