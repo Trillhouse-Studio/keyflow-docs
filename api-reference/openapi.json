@@ -88,7 +88,8 @@
         "properties": {
           "inputs": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": true,
+            "description":"The inputs are dependent on the workflow. They should be passed as a JSON object."
           }
         },
         "example": {
@@ -104,7 +105,8 @@
         "type": "object",
         "properties": {
           "run_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The ID of the run that was triggered."
           }
         },
         "example": {
@@ -117,13 +119,16 @@
         "additionalProperties": false,
         "properties": {
           "flow_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The ID of the flow within which the file is to be uploaded."
           },
           "run_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The ID of the run within which the file is to be uploaded."
           },
           "files": {
-            "type": "array"
+            "type": "array",
+            "description": "The files to be uploaded."
           }
         }
       }
@@ -132,7 +137,8 @@
       "apiKey": {
         "type": "apiKey",
         "in": "header",
-        "name": "X-API-Key"
+        "name": "X-API-Key",
+        "description": "The API key for the workflow. It can be found in the Trigger section on Builder Page."
       }
     }
   }
