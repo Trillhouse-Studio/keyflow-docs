@@ -140,7 +140,6 @@
             "blocks/ai/perplexity-web-search",
             "blocks/ai/translate",
             "blocks/ai/cohere-rag"
-
           ]
         },
         {
@@ -209,11 +208,11 @@
       "pages": [
         {
           "group": "Flows",
-          "pages": ["api-reference/endpoint/flows/trigger_flow_api"]
+          "pages": ["api-reference/endpoint/flows/trigger-flow"]
         },
         {
           "group": "Files",
-          "pages": ["api-reference/endpoint/files/upload_file"] 
+          "pages": ["api-reference/endpoint/files/upload-file"]
         }
       ]
     }

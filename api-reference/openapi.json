@@ -28,10 +28,41 @@
         "responses": {
           "201": {
             "description": "Successful operation",
-            "content":{
-              "application/json":{
-                "schema":{
-                  "$ref":"#/components/schemas/TriggerResponse"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TriggerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/public/upload": {
+      "post": {
+        "summary": "Use this API to upload a file to Keyflow",
+        "description": "Use this API to upload a file to Keyflow",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Upload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
                 }
               }
             }
@@ -43,42 +74,6 @@
         "security": [
           {
             "apiKey": []
-          }
-        ]
-      }
-    },
-    "/public/upload": {
-      "post": {
-        "summary": "Use this API to upload a file to Keyflow",
-        "description": "Use this API to upload a file to Keyflow",
-        "requestBody":{
-          "required": true,
-          "content":{
-            "application/json": {
-              "schema":{
-                "$ref":"#/components/schemas/Upload"
-              }
-            }
-          }
-        },
-        "responses":{
-          "201": {
-            "description": "Successful operation",
-            "content":{
-              "application/json":{
-                "schema":{
-                  "type":"string"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          }
-        },
-        "security":[
-          {
-            "apiKey":[]
           }
         ]
       }
@@ -104,144 +99,31 @@
           }
         }
       },
-      "TriggerResponse": {
-          "type":"object",
-          "properties":{
-            "run_id": {
-              "type": "string"
-            }
-          },
-          "example":{
-            "run_id": "Target-Flow-Id"
-          }
-      },
 
-      "Continue":{
-        "type":"object",
-        "required": ["flow_id", "inputs"],
-        "additionalProperties": false,
-        "properties":{
-          "flow_id": {
+      "TriggerResponse": {
+        "type": "object",
+        "properties": {
+          "run_id": {
             "type": "string"
-          },
-          "inputs":{
-            "type": "object",
-            "additionalProperties": true
           }
         },
         "example": {
-          "flow_id": "Your-flow-id",
-          "inputs":{
-            "text": "Generate a reply draft for the recent mail received"
-          }
+          "run_id": "Target-Flow-Id"
         }
       },
-      "ContinueResponse":{
-        "type":"object",
-        "properties":{
-          "run_link": {
-            "type": "string"
-          }
-        }
-      },
-
-      "StatusResponse":{
-        "type":"object",
-        "properties":{
-          "status": {
-            "type":"string"
-          },
-          "logs":{
-            "type":"array",
-            "properties":{
-              "type":"object",
-              "properties":{
-                "node_1":{
-                  "type":"object",
-                  "properties":true
-                }
-              }
-            }
-          },
-          "outputs": {
-            "type":"object",
-            "properties":{
-              "output_1":{
-                "type":"string"
-              }
-            }
-          }
-        }
-      },
-
-      "AllFlowsResponse":{
-        "type":"object",
-        "properties":{
-          "flow_id":"Your-flow-id"
-        }
-      },
-
-      "RunningFlowResponse":{
-        "type":"array",
-        "properties":{
-          "type":"object",
-          "properties":{
-            "flow_id": "Your-flow-id"
-          }
-        }
-      },
-
-      "InputsResponse":{
-        "type":"object",
-        "properties":{
-          "inputs":{
-            "type":"array",
-            "properties":{
-              "input_name":"string",
-              "input_type":"string",
-              "description":"string",
-              "title":"string"
-            }
-          }
-        }
-      },
-
-      "PendingResponse":{
-        "type":"array",
-        "properties":{
-          "type":"object",
-          "properties":{
-            "action_id": "Your-action-id",
-            "run_id": "Your-run-id",
-            "flow_id":"Your-flow-id"
-          }
-        }
-      },
-
       "Upload": {
-        "type":"object",
-        "required":["flow_id", "run_id", "files"],
+        "type": "object",
+        "required": ["flow_id", "run_id", "files"],
         "additionalProperties": false,
-        "properties":{
+        "properties": {
           "flow_id": {
             "type": "string"
           },
-          "run_id":{
+          "run_id": {
             "type": "string"
           },
-          "files":{
-            "type":"array"          }
-        }
-      },
-
-      "FilesResponse":{
-        "type":"array",
-        "properties":{
-          "type":"object",
-          "properties":{
-            "file_path": "Your-file-path",
-            "scope": "RUN | FLOW | SPACE",
-            "origin": "UPLOADED | GENERATED"
+          "files": {
+            "type": "array"
           }
         }
       }
