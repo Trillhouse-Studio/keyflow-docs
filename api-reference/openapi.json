@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://keyflow-backend.com/api"
+      "url": "https://keyflow-backend-62hevvkvea-uc.a.run.app/api"
     }
   ],
   "paths": {
@@ -32,6 +32,28 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TriggerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/runs/status/{run_id}": {
+      "get": {
+        "summary": "Fetch status of run using API",
+        "description": "Fetch status of run using API",
+
+        "responses": {
+          "201": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunResponse"
                 }
               }
             }
@@ -89,7 +111,7 @@
           "inputs": {
             "type": "object",
             "additionalProperties": true,
-            "description":"The inputs are dependent on the workflow. They should be passed as a JSON object."
+            "description": "The inputs are dependent on the workflow. They should be passed as a JSON object."
           }
         },
         "example": {
@@ -104,15 +126,41 @@
       "TriggerResponse": {
         "type": "object",
         "properties": {
+          "run_link": {
+            "type": "string",
+            "description": "URL of run"
+          },
           "run_id": {
             "type": "string",
             "description": "The ID of the run that was triggered."
           }
         },
         "example": {
-          "run_id": "Target-Flow-Id"
+          "run_link": "https://www.keyflow.space/flows/builder?runId=xxxxxxx",
+          "run_id": 1
         }
       },
+
+      "Run": {
+        "type": "object",
+        "additionalProperties": false
+      },
+
+      "RunResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Run status",
+            "enum": ["COMPLETE", "FAILED", "IN_PROGRESS", "QUEUED", "WAITING"],
+            "example": "COMPLETE"
+          }
+        },
+        "example": {
+          "status": "COMPLETE"
+        }
+      },
+
       "Upload": {
         "type": "object",
         "required": ["flow_id", "run_id", "files"],

@@ -218,6 +218,10 @@
           "pages": ["api-reference/endpoint/flows/trigger-flow"]
         },
         {
+          "group": "Runs",
+          "pages": ["api-reference/endpoint/runs/fetch-run-status"]
+        },
+        {
           "group": "Files",
           "pages": ["api-reference/endpoint/files/upload-file"]
         }
