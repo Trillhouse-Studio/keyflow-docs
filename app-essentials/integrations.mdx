@@ -1,0 +1,249 @@
+---
+title: Integrations
+description: Third-party integrations for your flows
+---
+
+## Overview
+
+Various blocks require authentication with third-party services to enable automation processes, such as interacting with platforms like **Gmail**, **Notion** or **ElevenLabs API**. The Credentials page serves as a centralized hub for viewing and managing all third-party integrations with Keyflow.
+
+## Integration Methods
+
+There are two ways a service can be integrated to Keyflow.
+
+### OAuth 2.0
+
+OAuth 2.0 is a secure and widely-used method for integrating third-party services with applications including Keyflow. Click on `Connect` to authorize and connect to any available connections.
+
+### API Key
+
+While most third-party services are authenticated via OAuth2 for secure and streamlined access, some may require manual entry of credentials. For services like Perplexity, users are prompted to input their API key for billing purposes, while credentials for Twilio are directly entered to grant appropriate permissions to associated nodes. Click on the `Add API Key` to integrate the service with keyflow.
+
+## Revoke Credentials
+
+Your control over your data and how it's accessed is paramount. Should you need to revoke Keyflow's access to any service, navigate to the Credentials page, and click **Revoke** button next to the service you wish to disconnect.
+
+<Warning>
+  This action will remove Keyflow's access immediately, and any automations
+  relying on this authentication will cease to function until reauthorized.
+</Warning>
+
+## Security
+
+All credentials are encrypted securely and decryption only occur in the servers during the execution of a flow. When revoked, any trace of your credentials are wiped from our servers and you'll need to re-authenticate in the future.
+
+## Available Integrations
+
+Here is the list of all supported integrations with Keyflow --
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
+    gap: "20px",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/notion.png"
+      alt="Notion Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Notion</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/gmail.png"
+      alt="Gmail Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Gmail</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/gsheets.png"
+      alt="Google Sheets Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Google Sheets</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/gdocs.png"
+      alt="Google Docs Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Google Docs</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/in.png"
+      alt="Linkedin Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Linkedin</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/typeform.png"
+      alt="Typeform Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Typeform</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/outlook.png"
+      alt="Outlook Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Outlook</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/asana.png"
+      alt="Asana Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Asana</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/eleven_labs.png"
+      alt="Eleven Labs Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Eleven Labs</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/twilio.png"
+      alt="Twilio Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Twilio</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/postgres.png"
+      alt="Postgres Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Postgres</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/openai.png"
+      alt="OpenAI Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>OpenAI</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/anthropic.png"
+      alt="Anthropic Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Anthropic</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/cohere.png"
+      alt="Cohere Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Cohere</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/deepmind.jpeg"
+      alt="DeepMind Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Gemini</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/perplexity.png"
+      alt="Perplexity Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Perplexity</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/groq.png"
+      alt="Groq Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>Groq</span>
+  </div>
+  <div
+    style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+  >
+    <img
+      src="/images/integrations/serp.png"
+      alt="SERP Integration"
+      style={{ height: "60px", width: "60px" }}
+    />
+    <span>SERP</span>
+  </div>
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    }}
+  >
+    <img
+      src="/images/integrations/metaphor.png"
+      alt="Metaphor Integration"
+      style={{ height: "32px", width: "48px" }}
+    />
+    <span>Metaphor</span>
+  </div>
+</div>
+
+<Note>
+Request new third-party integrations
+
+If you require integration with other services that are crucial for your workflow, feel free to email us at founders@keyflow.space!
+
+</Note>

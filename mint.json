@@ -58,25 +58,23 @@
       "group": "Getting Started",
       "pages": [
         "introduction",
-        "quickstart",
-        {
-          "group": "Core Concepts",
-          "pages": [
-            "core-concepts/blocks",
-            "core-concepts/flows",
-            "core-concepts/batch-mode",
-            "core-concepts/nesting-flows",
-            "core-concepts/ai-agents",
-            "core-concepts/app-view",
-            "core-concepts/chat-view",
-            "core-concepts/integrations",
-            "core-concepts/block-versioning",
-            "core-concepts/external-flows",
-            "core-concepts/share-flows",
-            "core-concepts/triggers",
-            "core-concepts/working-with-files"
-          ]
-        }
+        "quickstart"
+      ]
+    },
+    {
+      "group": "App Essentials",
+      "pages": [
+        "app-essentials/key-terms",
+        "app-essentials/credits-in-keyflow",
+        "app-essentials/ai-agents",
+        "app-essentials/app-view",
+        "app-essentials/integrations",
+        "app-essentials/external-flows",
+        "app-essentials/share-flows",
+        "app-essentials/trigger-flows",
+        "app-essentials/files-in-keyflow",
+        "app-essentials/runs-history",
+        "app-essentials/edit-history"
       ]
     },
     {
@@ -201,6 +199,15 @@
             "blocks/database-io/postgresql"
           ]
         }
+      ]
+    },
+    {
+      "group": "Triggers",
+      "pages": [
+        "triggers/api-trigger",
+        "triggers/gmail-trigger",
+        "triggers/schedule-trigger"
+
       ]
     },
     {

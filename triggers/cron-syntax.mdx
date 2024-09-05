@@ -1,0 +1,31 @@
+---
+title: Cron Syntax
+description: Learn how to create Cron Expression for your Schedule Trigger
+---
+
+Cron syntax is used to schedule tasks to run at specific times or intervals. A cron expression consists of five fields, representing different time units, plus an optional sixth field for the year:
+
+1. **Minute** (0-59)
+2. **Hour** (0-23)
+3. **Day of Month** (1-31)
+4. **Month** (1-12 or Jan-Dec)
+5. **Day of Week** (0-6 or Sun-Sat)
+6. **Year** (optional, e.g., 2023)
+
+Each field can contain:
+
+- **A specific value** (e.g., `5` for the 5th minute)
+- **A range** (e.g., `1-5` for minutes 1 through 5)
+- **A list** (e.g., `1,15,30` for minutes 1, 15, and 30)
+- **A step value** (e.g., `/15` for every 15 minutes)
+- **Wildcard ``** to represent all possible values in that field.
+
+**Creating Custom Cron Expressions:**
+
+To create a custom cron expression, you need to define the schedule by specifying the desired values in each field. For example:
+
+- **Every day at midnight:** `0 0 * * *`
+- **Every Monday at 8 AM:** `0 8 * * 1`
+- **Every 15 minutes:** `/15 * * * *`
+
+This flexibility allows you to schedule tasks with precision according to your needs.

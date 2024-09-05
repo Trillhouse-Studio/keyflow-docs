@@ -3,56 +3,61 @@ title: "Quickstart"
 description: "Start automating in under 5 minutes"
 ---
 
-## Basic Terminology
-
-`flow`: process or workflow you want to automate
-
-`blocks` : logical units that perform an action
-
-`blocks` are building blocks that build up your process or workflows called `flows`
-
 ## Start with our examples
 
-The best way to experience the power of Keyflow is by running a `flow`. We have built some example `flows` you can try right away. **Check them out here**
+The best way to experience the power of Keyflow is by running a `flow`. We have built some example `flows` you can try right away. [Check them out here](https://keyflow.space/templates)
 
-Let’s go through an example to understand how a `flow` works. We will pick _“Newsletter digest”_ for demonstration purposes.
+Let’s go through an example to understand how a `flow` works. We will pick _“Youtube Article Generator”_ for demonstration purposes.
 
----screenshot of newsletter digest flow---
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/quickstart/youtube-article-generator-light.png"
+    alt="Youtube Article Generator Workflow"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/quickstart/youtube-article-generator-dark.png"
+    alt="Youtube Article Generator Workflow"
+  />
+</Frame>
 
 ### Loading data
 
-We start the `flow` with a `Read Gmail block` that reads data from my inbox. In this particular case, it reads the `20` most recent emails with label `newsletter` applied to it.
+We start the `flow` with an `Input blocks` that provides the link of the Youtube video to be transcribed.
 
-> 💡 The data a `block` returns can be connected to inputs of other `blocks` . Here we connect `email_body` and `email_subject` output of Gmail block to a text block.
+<Tip>
+   The data a `block` returns can be connected to inputs of other `blocks` .
+  Here we connect `value` from Input Block to the `video_link` of Get Youtube
+  Transcript Block.
+</Tip>
 
 ### Modifying data
 
-Text block allows us to format text with any number of inputs. Here we take data like `email_body` and `email_subject` and format in the following string.
+Text block allows us to format text with any number of inputs. We can combine multiple strings in any order of our choice using this block.
 
-```jsx
-Email Subject: {subject}
-Email Body: {body}
-```
+To combine the strings, simply specify the format in which you want them. For example to combine two inputs consecutively, use `{input_1} {input_2}` as the placeholders.
 
-Notice that Text block is in batch mode, which means, it processes a list of emails and for each email, it creates the text format you see above. You can learn more about **Batch mode in Core Concepts.**
-
-Next we take a list of formatted text from Text block and join it into one string (text) using Join Text Array block. We separate each email in this text with “===================” demiliter.
+Here we take `transcript` from the Get Youtube Transcript block and combine it with the context we want to provide to the LLM. This allows us to consolidate the transcript provided by the previous block and the context we want to provide to the LLM in a single `question` for AI Analysis.
 
 Now we have data we can pass for AI analysis!
 
 ### AI Analysis
 
-We take Join Text Array output which is all our newsletter email data and pass it as `context` to Ask AI block. This gives the AI context on all our emails. Now we can ask it any question in plain english!
+We take the Text block to combine the provided transcript along with our context. We can provide the context or ask any question in plain English!
 
-Here we ask it to create a bullet point digest of all my news letter. The exact question is bit more detailed. You can think of the question as a `prompt` . The better you prompt the model, the better results you get. Here is a guide on how to write better prompts.
+Here we ask it to create an article from the transcript provided. The exact context is a bit more detailed. You can think of the context as a `prompt`. The better you prompt the model, the better results you get.
+
+We have provided a default prompt to help you get easy to understand articles straight from the video. You can modify the prompt as per your liking.
 
 ### Taking Actions
 
-Once AI has analysed the data, we can take actions on any apps we use. We can save it Notion, Google Docs, Google Sheets, or we c.n send it in an email or as an Whatsapp message. The sky is the limit!
+Once AI has analysed the data, we can take actions on any apps we use. We can save it Notion, Google Docs, Google Sheets, or we can send it in an email or as an Whatsapp message. The sky is the limit!
 
-> ℹ Don’t see your favourite app? Request it here
-
-In our case, we will send it to ourselves as an email using Send Email Notification block. This will send an email to the recipient from founders@keyflow.space. If you want to send an email from your inbox, use our Gmail or Outlook blocks.
+<Tip>
+   Don’t see your favourite app? [Request
+  here](https://cal.com/keyflow/request-custom-automations){" "}
+</Tip>
 
 ### Running a flow
 
@@ -83,12 +88,12 @@ After hitting run, you will see the workflow in real-time as the blocks are bein
 <Frame>
   <img
     className="block dark:hidden"
-    src="/images/quickstart/flow-run-output-light.png"
+    src="/images/quickstart/run-article-generator-light.png"
     alt="Output after running a flow"
   />
   <img
     className="hidden dark:block"
-    src="/images/quickstart/flow-run-output-dark.png"
+    src="/images/quickstart/run-article-generator-dark.png"
     alt="Output after running a flow"
   />
 </Frame>
@@ -106,56 +111,34 @@ You can create triggers to automatically run your flows! You can automatically t
 5. When you upload a file to Google Drive (coming soon ✨)
 6. via our API
 
-> ℹ️ Want to trigger on custom event? Request a custom event trigger
-
-### Get started with templates
-
-The best way to get started is by using a prebuilt template!
-
-We've built 50+ functional workflows categorized by their use cases for you to browse, explore and learn Keyflow. You can use these to understand how things work or to run out of the box, each is built to be immediately useful
-
-Get started with [templates here](https://www.keyflow.space/templates)
-
-For this quickstart guide, we'll pick the <i>["Email Auto-Replier"](https://www.keyflow.space/templates/administration/email-auto-replier)</i> under the `administration` category of the templates. Simply open the template's page using the link and click on the <b>"Use Template"</b> button
-
-<Frame>
-  <img
-    className="block dark:hidden"
-    src="/images/quickstart/email-auto-replier-light.png"
-    alt="Email auto-replier automation template in Keyflow"
-  />
-  <img
-    className="hidden dark:block"
-    src="/images/quickstart/email-auto-replier-dark.png"
-    alt="Email auto-replier automation template in Keyflow"
-  />
-</Frame>
-
-### Running a flow
-
-You can simply run the workflow by hitting the run button in the top right corner. Running a workflow will auto-save the current version of your workflow.
-
-After hitting run, you will see the workflow in real-time as the blocks are being executed. The outputs of each block will be displayed in the side panel after they have completed processing.
-
-## Next Steps
-
-Now that you have seen how easily an automation can be run in Keyflow. You can now further explore the platform and Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+<Tip>
+  Want to trigger on custom event? [Request a custom event
+  trigger](https://keyflow.space/settings/credentials)
+</Tip>
 
 <CardGroup>
 
-<Card title="Core Concepts" icon="chart-mixed" href="/core-concepts">
-  Learn the features and concepts of building an automation in Keyflow
+<Card title="App Essentials" icon="chart-mixed" href="/app-essentials">
+  Learn the features and essentials for building an automation in Keyflow
 </Card>
 
 <Card title="Blocks" icon="browser" href="/blocks">
   Explore various blocks and learn how to use them for your automations.
 </Card>
 
-<Card title="Trigger Automations" icon="square-code" href="/triggers">
+<Card
+  title="Trigger Automations"
+  icon="square-code"
+  href="/app-essentials/triggers"
+>
   Run a flow automatically based on schedules, API or other integrations.
 </Card>
 
-<Card title="Share Automations" icon="paintbrush" href="/share-automations">
+<Card
+  title="Share Automations"
+  icon="paintbrush"
+  href="/app-essentials/share-flows"
+>
   Share your Keyflow automations with the community and friends.
 </Card>
 

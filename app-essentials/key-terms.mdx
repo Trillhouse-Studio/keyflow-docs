@@ -1,0 +1,149 @@
+---
+title: "Key Terms"
+description: "Key terms to know before you start automation with Keyflow"
+---
+
+## Basic Terminology
+
+`flow`: process or workflow you want to automate
+
+`blocks` : logical units that perform an action
+
+**Blocks** are building blocks that build up your process or workflows called
+**Flows**
+
+## 🧱 What is a Block?
+
+Blocks, short for building blocks, are logical units used to build flows. You can think of them as No-code lego pieces that you can connect to create a flow.
+
+Each block runs some code in background to carry out a function in your flow.
+
+You can add a block to your canvas by dragging and dropping them from the block list.
+
+We have 7 types of blocks:
+
+1. `Core`
+2. `Data Loaders`
+3. `AI`
+4. `Data Modifiers`
+5. `Flow Control`
+6. `Data Writers`
+7. `Database I/O`
+
+All blocks take some inputs and produce some outputs. To configure a block you can simply click on it. It will open a side bar with configurable inputs.
+
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/terminology/blocks-light.png"
+    alt="Anatomy of a block"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/terminology/blocks-dark.png"
+    alt="Anatomy of a block"
+  />
+</Frame>
+
+You may also see inputs and output as handles on the left and right side of the block respectively.
+
+You can connect blocks using these handles. Output data of a block can be connected to a input data of another block!
+
+You can also modify the blocks using the vertical toolbar next to the block. This helps to make flow building process and the larger flows easy to understand.
+
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/block-toolbar-light.png"
+    alt="Vertical Block Toolbar"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/block-toolbar-dark.png"
+    alt="Vertical Block Toolbar"
+  />
+</Frame>
+
+- **Debug**: Run the workflow starting from this block.
+- **Duplicate**: Create a copy of this block.
+- **Rename**: Change the block’s name.
+- **Delete**: Remove the block from the workflow.
+
+Connect as many blocks as you like. This creates a `flow` .
+
+### Batch Mode
+
+**Batch Mode** in Keyflow streamlines processes by enabling certain blocks to handle multiple inputs concurrently, thus optimizing performance.
+
+Consider a scenario where you have a list of strings that need to be modified. Reading every single element from the list and modifying it manually sounds lengthy and tiring. It can often lead to inefficiency and potential errors.
+
+This is where **Batch Mode** comes in handy. Enable the Batch Mode in the `Text` block and it will take the elements from the list one after the other and modify it as per your specification.
+
+Batch Mode operates like a loop, efficiently handling multiple inputs throughout the workflow, thus streamlining complex tasks and maximizing efficiency.
+
+### Updating blocks
+
+We make regular changes to all blocks to add functionality, improve performance and fix bugs. After we update a block, we preserve the older version of the blocks for flows that are already in use. We do this to avoid breaking your deployed flows. You will also see a notification on outdated blocks in flows to update them to newest version.
+
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/update-block-light.png"
+    alt="Anatomy of a block"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/update-block-dark.png"
+    alt="Anatomy of a block"
+  />
+</Frame>
+
+We highly recommend you keep the blocks in your workflows up-to date with the newest version for improved performance and better functionality.
+
+We will send out emails when we make updates to blocks so you don’t miss any updates :)
+
+<Tip>
+
+We make custom blocks for enterprise users → [Request here](https://cal.com/keyflow/request-custom-automations)
+
+</Tip>
+
+## ➰ What is a Flow?
+
+Flows, short for workflows, are built by connecting blocks to automate your business processes. A flow allows you to visually see the process you want to automate. Most of our customers use Keyflow to automate processes that require reasoning and intelligence.
+
+They automate these processes using Large Language Models technology that powers apps like ChatGPT, Claude, Google Gemini and Meta AI.
+
+### Building a flow
+
+The flow builder is a large canvas for you to design your personalized workflows. Each block can be found in the Block list on the left side.
+
+Blocks are dragged and dropped onto the canvas one at a time. Once they're on the canvas they're ready to be connected together.
+
+The inputs of one block are derived from the outputs of another.
+
+### Here is a basic mental model we use to build flows:
+
+<Steps>
+  <Step title="Loading data" />
+  <Step title="Transform data (optional)" />
+  <Step title="Analyzing with AI" />
+  <Step title="Transform data (optional)" />
+  <Step title="Take Action" />
+</Steps>
+
+### Flow Tags
+
+Tags are like labels that can be given to your workflows. When you have a large number of workflows, it can be difficult to find the right workflow especially when you cannot recall the name of the flow. This is when Tags become useful. Give tags of your choice to your workflow and keep them organized.
+
+### Nesting Flows
+
+Any flow you build in keyflow can be used as a block in another flow. This powerful feature allows you build a network of workflows that call each other.
+
+This functionality is crucial for Keyflow as it allows us to build small processes and automations that interact with each other.
+
+For example, assume you want to build an Email Assistant. You can start this by first building an automation that categorizes your email into different buckets like `bug report` , `Academic pricing` , etc.
+
+Everything is a process and creating processes within processes helps you use keyflow in a powerful way to automate your business.
+
+You can run a flow manually or trigger them automatically by setting up Triggers.

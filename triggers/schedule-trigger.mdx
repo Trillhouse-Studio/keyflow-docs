@@ -1,0 +1,45 @@
+---
+title: Schedule Trigger
+description: Trigger a workflow at a specific time in future
+---
+
+Let's say you made a workflow that fetches the Newsletter from your inbox and summarizes the content into bullet points. Now you want to run this workflow once at the end of week. Remembering to manually run the workflow every week is inefficient and time-consuming. This is where Schedule Trigger comes in handy. You can setup a schedule to execute your workflow at a specific time in future or at regular intervals.
+
+<Warning> Triggers are not available for Free Accounts </Warning>
+
+You can find the Schedule Trigger in `Triggers` > `Schedule Trigger`
+
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/triggers/schedule-trigger-light.png"
+    alt="Schedule Trigger"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/triggers/schedule-trigger-dark.png"
+    alt="Schedule Trigger"
+  />
+</Frame>
+
+### Create Schedule Trigger
+
+Click on `+ Schedule Trigger` to setup a schedule. This will open a modal where you will enter details of the schedule like :
+
+- Name of the Schedule Trigger
+- Maximum number of runs allowed by the Trigger
+- Expiry Date of the Trigger
+- Cron expression of the time when you want to trigger the workflow. Learn more about <Link href="/triggers/cron-syntax">Cron Syntax</Link>
+
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/triggers/schedule-trigger-modal-light.png"
+    alt="API Trigger"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/triggers/schedule-trigger-modal-dark.png"
+    alt="API Trigger"
+  />
+</Frame>

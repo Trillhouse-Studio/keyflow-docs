@@ -1,0 +1,46 @@
+---
+title: AI Agents
+description: Blocks that act as mini employees.
+---
+
+An AI Agent block accepts instructions in english and takes actions on data loading blocks, AI blocks and data writing blocks on your behalf. These are the most powerful blocks of Keyflow.
+
+<Note>AI Agents are experimental</Note>
+
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/ai-agent-light.png"
+    alt="Youtube Article Generator Workflow"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/ai-agent-dark.png"
+    alt="Youtube Article Generator Workflow"
+  />
+</Frame>
+
+## Concepts
+
+### System Instructions
+
+These are high level instructions your AI agent will adhere to. The best practice is to define the agent’s scope and provide step by step detailed instructions to your agent so it can take deterministic actions on your behalf.
+
+Agents are as good as the instructions they get, we highly recommend spending some time here to test agent behaviour as you type instructions. Good instructions can make an agent feel magical.
+
+### Tools
+
+These are actions that your agent can take on your behalf. You can provide any data loader, AI or data writer blocks as tools. Simple drag a block in canvas inside the tools area of your agent.
+
+<Warning>
+  Dragging a block from block list inside tool area will not work. We will fix
+  this soon
+</Warning>
+
+### Context
+
+You can provide outputs of other blocks or agents as context to you agent. This context can help you agent in carrying out the tasks
+
+### Prompt
+
+The message that triggers the agent to do its job.
