@@ -13,24 +13,25 @@ There are two ways a service can be integrated to Keyflow.
 
 ### OAuth 2.0
 
-OAuth 2.0 is a secure and widely-used method for integrating third-party services with applications including Keyflow. Click on `Connect` to authorize and connect to any available connections.
+OAuth 2.0 is a secure and widely-used method for integrating third-party services with applications including Keyflow. Click `Connect` to authorize and connect to any available connections.
 
 ### API Key
 
-While most third-party services are authenticated via OAuth2 for secure and streamlined access, some may require manual entry of credentials. For services like Perplexity, users are prompted to input their API key for billing purposes, while credentials for Twilio are directly entered to grant appropriate permissions to associated nodes. Click on the `Add API Key` to integrate the service with keyflow.
+While most third-party services are authenticated via OAuth2 for secure and streamlined access, some may require manual entry of credentials. For services like Perplexity, users are prompted to input their API key for billing purposes. Click on the `Add API Key` to integrate the service with keyflow.
 
 ## Revoke Credentials
 
 Your control over your data and how it's accessed is paramount. Should you need to revoke Keyflow's access to any service, navigate to the Credentials page, and click **Revoke** button next to the service you wish to disconnect.
 
 <Warning>
-  This action will remove Keyflow's access immediately, and any automations
-  relying on this authentication will cease to function until reauthorized.
+  This action will remove Keyflow's access and all traces of your credentials
+  immediately. All flows relying on these credentials will cease to function
+  until reauthorized.
 </Warning>
 
 ## Security
 
-All credentials are encrypted securely and decryption only occur in the servers during the execution of a flow. When revoked, any trace of your credentials are wiped from our servers and you'll need to re-authenticate in the future.
+All credentials are encrypted at rest and securely stored in cloud. Decryption only occurs in the servers during flow execution.
 
 ## Available Integrations
 
@@ -242,8 +243,8 @@ Here is the list of all supported integrations with Keyflow --
 </div>
 
 <Note>
-Request new third-party integrations
+Request new integrations
 
-If you require integration with other services that are crucial for your workflow, feel free to email us at founders@keyflow.space!
+Email us at founders@keyflow.space to request integrations to your favourite applications
 
 </Note>
