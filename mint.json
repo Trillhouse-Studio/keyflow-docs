@@ -65,6 +65,7 @@
       "group": "App Essentials",
       "pages": [
         "app-essentials/key-terms",
+        "app-essentials/batch-mode",
         "app-essentials/credits-in-keyflow",
         "app-essentials/ai-agents",
         "app-essentials/app-view",
