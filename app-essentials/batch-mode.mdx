@@ -3,10 +3,10 @@ title: Batch Mode
 description: Learn about the Batch Mode feature in Keyflow.
 ---
 
-Batch Mode in Keyflow streamlines processes by enabling certain blocks to handle multiple inputs concurrently, thus optimizing performance.
+**Batch Mode** in Keyflow streamlines processes by enabling certain blocks to handle multiple inputs concurrently, thus optimizing performance.
 
-Consider a scenario where you need to read data from a Google Sheet, scrape multiple websites listed in the sheet, summarize and extract relevant information, and then save all the fields into a Notion database. Without Batch Mode, each step would need to be executed individually, leading to inefficiency and potential errors.
+Consider a scenario where you have a list of strings that need to be modified. Reading every single element from the list and modifying it manually sounds lengthy and tiring. It can often lead to inefficiency and potential errors.
 
-However, with Batch Mode enabled, you can automate this process effectively. The Read from Google Sheets block retrieves data from the spreadsheet, while **"Batch Mode"** allows the subsequent URL Scraper block to scrape multiple websites in parallel. The extracted data is then summarized and relevant fields are saved into a Notion database, all in one seamless operation.
+This is where **Batch Mode** comes in handy. Enable the Batch Mode in the `Text` block and it will take the elements from the list one after the other and modify it as per your specification.
 
 Batch Mode operates like a loop, efficiently handling multiple inputs throughout the workflow, thus streamlining complex tasks and maximizing efficiency.
