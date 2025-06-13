@@ -56,17 +56,14 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": [
-        "introduction",
-        "quickstart"
-      ]
+      "pages": ["introduction", "quickstart"]
     },
     {
       "group": "App Essentials",
       "pages": [
         "app-essentials/key-terms",
         "app-essentials/batch-mode",
-        "app-essentials/credits-in-keyflow",
+        "app-essentials/compute-units-in-keyflow",
         "app-essentials/ai-agents",
         "app-essentials/app-view",
         "app-essentials/integrations",
@@ -208,7 +205,6 @@
         "triggers/api-trigger",
         "triggers/gmail-trigger",
         "triggers/schedule-trigger"
-
       ]
     },
     {
