@@ -1,0 +1,154 @@
+---
+title: Summarize
+---
+
+### Overview
+
+The Summarizer block uses AI to condense lengthy text into clear, concise summaries that capture the key points and essential information. Perfect for processing articles, reports, documents, and any text content you need to understand quickly.
+
+<Tip>Transform long content into digestible summaries while preserving the most important information.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Text" type="string" required>
+  The text content you want to summarize. Can be articles, reports, emails, or any lengthy text that needs condensing.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Model" type="string" default="gpt-4o-mini">
+    The AI model to use for summarization. Choose based on your accuracy and cost requirements.
+  </ParamField>
+
+  <ParamField query="Cache Response" type="boolean" default="true">
+    Whether to cache the response for future use to save costs on identical summarization requests.
+  </ParamField>
+
+  <ParamField query="Account" type="credential">
+    Select the AI credentials you want to use for the chosen model.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Summary" type="string">
+  A concise summary of the input text that captures the main points and essential information.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="Model" type="string">
+    The specific AI model that was used for this summarization.
+  </ParamField>
+
+  <ParamField query="Cost" type="number">
+    The computational cost incurred for this summarization operation.
+  </ParamField>
+
+  <ParamField query="Cache Hit" type="boolean">
+    Whether this response was retrieved from cache to save on costs.
+  </ParamField>
+
+  <ParamField query="Input Tokens" type="number">
+    Number of tokens in your input text.
+  </ParamField>
+
+  <ParamField query="Output Tokens" type="number">
+    Number of tokens in the generated summary.
+  </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Provide Well-Structured Input">
+    Use clear, well-formatted text for better summarization results.
+    
+    ```text ⚠️ Bad Example wrap
+    Unformatted wall of text with no paragraphs or structure mixed topics unclear sections...
+    ```
+    
+    ```text ✅ Good Example wrap
+    Well-structured article with clear paragraphs, proper headings, and logical flow of ideas that makes the main points easy to identify.
+    ```
+  </Step>
+
+  <Step title="Consider Your Content Length">
+    The summarizer works best with substantial content that has clear main points to extract.
+  </Step>
+
+  <Step title="Use Appropriate Models">
+    Choose models based on your content type and desired summary quality versus cost.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The summary is too short or missing important details">
+    This can happen with very long texts or content with many complex topics.
+    
+    <Tip>AI summarizers aim for concise overviews rather than comprehensive details</Tip>
+    
+    Try these approaches:
+    1. Break very long content into sections and summarize separately
+    2. Use higher-quality models for complex content
+    3. Ensure your input text has clear structure and main points
+    4. Consider if the content has too many disconnected topics
+  </Accordion>
+
+  <Accordion title="The summary is too long or verbose">
+    Some content may produce longer summaries than expected.
+    
+    <Info>Summary length depends on content complexity and the model's interpretation</Info>
+    
+    Solutions:
+    1. Use more efficient models that tend to produce shorter summaries
+    2. Pre-process your text to remove less relevant sections
+    3. Break content into smaller, focused sections
+    4. Consider using a follow-up summarizer block to further condense the output
+  </Accordion>
+
+  <Accordion title="Summary misses the main point or focuses on wrong details">
+    This can occur with poorly structured content or when key information isn't prominent.
+    
+    <Warning>Summaries depend heavily on how clearly the main points are presented in the original text</Warning>
+    
+    To improve results:
+    1. Ensure your input text has clear topic sentences and structure
+    2. Try different AI models - some are better at identifying key themes
+    3. Remove irrelevant sections before summarizing
+    4. Consider restructuring very complex content before summarization
+  </Accordion>
+
+  <Accordion title="How do I summarize different types of content">
+    Different content types may need different approaches:
+    
+    **Articles & Reports**: Work well with default settings
+    **Legal Documents**: Use higher-quality models for accuracy
+    **Technical Content**: Ensure technical terms are clearly defined
+    **Multiple Topics**: Consider separating and summarizing individually
+    **Conversational Text**: May need preprocessing to remove irrelevant chatter
+    
+    <Info>The summarizer adapts to different content types automatically</Info>
+  </Accordion>
+
+  <Accordion title="Can I control the summary length or style">
+    The basic summarizer provides automatic summary generation, but you can influence the output:
+    
+    1. **Length**: Longer input generally produces longer summaries
+    2. **Style**: The AI maintains the general tone of the original content
+    3. **Focus**: Well-structured input helps the AI identify key points
+    4. **Detail Level**: More complex models tend to capture nuanced details
+    
+    For more control over summary style and length, consider using the Ask AI block with specific summarization prompts.
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,147 @@
+---
+title: Score
+---
+
+### Overview
+
+The Scorer block uses AI to assign a numerical score (1-100) to any content based on your custom criteria. Perfect for evaluating quality, ranking items, or making objective assessments with optional justifications.
+
+<Tip>Get objective numerical scores for content evaluation with AI-powered analysis and optional reasoning.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Data" type="string" required>
+  The content you want to score - can be articles, emails, products, or any text you need evaluated.
+</ParamField>
+
+<ParamField query="Criteria" type="string" required>
+  Define the scoring criteria such as "quality of writing", "conciseness", "relevance", or any custom evaluation standards.
+</ParamField>
+
+<ParamField query="Include Justification" type="boolean" default="false">
+  If checked, the model will provide detailed reasoning for why it assigned the specific score.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Model" type="string" default="gpt-4o-mini">
+    The AI model to use for scoring. Choose based on your accuracy and cost requirements.
+  </ParamField>
+
+  <ParamField query="Cache Response" type="boolean" default="true">
+    If checked, identical scoring requests will be cached to save costs.
+  </ParamField>
+
+  <ParamField query="API Keys" type="credential">
+    Select the API credentials you want to use for the chosen model.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Score" type="string">
+  A numerical score between 1 and 100 based on how well the content meets your specified criteria.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="Justification" type="string">
+    Detailed explanation for why the AI assigned this score (only when Include Justification is enabled).
+  </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Define Clear, Specific Criteria">
+    Be precise about what you're measuring to get consistent, meaningful scores.
+    
+    ```text ⚠️ Bad Example wrap
+    Quality
+    ```
+    
+    ```text ✅ Good Example wrap
+    Quality of writing based on: clarity of arguments, grammar and spelling accuracy, logical flow, and engaging tone for a business audience
+    ```
+  </Step>
+
+  <Step title="Use Consistent Scoring Standards">
+    Maintain the same criteria format across similar evaluations for comparable results.
+  </Step>
+
+  <Step title="Enable Justification for Important Decisions">
+    Use justifications when you need to understand or explain the scoring rationale to others.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Scores seem inconsistent or random">
+    The scoring criteria may be too vague or subjective for consistent evaluation.
+    
+    <Tip>More specific criteria lead to more consistent scoring results</Tip>
+    
+    Try these improvements:
+    1. Define specific measurable aspects in your criteria
+    2. Include examples of what constitutes different score ranges
+    3. Break complex criteria into specific sub-criteria
+    4. Use objective measures where possible
+  </Accordion>
+
+  <Accordion title="All scores are coming back as very similar">
+    Your criteria might be too broad or the content being scored is too similar.
+    
+    <Info>AI tends to give scores in the middle range when criteria are unclear</Info>
+    
+    Solutions:
+    1. Make your criteria more discriminating
+    2. Include specific benchmarks for high vs low scores
+    3. Test with very different content to verify the scoring range
+    4. Consider scoring different aspects separately
+  </Accordion>
+
+  <Accordion title="Justifications don't match the scores">
+    This can happen when criteria are ambiguous or conflicting.
+    
+    <Warning>Conflicting criteria can lead to inconsistent scoring logic</Warning>
+    
+    To fix this:
+    1. Review and simplify your criteria
+    2. Test with clear positive and negative examples
+    3. Break complex criteria into separate scoring blocks
+    4. Use more specific language about what constitutes each score range
+  </Accordion>
+
+  <Accordion title="How do I score multiple criteria at once">
+    You can score multiple aspects, but it's often better to score them separately for clarity.
+    
+    Options:
+    1. Create separate Scorer blocks for each criterion
+    2. Include multiple aspects in one comprehensive criteria description
+    3. Use weighted criteria with specific percentages for each aspect
+    
+    <Info>Separate scoring often provides more actionable insights</Info>
+  </Accordion>
+
+  <Accordion title="What's the difference between score ranges">
+    The 1-100 scale provides granular scoring, but you can interpret ranges based on your needs:
+    
+    Common interpretations:
+    - 90-100: Excellent/Outstanding
+    - 80-89: Good/Above Average
+    - 70-79: Satisfactory/Average  
+    - 60-69: Below Average/Needs Improvement
+    - 1-59: Poor/Unacceptable
+    
+    <Info>You can define your own scale meanings in the criteria</Info>
+  </Accordion>
+</AccordionGroup>

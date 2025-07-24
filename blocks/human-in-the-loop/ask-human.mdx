@@ -1,0 +1,109 @@
+---
+title: Ask Human
+---
+
+### Overview
+
+Create interactive forms that pause your workflow and request input from team members. Perfect for approval workflows, data collection, or any process requiring human intervention.
+
+<Tip>Seamlessly integrate human decision-making into automated workflows with custom forms and email notifications.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Assign To" type="object" default="Current user">
+  Select which team member should receive and complete this action.
+</ParamField>
+
+<ParamField query="Context" type="string">
+    Additional context or background information to help the assigned person understand the action. This generates a contextual report.
+</ParamField>
+
+<ParamField query="Action Input" type="array">
+    Define custom form fields that the assigned person will fill out. Configure field types, labels, and requirements.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Cache Response" type="boolean" default="true">
+    Cache the form response for faster processing in future similar requests.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Response" type="object">
+    The completed form data submitted by the assigned team member.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+    <ParamField query="Action ID" type="number">
+        Unique identifier for the created action that can be referenced later in your workflow.
+    </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Use Clear Action Names">
+    Make action names specific and actionable so team members understand what's needed.
+    ```text ⚠️ Bad Example wrap
+    Review
+    ```
+    ```text ✅ Good Example wrap
+    Review and Approve Marketing Campaign Budget
+    ```
+  </Step>
+
+  <Step title="Provide Sufficient Context">
+    Include relevant background information to help the assigned person make informed decisions without additional research.
+  </Step>
+
+  <Step title="Design User-Friendly Forms">
+    Keep forms simple with clear labels, appropriate field types, and helpful placeholder text to ensure accurate responses.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why didn't the assigned person receive an email notification?">
+    The system sends emails automatically, but check that:
+    
+    ```json Example Solution wrap
+    {
+      "assign_to": {
+        "id": 123,
+        "label": "John Doe"
+      }
+    }
+    ```
+    
+    <Tip>Verify the assigned user has a valid email address in their profile settings</Tip>
+  </Accordion>
+
+  <Accordion title="How do I create conditional form fields?">
+    <Info>Currently, all form fields are displayed simultaneously. For conditional logic, consider breaking complex forms into multiple Ask Human blocks.</Info>
+    
+    Step-by-step approach:
+    1. Create the first Ask Human block with initial questions
+    2. Use conditional logic in your workflow based on responses
+    3. Add subsequent Ask Human blocks for follow-up questions
+  </Accordion>
+
+  <Accordion title="What happens if the assigned person doesn't respond?">
+    The workflow will pause indefinitely until the action is completed. Consider:
+    
+    <Warning>Set up backup assignees or timeout mechanisms in your workflow design</Warning>
+    
+    <Info>You can reassign actions or manually complete them from the Actions dashboard</Info>
+  </Accordion>
+</AccordionGroup>

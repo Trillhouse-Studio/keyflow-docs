@@ -1,0 +1,132 @@
+---
+title: Speech to Text
+---
+
+### Overview
+
+The Speech to Text block converts audio files into written text using Google Cloud Speech-to-Text technology. Upload audio recordings in various formats and get accurate transcriptions with support for multiple languages.
+
+<Tip>Convert audio recordings to text with high accuracy across multiple languages and audio formats.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Media File" type="file" required>
+  The audio file you want to convert into text. Supports MP3, WAV, and other common audio formats.
+</ParamField>
+
+<ParamField query="Language" type="string" default="en-US">
+  The language of the audio for accurate transcription. Choose from supported languages like English, Spanish, Chinese, and more.
+</ParamField>
+
+### Outputs
+
+<ParamField query="Transcription" type="string">
+  The written text extracted from the audio file, formatted as a readable transcript.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Use High-Quality Audio">
+    Ensure clear audio with minimal background noise for better transcription accuracy.
+    
+    ```text ⚠️ Bad Example wrap
+    Recording with heavy background music, multiple speakers talking over each other, poor microphone quality
+    ```
+    
+    ```text ✅ Good Example wrap
+    Clear single-speaker recording, quiet environment, good microphone quality, normal speaking pace
+    ```
+  </Step>
+
+  <Step title="Select the Correct Language">
+    Choose the exact language variant that matches your audio for optimal results.
+  </Step>
+
+  <Step title="Optimize Audio Format">
+    Use supported audio formats and ensure proper encoding for best results.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my audio file not being processed?">
+    Check that your audio file is in a supported format and not corrupted.
+    
+    Supported formats:
+    - MP3
+    - WAV
+    - FLAC
+    - M4A
+    - WebM
+    
+    <Warning>Very large audio files may take longer to process or exceed size limits</Warning>
+  </Accordion>
+
+  <Accordion title="The transcription is inaccurate or has many errors">
+    <Tip>Audio quality and clarity significantly impact transcription accuracy</Tip>
+    
+    Try these improvements:
+    1. Use audio with less background noise
+    2. Ensure speakers are speaking clearly and at normal pace
+    3. Verify you've selected the correct language
+    4. Use higher quality audio recordings (better microphone, less compression)
+    5. Split very long audio files into shorter segments
+  </Accordion>
+
+  <Accordion title="Some words are missing or incorrect">
+    This is common with technical terms, names, or unclear speech.
+    
+    <Info>The service works best with clear, conversational speech</Info>
+    
+    Solutions:
+    1. Ensure speakers pronounce words clearly
+    2. Avoid heavy accents or very fast speech
+    3. Consider manual review for critical transcriptions
+    4. Use audio with consistent volume levels
+  </Accordion>
+
+  <Accordion title="Processing takes a very long time">
+    <Warning>Long audio files require more processing time</Warning>
+    
+    Factors affecting processing time:
+    1. File length - longer files take more time
+    2. Audio quality - complex audio requires more processing
+    3. Server load - processing may be queued during high demand
+    
+    For faster results:
+    - Break long recordings into shorter segments
+    - Use simpler audio (single speaker, clear speech)
+    - Process during off-peak hours
+  </Accordion>
+
+  <Accordion title="Language not detected correctly">
+    Make sure you've selected the exact language variant from the dropdown.
+    
+    Available languages include:
+    - English (en-US)
+    - Spanish (es-ES)
+    - Chinese (zh-CN)
+    - Hindi (hi-IN)
+    - Arabic (ar-SA)
+    - Portuguese (pt-BR)
+    - French (fr-FR)
+    - Russian (ru-RU)
+    - Japanese (ja-JP)
+    - German (de-DE)
+    - Bengali (bn-IN)
+    - Urdu (ur-PK)
+    - Korean (ko-KR)
+    - Vietnamese (vi-VN)
+    - Gujarati (gu-IN)
+    
+    <Info>Using the wrong language setting will significantly reduce accuracy</Info>
+  </Accordion>
+</AccordionGroup>

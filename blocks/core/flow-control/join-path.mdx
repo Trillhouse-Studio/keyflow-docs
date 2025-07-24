@@ -1,0 +1,35 @@
+---
+title: Join Path
+---
+
+### **Overview:**
+
+The `Join Path` block is designed to take multiple inputs and output the first non-null value among them. It efficiently manages scenarios involving varied data sources, prioritizing values based on their availability. This block is particularly useful when integrated with a [**Switch Block**](/blocks/flow-control/switch) to enable intelligent decision-making based on specific conditions.
+
+---
+
+### Inputs & Outputs
+
+| I/O    | Feature   | Type | Simple Explanation                                                   |
+| ------ | --------- | ---- | -------------------------------------------------------------------- |
+| input  | `input_1` | any  | The first input value that will be evaluated for non-nullity.        |
+| input  | `input_2` | any  | The second input value to be assessed alongside the first one.       |
+| output | `output`  | any  | The first non-null value identified among all provided input values. |
+
+<Note>
+  To allow accepting more than two inputs, you can click the "+" or "-" icon
+  below the input name to add or remove new input handles that you can connect
+  other blocks to.
+</Note>
+
+---
+
+### Use Cases
+
+Consider how this block enhances efficiency in various situations:
+
+- **Data Prioritization:** When integrating information from sensors in a smart home system, use this block to select the most relevant reading available, ensuring optimal responsiveness.
+- **Error Handling:** In scenarios where an application retrieves user profile images from multiple sources (like local storage and cloud), utilize this block to display the first successfully loaded image while bypassing nulls.
+- **Config Management:** For dynamically adjusting configurations based on different parameters across environments (development vs production), this tool helps prioritize values effectively without manual oversight.
+
+In summary, whenever your workflow involves needing a reliable single datum out of several alternatives, the `Mux (Multiplexer)` block proves invaluable!

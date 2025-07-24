@@ -1,0 +1,103 @@
+---
+title: Generate Report
+---
+
+### Overview
+
+The Generate Report block creates comprehensive, structured reports for your team to review using AI based on your prompts and data. Perfect for automated reporting workflows, data summaries, and business intelligence tasks. 
+
+<Tip>Automatically transforms your data and instructions into professional, formatted reports ready for sharing.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Prompt" type="string" required>
+  Provide details to generate the report. Include what type of report you want, data sources, and specific requirements.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Cache Response" type="boolean" default="true">
+    If checked, the model response will be cached for future use, improving performance for similar requests.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="response" type="string">
+  The complete generated report content in markdown format, ready for viewing or further processing.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="status" type="string">
+    The execution status of the report generation process.
+  </ParamField>
+
+  <ParamField query="url" type="string">
+    Direct link to view the generated report in your workspace.
+  </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Be Specific in Your Prompts">
+    Include clear details about the report structure, data sources, and desired format.
+    ```text ⚠️ Bad Example wrap
+    Generate a report about sales
+    ```
+    ```text ✅ Good Example wrap
+    Generate a weekly summary of customer support interactions including ticket volume, resolution times, and customer satisfaction metrics from the past 7 days
+    ```
+  </Step>
+
+  <Step title="Structure Your Report Request">
+    Break down complex reports into sections and specify the information hierarchy you want.
+    ```text ✅ Good Example wrap
+    Create a quarterly sales performance report with:
+    1. Executive summary with key highlights
+    2. Sales metrics and trends
+    3. Top performing products/regions
+    4. Challenges and recommendations
+    ```
+  </Step>
+
+  <Step title="Leverage Caching for Recurring Reports">
+    Enable caching for reports you generate regularly to improve performance and reduce processing time.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my report missing specific data?">
+    Ensure your prompt clearly specifies what data sources and metrics to include. The AI can only work with information you provide or reference.
+    
+    ```text Example Solution wrap
+    Instead of: "Generate a sales report"
+    Try: "Generate a sales report using Q3 revenue data, including monthly breakdowns, top 5 products by revenue, and year-over-year comparison"
+    ```
+  </Accordion>
+
+  <Accordion title="How can I improve report formatting and structure?">
+    <Tip>Be explicit about the desired format and sections in your prompt</Tip>
+    1. Specify the report sections you want (executive summary, detailed analysis, recommendations)
+    2. Request specific formatting (tables, bullet points, numbered lists)
+    3. Include examples of similar reports you've liked
+    <Warning>Very long or complex prompts may affect processing time</Warning>
+  </Accordion>
+
+  <Accordion title="Why is the generated report too generic?">
+    Provide more context and specific requirements in your prompt. Include details about your audience, purpose, and key insights you want highlighted.
+    
+    <Info>Consider including sample data or report templates in your prompt for better results</Info>
+  </Accordion>
+</AccordionGroup>

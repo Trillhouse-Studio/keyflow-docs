@@ -1,0 +1,145 @@
+---
+title: Filter List
+---
+
+### Overview
+
+Filter List uses AI to intelligently filter items from a list based on your custom condition. Instead of simple keyword matching, this block understands context and applies complex filtering logic to return only the items that meet your criteria.
+
+<Tip>Perfect for filtering complex data like customer feedback, product reviews, or any list where you need smart, context-aware filtering.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Value" type="Array" required>
+  The list of items you want to filter. Can contain text, objects, or any type of data.
+</ParamField>
+
+<ParamField query="Condition" type="Text" required>
+  The filtering condition written in natural language. Examples: "Is greater than 80", "Contains positive sentiment", "Has urgent priority".
+</ParamField>
+
+<ParamField query="Model" type="Dropdown" default="GPT-4o-mini">
+  The AI model to use for filtering. More powerful models provide better accuracy for complex conditions.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Output Blank Value" type="Boolean" default="false">
+    When enabled, outputs a blank value for items that don't match the condition (maintains original list length). When disabled, only returns matching items.
+  </ParamField>
+
+  <ParamField query="Cache Response" type="Boolean" default="true">
+    Caches the AI response to improve performance and reduce costs for repeated identical requests.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Filtered Output" type="Array">
+  The filtered list containing only items that match your condition, or a list with blank values if "Output Blank Value" is enabled.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="Cost" type="Number">
+    The cost of the AI API call in dollars.
+  </ParamField>
+
+  <ParamField query="Model" type="Text">
+    The AI model that was used for filtering.
+  </ParamField>
+
+  <ParamField query="Cache Hit" type="Boolean">
+    Whether the response was served from cache (true) or required a new AI call (false).
+  </ParamField>
+
+  <ParamField query="Input Tokens" type="Number">
+    Number of tokens sent to the AI model.
+  </ParamField>
+
+  <ParamField query="Output Tokens" type="Number">
+    Number of tokens returned by the AI model.
+  </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Write Clear, Specific Conditions">
+    Use descriptive conditions that clearly explain what you're looking for. The AI performs better with specific criteria.
+    ```text ⚠️ Bad Example wrap
+    "good ones"
+    ```
+    ```text ✅ Good Example wrap
+    "Reviews with 4 or 5 star ratings that mention product quality"
+    ```
+  </Step>
+
+  <Step title="Choose the Right Output Mode">
+    Use "Output Blank Value" when you need to maintain the original list structure for mapping or comparison purposes.
+  </Step>
+
+  <Step title="Optimize for Performance">
+    Enable caching for repeated filtering operations and choose the smallest model that meets your accuracy needs.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my list not being filtered correctly?">
+    The condition might be too vague or ambiguous. Try being more specific about what criteria you want to match.
+    
+    ```text Example Solution wrap
+    Instead of: "important items"
+    Use: "items with priority level high or urgent"
+    ```
+  </Accordion>
+
+  <Accordion title="What's the difference between the two output modes?">
+    <Tip>Choose based on whether you need to preserve list positions</Tip>
+    
+    - **Output Blank Value OFF**: Returns only matching items in a shorter list
+    - **Output Blank Value ON**: Returns a list of the same length with blank values for non-matches
+    
+    <Info>Use the second option when you need to map results back to original positions</Info>
+  </Accordion>
+
+  <Accordion title="How can I reduce costs when filtering large lists?">
+    <Warning>Large lists with complex conditions can be expensive</Warning>
+    
+    1. Enable caching for repeated operations
+    2. Use a smaller model like GPT-4o-mini for simple conditions
+    3. Pre-filter with basic criteria before using AI filtering
+    4. Consider breaking very large lists into smaller chunks
+  </Accordion>
+
+  <Accordion title="Why am I getting inconsistent results?">
+    AI filtering can vary slightly between runs. For more consistent results:
+    
+    - Use more specific conditions
+    - Include examples in your condition when possible
+    - Consider using a more powerful model for complex filtering tasks
+    
+    <Info>Caching ensures identical inputs always return the same results</Info>
+  </Accordion>
+
+  <Accordion title="What types of data can I filter?">
+    Filter List works with any type of data including:
+    
+    - Text strings and paragraphs
+    - Objects with multiple properties
+    - Numbers and dates
+    - Mixed data types in the same list
+    
+    The AI will understand the context and structure of your data automatically.
+  </Accordion>
+</AccordionGroup>

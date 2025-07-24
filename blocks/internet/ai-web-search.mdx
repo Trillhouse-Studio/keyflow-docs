@@ -1,0 +1,124 @@
+---
+title: AI Web Search
+---
+
+### Overview
+
+Use AI-powered search to find highly relevant websites based on natural language queries or discover pages similar to a given URL. Powered by Exa's neural search technology.
+
+<Tip>Leverages AI to understand search intent and return higher quality results than traditional keyword-based search engines.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Query" type="string" required>
+  Enter your search query in natural language. The AI will understand the intent and find the most relevant websites.
+</ParamField>
+
+<ParamField query="Url" type="string">
+  Provide a URL to find websites similar to it. Use this instead of Query to find related content.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Account" type="string">
+    Select your Exa API credentials. Required for authentication with the Exa search service.
+  </ParamField>
+
+  <ParamField query="Num Results" type="number" default="5">
+    Specify how many search results you want to retrieve (minimum 1).
+  </ParamField>
+
+  <ParamField query="Cache Response" type="boolean" default="true">
+    If checked, identical queries will be cached to improve performance and reduce API costs.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Website URLs" type="string array">
+  An array of relevant website URLs discovered by the AI search engine.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="Titles" type="string array">
+    Array of page titles corresponding to the website URLs (available in newer versions).
+  </ParamField>
+
+  <ParamField query="URLs" type="string array">
+    Array of website URLs (alternative output name in newer versions).
+  </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Use Natural Language Queries">
+    Write queries as you would speak them naturally for better AI understanding.
+    ```text ⚠️ Bad Example wrap
+    carbon footprint tips
+    ```
+    ```text ✅ Good Example wrap
+    Ways to reduce carbon footprint at domestic level
+    ```
+  </Step>
+
+  <Step title="Choose Between Query and URL Mode">
+    Use Query for discovering new content, or URL for finding similar websites. Don't use both inputs simultaneously as they serve different purposes.
+  </Step>
+
+  <Step title="Set Appropriate Result Limits">
+    Start with 5-10 results to balance comprehensiveness with processing time. Increase only if you need more coverage for your research.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting an API key error?">
+    This block requires Exa API credentials to function. You need to add your Exa API key in your account credentials.
+    
+    <Warning>Navigate to your credentials page and add your Exa API Key before using this block</Warning>
+  </Accordion>
+
+  <Accordion title="Should I use Query or URL input?">
+    <Tip>These are two different search modes - choose one, not both</Tip>
+    - **Query mode**: Search for content by topic using natural language
+    - **URL mode**: Find websites similar to an existing page
+    
+    <Info>Query mode uses autoprompt enhancement for better AI understanding of your search intent</Info>
+  </Accordion>
+
+  <Accordion title="How is this different from regular web search?">
+    AI Web Search uses Exa's neural search technology to understand semantic meaning and intent, often returning more relevant results than keyword-based search engines.
+    
+    ```text Example Query wrap
+    Best practices for remote team management in tech startups
+    ```
+    
+    The AI can understand context and nuance in your queries for more precise results.
+  </Accordion>
+
+  <Accordion title="Can I search within specific domains?">
+    This block searches across the entire web index available through Exa's service and doesn't support domain-specific searches.
+    
+    <Info>For domain-specific searches, consider filtering the results in subsequent workflow steps</Info>
+  </Accordion>
+
+  <Accordion title="Why are my search results not what I expected?">
+    The AI search engine interprets queries semantically. Try rephrasing your query to be more specific about what you're looking for.
+    
+    ```text Improved Query Example wrap
+    Instead of: "marketing tools"
+    Try: "digital marketing automation tools for small businesses"
+    ```
+  </Accordion>
+</AccordionGroup>

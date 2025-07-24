@@ -1,0 +1,128 @@
+---
+title: AI Filter
+---
+
+### Overview
+
+AI Filter uses artificial intelligence to evaluate whether input data meets a specified condition. It acts as an intelligent gatekeeper, allowing data to pass through only when it satisfies your criteria.
+
+<Tip>
+  Perfect for content moderation, quality filtering, and conditional data
+  processing based on natural language criteria.
+</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Input" type="Any" required>
+  The data you want to evaluate against your condition. Can be text, numbers,
+  or other data types.
+</ParamField>
+
+<ParamField query="Condition" type="String" required>
+  Describe the criteria the input should meet in natural language. Be specific
+  about what you're looking for.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Model" type="String" default="GPT-4 1 Nano">
+    Choose the AI model for evaluation. Faster models work well for simple
+    conditions.
+  </ParamField>
+
+  <ParamField query="Account" type="String">
+    Select the AI credentials to use for authentication with the chosen model.
+  </ParamField>
+
+  <ParamField query="Cache Response" type="Boolean" default="true">
+    Enable caching to store results for identical input/condition pairs,
+    improving performance and reducing costs.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Filtered Output" type="String">
+  Returns the original input if it meets the condition, or "false" if it
+  doesn't meet the criteria.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Write Clear, Specific Conditions">
+    Be explicit about what you're filtering for to get accurate results.
+    ```text ⚠️ Bad Example wrap
+    Good reviews
+    ```
+    ```text ✅ Good Example wrap
+    Reviews with positive sentiment that mention specific product features
+    ```
+  </Step>
+
+  <Step title="Use Appropriate Models">
+    Simple conditions work well with faster, cheaper models. Complex criteria
+    may need more powerful models for accurate evaluation.
+  </Step>
+
+  <Step title="Handle False Results">
+    Remember that non-matching inputs return "false" as a string, so plan your
+    workflow accordingly to handle filtered-out data.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why does my filter return unexpected results?">
+    Vague or ambiguous conditions can lead to inconsistent filtering. The AI
+    interprets your condition literally, so be specific about your criteria.
+    
+    <Tip>
+      Test your condition with sample data first to ensure it works as expected.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="What happens to data that doesn't meet the condition?">
+    Data that fails the condition check returns "false" as a string value. You
+    can use this in subsequent blocks to handle filtered-out items.
+    
+    <Info>
+      Consider using conditional logic blocks after the filter to separate
+      passed and failed items.
+    </Info>
+  </Accordion>
+
+  <Accordion title="How can I improve filtering accuracy?">
+    Use more descriptive conditions and consider the context of your data. You
+    can also try different AI models to see which performs better for your
+    specific use case.
+    
+    ```text Example condition wrap
+    Customer feedback with overall satisfaction rating above 4 stars and mentions delivery speed
+    ```
+    
+    <Warning>
+      Very complex conditions might be inconsistently interpreted - consider
+      breaking them into multiple filters.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Can I filter non-text data?">
+    While the block accepts any data type as input, the AI evaluation is
+    text-based. Non-text data will be converted to string format for
+    evaluation.
+    
+    <Info>
+      For best results with structured data, ensure it has meaningful string
+      representations.
+    </Info>
+  </Accordion>
+</AccordionGroup>

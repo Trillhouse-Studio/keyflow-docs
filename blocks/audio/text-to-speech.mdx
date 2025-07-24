@@ -1,0 +1,154 @@
+---
+title: Text to Speech
+---
+
+### Overview
+
+The Text to Speech block converts written text into natural-sounding audio using ElevenLabs' advanced AI voice technology. Generate high-quality speech audio files from any text content with realistic voices and multiple language support.
+
+<Tip>Transform written content into professional audio with lifelike AI voices powered by ElevenLabs.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Text" type="string" required>
+  The text you want to convert into speech. Can be sentences, paragraphs, or longer content.
+</ParamField>
+
+<ParamField query="New File Name" type="string" required>
+  The name for the generated audio file. Will automatically add .mp3 extension if not included.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Cache Response" type="boolean" default="true">
+    Whether to cache the response for future use to save costs on identical text-to-speech requests.
+  </ParamField>
+
+  <ParamField query="Account" type="credential">
+    Select the ElevenLabs credentials you want to use for voice generation.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="MP3 File Name" type="file">
+  The generated audio file containing the spoken version of your text, saved as an MP3 format.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="Cache Hit" type="boolean">
+    Whether this response was retrieved from cache to save on costs.
+  </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Write Natural, Readable Text">
+    Format your text as you would want it spoken aloud for the most natural results.
+    
+    ```text ⚠️ Bad Example wrap
+    URGENT!!! Click here NOW to buy our amazing product for only $19.99!!!
+    ```
+    
+    ```text ✅ Good Example wrap
+    Welcome to our store. Our featured product is available for nineteen dollars and ninety-nine cents.
+    ```
+  </Step>
+
+  <Step title="Use Proper Punctuation">
+    Include periods, commas, and pauses to control the natural flow and rhythm of speech.
+  </Step>
+
+  <Step title="Consider File Naming">
+    Use descriptive, unique file names to easily identify your audio files later.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting an API key error?">
+    You need to add your ElevenLabs API credentials to Keyflow.
+    
+    1. Sign up for an ElevenLabs account
+    2. Generate an API key in your ElevenLabs dashboard
+    3. Add the credentials to Keyflow under Account settings
+    4. Select the credential in the block's Advanced Settings
+    
+    <Warning>Make sure your ElevenLabs account has sufficient credits for audio generation</Warning>
+  </Accordion>
+
+  <Accordion title="The generated speech sounds unnatural or robotic">
+    <Tip>Text formatting and punctuation significantly impact speech quality</Tip>
+    
+    Try these improvements:
+    1. Add proper punctuation and pauses
+    2. Write numbers as words (e.g., "twenty-one" instead of "21")
+    3. Spell out abbreviations (e.g., "Doctor" instead of "Dr.")
+    4. Use natural sentence structure and conversational language
+    5. Avoid all caps or excessive punctuation
+  </Accordion>
+
+  <Accordion title="Audio file is too long or takes too much time to generate">
+    Large amounts of text require more processing time and credits.
+    
+    <Info>ElevenLabs charges based on the number of characters converted to speech</Info>
+    
+    For large content:
+    1. Break long text into smaller chunks
+    2. Generate separate audio files for different sections
+    3. Consider using shorter, more focused content
+    4. Monitor your ElevenLabs usage to manage costs
+  </Accordion>
+
+  <Accordion title="File name conflicts or overwrites">
+    Using the same file name will overwrite existing files.
+    
+    <Warning>Files with identical names will replace previous versions</Warning>
+    
+    To avoid conflicts:
+    1. Use unique, descriptive file names
+    2. Include version numbers or timestamps
+    3. Use different naming conventions for different content types
+    4. Check existing files before generating new ones
+  </Accordion>
+
+  <Accordion title="What languages and voices are supported">
+    ElevenLabs supports multiple languages and voice options through their multilingual model.
+    
+    Features include:
+    - English (multiple accents)
+    - Spanish, French, German, Italian
+    - Portuguese, Polish, Hindi
+    - Japanese, Chinese, Korean
+    - And many other languages
+    
+    <Info>The specific voice and accent depend on your ElevenLabs account settings and available models</Info>
+    
+    For voice customization:
+    1. Configure voice settings in your ElevenLabs dashboard
+    2. Use different API keys for different voice preferences
+    3. Consider the language of your text content when selecting voices
+  </Accordion>
+
+  <Accordion title="High costs or unexpected charges">
+    <Warning>Text-to-speech services charge based on character count and usage</Warning>
+    
+    To manage costs:
+    1. Enable caching for repeated text-to-speech requests
+    2. Be mindful of text length before conversion
+    3. Monitor your ElevenLabs account usage regularly
+    4. Use shorter text for testing and previews
+    5. Consider breaking long content into essential sections only
+  </Accordion>
+</AccordionGroup>

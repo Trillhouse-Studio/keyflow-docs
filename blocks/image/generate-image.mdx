@@ -1,0 +1,104 @@
+---
+title: Generate Image
+---
+
+### Overview
+
+Creates AI-generated images from text descriptions using advanced image generation models. Transform your ideas into visual content with detailed prompts and customizable settings.
+
+<Tip>Ideal for content creation, prototyping, marketing materials, and bringing creative concepts to life.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Prompt" type="string" required>
+  Detailed description of the image you want to generate. Be specific about style, objects, colors, and composition.
+</ParamField>
+
+<ParamField query="No. Of Images" type="number" default="1">
+  Number of images to generate (1-4). Multiple images provide variety and options to choose from.
+</ParamField>
+
+<ParamField query="Use Reference Image" type="boolean" default="false">
+  Enable to upload a reference image that guides the style and composition of generated images.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Image Quality" type="string" default="auto">
+    Quality level for generated images. Options: high, medium, low, auto.
+  </ParamField>
+
+  <ParamField query="Image Size" type="string" default="auto">
+    Dimensions of generated images. Options: auto, 1024x1024, 1024x1536, 1536x1024.
+  </ParamField>
+
+  <ParamField query="Cache Response" type="boolean" default="true">
+    Whether to cache the response for future use to improve performance.
+  </ParamField>
+
+  <ParamField query="Account" type="string">
+    Select the API credentials to use for image generation.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="image_urls" type="file">
+  Generated image files. Returns single file if generating 1 image, or array of files for multiple images.
+</ParamField>
+
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Write Detailed Prompts">
+    Include specific details about style, composition, lighting, and mood for better results.
+    ```text ⚠️ Bad Example wrap
+    "A cat"
+    ```
+    ```text ✅ Good Example wrap
+    "A fluffy orange tabby cat sitting on a wooden windowsill, soft natural lighting, cozy home atmosphere, photorealistic style"
+    ```
+  </Step>
+
+  <Step title="Use Reference Images Wisely">
+    When enabled, reference images help guide style and composition but don't copy content exactly. Use for consistent styling across multiple generations.
+  </Step>
+
+  <Step title="Experiment with Settings">
+    Try different quality settings and sizes based on your use case. Higher quality takes more time but produces better results.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why don't my images match my prompt?">
+    Make your prompts more specific and detailed. Include style keywords, composition details, and artistic direction to guide the AI better.
+    
+    ```text Prompt Enhancement Tips wrap
+    Add style: "photorealistic", "oil painting", "digital art"
+    Include mood: "warm lighting", "dramatic shadows"
+    Specify details: colors, textures, background elements
+    ```
+  </Accordion>
+
+  <Accordion title="How do I get consistent results across multiple images?">
+    <Tip>Use reference images and detailed, consistent prompts</Tip>
+    For consistency: 1. Enable "Use Reference Image" with a style guide 2. Use very specific prompts 3. Generate multiple images at once rather than separately
+    <Warning>Even with these techniques, some variation is normal in AI image generation</Warning>
+  </Accordion>
+
+  <Accordion title="What image sizes should I choose?">
+    Choose based on your intended use: Square (1024x1024) for social media, Portrait (1024x1536) for posters, Landscape (1536x1024) for banners.
+    
+    <Info>"Auto" lets the AI choose the best size based on your prompt content</Info>
+  </Accordion>
+</AccordionGroup>

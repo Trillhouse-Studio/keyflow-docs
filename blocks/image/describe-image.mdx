@@ -1,0 +1,110 @@
+---
+title: Describe Image
+---
+
+### Overview
+
+Generate detailed AI-powered descriptions of images. Perfect for accessibility, content analysis, and automated image annotation.
+
+<Tip>Uses advanced vision AI models to analyze images and provide detailed, relevant descriptions of what's shown.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="File name" type="file" required>
+  The image file you want to analyze and describe. Supports common image formats like PNG, JPG, GIF, etc.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Model" type="string" default="GPT-4 1 Nano">
+    The AI model to use for image analysis. Different models offer varying levels of detail and accuracy.
+  </ParamField>
+
+  <ParamField query="Account" type="string">
+    Select the AI credentials to use for the image analysis.
+  </ParamField>
+
+  <ParamField query="Cache Response" type="boolean" default="true">
+    If checked, identical images will be cached to improve performance and reduce costs.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Image Description" type="string">
+  A detailed description of what the AI sees in the image, including objects, people, scenes, and context.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Use High-Quality Images">
+    Provide clear, well-lit images for the most accurate descriptions.
+    ```text ⚠️ Bad Example wrap
+    Blurry, dark, or very low-resolution images
+    ```
+    ```text ✅ Good Example wrap
+    Clear, well-lit, high-resolution images with visible details
+    ```
+  </Step>
+
+  <Step title="Choose the Right Model">
+    Use more powerful models for complex images requiring detailed analysis, and faster models for simple images.
+  </Step>
+
+  <Step title="Consider File Size and Processing Time">
+    Large image files take longer to process and may cost more. Optimize image size while maintaining necessary quality.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my image description not detailed enough?">
+    The AI generates descriptions based on what it can identify in the image. Ensure your image is clear and well-lit for more detailed analysis.
+    
+    <Tip>Try using a more powerful model like Claude 3.7 Sonnet or GPT-4 for more detailed descriptions</Tip>
+  </Accordion>
+
+  <Accordion title="What image formats are supported?">
+    The block supports common image formats including:
+    - PNG
+    - JPG/JPEG
+    - GIF
+    - WebP
+    - BMP
+    
+    <Info>Ensure your image file is properly formatted and not corrupted</Info>
+  </Accordion>
+
+  <Accordion title="How can I get more specific information from images?">
+    While this block provides general descriptions, you can:
+    
+    <Info>Use the Query Image block for specific questions about image content</Info>
+    <Info>Use Extract Text OCR block for text extraction from images</Info>
+    <Info>Combine with other AI blocks to analyze the description further</Info>
+  </Accordion>
+
+  <Accordion title="Why am I getting file errors?">
+    Common file issues include:
+    1. File not properly uploaded to Keyflow
+    2. Corrupted or invalid image file
+    3. Unsupported file format
+    4. File too large for processing
+    
+    <Warning>Ensure your image file is valid and properly uploaded before using this block</Warning>
+  </Accordion>
+
+  <Accordion title="Can this block identify specific people or objects?">
+    The AI can describe what it sees but may not identify specific individuals for privacy reasons. It can identify general objects, scenes, activities, and visual elements.
+    
+    <Info>For specific object detection or classification, consider using specialized computer vision blocks</Info>
+  </Accordion>
+</AccordionGroup>

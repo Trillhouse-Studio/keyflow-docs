@@ -1,0 +1,120 @@
+---
+title: Analyze Video
+---
+
+### Overview
+
+Analyze Video uses Google's Gemini AI models to extract insights, descriptions, and transcripts from video files. Upload any video and ask questions about its content, objects, people, or events.
+
+<Tip>
+  Perfect for video content analysis, accessibility transcription, and automated
+  video summarization.
+</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Video" type="File" required>
+  Upload the video file you want to analyze. Supports common video formats like
+  MP4.
+</ParamField>
+
+<ParamField query="Prompt" type="String" required>
+  Describe the analysis you want to perform on the video. Be specific about what
+  information you need.
+</ParamField>
+
+<ParamField query="Model" type="String" default="Gemini 2.5 Flash Preview">
+  Choose the AI model for video analysis. Flash models are faster while Pro
+  models provide more detailed analysis.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Cache Response" type="Boolean" default="true">
+    Enable caching to store the model response for future use, improving performance for repeated analyses.
+  </ParamField>
+
+  <ParamField query="Account" type="String">
+    Select the Google Gemini API credentials to use for authentication.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Transcript" type="String">
+  The AI-generated analysis, description, or transcript based on your prompt and
+  video content.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Write Clear, Specific Prompts">
+    Be detailed about what you want to extract from the video for better results.
+    ```text ⚠️ Bad Example wrap
+    Tell me about this video.
+    ```
+    ```text ✅ Good Example wrap
+    Summarize the main events in this training video and list any safety equipment mentioned.
+    ```
+  </Step>
+
+<Step title="Choose the Right Model">
+  Use Flash models for quick summaries and Pro models for detailed analysis
+  requiring deeper understanding.
+</Step>
+
+  <Step title="Optimize Video Files">
+    Use standard formats like MP4 and ensure videos are reasonably sized for faster processing and better results.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my video analysis taking so long?">
+    Large video files require more processing time. The system uploads your video to Google's servers and waits for it to be processed before analysis begins.
+    
+    <Tip>Try using shorter video clips or lower resolution files for faster results.</Tip>
+  </Accordion>
+
+    <Accordion title="What video formats are supported?">
+        The block primarily supports MP4 format. Other common video formats may work
+        but MP4 is recommended for best compatibility.
+        <Info>
+            The system automatically handles video upload and processing through
+            Google's Gemini API.
+        </Info>
+    </Accordion>
+
+    <Accordion title="Why did my video analysis fail?">
+    Common causes include unsupported file formats, corrupted videos, or API
+    authentication issues.
+    <Warning>
+        Make sure your video file exists and is accessible before running the
+        analysis.
+    </Warning>
+        Steps to resolve:
+            1. Verify the video file plays correctly
+            2. Check your Google Gemini API credentials
+            3. Try with a different video format (MP4
+        recommended)
+    </Accordion>
+
+  <Accordion title="How can I get better analysis results?">
+    The quality of results depends heavily on your prompt specificity and the chosen model.
+    
+    ```text Example for detailed analysis wrap
+    Identify all people in the video, describe their actions, and note any objects they interact with. Include timestamps if possible.
+    ```
+    
+    <Info>Pro models provide more detailed analysis but take longer than Flash models.</Info>
+  </Accordion>
+</AccordionGroup>

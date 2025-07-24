@@ -1,0 +1,122 @@
+---
+title: Categorize
+---
+
+### Overview
+
+Automatically classify text data into predefined categories using AI. Perfect for organizing and structuring unstructured text content.
+
+<Tip>Essential for transforming unstructured text into structured, actionable insights through intelligent categorization.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Input" type="string" required>
+  The text you want to classify into one of your predefined categories.
+</ParamField>
+
+<ParamField query="Categories" type="object" required>
+  Define the categories for classification. Each category should have a name and optional description.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Model" type="string" default="GPT-4 1 Nano">
+    The AI model to use for categorization. Faster models work well for simple categorization tasks.
+  </ParamField>
+
+  <ParamField query="Include Justification" type="boolean" default="false">
+    If checked, the AI will provide reasoning for why it chose the specific category.
+  </ParamField>
+
+  <ParamField query="Cache Response" type="boolean" default="true">
+    If checked, identical input/category combinations will be cached to improve performance and reduce costs.
+  </ParamField>
+
+  <ParamField query="Account" type="string">
+    Select the AI credentials to use for the categorization.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Selected Category" type="string">
+  The category name that best matches the input text.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="Justification" type="string">
+    Explanation for why the AI chose this category (only when Include Justification is enabled).
+  </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Define Clear, Distinct Categories">
+    Create categories that are mutually exclusive and have clear descriptions to avoid overlap.
+    ```text ⚠️ Bad Example wrap
+    Categories: "Good", "Bad", "Okay"
+    ```
+    ```text ✅ Good Example wrap
+    Categories: 
+    - "Positive Feedback" - Customer satisfaction and praise
+    - "Bug Report" - Technical issues and problems
+    - "Feature Request" - Suggestions for new functionality
+    ```
+  </Step>
+
+  <Step title="Provide Detailed Category Descriptions">
+    Include clear descriptions for each category to help the AI understand the classification criteria.
+  </Step>
+
+  <Step title="Use Justification for Training and Debugging">
+    Enable justification when you need to understand or validate the AI's categorization decisions.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is the AI choosing unexpected categories?">
+    The AI might be confused by unclear or overlapping category definitions. Review your categories to ensure they are distinct and well-described.
+    
+    ```text Example Solution wrap
+    Instead of vague categories like "General", "Other"
+    Try specific categories like "Technical Support", "Billing Inquiry", "Product Question"
+    ```
+  </Accordion>
+
+  <Accordion title="How do I improve categorization accuracy?">
+    <Tip>Clear category descriptions are key to accurate classification</Tip>
+    1. Provide detailed descriptions for each category
+    2. Use examples in your category descriptions
+    3. Ensure categories don't overlap conceptually
+    4. Test with sample data and refine category definitions
+
+    <Warning>Avoid too many similar categories as this can confuse the AI</Warning>
+    
+  </Accordion>
+
+  <Accordion title="What should I do if my text doesn't fit any category?">
+    Consider adding a "Other" or "Uncategorized" category for edge cases. Alternatively, review and expand your category definitions to be more comprehensive.
+    <Info>The AI will always choose one of the provided categories, so ensure your categories cover all expected input types</Info>
+  </Accordion>
+
+  <Accordion title="When should I use justification?">
+    Enable justification when you need to:
+    
+    - Understand the AI's reasoning for classification decisions
+    - Debug categorization issues or validate results
+    - Provide transparency in automated classification systems
+    - Train team members on categorization criteria
+  </Accordion>
+</AccordionGroup>

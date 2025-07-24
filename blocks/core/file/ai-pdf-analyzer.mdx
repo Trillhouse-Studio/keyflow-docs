@@ -1,0 +1,129 @@
+---
+title: AI PDF Analyzer
+---
+
+### Overview
+
+Converts PDF documents into structured markdown text using AI vision models. The block analyzes your PDF page by page, just like a person would. It will extracts all content it sees including text, headers, footers, and formatting.
+
+<Tip>Perfect for digitizing documents, extracting data from scanned PDFs, or converting reports into editable text format.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="PDF File name" type="File" required>
+  Upload the PDF file you want to analyze. Supports any PDF document including scanned documents and images.
+</ParamField>
+
+<ParamField query="Model" type="Selector" default="GPT-4.1 Mini">
+  Choose the AI model to analyze your PDF. Higher-tier models provide more accurate text extraction and better formatting preservation.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Pages to Analyze" type="Number">
+    Specify which pages to analyze using comma-separated page numbers (e.g., "1,3,5" or "1,2,3"). Leave empty to analyze all pages.
+  </ParamField>
+
+  <ParamField query="Maintain Format" type="Boolean" default="false">
+    When enabled, ensures consistent markdown formatting across all pages. Useful for multi-page documents where formatting consistency matters.
+  </ParamField>
+
+  <ParamField query="Cache Response" type="Boolean" default="true">
+    Saves processing time and costs by returning cached results when analyzing the same PDF with identical settings.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Page Analysis" type="String Array">
+  An array containing the markdown content for each analyzed page. Each element represents one page of your PDF converted to structured text.
+</ParamField>
+
+<br></br>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Choose the Right Model for Your Content">
+    Select your AI model based on the complexity and quality of your PDF content.
+    ```text ⚠️ Bad Example wrap
+    Using GPT-4.1 Nano for complex financial reports with tables and charts
+    ```
+    ```text ✅ Good Example wrap
+    Using GPT-4.1 or Claude 3.5 Sonnet for detailed reports, GPT-4.1 Mini for simple text documents
+    ```
+  </Step>
+
+  <Step title="Optimize Page Selection">
+    When working with large documents, analyze only the pages you need to save processing time and costs.
+    ```text ⚠️ Bad Example wrap
+    Analyzing all 50 pages when you only need data from pages 5-10
+    ```
+    ```text ✅ Good Example wrap
+    Setting "Pages to Analyze" to "5,6,7,8,9,10" for targeted extraction
+    ```
+  </Step>
+
+  <Step title="Use Format Consistency for Multi-Page Documents">
+    Enable "Maintain Format" when processing documents where consistent structure is important across pages.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my PDF not being analyzed correctly?">
+    The PDF might be corrupted, password-protected, or contain non-standard formatting. Try the following:
+    
+    1. Ensure your PDF opens correctly in a standard PDF viewer
+    2. Check that the file isn't password-protected
+    3. Try using a higher-tier AI model for better accuracy
+    
+    <Warning>Very large PDFs (over 50 pages) may timeout. Consider analyzing smaller page ranges.</Warning>
+  </Accordion>
+
+  <Accordion title="The extracted text is missing content or poorly formatted?">
+    <Tip>Higher-tier models like GPT-4.1 or Claude 3.5 Sonnet provide significantly better text extraction quality.</Tip>
+    
+    This often happens with:
+    1. Scanned documents or images - try upgrading your model
+    2. Complex layouts with tables - enable "Maintain Format" 
+    3. Poor image quality - consider improving your PDF source quality
+    
+    <Info>Enable "Maintain Format" for documents with tables, columns, or specific layout requirements.</Info>
+  </Accordion>
+
+  <Accordion title="Why am I getting timeout errors?">
+    PDF analysis can be resource-intensive, especially for large documents. Solutions:
+    
+    1. Analyze smaller page ranges using "Pages to Analyze"
+    2. Break large documents into smaller chunks
+    3. Ensure your PDF file size is under 50MB
+    
+    ```json Example Solution wrap
+    {
+      "pages_to_analyze": "1,2,3,4,5",
+      "model": "GPT-4.1 Mini"
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="The costs are higher than expected?">
+    PDF analysis costs depend on model choice, page count, and content complexity.
+    
+    <Tip>Use "Cache Response" to avoid reprocessing the same documents.</Tip>
+    
+    Cost optimization strategies:
+    1. Use GPT-4.1 Mini for simple text extraction
+    2. Analyze only necessary pages
+    3. Enable caching for repeated analysis
+    4. Consider document quality - clearer PDFs process more efficiently
+  </Accordion>
+</AccordionGroup>

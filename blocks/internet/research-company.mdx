@@ -1,0 +1,90 @@
+---
+title: Research Company
+---
+
+### Overview
+
+The Research Company block uses AI to generate a detailed report on a company's background, products, and competitors. Perfect for researching companies, identifying potential partnerships, or creating a marketing strategy.
+
+<Tip>Transforms your data and instructions into professional, formatted reports ready for sharing.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Company Info" type="string" required>
+  Provide all information you have about the company - name, address, industry, etc.
+</ParamField>
+
+<ParamField query="Smart Search" type="boolean" default="true">
+  Uses enrichment techniques to find information. If enrichment is missing information you requested, it will trigger a deep research to find that information.
+</ParamField>
+
+<ParamField query="Deep Research Condition" type="boolean" default="true">
+    Condition that should trigger a deep research if its missing from enrichment results.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Research Type" type="Dropdown" default="Enrichment">
+    Manually pick between simple enrichment or deep research. Only visible when Smart Search is disabled.
+  </ParamField>
+
+  <ParamField query="Account" type="credential">
+    Select the API credentials you want to use for the chosen model.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Report" type="string">
+  A comprehensive report on the company's background, products, and competitors, ready for sharing.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Provide Clear, Specific Information">
+    Include all relevant information about the company in your prompt. This helps the AI understand the context and provide more accurate results.
+    ```text ⚠️ Bad Example wrap
+    Sales AI Agents
+    ```
+    ```text ✅ Good Example wrap
+    Acme Inc., a sales AI Agents company, New York, USA
+    ```
+  </Step>
+
+  <Step title="Use Smart Search for Enhanced Results">
+    Enable smart search to find information that's missing from your enrichment results. If enrichment is missing information you requested, it will trigger a deep research to find that information.
+  </Step>
+
+  <Step title="Consider Deep Research for Missing Information">
+    Disable smart search and enable deep research if you always want to do deep research..
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my report missing specific information?">
+    Ensure your prompt clearly specifies what information you want the AI to include in the report. The AI can only work with information you provide or reference.
+    
+    ```text Example Solution wrap
+    Instead of: "Generate a report on Acme Inc."
+    Try: "Generate a report on Acme Inc., a sales AI Agents company, New York, USA"
+    ```
+  </Accordion>
+
+  <Accordion title="How can I improve report formatting and structure?">
+    <Tip>Be explicit about the desired format and sections in your prompt</Tip>
+    1. Specify the report sections you want (executive summary, detailed analysis, recommendations)
+    2. Request specific formatting (tables, bullet points, numbered lists)
+    3. Include examples of similar reports you've liked
+    <Warning>Very long or complex prompts may affect processing time</Warning>
+  </Accordion>
+</AccordionGroup>

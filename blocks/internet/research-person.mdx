@@ -1,0 +1,92 @@
+---
+title: Research Person
+---
+
+### Overview
+
+The Research Person block uses AI to generate a detailed report on a person's background, skills, and interests. Perfect for researching individuals, identifying potential leads, or creating personalized content.
+
+<Tip>Transforms your data and instructions into professional, formatted reports ready for sharing.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Person Info" type="string" required>
+  Provide all information you have about the person - name, email, occupation, company, etc.
+</ParamField>
+
+<ParamField query="Smart Search" type="boolean" default="true">
+  Uses enrichment techniques to find information. If enrichment is missing information you requested, it will trigger a deep research to find that information.
+</ParamField>
+
+<ParamField query="Deep Research Condition" type="boolean" default="true">
+    Condition that should trigger a deep research if its missing from enrichment results.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Research Type" type="Dropdown" default="Enrichment">
+    Manually pick between simple enrichment or deep research. Only visible when Smart Search is disabled.
+  </ParamField>
+
+  <ParamField query="Account" type="credential">
+    Select the API credentials you want to use for the chosen model.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Report" type="string">
+  A comprehensive report on the person's background, skills, and interests, ready for sharing.
+</ParamField>
+
+<br></br>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Provide Clear, Specific Information">
+    Include all relevant information about the person in your prompt. This helps the AI understand the context and provide more accurate results.
+    ```text ⚠️ Bad Example wrap
+    Jon Doe
+    ```
+    ```text ✅ Good Example wrap
+    Jon Doe, CEO of Acme Inc., lives in New York City
+    ```
+  </Step>
+
+  <Step title="Use Smart Search for Enhanced Results">
+    Enable smart search to find information that's missing from your enrichment results. If enrichment is missing information you requested, it will trigger a deep research to find that information.
+  </Step>
+
+  <Step title="Consider Deep Research for Missing Information">
+    If smart search is disabled or missing information, consider enabling deep research to find missing information.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my report missing specific information?">
+    Ensure your prompt clearly specifies what information you want the AI to include in the report. The AI can only work with information you provide or reference.
+    
+    ```text Example Solution wrap
+    Instead of: "Generate a report on Jon Doe"
+    Try: "Generate a report on Jon Doe, CEO of Acme Inc., lives in New York City"
+    ```
+  </Accordion>
+
+  <Accordion title="How can I improve report formatting and structure?">
+    <Tip>Be explicit about the desired format and sections in your prompt</Tip>
+    1. Specify the report sections you want (executive summary, detailed analysis, recommendations)
+    2. Request specific formatting (tables, bullet points, numbered lists)
+    3. Include examples of similar reports you've liked
+    <Warning>Very long or complex prompts may affect processing time</Warning>
+  </Accordion>
+</AccordionGroup>
