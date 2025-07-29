@@ -2,26 +2,112 @@
 title: Translate
 ---
 
-## Overview
+### Overview
 
-Translate text from one language to another target language.
+Translates text between different languages using AI translation models, enabling multilingual content processing and localization.
 
-## Block Inputs
+<Tip>Instantly translate text into 130+ languages with high accuracy using Google Cloud Translate.</Tip>
 
-| Name              | Type     | Description                                                                                                                                                                               |
-| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `text`            | string   | The text to be translated.                                                                                                                                                                |
-| `target_language` | selector | The target language for translation. For a list of supported languages, refer to the [Google Cloud Translate Languages Documentation](https://cloud.google.com/translate/docs/languages). |
+---
 
-## Block Outputs
+### Inputs
 
-| Name              | Type   | Description                                           |
-| ----------------- | ------ | ----------------------------------------------------- |
-| `translated_text` | string | The translated text in the specified target language. |
+<ParamField query="Text" type="string" required>
+  The text you want to translate. Can be a single word, sentence, paragraph, or entire document.
+</ParamField>
 
-## Use Cases
+<ParamField query="Output Language" type="selector" required>
+  The target language for translation. Choose from 130+ supported languages including English, Spanish, French, German, Chinese, Japanese, and many more.
+</ParamField>
 
-1. **Multilingual Communication:** Translate text to communicate effectively with speakers of different languages.
-2. **Global Content Localization:** Adapt content for international audiences by translating it into various languages.
-3. **Cross-Cultural Collaboration:** Facilitate collaboration across language barriers by providing translated text.
-4. **Language Learning:** Assist in language learning by providing translations for better comprehension.
+### Outputs
+
+<ParamField query="translated_text" type="string">
+  The translated text in your specified target language, maintaining the original formatting and context.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Provide Clear Context">
+    Include enough context for accurate translation, especially for ambiguous words or phrases.
+    ```text ⚠️ Bad Example wrap
+    "Bank"
+    ```
+    ```text ✅ Good Example wrap
+    "I need to visit the bank to deposit my paycheck."
+    ```
+  </Step>
+
+  <Step title="Choose the Right Language Variant">
+    Select the specific language variant when available for better regional accuracy.
+    ```text ⚠️ Bad Example wrap
+    Using "Chinese" for Taiwan-specific content
+    ```
+    ```text ✅ Good Example wrap
+    Using "Chinese (Traditional)" for Taiwan-specific content
+    ```
+  </Step>
+
+  <Step title="Keep Text Length Reasonable">
+    Break very long texts into smaller chunks for better translation quality and faster processing.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my translation inaccurate?">
+    Translation accuracy depends on context and text complexity. For better results:
+    
+    1. Provide more context around ambiguous words
+    2. Use complete sentences instead of fragments
+    3. Avoid highly technical jargon without context
+    4. Check if the source language is correctly detected
+    
+    <Warning>Very short phrases or single words may have multiple meanings and could be translated incorrectly without context.</Warning>
+  </Accordion>
+
+  <Accordion title="Which languages are supported?">
+    <Tip>The Translate block supports 130+ languages through Google Cloud Translate</Tip>
+    
+    Popular supported languages include:
+    - **European**: English, Spanish, French, German, Italian, Portuguese, Dutch, Russian, Polish
+    - **Asian**: Chinese (Simplified/Traditional), Japanese, Korean, Hindi, Arabic, Thai, Vietnamese
+    - **African**: Swahili, Yoruba, Zulu, Hausa, Amharic
+    - **Others**: Hebrew, Turkish, Greek, and many more regional languages
+    
+    <Info>The block automatically handles language detection and uses the most appropriate translation model for each language pair.</Info>
+  </Accordion>
+
+  <Accordion title="What if the translation seems incomplete?">
+    If your translation appears cut off or incomplete:
+    
+    1. Check that your input text doesn't exceed reasonable length limits
+    2. Ensure your text doesn't contain special characters that might cause parsing issues
+    3. Try breaking very long texts into smaller segments
+    4. Verify the target language is correctly selected
+    
+    ```json Example Solution wrap
+    {
+      "text": "First paragraph of your long text...",
+      "target_language": "Spanish"
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="How can I improve translation quality for technical content?">
+    For technical or specialized content:
+    
+    1. Include domain-specific context in your text
+    2. Define acronyms and technical terms before using them
+    3. Use standard terminology when possible
+    4. Consider adding explanatory phrases for complex concepts
+    
+    <Info>Technical translations work best when the source text includes clear explanations and standard industry terminology.</Info>
+  </Accordion>
+</AccordionGroup>

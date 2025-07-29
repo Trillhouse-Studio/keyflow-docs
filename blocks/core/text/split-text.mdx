@@ -2,30 +2,97 @@
 title: Split Text
 ---
 
-### **Overview:**
+### Overview
 
-The `Split Text` block is an essential tool for breaking a single string into multiple parts based on specified characters or newline characters. This functionality simplifies the organization and analysis of different segments of text, allowing for independent manipulation.
+Divides text into separate parts using specified delimiters, converting strings into manageable arrays. Perfect for processing comma-separated lists, splitting paragraphs, or extracting individual elements from formatted text.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature            | Type     | Simple Explanation                                                                                                                          |
-| ------ | ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| input  | `string`           | string   | The input string you want to split into an array of strings.                                                                                |
-| input  | `split_characters` | string   | Characters that define where the original string will be divided. Defaults to a comma (,) if not specified.                                 |
-| input  | `newline_split`    | boolean  | A flag indicating whether to also split the string on newline (\n) characters; selecting this will ignore any values in `split_characters`. |
-| output | `string_array`     | string[] | The resulting array where each element represents a segment of the original string obtained from the split operation.                       |
+<Tip>Automatically trims whitespace from each split item, giving you clean, ready-to-use text segments.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can enhance your workflow in various scenarios:
+<ParamField query="String" type="string" required>
+  The text you want to split into an array of separate strings.
+</ParamField>
 
-- **Dividing Text:** When analyzing lengthy documents, you may need to separate dialogues or paragraphs for deeper comprehension and editing.
-- **Processing Lists:** If you frequently work with CSV data, this feature allows you to efficiently extract individual items from comma-separated values for further processing.
-- **Extracting Elements:** In situations involving predefined formats like logs or configuration files, use this block to isolate specific elements swiftly and handle them as needed.
-- **Data Cleanup:** Transform messy strings into organized arrays that can simplify validation tasks during data entry.
+<ParamField query="Split Characters" type="string" default="space">
+  Characters that define where the text should be divided. Common examples include commas, semicolons, or pipes.
+</ParamField>
 
-In conclusion, whenever there is a need to dissect a complex string into manageable pieces, the `Split Text` block proves invaluable!
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Newline Split" type="boolean" default="false">
+    When enabled, splits the text on newline characters (`\n`) instead of the specified split characters. Useful for processing multi-line text or lists.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="String Array" type="string[]">
+  An array containing each segment of the original text as separate strings, with whitespace automatically trimmed from each item.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Choose Appropriate Delimiters">
+    Select split characters that actually exist in your text and won't create unexpected results.
+    ```text ⚠️ Bad Example wrap
+    Text: "apple,banana,cherry"
+    Split Characters: ";"
+    Result: ["apple,banana,cherry"] (no splitting occurs)
+    ```
+    ```text ✅ Good Example wrap
+    Text: "apple,banana,cherry"
+    Split Characters: ","
+    Result: ["apple", "banana", "cherry"]
+    ```
+  </Step>
+
+  <Step title="Use Newline Split for Multi-line Text">
+    When processing paragraphs or line-based data, enable the newline split option for better results.
+  </Step>
+
+  <Step title="Handle Empty Results">
+    Consider what happens when your input string is empty or doesn't contain the split characters - you'll get an empty array or single-item array respectively.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my text not being split?">
+    The split characters you specified don't exist in your input text, or the newline split option doesn't match your text format.
+    
+    ```json Example Solution wrap
+    {
+      "input": "apple|banana|cherry",
+      "split_characters": "|",
+      "result": ["apple", "banana", "cherry"]
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="Getting unexpected extra spaces in results?">
+    <Tip>The block automatically trims whitespace, but embedded spaces within words are preserved</Tip>
+    This usually happens when your split characters include spaces or when there are multiple consecutive delimiters. The block trims leading and trailing whitespace from each segment automatically.
+  </Accordion>
+
+  <Accordion title="Newline split not working as expected?">
+    Ensure your text actually contains newline characters (`\n`). Text from some sources may use different line break formats.
+    
+    <Info>When newline split is enabled, all other split characters are ignored</Info>
+  </Accordion>
+
+  <Accordion title="Getting an empty array as output?">
+    This happens when your input string is empty, null, or undefined. Verify that your input connection is providing valid text data.
+    
+    <Warning>Empty or null input strings always return an empty array, regardless of split settings</Warning>
+  </Accordion>
+</AccordionGroup>

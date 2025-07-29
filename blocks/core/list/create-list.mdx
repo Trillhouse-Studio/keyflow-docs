@@ -2,35 +2,103 @@
 title: Create List
 ---
 
-### **Overview:**
+### Overview
 
-The `Create List` block is designed to streamline the process of combining multiple inputsinto a single cohesive list. This block is flexible and can handle inputs containing various data types, making it a versatile tool for data manipulation.
+The Create List block combines multiple separate inputs into a single organized list. This block accepts any type of data and maintains the order of inputs, making it perfect for consolidating scattered data points into a structured collection.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature                      | Type  | Simple Explanation                                                                        |
-| ------ | ---------------------------- | ----- | ----------------------------------------------------------------------------------------- |
-| input  | `input_1`                    | any   | The first element you want to include in your list.                                       |
-| input  | `input_2`                    | any   | The second element you want to add to the list containing the first one.                  |
-| input  | additional inputs (optional) | any   | You can add more elements as needed by clicking the "+" or "-" icon below the input name. |
-| output | `list`                       | any[] | A unified list containing all separate inputs combined into one.                          |
-
-<Note>
-  To build a list of more than two inputs, you can click the "+" or "-" icon
-  below the input name to add or remove new input handles that you can connect
-  other blocks to.
-</Note>
+<Tip>Transform multiple individual values into a unified list for batch processing and data organization.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Imagine how this block could save time in various scenarios:
+<ParamField query="Input 1" type="any" required>
+  The first element to include in your list. Can be text, numbers, objects, or any other data type.
+</ParamField>
 
-- **Batch Processing:** This block streamlines creating a single list for batch processing tasks, enhancing efficiency when handling large datasets.
-- **Data Submission:** When utilizing blocks like "Write to Google Sheets," providing a unified list enables seamless submission and accurate data processing.
-- **Dynamic Data Assembly:** Whether compiling user-generated content from different sources or aggregating project tasks from team members, this tool simplifies gathering diverse items into an organized collection.
+<ParamField query="Input 2" type="any" required>
+  The second element to add to your list. Like Input 1, this accepts any data type.
+</ParamField>
 
-In summary, whenever there's a need for gathering related items into one easy-to-manage collection, the `Create List` block comes in handy!
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Additional Inputs" type="any">
+    You can add up to 8 more inputs (total of 10) by clicking the "+" icon below the input labels. Each additional input becomes another element in your final list, maintaining the numerical order.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="list" type="array">
+  A unified array containing all your inputs in the order they were added. The list preserves the original data types and structure of each input element.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Maintain Consistent Data Types">
+    For easier processing downstream, try to use similar data types across inputs when possible.
+    ```text ⚠️ Bad Example wrap
+    Input 1: "John Doe"
+    Input 2: 25
+    Input 3: {name: "Jane", age: 30}
+    ```
+    ```text ✅ Good Example wrap
+    Input 1: "John Doe"
+    Input 2: "Jane Smith" 
+    Input 3: "Bob Johnson"
+    ```
+  </Step>
+
+  <Step title="Use Meaningful Input Order">
+    The order of inputs becomes the order in your final list, so connect them logically based on how you want to process the data later.
+  </Step>
+
+  <Step title="Consider List Length">
+    While you can add up to 10 inputs, consider whether your downstream blocks can handle the resulting list size effectively.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my list missing some elements?">
+    The Create List block only includes inputs that are connected and contain data. Check that:
+    
+    1. All desired inputs are properly connected to source blocks
+    2. Source blocks are producing output
+    3. No undefined or null values are being passed (these get filtered out)
+    
+    <Tip>Use the debug mode to verify what data each input is receiving</Tip>
+  </Accordion>
+
+  <Accordion title="Can I create an empty list?">
+    No, the Create List block requires at least one connected input with data. If you need an empty list, consider using the JSON block to create `[]` instead.
+    
+    <Warning>Providing no inputs or only undefined values will cause the block to fail</Warning>
+  </Accordion>
+
+  <Accordion title="How do I add more than 2 inputs?">
+    Click the "+" icon that appears below the input labels in the block configuration. You can add up to 8 additional inputs for a total of 10 elements in your list.
+    
+    <Info>Added inputs will be labeled as Input 3, Input 4, etc., and maintain this order in the final list</Info>
+  </Accordion>
+
+  <Accordion title="What happens to different data types?">
+    The Create List block preserves the original data type and structure of each input. A list can contain mixed types like strings, numbers, objects, and even other arrays.
+    
+    ```json Example Mixed List wrap
+    [
+      "Hello World",
+      42,
+      {"name": "John", "age": 25},
+      [1, 2, 3]
+    ]
+    ```
+  </Accordion>
+</AccordionGroup>

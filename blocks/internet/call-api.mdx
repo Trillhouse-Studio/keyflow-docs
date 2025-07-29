@@ -2,32 +2,154 @@
 title: Call API
 ---
 
-### **Overview:**
+### Overview
 
-The `Call API` block facilitates seamless communication with external HTTP-based APIs. This powerful tool enables users to retrieve, modify, and interact with resources specified by a URL, enhancing the capabilities of your applications.
+Make HTTP requests to external APIs and web services. This versatile block enables communication with REST APIs, webhooks, and any HTTP-based service, allowing you to integrate external data and services into your workflows.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature          | Type      | Simple Explanation                                                                          |
-| ------ | ---------------- | --------- | ------------------------------------------------------------------------------------------- |
-| input  | `method`         | selector  | Choose the HTTP method for your request: `GET`, `POST`, `PUT`, `PATCH`, or `DELETE`.        |
-| input  | `url`            | string    | The URL where the API call will be directed; ensure it begins with "https://".              |
-| input  | `headers`        | object    | Optional headers including authentication and content-type info that accompany the request. |
-| input  | `body`           | object    | Data sent along with certain requests (like POST, PUT) to add or modify resources.          |
-| output | `api_response`   | object    | The raw output received from the API response.                                              |
-| output | `status_code`    | string    | The HTTP status code indicating the result of your API call (e.g., 200 for success).        |
+<Tip>Perfect for connecting to third-party services, fetching data, or sending information to external systems.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-This block significantly enhances efficiency in multiple real-world scenarios:
+<ParamField query="Method" type="string" required>
+  The HTTP method for your request. Choose from GET, POST, PUT, PATCH, or DELETE.
+</ParamField>
 
-- **Real-time Data Requests:** Imagine needing updated stock prices while developing a financial application. You can use this block to fetch live data from various financial APIs effortlessly.
-- **Integrating with Third-Party Services:** Planning to support payment processing within your app? This block allows you to connect seamlessly with services like Stripe or PayPal through their APIs.
-- **Connecting to Backend Systems:** When developing a mobile app that interacts with a custom backend for user management, utilize this block to send registration and login information securely.
-- **Data Synchronization:** If you're synchronizing user data between different platforms (for example, matching profile details in CRM systems), this tool makes fetching and updating user information straightforward.
+<ParamField query="URL" type="string" required>
+  The complete URL endpoint for your API request. Must be a valid HTTPS URL.
+</ParamField>
 
-In conclusion, anytime there's a need for interaction between your application and external web services, leveraging the capabilities of the `Call API` block streamlines those processes effectively!
+<ParamField query="Headers" type="object">
+  HTTP headers to include with your request. Common headers include authentication tokens, content-type specifications, and custom API headers.
+  
+  Example format:
+  ```json
+  {
+    "Authorization": "Bearer your-token-here",
+    "Content-Type": "application/json",
+    "X-API-Key": "your-api-key"
+  }
+  ```
+</ParamField>
+
+<ParamField query="Body" type="object">
+  Request body data for POST, PUT, and PATCH requests. Can be a JSON object, form data, or raw text depending on your API requirements.
+  
+  Example format:
+  ```json
+  {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "age": 30
+  }
+  ```
+</ParamField>
+
+### Outputs
+
+<ParamField query="API Response" type="object">
+  The complete response data returned by the API, parsed as a JSON object when possible.
+</ParamField>
+
+<ParamField query="Status Code" type="string">
+  The HTTP status code returned by the API (e.g., "200" for success, "404" for not found, "500" for server error).
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Use HTTPS URLs Only">
+    Always use secure HTTPS URLs. HTTP URLs are not supported for security reasons.
+    
+    ```text ⚠️ Bad Example wrap
+    http://api.example.com/data
+    ```
+    
+    ```text ✅ Good Example wrap
+    https://api.example.com/data
+    ```
+  </Step>
+
+  <Step title="Include Proper Authentication">
+    Most APIs require authentication. Include the necessary headers or API keys.
+    
+    ```json Example Headers wrap
+    {
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "Content-Type": "application/json"
+    }
+    ```
+  </Step>
+
+  <Step title="Handle Different HTTP Methods">
+    Choose the appropriate HTTP method for your use case:
+    - **GET**: Retrieve data
+    - **POST**: Create new resources
+    - **PUT**: Update entire resources
+    - **PATCH**: Partial updates
+    - **DELETE**: Remove resources
+  </Step>
+
+  <Step title="Structure Request Bodies Properly">
+    Format your request body according to the API's requirements. Most modern APIs expect JSON format.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting a 'Please provide a valid https URL' error?">
+    This error occurs when the URL is invalid or uses HTTP instead of HTTPS.
+    
+    <Check>Ensure your URL starts with `https://`</Check>
+    <Check>Verify the URL format is correct</Check>
+    <Check>Test the URL in a browser to confirm it's accessible</Check>
+  </Accordion>
+
+  <Accordion title="Why am I getting authentication errors (401/403)?">
+    Authentication errors indicate issues with your API credentials or permissions.
+    
+    <Steps>
+      <Step>Verify your API key or token is correct</Step>
+      <Step>Check the authentication header format required by the API</Step>
+      <Step>Ensure your account has permission to access the endpoint</Step>
+      <Step>Confirm the API key hasn't expired</Step>
+    </Steps>
+  </Accordion>
+
+  <Accordion title="Why is my request body not being sent correctly?">
+    Request body issues typically occur with formatting or content-type mismatches.
+    
+    <Warning>Make sure your body format matches the Content-Type header</Warning>
+    
+    Common solutions:
+    - For JSON APIs: Use `"Content-Type": "application/json"` header
+    - Ensure your JSON is properly formatted
+    - Check if the API expects form data instead of JSON
+  </Accordion>
+
+  <Accordion title="How do I handle API rate limits?">
+    Many APIs have rate limits that restrict the number of requests per time period.
+    
+    <Info>Monitor your API usage and implement delays between requests if needed</Info>
+    <Info>Check the API documentation for rate limit information</Info>
+    <Info>Consider caching responses to reduce API calls</Info>
+  </Accordion>
+
+  <Accordion title="What should I do if I get a timeout or connection error?">
+    Network issues can cause timeouts or connection failures.
+    
+    Troubleshooting steps:
+    1. Verify the API endpoint is accessible
+    2. Check if the service is currently down
+    3. Try the request again after a short delay
+    4. Ensure your internet connection is stable
+  </Accordion>
+</AccordionGroup>
+
+---

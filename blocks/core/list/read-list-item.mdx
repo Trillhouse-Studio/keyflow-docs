@@ -2,29 +2,93 @@
 title: Read List Item
 ---
 
-### **Overview:**
+### Overview
 
-The `Read List Element` block is designed to retrieve a single element from a list efficiently. This block simplifies the process of indexing, allowing users to directly access specific items without navigating through the entire collection.
+The Read List Item block accesses and retrieves a specific item from a list based on its index or position. This block allows you to pinpoint and extract individual items from any array or list without having to process the entire collection.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature   | Type   | Simple Explanation                                                             |
-| ------ | --------- | ------ | ------------------------------------------------------------------------------ |
-| input  | `list`    | any[]  | The list containing various elements you want to access.                       |
-| input  | `index`   | number | The position of the element you wish to retrieve, with indexing starting at 0. |
-| output | `element` | any    | The value found at the specified index in the provided list.                   |
+<Tip>Extract specific items from lists using zero-based indexing for precise data access.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can be useful in different scenarios:
+<ParamField query="List" type="array" required>
+  The list or array containing the elements you want to access. Can contain any type of data including text, numbers, objects, or mixed content.
+</ParamField>
 
-- **File Path Parsing:** Need just the filename from a full path? Use this block to extract that specific element from an array of directories and file names.
-- **Data Analysis:** When analyzing survey results, accessing a particular response based on its position allows quick processing for further insights.
-- **User Preferences:** If you're working with user settings stored in lists, retrieving an individual preference can help tailor custom experiences without overhauling everything.
-- **Event Scheduling:** When working with scheduled events stored in a list format, quickly pulling up details for one event can streamline planning and notifications.
+<ParamField query="Index" type="number" required>
+  The position of the element you want to retrieve from the list. Indexing starts at 0, so the first element is at index 0, second at index 1, and so on.
+</ParamField>
 
-In summary, whenever there's a requirement to isolate and access an individual item from within a broader set of data, the `Read List Element` block serves that purpose effectively!
+### Outputs
+
+<ParamField query="element" type="any">
+  The specific element found at the specified index position in the provided list. Returns the exact data type and structure of the original element.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Verify Index Bounds">
+    Always ensure your index value is within the valid range of your list to avoid errors.
+    ```text ⚠️ Bad Example wrap
+    List: ["apple", "banana", "cherry"]
+    Index: 5 (will cause error - only indices 0-2 exist)
+    ```
+    ```text ✅ Good Example wrap
+    List: ["apple", "banana", "cherry"]
+    Index: 1 (returns "banana" - valid index)
+    ```
+  </Step>
+
+  <Step title="Use Dynamic Index Values">
+    Connect the index input to other blocks for flexible list processing rather than hardcoding index values.
+  </Step>
+
+  <Step title="Handle Empty Lists Gracefully">
+    Consider using conditional logic to check if your list has elements before attempting to read from it.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting an 'Element does not exist' error?">
+    This error occurs when the index you're trying to access is outside the bounds of your list. Check that:
+    
+    1. Your index is not negative
+    2. Your index is less than the list length
+    3. The list is not empty
+    
+    <Tip>Remember that indexing starts at 0, so a list with 3 elements has valid indices 0, 1, and 2</Tip>
+  </Accordion>
+
+  <Accordion title="What happens if I provide a non-array input?">
+    The block will throw an error stating "Please provide a list." The input must be a valid array or list structure.
+    
+    <Warning>Make sure your data source is actually producing a list/array format</Warning>
+  </Accordion>
+
+  <Accordion title="Can I use negative indices to access elements from the end?">
+    No, this block does not support negative indexing. You must use positive integers starting from 0.
+    
+    ```json Valid Index Examples wrap
+    List: ["first", "second", "third"]
+    Index 0: "first"
+    Index 1: "second"  
+    Index 2: "third"
+    ```
+    
+    <Info>If you need to access elements from the end, calculate the index using the list length minus your desired position</Info>
+  </Accordion>
+
+  <Accordion title="How do I find the length of my list to avoid index errors?">
+    While this block doesn't provide list length, you can use other blocks in your flow to determine the size of your list before accessing elements.
+    
+    <Info>Consider implementing conditional logic to handle varying list sizes dynamically</Info>
+  </Accordion>
+</AccordionGroup>

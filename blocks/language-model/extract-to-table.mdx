@@ -4,8 +4,120 @@ title: Extract to Table
 
 ### Overview
 
-The Extract to Table block is designed to extract tabular data from a given text. It can be used to extract data from spreadsheets, tables, or any other tabular data format.
+Extracts structured data from unstructured text and automatically organizes it into a Google Sheets table using AI. The block reads existing column headers from your sheet and intelligently maps the unstructured data to match your table structure.
 
-<Tip>Extract tabular data from unstructured text to structured data for further processing.</Tip>
+<Tip>Perfect for converting messy text data, emails, or documents into organized spreadsheet rows with proper column alignment.</Tip>
 
 ---
+
+### Inputs
+
+<ParamField query="Text" type="String" required>
+  The unstructured text data that you want to extract and organize into table format.
+</ParamField>
+
+<ParamField query="doc_link" type="String" required>
+  The Google Sheets file where the extracted data will be added. Must be a valid Google Sheets URL or file ID.
+</ParamField>
+
+<ParamField query="sheet_name" type="String">
+  The specific sheet name within the Google Sheets file to write data to. If not specified, data will be written to the first sheet.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Account" type="String">
+    Select the Google Sheets credentials you want to use to access and write to your Google Sheets documents.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="doc_link" type="String">
+  Returns the same Google Sheets URL that was provided as input, confirming where the data was successfully written.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Prepare Your Google Sheet Headers">
+    Ensure your Google Sheet has clear, descriptive column headers in the first row before running the extraction.
+    ```text ⚠️ Bad Example wrap
+    Headers: A, B, C, Data
+    ```
+    ```text ✅ Good Example wrap
+    Headers: Name, Email Address, Phone Number, Company Name
+    ```
+  </Step>
+
+  <Step title="Structure Your Input Text Clearly">
+    Provide well-organized text data that contains the information matching your table headers for better extraction accuracy.
+  </Step>
+
+  <Step title="Use Descriptive Column Names">
+    Column headers should clearly describe the type of data expected, as the AI uses these headers to understand where to place extracted information.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is the block failing with 'Unable to read headers from the Google Sheet'?">
+    This error occurs when the block cannot access or read the first row of your Google Sheet. Check the following:
+    
+    ```text Solution Steps wrap
+    1. Verify the Google Sheets URL is correct and accessible
+    2. Ensure your Google account has read/write permissions to the sheet
+    3. Check that the sheet contains headers in the first row
+    4. Verify the sheet name is spelled correctly (if specified)
+    ```
+  </Accordion>
+
+  <Accordion title="Why does the block say 'Google Sheet must contain header values'?">
+    <Warning>The first row of your Google Sheet must contain column headers</Warning>
+    The AI needs column headers to understand how to organize the extracted data. Make sure:
+    1. The first row contains descriptive column names
+    2. Headers are not empty or blank
+    3. Headers clearly describe the type of data for each column
+    <Info>The block reads the first row to understand your table structure</Info>
+  </Accordion>
+
+  <Accordion title="How can I improve data extraction accuracy?">
+    <Tip>Better headers and clearer text lead to more accurate extractions</Tip>
+    To improve accuracy:
+    1. Use specific, descriptive column headers (e.g., "Customer Email" instead of "Email")
+    2. Ensure your input text contains the information that matches your headers
+    3. Format your input text clearly with proper spacing and punctuation
+    4. If data is missing from output, check that the information exists in your input text
+    
+    ```json Example Header Structure wrap
+    {
+      "headers": ["Customer Name", "Email Address", "Phone Number", "Company", "Order Date", "Amount"]
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="What happens if some data cannot be extracted?">
+    When the AI cannot find data for specific columns, those cells will be left empty in your Google Sheet. This is normal behavior when:
+    
+    <Info>Empty cells indicate the requested information was not found in the input text</Info>
+    - The input text doesn't contain all the information requested by your headers
+    - The data format doesn't match what the AI expects based on the header name
+    - The information exists but in a format the AI doesn't recognize
+  </Accordion>
+
+  <Accordion title="Why am I getting permission errors when writing to Google Sheets?">
+    Permission errors typically occur due to authentication or access issues:
+    1. Ensure you've connected your Google account in the Account settings
+    2. Verify your Google account has edit permissions for the target sheet
+    3. Check that the sheet is not protected or locked
+    4. Try re-authenticating your Google Sheets connection
+    
+    <Warning>You need write permissions to add data to Google Sheets</Warning>
+  </Accordion>
+</AccordionGroup>

@@ -4,8 +4,103 @@ title: Extract Data
 
 ### Overview
 
-The Extract Data block is designed to extract specific data from a given text. It can be used to extract information, extract tables, or extract any other relevant data from a text.
+Extracts structured data from unstructured text using AI. Define a custom schema to specify exactly what information you want to extract, and the AI will parse the text and return the data in your desired format.
 
-<Tip>Extract data from unstructured text to structured data for further processing.</Tip>
+<Tip>Perfect for converting unstructured text into structured data with custom fields and formats.</Tip>
 
 ---
+
+### Inputs
+
+<ParamField query="Text" type="String" required>
+  The unstructured text you want to extract data from.
+</ParamField>
+
+<ParamField query="Response Schema" type="Object" required>
+  Define the structure and fields of data you want to extract. Create custom fields with descriptions to guide the extraction process.
+</ParamField>
+
+<ParamField query="Additional Context" type="String">
+  Provide additional rules or context to guide the extraction process.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Model" type="String" default="gpt-4-1-nano">
+    The AI model to use for data extraction. Choose based on complexity and accuracy needs.
+  </ParamField>
+
+  <ParamField query="Cache Response" type="Boolean" default="true">
+    Whether to cache the response for future use to improve performance and reduce costs.
+  </ParamField>
+
+  <ParamField query="Account" type="String">
+    Select the AI credentials you want to use for the extraction.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Data" type="Object">
+  The extracted data structured according to your defined schema. Output fields are dynamically generated based on your schema definition.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Design Clear Schema Fields">
+    Create descriptive field names and provide detailed descriptions to guide accurate extraction.
+    ```text ⚠️ Bad Example wrap
+    Field: "name" - Description: "name"
+    ```
+    ```text ✅ Good Example wrap
+    Field: "company_name" - Description: "The full legal name of the company mentioned in the text"
+    ```
+  </Step>
+
+  <Step title="Use Additional Context for Complex Rules">
+    Provide specific extraction rules and edge cases in the Additional Context field to improve accuracy.
+  </Step>
+
+  <Step title="Choose the Right Model for Complexity">
+    Use lighter models (gpt-4-1-nano) for simple extractions, and more powerful models (gpt-4o, claude-3-5-sonnet) for complex or nuanced data extraction.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is the extracted data incomplete or inaccurate?">
+    This usually happens when schema descriptions are too vague or the model isn't powerful enough for the complexity. Try making your field descriptions more specific and detailed.
+    
+    ```json Example Solution wrap
+    {
+      "schema": {
+        "email": "Extract the email address, must be in valid email format",
+        "phone": "Extract phone number including country code if present",
+        "company": "Full legal company name as mentioned in the document"
+      }
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="How can I improve extraction accuracy for complex documents?">
+    <Tip>Use more powerful models and detailed context for complex extractions</Tip>
+    1. Switch to a more advanced model like GPT-4o or Claude-3.5-Sonnet
+    2. Add specific rules in Additional Context
+    3. Break complex extractions into multiple simpler ones
+    4. Provide examples of expected formats in field descriptions
+    <Warning>More powerful models cost more credits but provide better accuracy</Warning>
+  </Accordion>
+
+  <Accordion title="What should I do when certain fields return empty values?">
+    Empty values usually mean the information wasn't found or doesn't match the extraction criteria. Review your field descriptions and ensure they match the content in your text.
+    
+    <Info>The AI returns empty strings when requested information is not found in the text</Info>
+  </Accordion>
+</AccordionGroup>

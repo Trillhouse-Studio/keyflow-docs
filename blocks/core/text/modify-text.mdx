@@ -2,31 +2,93 @@
 title: Modify Text
 ---
 
-### **Overview:**
+### Overview
 
-The `Modify Text` block is designed to standardize textual data according to specific formatting conditions. This block provides functionality for transforming strings by converting them to lowercase or uppercase, capitalizing each word, trimming extra spaces, and truncating the string based on a defined number of tokens.
+Apply standardized formatting transformations to text strings. Choose from five different formatting options to clean up, standardize, or modify your text data.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature                                  | Type   | Simple Explanation                                                                                                           |
-| ------ | ---------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| input  | `value`                                  | string | The string that you want to format.                                                                                          |
-| input  | `formatter`                              | string | Specifies the formatting action to apply. Options include: To Lowercase, To Uppercase, To Propercase, Trim Spaces, Truncate. |
-| input  | `max_num_tokens` (required for Truncate) | number | The maximum number of tokens (words or characters) allowed if using the "Truncate" formatter.                                |
-| output | `formatted_value`                        | string | The resulting string after applying the specified formatting operation.                                                      |
+<Tip>Perfect for data cleaning, standardizing user inputs, and preparing text for consistent display or processing.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can enhance your text processing tasks:
+<ParamField query="Value" type="string" required>
+  The text string you want to format or modify.
+</ParamField>
 
-- **To Lowercase:** When managing user accounts by converting email addresses uniformly—ensuring consistency across databases.
-- **To Uppercase:** In a situation where you need promotional banners or key terms accentuated—this feature makes certain items more noticeable.
-- **To Propercase:** Useful while preparing a formal list of names; it ensures that titles and names are displayed neatly with appropriate capitalization.
-- **Trim Spaces:** An effective first step in cleaning up user-generated content or form inputs where spacing errors may occur frequently.
-- **Truncate:** Ideal for summarizing lengthy descriptions into bite-sized catchphrases—a perfect fit for social media posts or brief reports.
+<ParamField query="Formatter" type="string" default="Trim Spaces">
+  The formatting operation to apply to your text. Choose from:
+  - **Trim Spaces**: Remove leading and trailing whitespace
+  - **To Lowercase**: Convert all letters to lowercase
+  - **To Uppercase**: Convert all letters to uppercase  
+  - **To Propercase**: Capitalize the first letter of each word
+  - **Truncate**: Cut text to a specified length
+</ParamField>
 
-In summary, whenever there’s a need to manipulate text formats quickly and efficiently, the `Modify Text` block serves as an invaluable resource!
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Max Num Tokens" type="number">
+    Maximum number of characters to keep when using "Truncate" formatter. Only appears when Truncate is selected.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="formatted_value" type="string">
+  The text after applying the selected formatting operation.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Choose the Right Formatter for Your Data">
+    Select the formatter that matches your data cleaning needs and downstream processing requirements.
+    ```text ⚠️ Bad Example wrap
+    Using "To Uppercase" for email addresses: "USER@EXAMPLE.COM"
+    ```
+    ```text ✅ Good Example wrap
+    Using "To Lowercase" for email addresses: "user@example.com"
+    ```
+  </Step>
+
+  <Step title="Use Trim Spaces First for User Input">
+    Always trim spaces when processing user-generated content to remove accidental whitespace.
+  </Step>
+
+  <Step title="Set Appropriate Truncate Limits">
+    When truncating text, choose character limits that preserve meaning while meeting your display requirements.
+    ```text ⚠️ Bad Example wrap
+    Truncating "Hello World!" to 5 characters: "Hello"
+    ```
+    ```text ✅ Good Example wrap
+    Truncating "Hello World!" to 11 characters: "Hello World"
+    ```
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my truncated text cut off mid-word?">
+    The Truncate formatter counts characters, not words. It will cut text exactly at the specified character limit.
+    
+    <Tip>If you need word-based truncation, consider using a larger character limit or processing the text further to remove partial words.</Tip>
+  </Accordion>
+
+  <Accordion title="What happens with empty or null input values?">
+    The block requires a valid input string. Empty strings will be processed according to the selected formatter, but null or undefined values will cause an error.
+    
+    <Warning>Always ensure your input has a valid string value before connecting to this block.</Warning>
+  </Accordion>
+
+  <Accordion title="How does Propercase handle special characters and punctuation?">
+    Propercase capitalizes letters that come after spaces. Other punctuation marks don't trigger capitalization.
+    
+    <Info>For example: "hello-world test" becomes "Hello-world Test" (only space triggers capitalization)</Info>
+  </Accordion>
+</AccordionGroup>

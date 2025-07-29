@@ -96,6 +96,7 @@
         "blocks/internet/deep-research",
         "blocks/internet/research-person",
         "blocks/internet/research-company",
+        "blocks/internet/browser-agent",
         "blocks/internet/search-google",
         "blocks/internet/scrape-website",
         "blocks/internet/crawl-web",
@@ -268,23 +269,17 @@
         }
       ]
     },
-
     {
-      "group": "Endpoint",
-      "pages": [
-        {
-          "group": "Flows",
-          "pages": ["api-reference/endpoint/flows/trigger-flow"]
-        },
-        {
-          "group": "Runs",
-          "pages": ["api-reference/endpoint/runs/fetch-run-status"]
-        },
-        {
-          "group": "Files",
-          "pages": ["api-reference/endpoint/files/upload-file"]
-        }
-      ]
+      "group": "Flows",
+      "pages": ["api-reference/endpoint/flows/trigger-flow"]
+    },
+    {
+      "group": "Runs",
+      "pages": ["api-reference/endpoint/runs/fetch-run-status"]
+    },
+    {
+      "group": "Files",
+      "pages": ["api-reference/endpoint/files/upload-file"]
     }
   ],
   "footerSocials": {

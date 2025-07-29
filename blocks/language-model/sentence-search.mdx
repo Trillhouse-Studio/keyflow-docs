@@ -2,30 +2,94 @@
 title: Sentence Search
 ---
 
-### **Overview:**
+### Overview
 
-The `Sentence Search` block is an efficient tool designed to process input text line-by-line and identify the lines that are most relevant to a specified search query. This feature allows users to quickly retrieve important information from large text bodies without the need for manual reading.
+Searches through large text documents using AI embeddings to find the most relevant sections based on your query. Automatically chunks text and uses semantic similarity to return the most relevant content.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature         | Type   | Simple Explanation                                                                      |
-| ------ | --------------- | ------ | --------------------------------------------------------------------------------------- |
-| input  | `text`          | string | The larger body of text where the block will perform its search for the given query.    |
-| input  | `query`         | string | The phrase or keyword you wish to find within the provided text.                        |
-| input  | `num_results`   | number | Specifies the maximum number of search results to return; defaults to 5 if not defined. |
-| output | `search_result` | string | Returns lines from the input text that closely match your specified query.              |
+<Tip>Perfect for finding specific information within large documents or texts using semantic similarity rather than keyword matching.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Here are some scenarios where this block can be particularly useful:
+<ParamField query="Text" type="String" required>
+  The document or text content you want to search through.
+</ParamField>
 
-- **Information Retrieval:** When conducting research, this block helps locate specific details or quotes across extensive articles or documents without needing to sift through everything manually.
-- **Customer Support:** Support teams can use this tool to find relevant responses in help center articles based on customer inquiries, enhancing response efficiency.
-- **Content Review:** If you're reviewing reports or documentation drafts, leverage this feature to quickly pull pertinent feedback related directly to key topics addressed.
-- **Data Analysis:** In data annotation tasks, utilize this block for extracting critical insights from lengthy datasets by searching for keywords linked with specific analysis points.
+<ParamField query="Query" type="String" required>
+  Your search query - the system will find text sections most semantically similar to this query.
+</ParamField>
 
-In summary, whenever there’s a need for quick and effective extraction of relevant information based on defined criteria, look no further than the `Sentence Search` block!
+<ParamField query="No. of Results" type="Number" default="10">
+  The number of relevant text chunks you want to retrieve from the search.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Chunk Size" type="Number" default="1000">
+    The number of tokens to include in each text chunk. Smaller chunks provide more precise results, larger chunks provide more context.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Relevant Chunks" type="String Array">
+  Array of text chunks that are most semantically relevant to your query, ordered by similarity.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Use Descriptive Queries">
+    Write clear, descriptive queries that capture the meaning of what you're looking for rather than just keywords.
+    ```text ⚠️ Bad Example wrap
+    carbon
+    ```
+    ```text ✅ Good Example wrap
+    Ways to reduce carbon footprint at domestic level
+    ```
+  </Step>
+
+  <Step title="Optimize Chunk Size for Your Content">
+    Adjust chunk size based on your content type - use smaller chunks (500-800) for precise information retrieval, larger chunks (1000-1500) for context-rich results.
+  </Step>
+
+  <Step title="Balance Number of Results">
+    Start with 5-10 results and adjust based on your needs. Too many results may include less relevant content, too few may miss important information.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why are my search results not relevant?">
+    This could be due to unclear queries or inappropriate chunk sizes. Try making your query more specific and descriptive, or adjust the chunk size to better match your content structure.
+    
+    ```json Example Solution wrap
+    {
+      "query": "environmental sustainability practices in urban planning",
+      "chunk_size": 800,
+      "num_results": 5
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="How do I get more precise results?">
+    <Tip>Use smaller chunk sizes and more specific queries for precision</Tip>
+    1. Reduce chunk size to 500-700 tokens
+    2. Make your query more specific and detailed
+    3. Reduce the number of results to focus on top matches
+    <Warning>Very small chunks may lose important context</Warning>
+  </Accordion>
+
+  <Accordion title="What if I'm not getting enough context in results?">
+    Increase the chunk size to capture more context around relevant sections. Also consider increasing the number of results to get a broader view of relevant content.
+    
+    <Info>Larger chunk sizes provide more context but may reduce precision</Info>
+  </Accordion>
+</AccordionGroup>

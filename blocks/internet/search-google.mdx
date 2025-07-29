@@ -2,40 +2,146 @@
 title: Google Search
 ---
 
-### **Overview:**
+### Overview
 
-The `Google Search` block is designed to facilitate the searching and fetching of real-time data from Google using the [Serp API](https://serpapi.com/). This powerful tool allows users to obtain relevant search results efficiently, perfect for a variety of applications.
+Performs Google searches and retrieves search results, enabling automated research and information gathering. This block uses the SerpAPI service to fetch real-time search results from Google with customizable result counts.
 
-<Note>
-  This block currently is only available for Starter, Pro and Enterprise keyflow
-  accounts. To run this block, navigate to your
-  [credentials](https://keyflow.space/settings/credentials) page and add your
-  Serp API Key.
-</Note>
+<Tip>Perfect for building automated research workflows, competitive analysis, and content discovery pipelines.</Tip>
 
 ---
 
-### Inputs & Outputs
+### Inputs
 
-| I/O    | Feature             | Type      | Simple Explanation                                                                                      |
-| ------ | ------------------- | --------- | ------------------------------------------------------------------------------------------------------- |
-| input  | `query`             | string    | The search term or query for Google, with a maximum length of 255 characters.                           |
-| input  | `results_count`     | number    | Specifies the maximum number of results to fetch from Google, up to a limit of 10.                      |
-| output | `title`             | string[]  | An array containing the titles of web pages returned in your search results.                            |
-| output | `links`             | string[]  | An array providing the links to these web pages.                                                        |
-| output | `snippets`          | string[]  | A collection of small excerpts from each sourced web page.                                              |
-| output | `current_page_link` | string    | The actual link for your current Google search query directly on Google's site.                         |
-| output | `next_page_link`    | string    | null/undefined if no next page exists; provides a link for accessing further result pages if available. |
+<ParamField query="Query" type="string" required>
+  The search term or query for Google. Maximum length of 256 characters.
+</ParamField>
+
+<ParamField query="Results count" type="number" default="5">
+  The number of search results to retrieve. Must be between 1 and 10.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Account" type="string">
+    Select the SerpAPI credentials to use for performing searches. If not specified, Keyflow's shared API key will be used (costs credits).
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="titles" type="string[]">
+  An array containing the titles of web pages returned in the search results.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="links" type="string[]">
+    An array of URLs linking to the web pages found in the search results.
+  </ParamField>
+
+  <ParamField query="snippets" type="string[]">
+    An array of text excerpts or descriptions from each web page in the search results.
+  </ParamField>
+
+  <ParamField query="current_page_link" type="string">
+    The direct Google search URL for the performed query.
+  </ParamField>
+
+  <ParamField query="next_page_link" type="string">
+    URL for the next page of search results, if available. Empty if no additional results exist.
+  </ParamField>
+</Accordion>
 
 ---
 
-### Use Cases
+### Best Practices
 
-Consider how this block can enhance various real-world scenarios:
+<Steps>
+  <Step title="Use Specific Search Queries">
+    Write targeted search queries that include relevant keywords and context for better results.
+    ```text ⚠️ Bad Example wrap
+    "technology"
+    ```
+    ```text ✅ Good Example wrap
+    "artificial intelligence trends 2024 machine learning"
+    ```
+  </Step>
 
-- **Research Gathering:** Ideal for efficiently collecting detailed information across multiple online sources like articles or studies when conducting extensive research.
-- **Brand Monitoring:** Enables tracking mentions and online visibility concerning specific brands or products by monitoring search engine results regularly.
-- **Market Analysis:** Useful in compiling insights and analyzing competitive data by gathering relevant information found during market studies based on targeted queries.
-- **Real-time Data Retrieval:** Provides immediate data acquisition about unfolding events—perfectly suited for applications where keeping users updated with current trends is essential.
+  <Step title="Optimize Results Count">
+    Request only the number of results you actually need to minimize processing time and costs.
+    ```text ⚠️ Bad Example wrap
+    Always setting results_count to 10
+    ```
+    ```text ✅ Good Example wrap
+    Setting results_count to 3-5 for most use cases
+    ```
+  </Step>
 
-In summary, whenever you need quick access to comprehensive real-time information through internet searches, the `Search Google` block proves invaluable!
+  <Step title="Add Your Own SerpAPI Key">
+    Connect your own SerpAPI credentials to avoid consuming Keyflow credits and get higher rate limits.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting 'Please provide query to search' error?">
+    This error occurs when the Query input is empty or not connected properly.
+    
+    ```json Example Solution wrap
+    {
+      "query": "machine learning tutorials"
+    }
+    ```
+    
+    Ensure your Query input contains a valid search term and is properly connected to the block.
+  </Accordion>
+
+  <Accordion title="Why is my search returning fewer results than requested?">
+    <Tip>Google may return fewer results than requested if there aren't enough relevant pages for your query</Tip>
+    
+    This is normal behavior when:
+    1. Your search query is very specific or niche
+    2. You're searching for recent events with limited coverage
+    3. The results count exceeds available relevant pages
+    
+    Try using broader search terms or reducing the results count.
+  </Accordion>
+
+  <Accordion title="How can I avoid credit charges for this block?">
+    <Info>Using your own SerpAPI key eliminates credit costs</Info>
+    
+    To avoid charges:
+    1. Sign up for a [SerpAPI account](https://serpapi.com/)
+    2. Get your API key from the SerpAPI dashboard
+    3. Add the key to your [Keyflow credentials](https://keyflow.space/settings/credentials)
+    4. Select your SerpAPI account in the Advanced Settings
+    
+    <Warning>Without your own API key, each search consumes Keyflow credits</Warning>
+  </Accordion>
+
+  <Accordion title="What should I do if I get 'Web search failed' errors?">
+    This error typically indicates an issue with the SerpAPI service or your API key.
+    
+    Check the following:
+    1. Verify your SerpAPI key is valid and has remaining credits
+    2. Ensure your search query doesn't contain special characters that might cause issues
+    3. Try reducing the results count to see if it's a rate limiting issue
+    4. Wait a few minutes and retry in case of temporary service issues
+  </Accordion>
+
+  <Accordion title="Why are some search results missing snippets or titles?">
+    Some web pages may not provide complete metadata, resulting in empty fields for certain results.
+    
+    This is normal behavior and depends on:
+    - How the source website structures its content
+    - Whether the page allows search engine indexing
+    - The specific content type (PDFs, images, etc.)
+    
+    <Info>Your workflow should handle cases where some fields might be empty</Info>
+  </Accordion>
+</AccordionGroup>

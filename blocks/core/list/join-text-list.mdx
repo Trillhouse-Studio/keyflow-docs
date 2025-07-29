@@ -2,30 +2,106 @@
 title: Join Text List
 ---
 
-### **Overview:**
+### Overview
 
-The `Join Text List` block combines an array of strings into a single string with customizable separators, providing flexibility in how strings are aggregated. This block simplifies the process of merging multiple string values into one cohesive output, making it a versatile tool for various text manipulation scenarios.
+Combines multiple text items from a list into a single string with customizable separators. This block is perfect for merging individual text elements into formatted output strings.
 
----
-
-### Inputs & Outputs
-
-| I/O              | Feature           | Type     | Simple Explanation                                                                                       |
-| ---------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------- |
-| input            | `string_array`    | string[] | The input array of strings to be combined into a single string.                                          |
-| input (optional) | `join_characters` | string   | Separator used between each element in the final output string, if specified.                            |
-| input (optional) | `join_by_newline` | boolean  | If true, separates each string in the input array with a newline in the final output string.             |
-| output           | `joined_string`   | string   | The complete resulting string from joining all elements from the `string_array`, separated as specified. |
+<Tip>Ideal for creating comma-separated lists, bullet points, or any formatted text output from multiple inputs.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can enhance your workflows:
+<ParamField query="Text List" type="string[]" required>
+  The list of text items to combine into a single string.
+</ParamField>
 
-- **Combining Text Lines:** Effortlessly join multiple lines of text into one line by using a specified character (like commas). This is ideal for creating readable summaries or concise outputs.
-- **Data Assembly:** When assembling data such as names or values, this block can help create formatted lists suitable for further processing—like generating comma-separated values for CSV imports/exports.
+<ParamField query="Join Characters" type="string" default="">
+  Characters used to separate each text item in the final output. Leave empty to join without separators.
+</ParamField>
 
-- **Formatting Output:** Useful for converting outputs from list formats to coherent single strings where clarity is key; items are distinctly separated by either line breaks or other chosen separators.
+<br></br>
 
-In summary, when there’s a need to aggregate related textual information efficiently and precisely, the `Join Text Array` block serves as an essential tool!
+<Accordion title="Advanced Settings">
+  <ParamField query="Join By New Line" type="boolean" default="false">
+    When enabled, each text item will be separated by a new line instead of the join characters. This setting takes priority over join characters.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="joined_string" type="string">
+  The combined text string with all list items joined using the specified separator.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Choose Appropriate Separators">
+    Select separators that match your intended output format and use case.
+    
+    ```text ⚠️ Bad Example wrap
+    Using complex separators: " --> NEXT ITEM --> "
+    ```
+    
+    ```text ✅ Good Example wrap
+    Using simple separators: ", " or " | " or just " "
+    ```
+  </Step>
+
+  <Step title="Handle Empty Lists">
+    Always ensure your text list contains items before joining to avoid unexpected empty outputs.
+  </Step>
+
+  <Step title="Consider Output Context">
+    Choose between custom separators and newlines based on where the output will be used - commas for CSV data, newlines for readable lists, spaces for sentences.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my output empty?">
+    This occurs when the input text list is empty or not connected properly.
+    
+    <Tip>Check that your text list input is connected and contains at least one item</Tip>
+    
+    Verify: 1. Text list input is connected to a block that outputs text items 2. The source block is producing a non-empty list 3. All text items in the list contain actual content
+  </Accordion>
+
+  <Accordion title="My separators aren't showing up correctly">
+    The join characters might be overridden by the "Join By New Line" setting, or special characters may need proper formatting.
+    
+    ```text Example Solutions wrap
+    For commas: ","
+    For comma-space: ", "
+    For pipes: " | "
+    For tabs: "\t"
+    ```
+    
+    <Warning>When "Join By New Line" is enabled, it takes priority over custom join characters</Warning>
+  </Accordion>
+
+  <Accordion title="How do I create bulleted or numbered lists?">
+    Use the join characters field to add list formatting to each item.
+    
+    ```text Bulleted List Example wrap
+    Join Characters: "\n• "
+    Result: • Item 1
+    • Item 2
+    • Item 3
+    ```
+    
+    <Info>For numbered lists, consider using a different block to add numbers before joining</Info>
+  </Accordion>
+
+  <Accordion title="Can I join non-text data types?">
+    This block only works with text (string) arrays. Other data types need to be converted to text first.
+    
+    <Tip>Use appropriate conversion blocks (like JSON stringify) before joining if you have numbers, objects, or other data types</Tip>
+  </Accordion>
+</AccordionGroup>

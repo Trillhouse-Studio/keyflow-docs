@@ -1,41 +1,129 @@
 ---
-title: Write ZIP File
+title: Generate Zip File
 ---
 
-### **Overview:**
+### Overview
 
-The `Write Zip File` block enables users to create a zip file containing multiple files with specific names and contents. This block supports various file types, making it ideal for efficient file organization and sharing.
+The Generate Zip File block compresses multiple files into a ZIP archive, enabling efficient file packaging and distribution. This block automatically handles file naming, content organization, and ZIP creation for streamlined file management.
 
-<Check>
-  **Supported file types include** .pdf, .csv, .txt, and .md inside the zip
-  files.
-</Check>
+<Tip>Perfect for bundling multiple documents, reports, or data files into a single downloadable archive.</Tip>
 
 ---
 
-### Inputs & Outputs
+### Inputs
 
-| I/O    | Feature         | Type     | Simple Explanation                                                                                      |
-| ------ | --------------- | -------- | ------------------------------------------------------------------------------------------------------- |
-| input  | `zip_file_name` | file     | The designated name you wish to assign to the zip file being created.                                   |
-| input  | `file_type`     | selector | The type of files included in the zip. Supported options are .pdf, .json, .csv, .txt, .html, and .docx. |
-| input  | `file_names`    | string[] | An array of names for the individual files that will be packed into the zip file.                       |
-| input  | `file_contents` | string[] | An array containing content strings corresponding to each of the specified filenames within the zip.    |
-| output | `zip_file_name` | string   | The name of the created zip file.                                                                       |
+<ParamField query="Zip File Name" type="string" required>
+  The name for your ZIP file. The `.zip` extension will be automatically added if not included.
+</ParamField>
+
+<ParamField query="File Names" type="string[]" required>
+  An array of names for the individual files to include in the ZIP archive. Each name corresponds to a file content entry.
+</ParamField>
+
+<ParamField query="File Contents" type="string[]" required>
+  An array of content strings for each file. Must match the order and count of file names provided.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="File Type" type="selector" default=".txt">
+    The file extension to apply to all files in the ZIP. Options include `.pdf`, `.json`, `.csv`, `.txt`, `.html`, and `.docx`. Extensions are automatically added to file names if not already present.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Zip File Name" type="file">
+  The generated ZIP file containing all specified files with their contents, ready for download or further processing.
+</ParamField>
 
 ---
 
-### Use Cases
+### Best Practices
 
-Consider how this block can enhance efficiency in practical applications:
+<Steps>
+  <Step title="Ensure Matching Arrays">
+    Always provide the same number of file names and file contents to avoid errors.
+    ```text ⚠️ Bad Example wrap
+    File Names: ["report1", "report2", "report3"]
+    File Contents: ["content1", "content2"]  // Missing content for report3
+    ```
+    ```text ✅ Good Example wrap
+    File Names: ["report1", "report2", "report3"]
+    File Contents: ["content1", "content2", "content3"]  // Perfect match
+    ```
+  </Step>
 
-- **Document Compilation:** When preparing various documents for an event or distribution (like reports or presentations), this block simplifies packaging them into a single downloadable archive.
-- **Backup Creation:** It is beneficial for generating backups by consolidating multiple important documents into one secure storage location.
+  <Step title="Use Descriptive File Names">
+    Choose clear, descriptive names that indicate the file's purpose and content type.
+    ```text ⚠️ Bad Example wrap
+    File Names: ["file1", "data", "output"]
+    ```
+    ```text ✅ Good Example wrap
+    File Names: ["sales_report_2024", "customer_data_export", "monthly_summary"]
+    ```
+  </Step>
 
-- **Data Compression:** If you're working with numerous text-based datasets or log files and need to save space on your system or server, compressing them together in a single zipped format is highly effective.
+  <Step title="Choose Appropriate File Types">
+    Select the file extension that matches your content format for proper file handling by other applications.
+  </Step>
+</Steps>
 
-- **File Transfer:** In situations where you need to send several documents over email or through network transfer quickly, creating a compact zip archive speeds up this process significantly.
+---
 
-- **Batch Processing:** For any analysis tasks requiring grouped data inputs—like statistical analysis from multiple CSVs—this tool helps streamline workflows by organizing everything neatly within one accessible package.
+### Troubleshooting
 
-In summary, whenever there’s a necessity to combine related files efficiently into one accessible entity while providing ease of transfer/storage capabilities, look no further than the `Write Zip File` block!
+<AccordionGroup>
+  <Accordion title="Why do I get 'Matching file name and content not found' error?">
+    This error occurs when the number of file names doesn't match the number of file contents provided.
+    
+    <Tip>Count your arrays carefully - each file name needs exactly one corresponding content string.</Tip>
+    
+    **Solution:** Ensure both arrays have the same length:
+    1. Check that you have the same number of items in both File Names and File Contents
+    2. Verify no empty or missing entries in either array
+    3. Use the same data source or transformation for both inputs to maintain consistency
+    
+    <Warning>Arrays must be exactly the same length - even empty strings count as entries.</Warning>
+  </Accordion>
+
+  <Accordion title="Files are missing extensions - how do I fix this?">
+    The block automatically adds the selected File Type extension to names that don't already have it.
+    
+    **Example:** If you choose `.csv` as File Type and provide `sales_data` as a file name, it becomes `sales_data.csv` in the ZIP.
+    
+    <Info>You can include extensions in your file names if you want to override the default File Type setting.</Info>
+  </Accordion>
+
+  <Accordion title="Can I include different file types in the same ZIP?">
+    Currently, the block applies the same File Type extension to all files. For mixed file types:
+    
+    1. Include the desired extension in each file name (e.g., `report.pdf`, `data.csv`)
+    2. The File Type setting will only affect names without extensions
+    3. Consider using multiple Generate Zip File blocks for complex scenarios
+    
+    <Info>Future versions may support per-file type specification.</Info>
+  </Accordion>
+
+  <Accordion title="Why is my ZIP file not generating properly?">
+    Common causes and solutions:
+    
+    1. **Invalid file names:** Avoid special characters like `<>:"/\|?*` in file names
+    2. **Empty content:** Ensure all file contents contain actual data, not empty strings
+    3. **Memory limits:** Very large content strings may cause generation to fail
+    
+    <Warning>ZIP generation happens in memory - extremely large files may cause performance issues.</Warning>
+  </Accordion>
+
+  <Accordion title="How do I handle large amounts of data?">
+    For optimal performance with large datasets:
+    
+    1. Break large content into smaller, manageable chunks
+    2. Consider file size limits for your intended use case
+    3. Monitor memory usage when processing many files
+    4. Use appropriate file formats (e.g., CSV for tabular data instead of JSON)
+    
+    <Info>ZIP compression helps reduce the final file size, but original content is processed in memory.</Info>
+  </Accordion>
+</AccordionGroup>

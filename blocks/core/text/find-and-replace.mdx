@@ -2,28 +2,106 @@
 title: Find and Replace
 ---
 
-### **Overview:**
+### Overview
 
-The `Find and Replace` block is designed to search through a given string and replace specified words or phrases with user-defined alternatives. This functionality is essential for text processing, ensuring that documents are consistent and relevant based on the latest information.
+Transform text by automatically replacing specific words or phrases with new content. This block performs multiple find-and-replace operations on your input text, making it perfect for text standardization, data cleanup, and content personalization.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature         | Type   | Simple Explanation                                                                           |
-| ------ | --------------- | ------ | -------------------------------------------------------------------------------------------- |
-| input  | `input`         | string | The original string that will undergo the find and replace operations.                       |
-| input  | `replacements`  | list   | A list specifying which words or phrases to find and their corresponding replacements.       |
-| output | `output_string` | string | The modified version of the original string after all specified replacements have been made. |
+<Tip>Ideal for batch text corrections, standardizing terminology, or personalizing template content with dynamic values.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can be beneficial across different scenarios:
+<ParamField query="Input" type="string" required>
+  The original text where you want to find and replace specific words or phrases.
+</ParamField>
 
-- **Editing Documents:** If you're updating a report, this block allows you to smoothly swap outdated terms with current terminology without manually hunting through the text.
-- **Data Cleanup:** When preparing datasets, you might want to eliminate unwanted characters or fix common spelling errors systematically—this tool handles that efficiently.
-- **Customized Messages:** Planning personalized communication? Use this block to substitute placeholder tags (like names or dates) within templates with actual data points.
+<ParamField query="Replacements" type="object[]" required>
+  A list of find-and-replace pairs. Each item specifies what text to find and what to replace it with.
+  
+  **Object Structure:**
+  - `Find Word`: The exact text to search for in the input
+  - `Replace With`: The new text that will replace the found text
+</ParamField>
 
-In conclusion, whenever there's a need for transforming specific text based on predefined criteria, the `Find and Replace` block proves invaluable!
+### Outputs
+
+<ParamField query="Output String" type="string">
+  The modified text with all specified replacements applied in the order they were defined.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Order Your Replacements Carefully">
+    Since replacements are applied sequentially, the order matters when replacements might affect each other.
+    ```text ⚠️ Bad Example wrap
+    1. Replace "cat" with "dog"
+    2. Replace "dog" with "bird"
+    Result: "cat" becomes "bird" (unintended)
+    ```
+    ```text ✅ Good Example wrap
+    1. Replace "old_term_1" with "new_term_1"
+    2. Replace "old_term_2" with "new_term_2"
+    Keep replacements independent of each other
+    ```
+  </Step>
+
+  <Step title="Use Exact Text Matching">
+    The block performs exact string matching, so ensure your "Find Word" entries match exactly how the text appears in your input.
+  </Step>
+
+  <Step title="Test with Sample Data">
+    Always test your replacement rules with sample text to verify they work as expected before processing large amounts of data.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why isn't my text being replaced?">
+    The find operation is case-sensitive and requires exact matches. Check that your "Find Word" exactly matches the text in your input.
+    
+    ```json Example Solution wrap
+    {
+      "find_word": "Color",
+      "replace_with": "Colour"
+    }
+    ```
+    This will only replace "Color" (with capital C), not "color" or "COLOR".
+  </Accordion>
+
+  <Accordion title="What happens when replacements conflict with each other?">
+    <Tip>Replacements are applied in the order you define them</Tip>
+    1. The first replacement is applied to the entire input text
+    2. The second replacement is applied to the result of the first
+    3. This continues for all replacements in sequence
+    <Warning>Later replacements can modify the results of earlier ones</Warning>
+  </Accordion>
+
+  <Accordion title="Can I replace the same word with different values?">
+    No, each "Find Word" will be replaced with its corresponding "Replace With" value throughout the entire text. If you need different replacements for the same word in different contexts, consider using more specific find terms.
+    
+    <Info>All instances of the same "Find Word" will be replaced with the same "Replace With" value</Info>
+  </Accordion>
+
+  <Accordion title="What if my Find Word or Replace With fields are empty?">
+    The block requires both "Find Word" and "Replace With" to be filled for each replacement entry. Empty fields will cause an error.
+    
+    <Info>If you want to remove text entirely, set "Replace With" to an empty string rather than leaving it undefined</Info>
+  </Accordion>
+
+  <Accordion title="How do I handle special characters or spaces?">
+    The block treats all text literally, including spaces, punctuation, and special characters. Make sure to include exact spacing and formatting in your "Find Word" entries.
+    
+    ```text Example Solution wrap
+    To replace " - " with " | ":
+    Find Word: " - " (includes spaces)
+    Replace With: " | " (includes spaces)
+    ```
+  </Accordion>
+</AccordionGroup>

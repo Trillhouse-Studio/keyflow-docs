@@ -2,29 +2,125 @@
 title: Scrape Website
 ---
 
-### **Overview:**
+### Overview
 
-The `Scrape Website` block is designed for harvesting information from basic websites, aiding in automating data collection and process management. This block is robust and can extract useful content from various web pages effortlessly.
+Extract text content from any website by providing a URL. This block can handle both simple static pages and complex dynamic websites with JavaScript content.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature           | Type   | Simple Explanation                                                     |
-| ------ | ----------------- | ------ | ---------------------------------------------------------------------- |
-| input  | `url`             | string | The URL of the website you want to scrape. Must begin with `https://`. |
-| output | `website_content` | string | The textual content extracted from the given website.                  |
+<Tip>Perfect for gathering research data, monitoring content changes, or collecting information from multiple web sources automatically.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can enhance your tasks:
+<ParamField query="URL" type="string" required>
+  The HTTPS URL of the website you want to scrape. Must start with `https://`.
+</ParamField>
 
-- **Content Monitoring:** Perfect for tracking changes on web pages over time, ensuring you're always updated with recent information.
-- **Research Material Collection:** Efficiently gather data for academic or policy research by scraping relevant information across multiple platforms.
-- **Archiving Web Content:** Ideal for storing important text found on web pages, maintaining a database of significant materials without manually copying each one.
-- **Digital Project Integration:** Facilitates incorporating valuable online content into digital projects such as presentations or reports, making your workflow seamless.
-- **Time-Saving in Web Browsing:** Automates the process of navigating to different sites and retrieving needed data, significantly boosting productivity.
+<ParamField query="Advanced Scraping" type="boolean" default="false">
+  Enable enhanced scraping capabilities for JavaScript-heavy sites and complex page structures. Uses multiple scraping methods for better accuracy.
+</ParamField>
 
-In summary, the `Scrape Website` block provides a streamlined approach for extracting online content automatically when performing various tasks that rely on web data!
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Browser cookies" type="boolean" default="false">
+    Use browser cookies for authentication when scraping protected content. Requires Advanced Scraping to be enabled.
+  </ParamField>
+
+  <ParamField query="Timeout" type="number" default="30">
+    Maximum time in seconds to wait for page loading (30-120 seconds). Only available with Advanced Scraping.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="website_content" type="string">
+  The extracted text content from the website, converted to clean markdown format for easy processing.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Choose the Right Scraping Mode">
+    Use basic scraping for simple static websites and advanced scraping for complex, JavaScript-heavy sites.
+    ```text ⚠️ Bad Example wrap
+    Using advanced scraping for simple blog posts (wastes credits)
+    ```
+    ```text ✅ Good Example wrap
+    Basic scraping for blogs, advanced scraping for social media or dynamic content
+    ```
+  </Step>
+
+  <Step title="Verify URL Format">
+    Always ensure your URLs are properly formatted and accessible before running the scraper.
+    ```text ⚠️ Bad Example wrap
+    http://example.com or www.example.com
+    ```
+    ```text ✅ Good Example wrap
+    https://example.com or https://www.example.com
+    ```
+  </Step>
+
+  <Step title="Set Appropriate Timeouts">
+    For advanced scraping, adjust timeout values based on website complexity and loading speed.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my scraping failing with 'Network response was not ok'?">
+    This typically means the website is blocking automated requests or the URL is incorrect.
+    
+    **Solutions:**
+    1. Verify the URL is accessible in a browser
+    2. Try enabling Advanced Scraping for better success rates
+    3. Check if the website requires authentication
+    
+    <Warning>Some websites actively block automated scraping tools</Warning>
+  </Accordion>
+
+  <Accordion title="The scraped content is incomplete or missing JavaScript content">
+    <Tip>Enable Advanced Scraping for dynamic websites that load content with JavaScript</Tip>
+    
+    Advanced scraping uses multiple methods:
+    1. FireCrawl API for comprehensive content extraction
+    2. OloStep API as a backup method  
+    3. Browser automation as a final fallback
+    
+    This ensures maximum content capture from complex websites.
+  </Accordion>
+
+  <Accordion title="Why am I getting timeout errors?">
+    Timeout errors occur when websites take too long to load or respond.
+    
+    **Solutions:**
+    1. Increase the timeout value (30-120 seconds)
+    2. Try the website at a different time when server load might be lower
+    3. Check if the website is temporarily down
+    
+    <Info>Default timeout is 30 seconds, which works for most websites</Info>
+  </Accordion>
+
+  <Accordion title="Can I scrape websites that require login?">
+    Yes, but with limitations. Use the "Browser cookies" option with Advanced Scraping enabled.
+    
+    **Requirements:**
+    - Advanced Scraping must be enabled
+    - Valid authentication cookies must be configured
+    - Currently supports LinkedIn cookies through OAuth integration
+    
+    <Warning>Ensure you have permission to scrape protected content</Warning>
+  </Accordion>
+
+  <Accordion title="What's the difference between basic and advanced scraping costs?">
+    - **Basic Scraping**: Free - uses lightweight methods suitable for static content
+    - **Advanced Scraping**: Costs credits - uses powerful browser automation and premium APIs
+    
+    Choose based on your content complexity needs and budget considerations.
+  </Accordion>
+</AccordionGroup>

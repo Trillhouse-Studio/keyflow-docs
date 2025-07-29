@@ -13,14 +13,14 @@ Filter List uses AI to intelligently filter items from a list based on your cust
 ### Inputs
 
 <ParamField query="Value" type="Array" required>
-  The list of items you want to filter. Can contain text, objects, or any type of data.
+  The list of items you want to filter. Can contain text, objects, numbers, or any type of data.
 </ParamField>
 
 <ParamField query="Condition" type="Text" required>
   The filtering condition written in natural language. Examples: "Is greater than 80", "Contains positive sentiment", "Has urgent priority".
 </ParamField>
 
-<ParamField query="Model" type="Dropdown" default="GPT-4o-mini">
+<ParamField query="Model" type="Dropdown" default="GPT-4 1 Nano">
   The AI model to use for filtering. More powerful models provide better accuracy for complex conditions.
 </ParamField>
 
@@ -28,7 +28,7 @@ Filter List uses AI to intelligently filter items from a list based on your cust
 
 <Accordion title="Advanced Settings">
   <ParamField query="Output Blank Value" type="Boolean" default="false">
-    When enabled, outputs a blank value for items that don't match the condition (maintains original list length). When disabled, only returns matching items.
+    When enabled, outputs a blank value (empty string) for items that don't match the condition, maintaining the original list length. When disabled, only returns matching items in a shorter list.
   </ParamField>
 
   <ParamField query="Cache Response" type="Boolean" default="true">
@@ -39,7 +39,7 @@ Filter List uses AI to intelligently filter items from a list based on your cust
 ### Outputs
 
 <ParamField query="Filtered Output" type="Array">
-  The filtered list containing only items that match your condition, or a list with blank values if "Output Blank Value" is enabled.
+  The filtered list containing only items that match your condition, or a list with blank values (empty strings) if "Output Blank Value" is enabled.
 </ParamField>
 
 <br></br>
@@ -72,21 +72,39 @@ Filter List uses AI to intelligently filter items from a list based on your cust
 
 <Steps>
   <Step title="Write Clear, Specific Conditions">
-    Use descriptive conditions that clearly explain what you're looking for. The AI performs better with specific criteria.
+    Use descriptive conditions that clearly explain what you're looking for. The AI performs better with specific criteria and context.
     ```text ⚠️ Bad Example wrap
     "good ones"
     ```
     ```text ✅ Good Example wrap
     "Reviews with 4 or 5 star ratings that mention product quality"
     ```
+    ```text ✅ Additional Examples wrap
+    "Emails containing urgent requests or deadlines"
+    "Products priced between $50 and $200"
+    "Comments that express negative sentiment about customer service"
+    ```
   </Step>
 
   <Step title="Choose the Right Output Mode">
-    Use "Output Blank Value" when you need to maintain the original list structure for mapping or comparison purposes.
+    Use "Output Blank Value" when you need to maintain the original list structure for mapping or comparison purposes. Disable it when you want a clean, compact list of only matching items.
+    ```text Example: Output Blank Value ON wrap
+    Input: ["great product", "poor quality", "amazing service"]
+    Condition: "positive sentiment"
+    Output: ["great product", "", "amazing service"]
+    ```
+    ```text Example: Output Blank Value OFF wrap
+    Input: ["great product", "poor quality", "amazing service"]  
+    Condition: "positive sentiment"
+    Output: ["great product", "amazing service"]
+    ```
   </Step>
 
-  <Step title="Optimize for Performance">
-    Enable caching for repeated filtering operations and choose the smallest model that meets your accuracy needs.
+  <Step title="Optimize Model Selection and Performance">
+    Choose the appropriate model based on your condition complexity. Enable caching for repeated operations to reduce costs and improve speed.
+    - **Simple conditions**: Use GPT-4 1 Nano for basic filtering like numbers, keywords, or simple criteria
+    - **Complex conditions**: Use more powerful models for nuanced sentiment analysis, content understanding, or multi-factor criteria
+    - **Enable caching**: Always keep caching on for production workflows with repeated patterns
   </Step>
 </Steps>
 
@@ -101,33 +119,40 @@ Filter List uses AI to intelligently filter items from a list based on your cust
     ```text Example Solution wrap
     Instead of: "important items"
     Use: "items with priority level high or urgent"
+    
+    Instead of: "good reviews"  
+    Use: "reviews with rating 4 or 5 stars that mention positive experiences"
     ```
+    
+    <Tip>Include specific thresholds, keywords, or examples in your condition for better accuracy</Tip>
   </Accordion>
 
   <Accordion title="What's the difference between the two output modes?">
     <Tip>Choose based on whether you need to preserve list positions</Tip>
     
     - **Output Blank Value OFF**: Returns only matching items in a shorter list
-    - **Output Blank Value ON**: Returns a list of the same length with blank values for non-matches
+    - **Output Blank Value ON**: Returns a list of the same length with empty strings ("") for non-matches
     
-    <Info>Use the second option when you need to map results back to original positions</Info>
+    <Info>Use the second option when you need to map results back to original positions or maintain list indexing</Info>
   </Accordion>
 
   <Accordion title="How can I reduce costs when filtering large lists?">
     <Warning>Large lists with complex conditions can be expensive</Warning>
     
     1. Enable caching for repeated operations
-    2. Use a smaller model like GPT-4o-mini for simple conditions
+    2. Use GPT-4 1 Nano for simple conditions (numbers, keywords, basic criteria)
     3. Pre-filter with basic criteria before using AI filtering
-    4. Consider breaking very large lists into smaller chunks
+    4. Consider breaking very large lists into smaller chunks (500-1000 items max)
+    5. Test your condition on a small sample first to ensure it works correctly
   </Accordion>
 
   <Accordion title="Why am I getting inconsistent results?">
     AI filtering can vary slightly between runs. For more consistent results:
     
-    - Use more specific conditions
+    - Use more specific conditions with clear criteria
     - Include examples in your condition when possible
     - Consider using a more powerful model for complex filtering tasks
+    - Avoid subjective terms like "good" or "bad" without context
     
     <Info>Caching ensures identical inputs always return the same results</Info>
   </Accordion>
@@ -135,11 +160,30 @@ Filter List uses AI to intelligently filter items from a list based on your cust
   <Accordion title="What types of data can I filter?">
     Filter List works with any type of data including:
     
-    - Text strings and paragraphs
-    - Objects with multiple properties
-    - Numbers and dates
-    - Mixed data types in the same list
+    - **Text strings and paragraphs**: Reviews, comments, emails, descriptions
+    - **Objects with multiple properties**: Customer records, product data, user profiles  
+    - **Numbers and dates**: Prices, scores, timestamps, quantities
+    - **Mixed data types**: Lists containing different types of information
     
     The AI will understand the context and structure of your data automatically.
+    
+    ```json Example: Filtering Objects wrap
+    Input: [
+      {"name": "John", "age": 25, "department": "Sales"},
+      {"name": "Sarah", "age": 35, "department": "Engineering"}
+    ]
+    Condition: "employees in technical departments"
+    Output: [{"name": "Sarah", "age": 35, "department": "Engineering"}]
+    ```
+  </Accordion>
+
+  <Accordion title="Why is the block returning an error about empty list or missing condition?">
+    Check these common issues:
+    
+    1. **Empty input list**: Ensure your input list contains at least one item
+    2. **Missing condition**: The condition field is required and cannot be empty
+    3. **Invalid list format**: Make sure your input is formatted as an array/list
+    
+    <Warning>The block will return an error if the input is not a valid array or if no condition is provided</Warning>
   </Accordion>
 </AccordionGroup>

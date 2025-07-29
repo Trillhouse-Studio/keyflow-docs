@@ -2,29 +2,159 @@
 title: OCR Document
 ---
 
-### **Overview:**
+### Overview
 
-The `Extract Text OCR` block leverages Optical Character Recognition (OCR) technology to efficiently extract text from images or scanned documents. This powerful tool enhances accessibility and usability of textual information embedded in visual formats.
+Extracts text from images and documents using Optical Character Recognition (OCR) technology. Converts text within images, screenshots, scanned documents, and photos into editable digital text that can be processed by other blocks.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature          | Type   | Simple Explanation                                        |
-| ------ | ---------------- | ------ | --------------------------------------------------------- |
-| input  | `file_name`      | file   | The file containing the image or document for OCR.        |
-| output | `extracted_text` | string | The text extracted from the provided file, ready for use. |
+<Tip>Essential for digitizing documents, extracting text from screenshots, and making image-based content searchable and processable.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can streamline processes across various scenarios:
+<ParamField query="File Name" type="file" required>
+  The image file from which you want to extract text. Supports common image formats like PNG, JPG, JPEG, and other standard image types.
+</ParamField>
 
-- **Digitization of Documents:** Transform scanned paper files into digital formats, making them searchable and editable with ease.
-- **Data Extraction from Images:** Efficiently pull textual information from photos or graphics, such as screenshots of reports.
-- **Automated Data Entry:** Reduce manual data entry errors by automatically extracting key text details from forms and invoices.
-- **Text Analysis:** Enable quick analysis of large volumes of data captured through images for insights or reporting purposes.
-- **Content Management:** Organize and store valuable content extracted from images, facilitating better content retrieval and management.
+<br></br>
 
-In summary, whenever there is a need to transition written content found in images into accessible digital text formats, the `Extract Text OCR` block is an invaluable asset!
+<Accordion title="Advanced Settings">
+  <ParamField query="Model" type="string" default="google-cloud-vision">
+    The OCR model to use for text extraction. Choose between Google Cloud Vision (default) and Amazon Textract for different accuracy and feature sets.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="extracted_text" type="string">
+  The complete text content extracted from the image file, ready for further processing or analysis.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="model" type="string">
+    The OCR model that was used for text extraction (google-cloud-vision or amazon-textract).
+  </ParamField>
+
+  <ParamField query="cost" type="number">
+    The cost of the OCR operation in credits (typically 0.0015 credits per operation).
+  </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Optimize Image Quality">
+    Use high-quality, clear images for better text recognition accuracy. Good lighting and sharp focus significantly improve results.
+    ```text ⚠️ Bad Example wrap
+    Blurry photos, poor lighting, low resolution screenshots, skewed documents
+    ```
+    ```text ✅ Good Example wrap
+    Sharp scans at 300+ DPI, well-lit photos, high-contrast text, straight document alignment
+    ```
+  </Step>
+
+  <Step title="Choose the Right Model">
+    Select the OCR model based on your specific needs - Google Cloud Vision for general text extraction, Amazon Textract for advanced document analysis and table detection.
+  </Step>
+
+  <Step title="Prepare Text for Processing">
+    OCR output may contain small errors or formatting inconsistencies. Consider using text cleaning blocks to normalize spacing, fix common OCR mistakes, and format the output for downstream processing.
+  </Step>
+
+  <Step title="Handle Different Document Types">
+    Different document types require different approaches - use higher resolution for small text, ensure proper orientation for rotated documents, and consider preprocessing for complex layouts.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is the extracted text inaccurate or contains errors?">
+    Poor image quality is the most common cause of OCR inaccuracy. Check these factors:
+    
+    ```json Image Quality Checklist wrap
+    {
+      "resolution": "Minimum 300 DPI for scanned documents, higher for small text",
+      "contrast": "Strong contrast between text and background",
+      "lighting": "Even, bright lighting without shadows or glare",
+      "orientation": "Text should be horizontal and right-side up",
+      "focus": "Text should be sharp and in focus, not blurry"
+    }
+    ```
+    
+    <Tip>Try different lighting conditions or scan settings if accuracy is poor</Tip>
+  </Accordion>
+
+  <Accordion title="What image formats and sizes are supported?">
+    The block supports most standard image formats:
+    
+    **Supported formats:**
+    1. PNG (best for screenshots and graphics with text)
+    2. JPG/JPEG (good for photos and scanned documents)
+    3. Other common image formats (GIF, BMP, TIFF)
+    
+    **File size considerations:**
+    - Larger files take longer to process but may yield better results
+    - Very small images may not contain enough detail for accurate OCR
+    
+    <Warning>Extremely large files (over 10MB) may timeout or consume more credits</Warning>
+  </Accordion>
+
+  <Accordion title="No text is being detected in my image?">
+    Several factors can prevent text detection:
+    
+    **Common causes:**
+    1. Text is too small or low resolution
+    2. Poor contrast between text and background
+    3. Handwritten text (OCR works best with printed text)
+    4. Stylized fonts or decorative text
+    5. Text is rotated or at an angle
+    
+    **Solutions:**
+    - Increase image resolution and ensure text is clearly visible
+    - Use images with printed text rather than handwriting
+    - Rotate images so text appears horizontal
+    
+    <Info>For handwritten text recognition, consider specialized handwriting recognition services or models</Info>
+  </Accordion>
+
+  <Accordion title="How do I choose between Google Cloud Vision and Amazon Textract?">
+    Each model has different strengths:
+    
+    **Google Cloud Vision:**
+    - General-purpose text extraction
+    - Good for photos, screenshots, and simple documents
+    - Faster processing for basic text recognition
+    
+    **Amazon Textract:**
+    - Advanced document analysis capabilities
+    - Better for forms, tables, and structured documents
+    - More sophisticated layout detection
+    
+    <Tip>Start with Google Cloud Vision for general text extraction, switch to Amazon Textract if you need advanced document structure analysis</Tip>
+  </Accordion>
+
+  <Accordion title="Why is OCR taking a long time or failing?">
+    Processing time and failures can be caused by:
+    
+    **Common issues:**
+    - Very large image files
+    - Complex document layouts
+    - Network connectivity issues
+    - Temporary service unavailability
+    
+    **Solutions:**
+    1. Optimize image size (compress if necessary while maintaining text clarity)
+    2. Ensure stable internet connection
+    3. Retry the operation if it fails
+    4. Break large documents into smaller sections
+    
+    <Warning>The block may timeout on extremely large files - consider splitting large documents into smaller images</Warning>
+  </Accordion>
+</AccordionGroup>

@@ -2,29 +2,97 @@
 title: Chunk Text
 ---
 
-### **Overview:**
+### Overview
 
-The `Chunk Text` block is designed to efficiently divide long strings of text into smaller, more manageable segments based on a user-defined character count. This functionality is useful for various applications where handling large amounts of text needs to be simplified.
+Breaks down large text into smaller, fixed-size pieces based on character count. Essential for processing lengthy content that needs to be divided into manageable segments for analysis, API requests, or downstream processing.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature       | Type     | Simple Explanation                                                                           |
-| ------ | ------------- | -------- | -------------------------------------------------------------------------------------------- |
-| input  | `chunk_size`  | number   | Determines the maximum number of characters in each piece of text.                           |
-| input  | `text`        | string   | The full body of text that you wish to split into smaller segments.                          |
-| output | `text_chunks` | string[] | An array containing all the created text chunks, each limited by the specified `chunk_size`. |
+<Tip>Automatically handles remainder text, ensuring no content is lost during the chunking process.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can enhance efficiency and clarity in diverse scenarios:
+<ParamField query="Text" type="string" required>
+  The text content you want to break up into smaller chunks.
+</ParamField>
 
-- **API Interaction:** When submitting data through APIs that impose limits on payload sizes, this block allows you to easily conform your requests without exceeding these constraints.
-- **Sentiment Analysis:** If you're processing customer feedback or social media posts, breaking down large texts makes it simpler to analyze sentiments in manageable pieces.
-- **Content Monitoring:** For content moderation purposes, separating lengthy comments or messages allows for a thorough examination while preventing overwhelm from large volumes of unprocessed information.
-- **Educational Tools:** When teaching reading comprehension, educators can utilize this block to break texts into sections that are easier for students to digest and understand.
+<ParamField query="Chunk Size" type="number" required>
+  The maximum number of characters each chunk should contain. Must be a positive integer.
+</ParamField>
 
-In conclusion, whether it's about meeting external limitations or enhancing readability during analysis processes, the `Chunk Text` block proves invaluable!
+### Outputs
+
+<ParamField query="Text Chunks" type="string[]">
+  An array of text segments, each containing up to the specified number of characters. The final chunk may be shorter if the remaining text is less than the chunk size.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Choose Optimal Chunk Sizes">
+    Select chunk sizes that balance processing efficiency with content coherence.
+    ```text ⚠️ Bad Example wrap
+    Text: "The quick brown fox jumps over the lazy dog"
+    Chunk Size: 5
+    Result: ["The q", "uick ", "brown", " fox ", "jumps", " over", " the ", "lazy ", "dog"]
+    (Words are broken mid-character)
+    ```
+    ```text ✅ Good Example wrap
+    Text: "The quick brown fox jumps over the lazy dog"
+    Chunk Size: 20
+    Result: ["The quick brown fox ", "jumps over the lazy ", "dog"]
+    (More readable chunks that preserve word boundaries better)
+    ```
+  </Step>
+
+  <Step title="Consider Downstream Processing">
+    Match your chunk size to the requirements of subsequent blocks or API limitations in your workflow.
+  </Step>
+
+  <Step title="Account for Content Type">
+    Use smaller chunks for detailed analysis tasks and larger chunks for general processing or when preserving context is important.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting an error about invalid chunk size?">
+    The chunk size must be a positive integer (whole number greater than zero).
+    
+    ```json Example Solution wrap
+    {
+      "text": "Sample text content",
+      "chunk_size": 100,
+      "valid": true
+    }
+    ```
+    <Warning>Decimal numbers, zero, negative numbers, and non-numeric values will cause errors</Warning>
+  </Accordion>
+
+  <Accordion title="What happens if my text is shorter than the chunk size?">
+    <Tip>Short text is returned as a single chunk in the array</Tip>
+    When the input text has fewer characters than the specified chunk size, the entire text becomes the first (and only) element in the output array.
+  </Accordion>
+
+  <Accordion title="Why is my last chunk shorter than the others?">
+    The final chunk contains any remaining characters when the text length isn't evenly divisible by the chunk size.
+    
+    <Info>This behavior ensures no text content is lost during the chunking process</Info>
+  </Accordion>
+
+  <Accordion title="Getting an error about invalid text input?">
+    The text input cannot be empty, null, or undefined. Ensure your text input is connected and provides valid string content.
+    
+    ```json Example Solution wrap
+    {
+      "text": "At least some text content is required",
+      "chunk_size": 50
+    }
+    ```
+  </Accordion>
+</AccordionGroup>

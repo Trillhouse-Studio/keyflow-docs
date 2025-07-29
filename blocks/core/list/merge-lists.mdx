@@ -1,3 +1,120 @@
 ---
 title: Merge Lists
 ---
+
+### Overview
+
+The Merge Lists block combines multiple lists element by element based on their index positions, creating objects where each property corresponds to an input list. This block is perfect for transforming parallel data arrays into structured objects, similar to zipping lists together.
+
+<Tip>Ideal for converting separate columns of data into rows of structured objects for further processing.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="List" type="any[]" required>
+  The input lists you want to merge by index position. You can connect multiple lists using the parent handle selector.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Properties to keep" type="string[]">
+    When merging objects, specify which properties to keep in the output. If empty, all properties are preserved. This setting only appears when working with object data.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="merged_list" type="object[]">
+  An array of objects where each object contains properties from the corresponding elements of the input lists. The property names match the input connection labels.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Ensure Equal List Lengths">
+    All input lists must have exactly the same number of elements. The block will throw an error if list lengths don't match.
+    ```text ⚠️ Bad Example wrap
+    List 1: ["John", "Jane"]
+    List 2: [25, 30, 35]
+    Result: Error - lists have different lengths (2 vs 3)
+    ```
+    ```text ✅ Good Example wrap
+    List 1: ["John", "Jane", "Bob"]
+    List 2: [25, 30, 35]
+    Result: Successfully merged into 3 objects
+    ```
+  </Step>
+
+  <Step title="Use Descriptive Connection Labels">
+    The property names in your output objects will match the labels of your input connections, so use clear, meaningful names.
+    ```text ⚠️ Bad Example wrap
+    Connection labels: "list1", "list2"
+    Output: [{"list1": "John", "list2": 25}]
+    ```
+    ```text ✅ Good Example wrap
+    Connection labels: "names", "ages"
+    Output: [{"names": "John", "ages": 25}]
+    ```
+  </Step>
+
+  <Step title="Validate Data Before Merging">
+    Check that your input data is properly formatted as arrays and contains the expected number of elements before connecting to this block.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting 'All input lists must have the same length' error?">
+    This error occurs when you connect lists with different numbers of elements. The merge operation requires all lists to have identical lengths to create properly structured objects.
+    
+    <Tip>Use the Trim List block to make lists the same length before merging</Tip>
+    
+    Check each input list's length and ensure they all contain the same number of elements. You may need to filter or pad shorter lists to match the longest one.
+  </Accordion>
+
+  <Accordion title="How do I add more than one list input?">
+    Use the parent handle selector to connect multiple lists to the single "List" input. Each connected list will become a property in your output objects.
+    
+    <Info>The property names in the output objects will match the labels of your input connections</Info>
+    
+    Connect as many lists as needed - there's no limit to the number of lists you can merge simultaneously.
+  </Accordion>
+
+  <Accordion title="Why is my output empty?">
+    If all input lists are empty arrays, the output will also be an empty array. This is expected behavior when there are no elements to merge.
+    
+    ```json Example Output for Empty Lists wrap
+    Input: names=[], ages=[]
+    Output: []
+    ```
+    
+    <Warning>Make sure at least one input list contains elements if you expect output objects</Warning>
+  </Accordion>
+
+  <Accordion title="What happens when I connect non-array values?">
+    The block requires all inputs to be arrays. If you connect individual values or objects, you'll get a validation error.
+    
+    <Tip>Use the Create List block to convert individual values into arrays before merging</Tip>
+    
+    Ensure all connected inputs are properly formatted as arrays, even if they contain just one element.
+  </Accordion>
+
+  <Accordion title="How does the 'Properties to keep' setting work?">
+    This advanced setting only appears when working with object data types. It allows you to filter which properties are included in the merged output objects.
+    
+    ```json Example with Property Filtering wrap
+    Input objects: [{"name": "John", "age": 25, "city": "NYC"}]
+    Properties to keep: ["name", "age"]
+    Output: [{"name": "John", "age": 25}]
+    ```
+    
+    <Info>Leave this field empty to keep all properties from the input objects</Info>
+  </Accordion>
+</AccordionGroup>

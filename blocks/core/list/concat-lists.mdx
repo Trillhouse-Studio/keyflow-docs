@@ -1,32 +1,89 @@
 ---
-title: Concat Lists
-description: Combines two lists into one.
+title: Concatenate Lists
 ---
 
-### **Overview:**
+### Overview
 
-The `Concatenate Lists` block is designed to streamline the process of combining multiple lists into a single cohesive list. This block is flexible and can handle lists containing various data types, making it a versatile tool for data manipulation.
+The Concatenate Lists block merges multiple lists into a single combined list, preserving the order of elements. This block is essential for data consolidation workflows where you need to combine separate collections into one unified dataset.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature             | Type  | Simple Explanation                                                  |
-| ------ | ------------------- | ----- | ------------------------------------------------------------------- |
-| input  | `list_1`            | any[] | The first list you want to include in your combined output.         |
-| input  | `list_2`            | any[] | The second list to be added to the first one.                       |
-| input  | `list_3` (optional) | any[] | Additional lists can be included as needed.                         |
-| output | `merged_list`       | any[] | The resulting single list containing elements from all input lists. |
+<Tip>Perfect for combining data from multiple sources while maintaining the original sequence of elements.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Imagine how this block could save time in various scenarios:
+<ParamField query="List 1" type="any[]" required>
+  The first list you want to include in your combined output.
+</ParamField>
 
-- **Data Aggregation:** When you're pulling together user preferences or survey responses from multiple formats, this block effortlessly joins them into one comprehensive list.
-- **Inventory Management:** If you maintain separate stock lists by category (like electronics, clothing, etc.), this tool allows you to merge them for an overall inventory count quickly.
-- **Content Compilation:** Planning content creation? You might want to combine topic ideas or resources collected from different sources into one unified reference point.
-- **Reporting Consolidation:** In case you've gathered metrics from separate departments, use this block to create a consolidated report and analyze overall performance seamlessly.
+<ParamField query="List 2" type="any[]" required>
+  The second list to be added after the first one.
+</ParamField>
 
-In summary, whenever there's a need for gathering-related items into one easy-to-manage collection, the `Concatenate Lists` block comes in handy!
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Additional Lists" type="any[]">
+    You can add up to 8 more lists (for a total of 10) by clicking the "+" icon below the input names. Each additional list will be concatenated in numerical order.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="merged_list" type="any[]">
+  The resulting single list containing all elements from the input lists in sequential order (List 1 first, then List 2, then any additional lists).
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Maintain Consistent Data Types">
+    While the block accepts mixed data types, keeping similar data types in your lists makes the output more predictable.
+    ```text ⚠️ Bad Example wrap
+    List 1: ["apple", "banana"]
+    List 2: [42, true, null]
+    Result: Mixed types that may cause issues downstream
+    ```
+    ```text ✅ Good Example wrap
+    List 1: ["apple", "banana"]
+    List 2: ["cherry", "date"]
+    Result: Consistent string array for easy processing
+    ```
+  </Step>
+
+  <Step title="Consider List Order">
+    Lists are concatenated in numerical order (List 1, List 2, List 3, etc.). Plan your connections accordingly.
+  </Step>
+
+  <Step title="Validate Input Lists">
+    Ensure all inputs are actually arrays before connecting them. The block will throw an error if non-array values are provided.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting 'Input is not an array' error?">
+    This error occurs when you connect a non-array value to one of the list inputs.
+    
+    <Tip>Use the Create List block first if you need to convert individual items into arrays</Tip>
+    
+    Make sure all connected inputs are arrays. If you have individual values, wrap them in a Create List block first.
+  </Accordion>
+
+  <Accordion title="How do I add more than 2 lists?">
+    Click the "+" icon below any list input name to add additional list inputs. You can add up to 8 more lists for a total of 10.
+    
+    <Info>The order of concatenation follows the numerical sequence: List 1, List 2, List 3, etc.</Info>
+  </Accordion>
+
+  <Accordion title="Why is my output empty?">
+    If all input lists are empty arrays, the output will also be an empty array. This is expected behavior.
+    
+    <Warning>Make sure at least one of your input lists contains elements if you expect output</Warning>
+  </Accordion>
+</AccordionGroup>

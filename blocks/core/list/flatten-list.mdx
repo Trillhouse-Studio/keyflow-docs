@@ -2,28 +2,82 @@
 title: Flatten List
 ---
 
-### **Overview:**
+### Overview
 
-The `Flatten List` block is designed to transform a nested list structure into a single-level list, simplifying data structures for efficient processing and analysis.
+Converts nested arrays into a single-level array, simplifying complex data structures for easier processing and analysis.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature      | Type  | Simple Explanation                                                         |
-| ------ | ------------ | ----- | -------------------------------------------------------------------------- |
-| input  | `input_list` | any[] | The nested list you want to flatten into a single level.                   |
-| output | `list`       | any[] | The resulting flat list containing all elements from the nested structure. |
+<Tip>Perfect for transforming multi-dimensional data into a flat, workable format.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can facilitate data manipulation in various scenarios:
+<ParamField query="List of List" type="any[ ][ ]" required>
+  The nested list structure you want to flatten into a single level. Can contain arrays of any depth with mixed data types.
+</ParamField>
 
-- **Data Simplification:** When working with complex datasets, such as user lists categorized by preferences, this block effortlessly flattens them for easier management.
-- **Report Preparation:** If your project requires compiling information from multiple layers of categorization, use this feature to create a comprehensive report without the clutter of nesting.
-- **API Response Handling:** When dealing with API responses that return multi-layered arrays, flattening them aids in simplifying subsequent data operations in your application.
-- **Data Migration:** During transitions from one system to another where data structures may differ, human-readable flat lists can be essential for ensuring accuracy and completeness.
+### Outputs
 
-In summary, whenever you need to streamline multi-dimensional data into an easily workable format, the `Flatten List` block proves invaluable!
+<ParamField query="list" type="any[ ]">
+  A single-level array containing all elements from the nested structure, preserving the original order and data types.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Understand Your Data Structure">
+    Know the depth and content of your nested arrays before flattening to ensure expected results.
+    ```text ⚠️ Bad Example wrap
+    Flattening unknown data structure without validation
+    ```
+    ```text ✅ Good Example wrap
+    First inspect your nested array structure, then apply flatten
+    ```
+  </Step>
+
+  <Step title="Handle Empty Arrays Gracefully">
+    Consider how empty nested arrays should be treated in your workflow.
+  </Step>
+
+  <Step title="Preserve Data Types">
+    The flatten operation maintains original data types, so mixed-type arrays will remain mixed after flattening.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting an error about invalid input?">
+    The input must be an array of arrays. Single-level arrays or non-array inputs will cause an error.
+    
+    ```json Example Solution wrap
+    {
+      "input_list": [
+        ["item1", "item2"],
+        ["item3", "item4"]
+      ]
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="What happens to deeply nested arrays?">
+    <Tip>The flatten operation works recursively on all levels</Tip>
+    The block flattens arrays to infinite depth, meaning even deeply nested structures like `[[[["item"]]]]` will be completely flattened to `["item"]`.
+  </Accordion>
+
+  <Accordion title="How are mixed data types handled?">
+    All original data types are preserved during flattening. Numbers stay numbers, strings stay strings, and objects remain intact.
+    
+    <Info>The order of elements is maintained from left to right, top to bottom</Info>
+  </Accordion>
+
+  <Accordion title="What if my nested array contains null or undefined values?">
+    Null and undefined values are preserved in their original positions within the flattened result.
+    
+    <Warning>Empty arrays within the nested structure will disappear after flattening</Warning>
+  </Accordion>
+</AccordionGroup>

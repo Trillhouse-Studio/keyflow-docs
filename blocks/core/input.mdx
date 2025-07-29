@@ -2,30 +2,123 @@
 title: Input
 ---
 
-### **Overview:**
+### Overview
 
-The `Input Configuration` block serves as a customizable input handler that allows users to define parameters for user inputs in a versatile manner. This block supports various types of input selections, making it adaptable for different application contexts.
+The Input block allows you to accept user inputs into your flows. It creates customizable input fields that can handle different types of data including text, numbers, files, and voice notes. This block is essential for building interactive flows where users need to provide information.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature         | Type     | Simple Explanation                                                                                              |
-| ------ | --------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| input  | `input_name`    | string   | A name or label for the input, which identifies this parameter in various views.                                |
-| input  | `test_value`    | string   | A preset value used as a default when running the flow manually.                                                |
-| input  | `input_type`    | selector | Determines the type of input field displayed to users; options include text, number, boolean, file, audio.      |
-| output | `{input_value}` | string   | The actual value received from the user through this configuration; defaults to the test_value specified above. |
+<Tip>Use the Input block as the starting point for flows that require user interaction or when you need to collect data from external sources.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-This block can be beneficial in numerous scenarios:
+<ParamField query="Input Name" type="text" required>
+  The name of the input handle that will be connected to other blocks in your flow. This serves as the identifier for this input parameter.
+</ParamField>
 
-- **Form Creation:** Simplifies building dynamic forms where each field can be customized easily via names and types.
-- **User Input Handling:** Ideal for applications requiring varied data entry formats (like uploading files or entering numbers) while maintaining consistent backend handling.
-- **Testing Flows:** Facilitates manual testing by allowing testers to set default values before initiating flows without needing full data integration.
-- **Data Collection:** Efficiently collects information from end-users on platforms like surveys or feedback forms with clearly labeled inputs.
+<ParamField query="Input Type" type="selector" default="text">
+  Determines the type of input field displayed to users. Choose from:
+  - `text` - Standard text input
+  - `number` - Numeric input with validation
+  - `file` - Single file upload
+  - `files` - Multiple file upload
+  - `voice_note` - Audio file upload
+</ParamField>
 
-In conclusion, whenever there's a requirement to gather diverse forms of user inputs seamlessly and flexibly within an application context, the `Input Configuration` block provides a streamlined solution!
+<ParamField query="Default Value" type="varies">
+  The default value used when no input is provided. The input type changes based on your Input Type selection:
+  - Text/Number: Text input field
+  - File: File selector for single file
+  - Files: Multi-file selector
+  - Voice Note: Audio file selector
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Description" type="text">
+    A description that appears in forms to help users understand what input is expected.
+  </ParamField>
+
+  <ParamField query="Placeholder" type="text">
+    Placeholder text that appears in the input field to guide users on what to enter.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="value" type="varies">
+  The actual input value provided by the user or the default value. The data type varies based on your Input Type:
+  - Text/Number: Returns text
+  - File/Voice Note: Returns file object
+  - Files: Returns list of file objects
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="file_name" type="text or text list">
+    Available when Input Type is set to file, files, or voice_note. Returns the filename(s) of uploaded files.
+  </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Use Descriptive Input Names">
+    Choose clear, meaningful names that describe what the input represents.
+    ```text ⚠️ Bad Example wrap
+    Input Name: "input1"
+    ```
+    ```text ✅ Good Example wrap
+    Input Name: "customer_email"
+    ```
+  </Step>
+
+  <Step title="Set Appropriate Default Values">
+    Provide helpful default values to improve user experience and enable testing.
+    ```text ⚠️ Bad Example wrap
+    Default Value: (empty)
+    ```
+    ```text ✅ Good Example wrap
+    Default Value: "john.doe@example.com"
+    ```
+  </Step>
+
+  <Step title="Add Clear Descriptions">
+    Use the description field to explain what users should enter, especially for complex inputs.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting 'input_name and value cannot be blank' error?">
+    This error occurs when both the Input Name and Default Value fields are empty. You need to provide at least one of these values.
+    
+    <Tip>Always set a meaningful Input Name and consider adding a Default Value for testing purposes.</Tip>
+  </Accordion>
+
+  <Accordion title="Why does my number input show an error?">
+    When Input Type is set to "number", the Default Value must be a valid number. Text values will cause validation errors.
+    
+    ```text Example Solution wrap
+    Input Type: number
+    Default Value: 42 (not "forty-two")
+    ```
+  </Accordion>
+
+  <Accordion title="How do I handle file uploads properly?">
+    <Info>Different file input types serve different purposes</Info>
+    
+    - Use `file` for single file uploads (returns file object + filename)
+    - Use `files` for multiple file uploads (returns file array + filename array)  
+    - Use `voice_note` for audio files specifically (returns file object + filename)
+    
+    <Warning>File inputs require actual file objects, not file paths or URLs</Warning>
+  </Accordion>
+</AccordionGroup>

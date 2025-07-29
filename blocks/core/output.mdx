@@ -2,29 +2,88 @@
 title: Output
 ---
 
-### **Overview:**
+### Overview
 
-The `Output` block is created to facilitate the management of data outputs within your application. It allows you to capture any input value and assign a meaningful name to it, ensuring easy identification and usability in later processes. This block not only enhances visibility in user views but also enables seamless integration with other blocks for complex automation tasks.
+The Output block allows you to capture any data value and assign a meaningful name to it for easy identification and reference. This block acts as a terminal point in your flow, making the data accessible in user views, API responses, and external flow integrations.
 
----
-
-### Inputs & Outputs
-
-| I/O   | Feature       | Type     | Simple Explanation                                                                                         |
-| ----- | ------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| input | `output`      | any      | The value or data that you want to name for future reference.                                              |
-| input | `output_name` | string   | The label assigned to the output value; if omitted, the output will be recorded without a designated name. |
-| input | `output_type` | selector | Specifies the type of value; can be either `any` or `any[]`, determining how it can be processed later.    |
+<Tip>Use Output blocks to expose important results from your flow to end users and external systems.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Think about how this block effectively supports various operational scenarios:
+<ParamField query="Output" type="any" required>
+  The value or data that you want to capture and name. Accepts any data type including text, numbers, objects, arrays, or files.
+</ParamField>
 
-- **User Interface Integration:** When users require insights into workflows, utilizing the Output block lets them view results instantly during their interactions.
-- **Data Pipelining:** In scenarios where datasets must flow from one operation to another, naming outputs aids clarity when passing information between different blocks within an automation.
-- **Dynamic Reporting:** If generating reports based on filtered data outcomes, this block enables easy identification of each dataset by its assigned name for better organization and presentation.
-- **Variable Management in Automations:** For multistep processes where various inputs are derived from prior calculations or user entries, using named outputs simplifies tracking and referencing as they pass through subsequent operations.
+<ParamField query="Output Name" type="string" default="output">
+  The label assigned to this output value. This name will be used to identify the output in user views, API responses, and when referencing this flow from other flows.
+</ParamField>
 
-In summary, whether you're looking for improved visibility in user-facing applications or facilitating complex workflows through streamlined data handling, the `Output` block is essential for effective application management!
+### Outputs
+
+The Output block doesn't produce new outputs to connect to other blocks. Instead, it makes the named output available in:
+- **User View**: Displays the output with the specified name
+- **Flow API**: Returns the output in the API response under the specified name
+- **External Flows**: Makes the output accessible when this flow is used as a subflow
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Use Descriptive Output Names">
+    Choose clear, descriptive names that explain what the output contains.
+    ```text ⚠️ Bad Example wrap
+    Output Name: "output"
+    Output Name: "result"
+    Output Name: "data"
+    ```
+    ```text ✅ Good Example wrap
+    Output Name: "customer_email_summary"
+    Output Name: "processed_invoice_total"
+    Output Name: "filtered_product_list"
+    ```
+  </Step>
+
+  <Step title="Position at Flow Endpoints">
+    Place Output blocks at the end of your flow logic to capture final results rather than intermediate values.
+  </Step>
+
+  <Step title="Use Multiple Outputs for Complex Results">
+    When your flow produces multiple important results, use separate Output blocks for each one to maintain clarity.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why isn't my output showing in user view?">
+    Ensure that:
+    1. The Output block is connected to data from previous blocks
+    2. The flow has been run successfully 
+    3. The output name doesn't contain special characters or spaces
+    
+    <Tip>Output names should use underscores instead of spaces (e.g., "customer_data" not "customer data")</Tip>
+  </Accordion>
+
+  <Accordion title="My object data isn't displaying properly in user view">
+    Complex objects are automatically converted to JSON strings for display. This is normal behavior for the Output block.
+    
+    <Info>If you need formatted object display, consider using a text formatting block before the Output block</Info>
+  </Accordion>
+
+  <Accordion title="Can I have multiple Output blocks in one flow?">
+    Yes! You can use multiple Output blocks to expose different pieces of data. Each output will be available with its own name in user views and API responses.
+    
+    ```json Example API Response wrap
+    {
+      "customer_summary": "John Doe - Premium Customer",
+      "total_orders": 15,
+      "last_order_date": "2024-01-15"
+    }
+    ```
+  </Accordion>
+</AccordionGroup>

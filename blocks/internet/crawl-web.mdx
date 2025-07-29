@@ -2,42 +2,126 @@
 title: Crawl Web
 ---
 
-### **Overview:**
+### Overview
 
-The `Crawl Web` block is designed to systematically explore websites and extract (nested) links for various purposes, such as analysis, SEO enhancements, or competitive research.
+Systematically explores websites to discover and extract all linked pages within a specified depth range. Perfect for mapping website structures, conducting SEO audits, or analyzing competitor site architectures.
+
+<Tip>Automatically follows links to build comprehensive site maps while respecting domain boundaries you set.</Tip>
 
 ---
 
-### Inputs & Outputs
+### Inputs
 
-| I/O    | Feature                       | Type     | Simple Explanation                                                   |
-| ------ | ----------------------------- | -------- | -------------------------------------------------------------------- |
-| input  | `url`                         | string   | The URL of the website you wish to crawl.                            |
-| input  | `depth`                       | number   | Determines how many layers deep the crawler will go; max value is 3. |
-| input  | `domain_whitelist` (optional) | list     | Restricts crawling to specified domains only.                        |
-| output | `url_list`                    | string[] | A collection of all URLs found during the crawl process.             |
+<ParamField query="URL" type="string" required>
+  The starting web address to begin crawling from. Must be a valid HTTPS URL.
+</ParamField>
 
-<Warning>
-  Setting a depth of 3 for the web crawler might take longer processing times as
-  it will crawl nested links with exponential growth in complexity. Use it
-  wisely.
-</Warning>
+<ParamField query="Depth" type="number" default="1">
+  How many link levels to follow from the starting page. Higher depths explore deeper but take longer to complete.
+</ParamField>
 
-<Info>
-  The domain whitelist accepts domains such as "keyflow.space",
-  "www.keyflow.space", or "docs.keyflow.space". You can also specify full URLs
-  like "https://keyflow.space", and only the domain name will be processed by
-  the crawler automatically.
-</Info>
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Domain Whitelist" type="array">
+    Restrict crawling to specific domains only. Leave empty to crawl any domain found in links. Enter domains like `keyflow.space` or `docs.keyflow.space`.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="url_list" type="string[]">
+  Complete list of all unique URLs discovered during the crawl process, including the starting URL and all found links.
+</ParamField>
+
 ---
 
-### Use Cases
+### Best Practices
 
-Consider how this block can be beneficial in various scenarios:
+<Steps>
+  <Step title="Start with Shallow Depths">
+    Begin with depth 1 to understand the crawl scope before going deeper.
+    ```text ⚠️ Bad Example wrap
+    Setting depth 3 on a large e-commerce site without testing
+    ```
+    ```text ✅ Good Example wrap
+    Start with depth 1, then increase to 2 if results look manageable
+    ```
+  </Step>
 
-- **Link Collection:** Ideal for gathering all hyperlinks on a targeted website, which can assist marketers or researchers looking for resources.
-- **Website Structure Analysis:** Use this tool to visualize and understand how different pages interconnect within a site, aiding developers in optimizations.
-- **SEO and Web Audit:** Conduct thorough checks on internal and external links found across a website to improve SEO strategies or identify broken links.
-- **Competitive Insight:** Map out the link structure of competitor sites or analyze your own sites for strategic content placement based on observed patterns.
+  <Step title="Use Domain Whitelist for Focus">
+    Always specify domain restrictions when crawling external sites to avoid following unwanted external links.
+    ```text ⚠️ Bad Example wrap
+    Crawling example.com without domain whitelist - follows links to social media, ads, etc.
+    ```
+    ```text ✅ Good Example wrap
+    Setting domain whitelist to ["example.com", "blog.example.com"] keeps crawl focused
+    ```
+  </Step>
 
-In summary, whenever you need to reveal or analyze hidden connections within websites, the `Crawl Web` block proves invaluable!
+  <Step title="Monitor Crawl Size">
+    Be mindful that each depth level can exponentially increase the number of pages crawled. A site with 10 links per page could generate 100+ URLs at depth 2.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my crawl taking so long?">
+    High depth values or sites with many links can create large crawls. The crawler visits each unique URL found, so depth 2+ can result in hundreds of pages.
+    
+    <Tip>Reduce the depth value or add domain restrictions to limit scope</Tip>
+    
+    Solution steps:
+    1. Lower the depth to 1 or 2
+    2. Add specific domains to the whitelist
+    3. Test on smaller sections of the site first
+  </Accordion>
+
+  <Accordion title="Getting 'invalid HTTPS URL' error?">
+    The crawler only accepts secure HTTPS URLs as starting points for security reasons.
+    
+    ```text Example Solutions wrap
+    ✅ https://example.com
+    ✅ https://www.example.com/page
+    ❌ http://example.com
+    ❌ example.com
+    ```
+    
+    <Warning>HTTP URLs are not supported - ensure your URL starts with https://</Warning>
+  </Accordion>
+
+  <Accordion title="Why are some expected links missing?">
+    The crawler only follows standard HTML anchor tags (`<a href="...">`) and may miss JavaScript-generated links or certain dynamic content.
+    
+    <Info>The crawler finds links that exist in the HTML source code when the page loads</Info>
+    
+    Common reasons for missing links:
+    1. Links generated by JavaScript after page load
+    2. Links behind authentication or forms
+    3. Links blocked by the domain whitelist filter
+  </Accordion>
+
+  <Accordion title="Can I crawl sites that require login?">
+    No, this crawler works on publicly accessible pages only. It cannot handle authentication, cookies, or session management.
+    
+    <Info>Consider using the "Scrape Website" block for single pages that require special headers or authentication</Info>
+  </Accordion>
+
+  <Accordion title="How does the domain whitelist work?">
+    The whitelist filters discovered links to only include specified domains. You can enter domains in various formats and the system will normalize them.
+    
+    ```json Accepted Domain Formats wrap
+    [
+      { "domain": "keyflow.space" },
+      { "domain": "https://docs.keyflow.space" },
+      { "domain": "www.keyflow.space" },
+      { "domain": "blog.keyflow.space/articles" }
+    ]
+    ```
+    
+    <Tip>The system automatically extracts just the domain name from any format you provide</Tip>
+  </Accordion>
+</AccordionGroup>

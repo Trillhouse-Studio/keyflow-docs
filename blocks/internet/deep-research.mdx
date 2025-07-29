@@ -1,3 +1,102 @@
 ---
 title: Deep Research
 ---
+
+### Overview
+
+Performs comprehensive research on any topic using advanced AI models that can search the web, analyze multiple sources, and provide detailed insights with citations and reasoning.
+
+<Tip>Perfect for conducting thorough research with citations and detailed reasoning for complex questions or topics.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Query" type="String" required>
+  The research question or topic you want to investigate in depth.
+</ParamField>
+
+<ParamField query="Model" type="String" default="sonar-deep-research">
+  The AI model to use for deep research (sonar-deep-research, o3-deep-research, or o4-mini-deep-research).
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Account" type="String">
+    Select the Perplexity or OpenAI API credentials you want to use.
+  </ParamField>
+
+  <ParamField query="Cache Response" type="Boolean" default="true">
+    If checked, the model response will be cached for future use.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="Response" type="String">
+  The comprehensive research findings and analysis.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="Reasoning" type="String">
+    The model's reasoning process and methodology used during research.
+  </ParamField>
+
+  <ParamField query="Citations" type="String Array">
+    Array of source citations and references used in the research.
+  </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Write Specific, Focused Queries">
+    Craft clear, specific research questions to get the most relevant and useful results.
+    ```text ⚠️ Bad Example wrap
+    Tell me about climate change
+    ```
+    ```text ✅ Good Example wrap
+    Ways to reduce carbon footprint at domestic level with specific measurable actions
+    ```
+  </Step>
+
+  <Step title="Choose the Right Model">
+    Select the appropriate model based on your research depth needs and response time requirements.
+  </Step>
+
+  <Step title="Review Citations and Reasoning">
+    Always examine the citations and reasoning outputs to verify the quality and reliability of the research.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my research taking too long?">
+    Deep Research models perform comprehensive analysis which can take several minutes. For faster results, try using a more specific query or consider using a regular AI model for simpler questions.
+    
+    <Tip>Use `o4-mini-deep-research` for faster responses when detailed research isn't critical</Tip>
+  </Accordion>
+
+  <Accordion title="How can I improve the quality of research results?">
+    1. Be specific in your query
+    2. Include context about what type of information you're looking for
+    3. Specify the scope or timeframe if relevant
+    4. Review the reasoning output to understand the research approach
+    
+    <Warning>Vague queries may result in generic or unfocused research</Warning>
+  </Accordion>
+
+  <Accordion title="What should I do if citations are missing?">
+    Citations depend on the model's ability to find and reference sources. If citations are missing, try rephrasing your query to be more specific or check if the topic requires access to recent information.
+    
+    <Info>The model will always attempt to provide citations when sources are available</Info>
+  </Accordion>
+</AccordionGroup>
