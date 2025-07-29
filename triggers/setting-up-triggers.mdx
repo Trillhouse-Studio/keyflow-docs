@@ -1,0 +1,97 @@
+---
+title: "Setting Up Triggers"
+description: "Create and configure triggers to automate your flows"
+---
+
+Triggers turn your flows from manual tools into automated systems. Instead of running workflows by hand, triggers watch for specific conditions and execute your flows automatically when those conditions are met.
+
+## Creating Your First Trigger
+
+The easiest way to set up triggers is directly from your flow. Navigate to the **Triggers** tab in your flow's sidebar, then click **Create Trigger** at the top of the page.
+
+<Frame>
+ <img src="/images/triggers/create-trigger-button.png" alt="Create trigger button in the flow triggers tab" />
+</Frame>
+
+Choose your trigger type based on what should activate your flow:
+
+- **Schedule**: Run at specific times (daily reports, weekly summaries)
+- **API**: Activate from external systems (form submissions, webhooks)
+- **Gmail**: Respond to email events (new messages, label changes)
+- **Airtable**: React to database changes (new records, updates)
+- **Google Drive**: Process file uploads (document analysis, data extraction)
+
+## Basic Configuration
+
+Each trigger type has its own setup requirements:
+
+### Schedule Triggers
+
+Set your timing using cron expressions or the visual scheduler. Start simple with patterns like "daily at 9 AM" before moving to complex schedules.
+
+### API Triggers
+
+Generate your unique API key and endpoint. External systems use this key to trigger your flow instantly.
+
+### Gmail Triggers
+
+Connect your Gmail account and choose which events to monitor - new emails, label changes, or specific folder activity.
+
+### Airtable Triggers
+
+Select your base and table, then choose whether to trigger on new records, updates, or specific field changes.
+
+### Google Drive Triggers
+
+Pick which folder to monitor. When files are added to this folder, your flow processes them automatically.
+
+<Frame>
+ <img src="/images/triggers/trigger-configuration.png" alt="Trigger configuration interface showing different options" />
+</Frame>
+
+## Version Tags and Flow Targeting
+
+Here's the critical part: **your flow must have a trigger block to accept inputs from triggers**.
+
+When you create a trigger, it points to a specific version tag of your flow. If that version doesn't have a trigger block at the start of your workflow, the flow will fail because it has nowhere to send the incoming data.
+
+<Frame>
+ <img src="/images/triggers/trigger-block-requirement.png" alt="Flow showing trigger block at the start to accept trigger inputs" />
+</Frame>
+
+### Switching Flow Versions
+
+The power of version tags becomes clear in production. Say you have a trigger pointing to the "production" tag on version 1 of your flow. When you want to update your automation:
+
+1. Build and test your improvements in version 2
+2. Move the "production" tag from version 1 to version 2
+3. Your trigger now uses the updated flow instantly
+
+No code deployments, no engineering tickets - just tag switching to update live automation.
+
+## Viewing Your Triggers
+
+Once created, your triggers appear in two places:
+
+- **Flow triggers tab**: See all triggers for this specific flow
+- **Main triggers page**: View triggers across all your flows
+
+<Frame>
+ <img src="/images/triggers/trigger-locations.png" alt="Triggers shown in both flow tab and main triggers page" />
+</Frame>
+
+From either location, you can enable/disable triggers, edit their configuration, or check their recent activity.
+
+## Testing Your Setup
+
+Before going live, test your trigger with sample data:
+
+1. **Schedule triggers**: Use a short interval (like every 5 minutes) to test quickly
+2. **API triggers**: Make test API calls with sample data
+3. **Event triggers**: Perform the action in Gmail, Airtable, or Google Drive to verify activation
+
+Make sure your flow processes the trigger data correctly and produces the expected results.
+
+## Ready to Monitor?
+
+Once your triggers are running, you'll want to track their performance and handle any issues that arise:

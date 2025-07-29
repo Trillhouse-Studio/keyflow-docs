@@ -1,0 +1,108 @@
+---
+title: "Monitoring Triggers"
+description: "Track trigger performance and troubleshoot automation issues"
+---
+
+Once your triggers are running, monitoring becomes essential. You need to know when triggers activate, whether they succeed or fail, and how to troubleshoot issues when they arise.
+
+## Viewing Trigger Activity
+
+Access trigger monitoring from two main places:
+
+- **Flow triggers tab**: See activity for triggers on a specific flow
+- **Main triggers page**: Overview of all trigger activity across your workspace
+
+<Frame>
+ <img src="/images/triggers/trigger-activity-dashboard.png" alt="Trigger monitoring dashboard showing recent activations and status" />
+</Frame>
+
+The activity view shows recent trigger activations with timestamps, status (success/failure), and execution details. This gives you immediate visibility into whether your automation is working as expected.
+
+## Understanding Trigger Status
+
+### Successful Runs
+
+Green indicators show triggers that activated and completed successfully. Click into any run to see:
+
+- What data triggered the flow
+- How long execution took
+- Complete output and results
+
+### Failed Runs
+
+Red indicators highlight triggers that encountered problems. Common failure reasons:
+
+- **Missing trigger block**: Flow version doesn't have a trigger block to accept inputs
+- **Configuration errors**: Invalid settings or permissions issues
+- **Flow execution problems**: Errors within the workflow itself
+- **External service issues**: Problems with Gmail, Airtable, or other connected services
+
+<Frame>
+ <img src="/images/triggers/trigger-status-overview.png" alt="Trigger status indicators showing successful and failed runs" />
+</Frame>
+
+## Troubleshooting Failed Triggers
+
+### Version Tag Mismatches
+
+The most common issue: your trigger points to a version tag, but that flow version lacks a trigger block.
+
+**Fix**: Add a trigger block to your flow's start, or point your trigger to a version that already has one.
+
+### Permission Problems
+
+Event-based triggers (Gmail, Airtable, Google Drive) can fail if account permissions expire.
+
+**Fix**: Reconnect your accounts in the integrations settings.
+
+### Flow Configuration Issues
+
+Sometimes triggers activate successfully but the flow itself encounters errors.
+
+**Fix**: Test your flow manually with similar data to identify and resolve workflow problems.
+
+## Performance Monitoring
+
+### Activation Frequency
+
+Track how often your triggers fire. Unexpectedly high or low activity might indicate:
+
+- Configuration problems (triggers firing too often)
+- Missing events (triggers not catching expected activity)
+- External system changes affecting trigger behavior
+
+### Execution Times
+
+Monitor how long triggered flows take to complete. Increasing execution times might suggest:
+
+- Growing data volumes requiring optimization
+- External API slowdowns
+- Workflow inefficiencies that need attention
+
+<Frame>
+ <img src="/images/triggers/performance-metrics.png" alt="Performance metrics showing trigger frequency and execution times" />
+</Frame>
+
+## Managing Trigger Health
+
+### Regular Health Checks
+
+- Review trigger activity weekly to catch patterns or issues
+- Check success rates and investigate any declining performance
+- Verify that critical triggers are activating as expected
+
+### Proactive Maintenance
+
+- Update expired credentials before they cause failures
+- Test triggers after making flow changes
+- Monitor external service status for event-based triggers
+
+### Error Handling Strategy
+
+- Set up notifications for critical trigger failures
+- Document common issues and their solutions for your team
+- Plan fallback processes for when automation fails
+
+## Next Steps
+
+When triggers fail or need adjustments, you'll want to understand how to manage and fix them effectively:

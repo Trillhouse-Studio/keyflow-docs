@@ -1,0 +1,139 @@
+---
+title: "Flow Design Principles"
+description: "Best practices for building workflows that work well as tools"
+---
+
+
+Workflows designed for toolkits are fundamentally different from traditional automation workflows. Instead of running independently, they need to work as tools that AI models and applications can call on demand. This requires thinking from the perspective of what an AI model needs to effectively use your workflow.
+
+## Think from the AI Model's Perspective
+
+When an AI model uses your workflow as a tool, it needs to understand:
+
+- **What the tool does** and when it's appropriate to use
+- **What inputs to provide** and in what format
+- **What to expect as output** and how to use the results
+
+Design your workflows with this AI-first mindset rather than optimizing for human operators.
+
+<Frame>
+  <img src="/images/toolkits/ai-perspective-design.png" alt="Workflow design considerations for AI model usage" />
+</Frame>
+
+## Input Design
+
+### Clear Parameter Names
+
+Use descriptive input names that AI models can understand:
+
+- **Good**: `company_name`, `email_content`, `target_audience`
+- **Avoid**: `input1`, `data`, `stuff`
+
+### Provide Context
+
+Include descriptions and examples for each input parameter so AI models know what to provide and in what format.
+
+### Handle Variability
+
+AI models might provide inputs in slightly different formats than expected. Design your workflows to be flexible with input parsing and validation.
+
+## Output Design
+
+### Structured Results
+
+Return outputs in clear, structured formats that AI models can easily parse and use:
+
+- **JSON objects** for complex data
+- **Clear text** for simple responses
+- **Consistent formatting** across similar tools
+
+### Meaningful Responses
+
+Ensure outputs contain the information that's actually useful for the AI model's task, not just technical status messages.
+
+<Frame>
+  <img src="/images/toolkits/structured-outputs.png" alt="Example of well-structured tool outputs" />
+</Frame>
+
+## Organize by Department or Function
+
+When creating toolkits, think about specific types of work or departments:
+
+### Sales Toolkits
+
+- Lead research and qualification
+- Email outreach and follow-up
+- Meeting scheduling and preparation
+- Proposal generation
+
+### Marketing Toolkits
+
+- Content research and creation
+- Social media management
+- Campaign analysis
+- SEO optimization
+
+### Operations Toolkits
+
+- Data processing and analysis
+- Report generation
+- System monitoring
+- Process automation
+
+This functional organization makes toolkits more discoverable and useful for specific teams or use cases.
+
+## Include SOPs and Processes
+
+Toolkits work best when they represent complete processes rather than individual tasks. Include workflows that handle:
+
+- **Standard operating procedures** your team follows
+- **Multi-step processes** that tools can execute end-to-end
+- **Decision trees** that handle different scenarios
+- **Quality checks** and validation steps
+
+## Error Handling and Edge Cases
+
+### Graceful Failures
+
+Design workflows to handle errors gracefully and return useful error messages that AI models can understand and act upon.
+
+### Input Validation
+
+Validate inputs early and provide clear feedback about what's wrong and how to fix it.
+
+### Fallback Behaviors
+
+Include fallback options when primary approaches fail, allowing AI models to try alternative methods.
+
+## Tool Descriptions and Naming
+
+### Be Specific
+
+Tool names should clearly indicate what the tool does:
+
+- **Good**: "Research company background and key contacts"
+- **Avoid**: "Company tool" or "Data processor"
+
+### Include Usage Context
+
+Descriptions should explain when and why to use the tool, not just what it does technically.
+
+### Provide Examples
+
+Include example inputs and expected outputs in tool descriptions to guide AI model usage.
+
+## Testing with AI Models
+
+### Validate AI Understanding
+
+Test your tools with actual AI models to ensure they understand when and how to use them correctly.
+
+### Monitor Usage Patterns
+
+Once deployed, monitor how AI models use your tools to identify improvements and optimizations.
+
+### Iterate Based on Feedback
+
+Continuously refine tool descriptions and workflow behavior based on real usage patterns.
+
+## Ready to Connect Your Toolkit?

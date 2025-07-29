@@ -1,0 +1,112 @@
+---
+title: "Managing Triggers"
+description: "Edit, pause, delete, and organize your triggers effectively"
+---
+
+Once your triggers are running, you'll need to manage them over time. Whether you're updating flow versions, temporarily stopping automation, or cleaning up unused triggers, Keyflow gives you simple controls to manage your trigger ecosystem.
+
+## Editing Triggers
+
+The most common trigger management task is updating which flow version your trigger uses. This happens through version tags - no need to recreate triggers or change complex configurations.
+
+### Updating Flow Versions
+
+When you want your trigger to use a newer version of your flow:
+
+1. Navigate to your trigger settings
+2. Change the version tag to point to your desired flow version
+3. The trigger immediately starts using the updated workflow
+
+<Frame>
+ <img src="/images/triggers/edit-trigger-version.png" alt="Trigger settings showing version tag selection" />
+</Frame>
+
+This is incredibly powerful for production workflows. You can test new flow versions thoroughly, then switch live triggers to use the improved version instantly - no downtime, no complex deployments.
+
+### Updating Trigger Configuration
+
+You can also modify trigger-specific settings:
+
+- **Schedule triggers**: Change timing or frequency
+- **API triggers**: Regenerate API keys if needed
+- **Event triggers**: Adjust which folders, labels, or tables to monitor
+
+## Pausing Triggers
+
+Sometimes you want to temporarily stop automation without losing your trigger configuration. Pausing is perfect for:
+
+### Temporary Stops
+
+- **Maintenance periods**: Pause during system updates or changes
+- **Testing phases**: Stop production triggers while testing new versions
+- **Seasonal adjustments**: Pause workflows during slow periods or holidays
+- **Troubleshooting**: Stop triggers while investigating issues
+
+### Indefinite Pausing
+
+- **Backup triggers**: Keep trigger configurations but don't run them
+- **Experimental workflows**: Maintain triggers for flows you might reactivate
+- **Team changes**: Pause triggers when team members are unavailable
+
+<Frame>
+ <img src="/images/triggers/pause-trigger-controls.png" alt="Trigger pause controls showing active and paused states" />
+</Frame>
+
+### What Happens When Paused
+
+- **Events are ignored**: The trigger won't activate even when conditions are met
+- **Configuration preserved**: All settings remain intact for easy reactivation
+- **No data loss**: You can see what would have triggered during the pause period
+- **Easy restart**: Toggle back to active whenever you're ready
+
+## Deleting Triggers
+
+When you no longer need a trigger, delete it completely:
+
+### When to Delete
+
+- **Obsolete workflows**: Triggers for processes you no longer use
+- **Replaced automation**: Old triggers superseded by better workflows
+- **Cleanup**: Removing experimental or test triggers
+- **Flow retirement**: Triggers for flows you're discontinuing
+
+### What Gets Deleted
+
+- **Trigger configuration**: All settings and connections are removed
+- **Future activations**: The trigger will never run again
+- **Historical data preserved**: Past runs and their data remain visible
+
+<Frame>
+ <img src="/images/triggers/delete-trigger-confirmation.png" alt="Delete trigger confirmation dialog" />
+</Frame>
+
+### Before You Delete
+
+Consider pausing instead of deleting if:
+
+- You might need the trigger again
+- The configuration was complex to set up
+- Team members might want to reference the settings
+- You're unsure about the decision
+
+## Organizing Your Triggers
+
+As you build more automation, trigger organization becomes important:
+
+### Naming Conventions
+
+- Use descriptive names that indicate purpose and scope
+- Include flow names or business processes in trigger names
+- Consider prefixes for different types of automation
+
+### Grouping Strategies
+
+- **By flow**: Keep related triggers together
+- **By business process**: Group triggers that serve the same overall goal
+- **By team**: Organize by who owns or manages the triggers
+- **By criticality**: Separate mission-critical from experimental triggers
+
+### Regular Maintenance
+
+- **Monthly reviews**: Check which triggers are still needed
+- \*\*

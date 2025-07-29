@@ -1,0 +1,113 @@
+---
+title: "Building Flows"
+description: "Learn how to create workflows on the Keyflow canvas"
+---
+
+## The Keyflow Canvas
+
+The Keyflow canvas is where you build flows. Instead of writing code or configuring complex settings, you simply drag blocks onto the canvas and connect them together.
+
+<Frame>
+ <img src="/images/building/keyflow-canvas-overview.png" alt="Overview of the Keyflow canvas interface" />
+</Frame>
+
+The canvas gives you a clear, visual way to see your entire process from start to finish. You can understand exactly how data flows through your workflow and easily modify any part of the process.
+
+## Getting Started on the Canvas
+
+The easiest way to add blocks is by double-clicking anywhere on the canvas. This opens the block library, and the block gets added exactly where you clicked.
+
+<Frame>
+ <img src="/images/building/canvas-double-click.png" alt="Double-clicking canvas to open block library" />
+</Frame>
+
+There are many different kinds of blocks available - from AI processing to integrations to logic controls. Check out our [blocks documentation](/blocks) to explore what's available, or browse the library to see what catches your eye.
+
+If you need something specific that doesn't exist yet, you can [create custom blocks](/app/custom-blocks) using our SDK.
+
+## Connecting Your Workflow
+
+Once you have blocks on the canvas, connect them by dragging from the output handle of one block to the input handle of another. This creates the flow of data and defines the order of execution.
+
+<Frame>
+ <img src="/images/building/connecting-blocks.png" alt="Connecting blocks with handles" />
+</Frame>
+
+Build your workflow step by step - add a block, configure it, connect it, then move to the next step. This approach helps you understand how data flows through your process and makes debugging easier later.
+
+## Saving and Versioning
+
+Save your flow regularly using the **Save** button in the top bar. Every time you save, Keyflow creates a new version of your flow. This means you can always go back to previous versions if something breaks.
+
+<Frame>
+ <img src="/images/building/save-versions.png" alt="Save button and versions sidebar" />
+</Frame>
+
+Access all your flow versions in the versions tab on the sidebar. You can always return to the latest version by clicking the icon near the title bar.
+
+### Version Tags
+
+Version tags let you label specific versions of your flow for easy reference. When you deploy your flow as an app, API, or MCP toolkit, you can reference it by tag instead of version number.
+
+<Frame>
+ <img src="/images/building/version-tags.png" alt="Creating and managing version tags" />
+</Frame>
+
+This is incredibly powerful for production deployments. Say you have a workflow tagged as "production" pointing to version 1. When you want to update your live process, just move the "production" tag to version 2. The new version goes live instantly without touching any code or bothering your engineering team.
+
+Version tags give you seamless control over your processes in production - no messy deployments, no code changes, just simple tag switching to update your workflows live.
+
+## Sharing and Templates
+
+### Export and Import
+
+Export your flows to share with teammates or as backups. Others can import them by simply dragging and dropping the file onto their canvas.
+
+<Frame>
+ <img src="/images/building/export-import.png" alt="Export flow and drag-drop import" />
+</Frame>
+
+### Blueprints
+
+Share flows using blueprints - this creates a shareable link that makes distributing templates incredibly easy. Perfect for teams that want to standardize processes.
+
+### Starting with Templates
+
+We highly recommend starting with a template when building new flows. Templates give you proven workflows that you can customize for your specific needs, saving time and ensuring best practices.
+
+<Frame>
+ <img src="/images/building/template-gallery.png" alt="Template gallery showing various workflow options" />
+</Frame>
+
+## Canvas Controls and Settings
+
+The top bar contains tools that make building flows smoother:
+
+<Frame>
+ <img src="/images/building/top-bar-controls.png" alt="Top bar showing all canvas controls" />
+</Frame>
+
+### Layout and Navigation
+
+- **Auto Layout**: Automatically arranges your blocks in a clean layout
+- **Auto Zoom**: Zooms to focus on newly added blocks so you know where to look
+- **Snap to Grid**: Choose between structured grid alignment or free-flowing placement
+
+### Flow Management
+
+- **Lock Flow**: Prevents accidental edits once your flow is finalized
+- **Save**: Creates a new version of your current flow
+- **Run**: Executes your flow for testing
+
+### Preferences
+
+- **Mouse vs Trackpad**: Optimize controls for your input device
+- **Edge Styles**: Choose between step edges (clean, structured) or bezier edges (smooth, curved)
+
+<Frame>
+ <img src="/images/building/edge-styles.png" alt="Comparison of step vs bezier edge styles" />
+</Frame>
+
+## Ready to Test?
+
+Once you've built your flow, it's time to see it in action. Learn how to run your workflows and debug any issues:

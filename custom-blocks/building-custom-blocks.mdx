@@ -1,0 +1,88 @@
+---
+title: "Building Custom Blocks"
+description: "Create custom blocks using the Keyflow SDK"
+---
+
+Custom blocks are built using the Keyflow SDK, which provides everything you need to create powerful, reusable components that integrate seamlessly with visual workflows.
+
+## Getting Started with the SDK
+
+The Keyflow SDK handles all the complexity of integrating your custom code with the Keyflow platform. You focus on writing the business logic while the SDK takes care of:
+
+- **Input/output handling** and validation
+- **API integration** with Keyflow
+- **Metadata generation** for the visual interface
+- **Error handling** and logging
+- **Authentication** and security
+
+<Frame>
+  <img src="/images/custom-blocks/sdk-architecture.png" alt="SDK architecture showing how custom code integrates with Keyflow" />
+</Frame>
+
+## Block Server Concept
+
+Custom blocks are organized into block servers - applications that host one or more custom blocks. A single server can contain multiple related blocks, making it easy to deploy and manage related functionality together.
+
+For example, you might create a "Sales Tools" server containing blocks for lead research, email generation, and CRM integration.
+
+## Development Process
+
+### 1. Set Up Your Development Environment
+
+Start by installing the Keyflow SDK and setting up your development environment. The SDK provides templates and examples to get you started quickly.
+
+### 2. Write Your Block Logic
+
+Implement your custom functionality using the SDK's block framework. The SDK supports multiple programming languages and provides type safety and validation.
+
+### 3. Test Locally
+
+Use the SDK's testing tools to verify your blocks work correctly before deployment. This includes testing inputs, outputs, and error handling.
+
+### 4. Deploy Your Server
+
+Deploy your block server either on your own infrastructure or using Keyflow's hosting service.
+
+## SDK Documentation
+
+For detailed information on building custom blocks, including code examples, API reference, and best practices, refer to our comprehensive SDK documentation:
+
+
+## Example Use Cases
+
+### Custom AI Integrations
+
+Build blocks that integrate with proprietary AI models or specialized AI services not available in pre-built blocks.
+
+### Enterprise System Connectors
+
+Create blocks that connect to internal systems like custom databases, legacy applications, or proprietary APIs.
+
+### Advanced Data Processing
+
+Implement complex algorithms or data transformations that require custom code beyond what visual blocks can provide.
+
+### Specialized File Handling
+
+Build blocks that process unique file formats or perform specialized document analysis.
+
+## Best Practices
+
+### Design for Reusability
+
+Build blocks that can be used across multiple workflows rather than solving one-off problems. This maximizes the value of your development effort.
+
+### Handle Errors Gracefully
+
+Implement comprehensive error handling so your blocks fail gracefully and provide useful error messages.
+
+### Optimize Performance
+
+Consider the performance implications of your blocks, especially if they'll be used in high-volume workflows.
+
+### Document Your Blocks
+
+Provide clear descriptions and examples so other team members can effectively use your custom blocks.
+
+## Ready to Use Your Blocks?
+

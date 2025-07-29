@@ -1,0 +1,125 @@
+---
+title: "Managing Toolkits"
+description: "Edit and update your deployed toolkits"
+---
+
+
+Once your toolkits are deployed and connected to external applications, you can easily manage and update them without disrupting the connection. Keyflow provides flexible management options that let you evolve your toolkits as your needs change.
+
+## Editing Toolkit Contents
+
+### Adding New Workflows
+
+You can add new workflows to existing toolkits at any time. Simply select additional workflows and they'll become available as tools in connected applications.
+
+<Frame>
+  <img src="/images/toolkits/adding-workflows.png" alt="Interface for adding new workflows to existing toolkit" />
+</Frame>
+
+New tools appear automatically in connected applications without requiring any reconfiguration on their end.
+
+### Removing Workflows
+
+Remove workflows from toolkits when they're no longer needed or have been replaced by better versions. Removed tools will no longer be available in connected applications.
+
+### Reordering Tools
+
+Organize tools within your toolkit by reordering them logically. This can help with tool discovery in applications that display tools in list format.
+
+## Updating Workflow Versions
+
+One of the most powerful features of toolkit management is the ability to update workflows without changing the toolkit URL or breaking connections.
+
+### Using Version Tags
+
+When you update a workflow and want to deploy the new version to your toolkit, simply move the version tag to point to the updated version.
+
+<Frame>
+  <img src="/images/toolkits/version-tag-update.png" alt="Moving version tags to update deployed workflows" />
+</Frame>
+
+For example, if your toolkit uses workflows tagged as "production", you can:
+
+1. **Improve your workflow** and save a new version
+2. **Test the new version** to ensure it works correctly
+3. **Move the "production" tag** to the new version
+4. **Toolkit automatically uses** the updated workflow
+
+This means connected applications immediately get the improved functionality without any reconfiguration.
+
+### Seamless Updates
+
+Since toolkits reference workflows by tag rather than specific version numbers, updates happen seamlessly:
+
+- **No broken connections** when you update workflows
+- **No reconfiguration needed** in connected applications
+- **Instant deployment** of improvements
+- **Easy rollback** if issues occur
+
+## Toolkit Configuration Changes
+
+### Updating Descriptions
+
+Modify toolkit and tool descriptions to better reflect their current functionality or to improve AI model understanding.
+
+### Changing Organization
+
+Reorganize how workflows are grouped within toolkits or move workflows between different toolkits as your organization evolves.
+
+### Access Control
+
+Manage who can modify toolkits and their underlying workflows to maintain quality and consistency.
+
+## Monitoring Toolkit Usage
+
+### Usage Analytics
+
+Track how often your tools are being used by connected applications to understand which workflows provide the most value.
+
+### Performance Monitoring
+
+Monitor the performance of workflows when used as tools to identify optimization opportunities.
+
+### Error Tracking
+
+Keep track of any errors or failures that occur when external applications use your tools.
+
+## Best Practices for Toolkit Management
+
+### Version Control Strategy
+
+Develop a consistent approach to version tagging:
+
+- **Use semantic tags** like "production", "staging", "development"
+- **Test thoroughly** before moving production tags
+- **Document changes** in version descriptions
+- **Keep previous versions** available for rollback
+
+### Regular Maintenance
+
+Periodically review and update your toolkits:
+
+- **Remove obsolete workflows** that are no longer useful
+- **Update descriptions** to reflect current functionality
+- **Optimize performance** based on usage patterns
+- **Add new capabilities** as they become available
+
+### Communication
+
+When making significant changes to toolkits used by team members:
+
+- **Notify users** of major updates or changes
+- **Document new features** and how to use them
+- **Provide migration guidance** if workflows change significantly
+- **Maintain backwards compatibility** when possible
+
+## Toolkit Lifecycle Management
+
+### Development to Production
+
+Move toolkits through development stages:
+
+1. **Development**: Create and test new workflows
+2. **Staging**: Test integration with connected applications
+3. **Production**: Deploy stable versions for daily use
+4. \*\*Maintenance

@@ -1,0 +1,83 @@
+---
+title: "Creating Toolkits"
+description: "Bundle your workflows into MCP servers"
+---
+
+Creating an MCP toolkit transforms your individual workflows into a cohesive set of tools that external applications can use. The process is straightforward - select your workflows, configure the toolkit, and get a connection URL.
+
+## Selecting Workflows
+
+Start by choosing which workflows you want to include in your toolkit. Consider workflows that:
+
+- **Work well as tools** rather than long-running automations
+- **Serve a common purpose** like sales, marketing, or content creation
+- **Have clear inputs and outputs** that external apps can understand
+- **Complement each other** to create a useful toolkit
+
+<Frame>
+  <img src="/images/toolkits/selecting-workflows.png" alt="Interface for selecting workflows to include in toolkit" />
+</Frame>
+
+You can include workflows that handle different aspects of the same domain - for example, a sales toolkit might include lead research, email drafting, and follow-up scheduling workflows.
+
+## Configuring Your Toolkit
+
+### Toolkit Information
+
+Give your toolkit a clear name and description that explains what it does:
+
+- **Name**: Something descriptive like "Sales Research Tools" or "Content Creation Kit"
+- **Description**: Brief explanation of what the toolkit helps accomplish
+- **Category**: Group similar toolkits for better organization
+
+### Tool Descriptions
+
+Each workflow in your toolkit becomes a tool with its own description. Write clear, concise descriptions that help AI models understand when and how to use each tool.
+
+<Frame>
+  <img src="/images/toolkits/toolkit-configuration.png" alt="Toolkit configuration interface with workflow descriptions" />
+</Frame>
+
+Good tool descriptions explain:
+
+- **What the tool does** in simple terms
+- **When to use it** and for what purpose
+- **What inputs it expects** from the user or AI model
+
+## Getting Your Connection URL
+
+Once you've configured your toolkit, Keyflow generates a unique URL that serves as your MCP server endpoint. This URL is what you'll use to connect your toolkit to external applications.
+
+<Frame>
+  <img src="/images/toolkits/connection-url.png" alt="Generated MCP server URL for toolkit connection" />
+</Frame>
+
+The URL is immediately active and ready to use. You can copy it and paste it into any MCP-compatible application to start using your workflows as tools.
+
+## Testing Your Toolkit
+
+Before connecting to external apps, test your toolkit to ensure it works correctly:
+
+- **Verify tool descriptions** are clear and accurate
+- **Test workflow inputs** with sample data
+- **Check outputs** match what external apps expect
+- **Confirm error handling** works properly
+
+This testing helps ensure a smooth experience when using your toolkit in production.
+
+## Toolkit Best Practices
+
+### Start Small
+
+Begin with a few related workflows rather than trying to include everything. A focused toolkit is more useful than a kitchen sink approach.
+
+### Think Like a Tool User
+
+Consider how AI models or developers will discover and use your tools. Clear names and descriptions make tools more discoverable and useful.
+
+### Group by Purpose
+
+Create separate toolkits for different use cases rather than one giant toolkit. This makes it easier for users to find and connect the tools they need.
+
+## Ready to Design Effective Tools?
+

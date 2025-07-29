@@ -41,8 +41,16 @@
       "url": "blocks"
     },
     {
+      "name": "Cookbook",
+      "url": "cookbook"
+    },
+    {
       "name": "API Reference",
       "url": "api-reference"
+    },
+    {
+      "name": "SDK",
+      "url": "sdk"
     }
   ],
   "navigation": [
@@ -51,28 +59,116 @@
       "pages": ["introduction", "quickstart"]
     },
     {
-      "group": "App Essentials",
+      "group": "Flows",
       "pages": [
-        "app-essentials/key-terms",
-        "app-essentials/batch-mode",
-        "app-essentials/compute-units-in-keyflow",
-        "app-essentials/ai-agents",
-        "app-essentials/app-view",
-        "app-essentials/integrations",
-        "app-essentials/external-flows",
-        "app-essentials/share-flows",
-        "app-essentials/trigger-flows",
-        "app-essentials/files-in-keyflow",
-        "app-essentials/runs-history",
-        "app-essentials/edit-history"
+        "flows/overview",
+        "flows/core-concepts",
+        "flows/building-flows",
+        "flows/running-flows",
+        {
+          "group": "Using Flows",
+          "pages": [
+            "flows/using-flows/overview",
+            "flows/using-flows/app",
+            "flows/using-flows/swarm",
+            "flows/using-flows/api",
+            "flows/using-flows/mcp",
+            "flows/using-flows/browser-automation", 
+            "flows/using-flows/scheduled-automation",
+            "flows/using-flows/app-automation"
+          ]
+        },
+        "flows/updating-flows",
+        "flows/nesting-flows",
+        "flows/batch-mode"
+      ]
+    },
+    {
+      "group": "Actions",
+      "pages": [
+        "actions/overview",
+        "actions/human-in-the-loop",
+        "actions/requesting-feedback",
+        "actions/managing-actions"
       ]
     },
     {
       "group": "Triggers",
       "pages": [
-        "triggers/api-trigger",
-        "triggers/gmail-trigger",
-        "triggers/schedule-trigger"
+        "triggers/overview",
+        "triggers/setting-up-triggers",
+        {
+          "group": "Types of Triggers",
+          "pages": [
+            "triggers/types-of-triggers/api-trigger",
+            "triggers/types-of-triggers/cron-syntax",
+            "triggers/types-of-triggers/schedule-trigger",
+            "triggers/types-of-triggers/gmail-trigger",
+            "triggers/types-of-triggers/airtable-trigger",
+            "triggers/types-of-triggers/drive-trigger"
+          ]
+        },        
+        "triggers/monitoring-triggers",
+        "triggers/trigger-management",
+        "triggers/managing-failed-runs"
+      ]
+    },
+    {
+      "group": "MCP Toolkits",
+      "pages": [
+        "mcp-toolkits/overview",
+        "mcp-toolkits/creating-toolkit",
+        "mcp-toolkits/using-toolkits",
+        "mcp-toolkits/managing-toolkits",
+        "mcp-toolkits/design-principles"
+      ]
+    },
+    {
+      "group": "Custom Blocks",
+      "pages": [
+        "custom-blocks/overview",
+        "custom-blocks/building-custom-blocks",
+        "custom-blocks/using-custom-blocks",
+        "custom-blocks/managing-custom-blocks"
+      ]
+    },
+    {
+      "group": "App Essentials",
+      "pages": [
+        "app-essentials/batch-mode",
+        "app-essentials/compute-units-in-keyflow",
+        "app-essentials/share-flows",
+        "app-essentials/files-in-keyflow"
+      ]
+    },
+    {
+      "group": "Beginner",
+      "pages": [
+        "cookbook/beginner/prompting"
+      ]
+    },
+    {
+      "group": "Flow SDK",
+      "pages": [
+        "sdk/flow/flow-sdk"
+      ]
+    },
+    {
+      "group": "Block SDK",
+      "pages": [
+        "sdk/block/block-sdk"
+      ]
+    },
+    {
+      "group": "Integration SDK",
+      "pages": [
+        "sdk/integration/integration-sdk"
+      ]
+    },
+    {
+      "group": "Credential SDK",
+      "pages": [
+        "sdk/credential/credential-sdk"
       ]
     },
     {

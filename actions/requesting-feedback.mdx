@@ -1,0 +1,91 @@
+---
+title: "Requesting Feedback"
+description: "How to build workflows that ask for human input"
+---
+
+Keyflow provides two main ways to request human feedback in your workflows: the Ask Human block for dedicated feedback requests, and the human feedback toggle on Ask AI blocks for reviewing AI outputs.
+
+## Ask Human Block
+
+The Ask Human block creates a dedicated human review step in your workflow. Use this when you need specific input or decisions from humans at any point in your process.
+
+<Frame>
+  <img src="/images/actions/ask-human-block.png" alt="Ask Human block configuration in workflow" />
+</Frame>
+
+When your workflow reaches an Ask Human block, it pauses and creates an action that appears in the action center. The workflow continues after someone provides the requested feedback.
+
+### Creating Feedback Forms
+
+The Ask Human block lets you create custom forms for collecting specific input:
+
+- **Text inputs** for open-ended feedback
+- **Multiple choice** for structured decisions
+- **File uploads** for document review
+- **Custom instructions** to guide the reviewer
+
+This flexibility lets you collect exactly the type of feedback your workflow needs.
+
+## Ask AI Block with Human Feedback
+
+Turn on the human feedback toggle in Ask AI blocks when you want humans to review AI outputs before the workflow continues.
+
+<Frame>
+  <img src="/images/actions/ask-ai-human-toggle.png" alt="Human feedback toggle in Ask AI block" />
+</Frame>
+
+This is particularly useful for:
+
+- Reviewing AI-generated content for accuracy
+- Approving automated decisions before implementation
+- Quality checking AI analysis or recommendations
+- Ensuring AI outputs meet your standards
+
+### Providing Context with Reports
+
+When using human feedback on Ask AI blocks, you can include additional context to help reviewers make informed decisions. The action will show both the AI output and any supporting information you provide.
+
+<Frame>
+  <img src="/images/actions/feedback-with-report.png" alt="Action showing AI output with additional context" />
+</Frame>
+
+This context might include:
+
+- Original input data for reference
+- Confidence scores or AI reasoning
+- Related information that influenced the decision
+- Guidelines for what to look for in the review
+
+## How Actions Are Created
+
+Both feedback methods create actions behind the scenes:
+
+1. **Workflow pauses** when it reaches a feedback request
+2. **Action appears** in the action center for human review
+3. **Human provides feedback** through the action interface
+4. **Workflow continues** using the human feedback
+
+The workflow remains paused until someone completes the action, ensuring human input is properly incorporated before proceeding.
+
+## Designing Effective Feedback Requests
+
+### Be Specific
+
+Clear instructions help reviewers provide useful feedback:
+
+- Explain what decision needs to be made
+- Provide context about why review is needed
+- Include any relevant background information
+- Specify what the reviewer should focus on
+
+### Make It Easy
+
+Design feedback requests that are quick to complete:
+
+- Use structured inputs when possible
+- Provide clear options for common decisions
+- Include examples of good vs. poor outputs
+- Keep instructions concise but complete
+
+## Ready to Manage Actions?
+

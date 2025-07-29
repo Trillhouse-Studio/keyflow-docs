@@ -1,0 +1,118 @@
+---
+title: "Handling Failed Runs"
+description: "Handle trigger failures, fix issues, and rerun workflows with updated versions"
+---
+
+When triggers fail, you don't lose the work - you get powerful tools to diagnose, fix, and reprocess everything. Keyflow keeps detailed records of what triggered each run, making it easy to understand failures and get your automation back on track.
+
+## Understanding Failed Runs
+
+Every failed trigger run preserves complete information about what went wrong:
+
+- **Original trigger data**: The exact inputs that activated your flow
+- **Failure point**: Where in the workflow the error occurred
+- **Error details**: Specific information about what caused the failure
+- **Timestamp and context**: When it happened and under what conditions
+
+<Frame>
+ <img src="/images/triggers/failed-run-details.png" alt="Failed run details showing trigger inputs and error information" />
+</Frame>
+
+This visibility means you can see exactly what your trigger was trying to process when it failed, making diagnosis much faster.
+
+## Common Failure Scenarios
+
+### Missing Trigger Block
+
+Your trigger activated but the flow version doesn't have a trigger block to receive the inputs.
+
+**What you see**: Error indicating no trigger block found
+**How to fix**: Add a trigger block to your flow or point the trigger to a version that has one
+
+### Flow Logic Errors
+
+The trigger activated successfully but encountered an error within the workflow itself.
+
+**What you see**: Specific error from the failing block (API timeout, data validation, etc.)
+**How to fix**: Debug and fix the workflow logic, then update your version tag
+
+### Configuration Issues
+
+Problems with block settings, credentials, or data formatting.
+
+**What you see**: Configuration errors or permission failures
+**How to fix**: Update block settings, refresh credentials, or adjust data handling
+
+## Fixing Failed Triggers
+
+### 1. Diagnose the Problem
+
+Review the failed run details to understand what went wrong. The error message and trigger inputs give you everything needed to reproduce and fix the issue.
+
+### 2. Fix Your Flow
+
+Make the necessary changes to resolve the problem:
+
+- Add missing trigger blocks
+- Fix configuration errors
+- Update credentials or permissions
+- Improve error handling
+
+### 3. Update the Version Tag
+
+Once you've fixed the flow, simply move your version tag to point to the corrected version. Your trigger automatically starts using the fixed workflow.
+
+<Frame>
+ <img src="/images/triggers/version-tag-update.png" alt="Moving version tag from failed version to fixed version" />
+</Frame>
+
+This is the power of version tags - no need to reconfigure triggers or update complex settings. Just point the tag to your fixed version and the trigger immediately uses the updated workflow.
+
+## Rerunning Failed Runs
+
+After fixing your flow, you can reprocess the failed runs with your updated version:
+
+### Selective Rerunning
+
+- Choose which failed runs to reprocess
+- Useful when only some failures need reprocessing
+- Maintains control over resource usage
+
+### Batch Rerunning
+
+- Process multiple failed runs simultaneously
+- Efficient for addressing systematic issues
+- Good for handling backlogs after fixing major problems
+
+<Frame>
+ <img src="/images/triggers/rerun-failed-runs.png" alt="Interface for selecting and rerunning failed trigger runs" />
+</Frame>
+
+### What Gets Rerun
+
+When you rerun a failed trigger:
+
+- Uses the exact same input data that originally triggered the flow
+- Runs with your current version tag (the fixed version)
+- Creates a new run record while preserving the original failure record
+
+This means you can process all the work that failed while maintaining a complete audit trail.
+
+## Preventing Future Failures
+
+### Robust Flow Design
+
+- Build error handling into your workflows
+- Test with various input types and edge cases
+- Include validation steps for critical data
+
+### Version Management Strategy
+
+- Test thoroughly before moving version tags in production
+- Keep backup version tags for quick rollbacks
+- Document changes when updating live triggers
+
+### Monitoring Best Practices
+
+- Review failed runs regularly to identify patterns
+- Set up notifications for critical trigger failures

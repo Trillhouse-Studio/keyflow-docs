@@ -1,0 +1,90 @@
+---
+title: "Core Concepts"
+description: "Understand the fundamental building blocks of Keyflow workflows"
+---
+
+Before building your first complex flow, it helps to understand the basic pieces that make everything work. These concepts form the foundation of how Keyflow operates.
+
+## Blocks
+
+Blocks are the building units of flows - think of them as no-code Lego pieces that you connect to create intelligent workflows. Each block runs code in the background to carry out a specific function in your flow.
+
+Every block follows a simple pattern: it takes data in, does some specific work with that input, and creates output that other blocks can use.
+
+<Frame>
+ <img src="/images/concepts/block-input-output.png" alt="Block showing input and output flow" />
+</Frame>
+
+### Working with Blocks
+
+**Adding blocks**: Drag and drop them from the block library onto your canvas. You can open the block library by double-clicking anywhere on the canvas.
+
+**Configuring blocks**: Click on any block to open the sidebar with configurable inputs. This is where you set up what the block should do and how it should behave.
+
+**Managing blocks**: Use the sidebar to quickly duplicate, rename, or delete blocks as you build your workflow.
+
+<Frame>
+ <img src="/images/concepts/block-configuration.png" alt="Block configuration sidebar" />
+</Frame>
+
+## Connections
+
+Connections define how blocks work together and in what order they execute. When you connect Block A to Block B, the output from A becomes available as input to B.
+
+You create connections by dragging from the output handle of one block to the input handle of another block. This also determines the execution order - blocks run after all their connected inputs are ready.
+
+<Frame>
+ <img src="/images/concepts/block-connections.png" alt="Blocks connected with handles showing data flow" />
+</Frame>
+
+Think of connections as pipes that carry data and control the sequence of your automation.
+
+## Flows
+
+Flows are complete workflows built by connecting blocks together. They give you a visual way to see and understand the process you want to automate.
+
+Most people use Keyflow to automate processes that require reasoning and intelligence - powered by the same large language models that run ChatGPT, Claude, Gemini, and other popular AI apps.
+
+<Frame>
+ <img src="/images/concepts/complete-flow-example.png" alt="Example of a complete flow with multiple connected blocks" />
+</Frame>
+
+A flow represents your entire automated process from start to finish. It could be as simple as two connected blocks or as complex as dozens of blocks handling different scenarios and decision points.
+
+## What You Can Do with Flows
+
+Once you understand these core concepts, you're ready to start working with flows:
+
+<CardGroup cols={2}>
+ <Card
+   title="Building Flows"
+   icon="hammer"
+   href="/app/flows/building-flows"
+ >
+   Learn how to actually create flows on the canvas
+ </Card>
+ 
+ <Card
+   title="Running & Testing"
+   icon="play"
+   href="/app/flows/running-testing"
+ >
+   Execute your flows and debug issues
+ </Card>
+ 
+ <Card
+   title="Managing Flows"
+   icon="cog"
+   href="/app/flows/managing-flows"
+ >
+   Organize, version, and share your workflows
+ </Card>
+ 
+ <Card
+   title="Using Flows"
+   icon="rocket"
+   href="/app/flows/using-flows"
+ >
+   Deploy flows as apps, APIs, and automations
+ </Card>
+</CardGroup>

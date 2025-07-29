@@ -1,0 +1,105 @@
+---
+title: "Testing Flows"
+description: "Execute your flows and debug issues"
+---
+
+Once you've built your workflow, it's time to see it in action. Running flows in Keyflow is straightforward, but there are powerful features that help you monitor, debug, and optimize your workflows.
+
+## Running Your Flow
+
+Click the **Run** button in the top bar to execute your workflow. If your flow isn't saved yet, running it will automatically save it first.
+
+<Frame>
+ <img src="/images/running/run-button.png" alt="Run button in top bar" />
+</Frame>
+
+When you run a flow, blocks execute based on their dependencies - each block waits for its connected inputs to be ready before running. Keyflow automatically parallelizes blocks whenever possible, so if you have three AI blocks that can run simultaneously, they'll all execute together. This gives you parallelization out of the box without any extra configuration.
+
+## Monitoring Runs in Real-Time
+
+Watch your workflow execute in the sidebar as it happens. You can see which blocks are running, completed, or waiting for inputs.
+
+<Frame>
+ <img src="/images/running/sidebar-monitoring.png" alt="Sidebar showing real-time run progress" />
+</Frame>
+
+Click on any block during or after execution to see its inputs and outputs. This gives you immediate feedback on how data flows through your workflow and helps you understand what each step is doing.
+
+## Understanding Run Traces
+
+For detailed analysis, click **Run Traces** to open the comprehensive traces page. Here you get a timeline chart showing exactly how your workflow progressed over time.
+
+<Frame>
+ <img src="/images/running/traces-timeline.png" alt="Timeline chart in run traces" />
+</Frame>
+
+The traces page shows:
+
+- **Timeline visualization** of block execution
+- **Input and output data** for each block
+- **Execution duration** for performance analysis
+- **Error details** if anything goes wrong
+
+Turn on **Dev Mode** to see inputs and outputs as clean JSONs that you can easily copy and paste for debugging or integration work.
+
+<Frame>
+ <img src="/images/running/dev-mode-json.png" alt="Dev mode showing JSON inputs and outputs" />
+</Frame>
+
+## Compute Units
+
+Each run consumes compute units based on the blocks you use. You can see the compute cost for each block at the top of the interface, and your total workflow cost is calculated automatically.
+
+Learn more about how [compute units](/app/settings/compute-units) work and how costs are calculated.
+
+## Testing Specific Parts
+
+You don't always need to run your entire workflow. Keyflow gives you flexible testing options:
+
+### Test Individual Blocks
+
+Click the **Test** button on any block to run just that block with sample or previous data. Perfect for debugging specific steps without running the entire flow.
+
+<Frame>
+ <img src="/images/running/test-block.png" alt="Test button on individual block" />
+</Frame>
+
+### Resume from Any Point
+
+Click **Resume** on any block to run the workflow starting from that point. This saves time when you're iterating on the later parts of your flow.
+
+<Frame>
+ <img src="/images/running/resume-workflow.png" alt="Resume button to run from specific block" />
+</Frame>
+
+### Run Sub-flows
+
+Select multiple connected blocks and run just that portion of your workflow. Great for testing complex logic without running data collection steps.
+
+## Debugging and Troubleshooting
+
+### Reading Error Messages
+
+When blocks fail, error messages appear directly on the block and in the run traces. Click on failed blocks to see detailed error information and suggested fixes.
+
+<Frame>
+ <img src="/images/running/error-block.png" alt="Block showing error state with details" />
+</Frame>
+
+### Common Issues
+
+- **Connection errors**: Check API credentials and network connectivity
+- **Data format mismatches**: Verify outputs match expected inputs between blocks
+- **Timeout issues**: Large operations might need adjustment or splitting into smaller steps
+- **Rate limiting**: Some integrations have usage limits that might be hit
+
+### Best Practices for Testing
+
+- **Start small**: Test with minimal data first, then scale up
+- **Test incrementally**: Add one block at a time and test as you build
+- **Use sample data**: Create test datasets that cover edge cases
+- **Check intermediate outputs**: Don't just look at final results - verify each step
+
+## Ready to Deploy?
+
+Once your flow is working reliably, you can put it into production:

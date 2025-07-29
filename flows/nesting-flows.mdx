@@ -1,0 +1,160 @@
+---
+title: "Nesting Flows"
+description: "Use workflows inside other workflows to build complex, reusable automation systems"
+---
+
+One of Keyflow's most powerful features is the ability to use entire workflows as blocks inside other workflows. This lets you build complex, modular systems where each piece handles a specific task, and you can reuse proven workflows across multiple processes.
+
+## What Are Nested Flows?
+
+Think of nested flows as reusable components. Instead of rebuilding the same logic over and over, you create it once as a standalone workflow, then use that entire workflow as a single block in other flows.
+
+<Frame>
+ <img src="/images/nesting/nested-flow-concept.png" alt="Workflow containing another workflow as a block" />
+</Frame>
+
+This is like having functions in programming - you write the logic once, then call it whenever you need it. But instead of code, you're working with visual workflows.
+
+## Creating and Using Subflows
+
+### Step 1: Build Your Reusable Flow
+
+First, create a workflow that does something specific and useful. For example, a document analysis flow that extracts key information, summarizes content, and identifies action items.
+
+<Frame>
+ <img src="/images/nesting/document-analysis-flow.png" alt="Standalone document analysis workflow" />
+</Frame>
+
+### Step 2: Use It as a Block
+
+In any other workflow, you can now add your document analysis flow as a single block. It appears in your block library alongside all other blocks.
+
+<Frame>
+ <img src="/images/nesting/add-nested-flow.png" alt="Adding a workflow as a block in another workflow" />
+</Frame>
+
+### Step 3: Configure the Subflow
+
+Click on the nested flow block to configure its inputs and see its outputs, just like any other block.
+
+<Frame>
+ <img src="/images/nesting/configure-subflow.png" alt="Configuring inputs for a nested workflow block" />
+</Frame>
+
+## Managing Complex Systems
+
+### Switching Between Flows
+
+When working with nested flows, you can switch between different workflow levels using the bottom navigation bar - similar to switching between spreadsheet tabs in Google Sheets.
+
+<Frame>
+ <img src="/images/nesting/bottom-navigation.png" alt="Bottom navigation showing different workflow levels" />
+</Frame>
+
+This lets you easily navigate between your main workflow and any nested workflows to make edits or understand the full system.
+
+### Visual Hierarchy
+
+Keyflow clearly shows you which level you're working on and how the flows relate to each other. You always know whether you're editing the main workflow or diving into a nested component.
+
+## The Power of Reusable Components
+
+### Example: Content Creation System
+
+Imagine you have these reusable flows:
+
+- **Research Flow**: Scrapes websites and analyzes competitor content
+- **Writing Flow**: Generates articles based on research and brand guidelines
+- **SEO Flow**: Optimizes content for search engines
+
+You can combine these in different ways:
+
+- **Blog Pipeline**: Research → Writing → SEO
+- **Competitor Analysis**: Research → Writing (for internal reports)
+- **Content Refresh**: SEO → Writing (for updating existing content)
+
+<Frame>
+ <img src="/images/nesting/content-system-example.png" alt="Complex content creation system using nested flows" />
+</Frame>
+
+## Scaling with Batch Processing
+
+Here's where nesting becomes incredibly powerful: any nested flow can be run in batch mode. This means you can process hundreds or thousands of items through your complex workflows.
+
+### Example: Document Processing at Scale
+
+1. **Create**: A document analysis flow that processes one document perfectly
+2. **Nest**: Use that flow as a block in a larger workflow
+3. **Scale**: Run the larger workflow in batch mode to process thousands of documents
+
+<Frame>
+ <img src="/images/nesting/batch-nested-flows.png" alt="Nested flows running in batch mode on multiple documents" />
+</Frame>
+
+This gives you capabilities that typical automation platforms like Zapier simply can't match. You can build industrial-strength systems that can handle enterprise-scale operations.
+
+## Benefits of Nested Flows
+
+### Modularity
+
+Build once, use everywhere. Your document analysis logic works the same whether it's processing one file or a thousand.
+
+### Maintainability
+
+Update the nested flow once, and all workflows using it get the improvement automatically.
+
+### Complexity Management
+
+Break complex processes into manageable pieces. Instead of one giant workflow with 50 blocks, you have several focused workflows that are easier to understand and debug.
+
+### Team Collaboration
+
+Different team members can work on different nested flows simultaneously, then combine them into larger systems.
+
+### Scalability
+
+Any process you can build for one item, you can instantly scale to thousands using batch mode with nested flows.
+
+## Advanced Use Cases
+
+### Multi-Stage Processing Pipelines
+
+Create workflows where each stage is a nested flow:
+
+- **Stage 1**: Data collection and cleaning
+- **Stage 2**: AI analysis and extraction
+- **Stage 3**: Decision making and routing
+- **Stage 4**: Output formatting and delivery
+
+### Agent Swarms with Specialized Roles
+
+Build different "agent" flows for specific tasks, then orchestrate them in a main workflow:
+
+- **Research Agent**: Gathers information
+- **Analysis Agent**: Processes and interprets data
+- **Writing Agent**: Creates content
+- **Review Agent**: Checks quality and compliance
+
+This level of sophistication lets you build systems that rival custom software applications, but with the speed and flexibility of visual workflow building.
+
+## Ready for More?
+
+Explore other advanced Keyflow features:
+
+<CardGroup cols={2}>
+ <Card
+   title="Batch Processing"
+   icon="database"
+   href="/app/flows/batch-processing"
+ >
+   Process large volumes of data efficiently
+ </Card>
+ 
+ <Card
+   title="MCP Toolkits"
+   icon="puzzle-piece"
+   href="/app/mcp-toolkits"
+ >
+   Turn your nested flows into tools for Claude and other AI apps
+ </Card>
+</CardGroup>

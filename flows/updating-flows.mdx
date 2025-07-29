@@ -1,0 +1,147 @@
+---
+title: "Updating Flows"
+description: "Organize, version, and maintain your workflows in production"
+---
+
+Once you have flows running in production, managing them becomes crucial. Keyflow makes it incredibly easy for non-technical teams to maintain, update, and improve their workflows without depending on engineering resources.
+
+## The Flows Dashboard
+
+The flows page is your central hub for managing all workflows. Here you can see every flow you've created, how they're deployed, and quickly take action on any of them.
+
+<Frame>
+ <img src="/images/managing/flows-dashboard.png" alt="Flows dashboard showing all workflows with filters" />
+</Frame>
+
+### Key Features
+
+- **Filter by deployment type**: View only apps, APIs, scheduled flows, or MCP toolkits
+- **Quick actions**: Open any flow as an app, edit directly, or duplicate for new use cases
+- **Organization tools**: Add clear names and descriptions to keep everything organized
+- **Status overview**: See which flows are active, paused, or need attention
+
+Click **Open as App** next to any flow to instantly use it with the user-friendly interface, regardless of how it was originally deployed.
+
+## Working with Versions
+
+Every time you save your flow, Keyflow creates a new version. This version history is your safety net - you can always go back to previous versions if something breaks.
+
+<Frame>
+ <img src="/images/managing/version-history.png" alt="Version history panel showing all saved versions" />
+</Frame>
+
+### Version Tags
+
+Version tags are labels you create to mark important versions like "production", "staging", or "backup". These tags make it easy to reference specific versions when deploying your flows.
+
+<Frame>
+ <img src="/images/managing/version-tags.png" alt="Version tags interface showing production and staging tags" />
+</Frame>
+
+Instead of remembering that "version 47" is your production flow, you simply tag it as "production" and reference it by that name in all your deployments.
+
+## Updating Production Flows
+
+Here's where Keyflow really shines - updating live workflows is incredibly simple. No code deployments, no engineering tickets, no downtime.
+
+### Step-by-Step Update Process
+
+**1. Open your flow and make changes**
+Let's say you want to improve a prompt in your customer service flow:
+
+<Frame>
+ <img src="/images/managing/edit-prompt.png" alt="Editing a prompt in an AI block" />
+</Frame>
+
+**2. Save your changes**
+Click save to create a new version with your improvements.
+
+**3. Move the production tag**
+Go to your version tags and move "production" from the old version to your new version:
+
+<Frame>
+ <img src="/images/managing/move-production-tag.png" alt="Moving production tag to new version" />
+</Frame>
+
+**4. Your update is live**
+Instantly, all your deployed apps, APIs, and automations now use the improved version. No code changes, no engineering involvement, no downtime.
+
+### The Power of Tag-Based Deployment
+
+This approach gives business teams incredible control. Marketing can improve their lead qualification prompts, customer success can refine their email triage logic, and operations can enhance their document processing - all without technical dependencies.
+
+## Empowering Non-Technical Teams
+
+Traditional automation requires engineering teams for every small change. Keyflow eliminates this bottleneck completely.
+
+### Real Team Examples
+
+**Marketing Team**: Updates their competitor analysis prompts weekly based on market changes. They iterate on messaging, refine data extraction, and improve lead scoring - all independently.
+
+**Customer Success**: Modifies their support ticket classification logic based on new product features. They test changes on a few tickets, then deploy to production in minutes.
+
+**Operations**: Continuously improves their document processing workflows as they discover edge cases. No waiting for developer sprints or technical reviews.
+
+### Benefits for Organizations
+
+- **Faster iteration**: Teams improve processes immediately when they spot issues
+- **Reduced engineering load**: Developers focus on core product instead of workflow maintenance
+- **Business ownership**: The people closest to the process control the automation
+- **Continuous improvement**: Easy updates encourage constant refinement
+
+## Organization and Collaboration
+
+### Sharing and Distribution
+
+Export any flow to share with teammates or create backups. Others can import by simply dragging the file onto their canvas.
+
+<Frame>
+ <img src="/images/managing/export-import-flows.png" alt="Export and import workflow files" />
+</Frame>
+
+Use blueprints to create shareable links that make distributing templates across teams effortless.
+
+### Best Practices
+
+- **Clear naming**: Use descriptive names that explain what the flow does
+- **Detailed descriptions**: Include the purpose, key inputs, and expected outputs
+- **Consistent tagging**: Establish team conventions for version tags like "prod", "staging", "test"
+- **Regular cleanup**: Archive old versions that are no longer needed
+
+## Monitoring and Maintenance
+
+### When to Update Flows
+
+- **Performance improvements**: Better prompts, more efficient logic, faster execution
+- **New requirements**: Business needs change, workflows should adapt
+- **Error fixes**: Address issues discovered through regular use
+- **Feature additions**: Expand workflows as new blocks or integrations become available
+
+### Safe Update Practices
+
+- **Test thoroughly**: Use the testing features before moving tags to production
+- **Gradual rollouts**: Update less critical flows first to validate changes
+- **Keep backups**: Maintain previous "production" versions as "backup" tags
+- **Monitor after updates**: Check that flows perform as expected in live usage
+
+## Ready for Advanced Features?
+
+Now that you understand flow management, explore more advanced capabilities:
+
+<CardGroup cols={2}>
+ <Card
+   title="Batch Processing"
+   icon="database"
+   href="/app/flows/batch-processing"
+ >
+   Process large volumes of data with your workflows
+ </Card>
+ 
+ <Card
+   title="Nesting Flows"
+   icon="share-nodes"
+   href="/app/flows/nesting-flows"
+ >
+   Use workflows inside other workflows for complex automation
+ </Card>
+</CardGroup>

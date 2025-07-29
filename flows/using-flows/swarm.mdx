@@ -1,0 +1,200 @@
+---
+title: "Swarm"
+description: "Run workflows across multiple inputs in parallel for large-scale processing"
+---
+
+Swarms let you run the same workflow across hundreds or thousands of inputs simultaneously. Instead of processing one document, email, or data point at a time, you can handle massive volumes with a single click.
+
+## What Are Swarms?
+
+Think of swarms as industrial-strength batch processing. You take a workflow that works perfectly on one item and scale it to process as many items as you need - all running in parallel.
+
+<Frame>
+  <img src="/images/swarm/swarm-concept.png" alt="One workflow processing multiple inputs in parallel" />
+</Frame>
+
+This is perfect for document processing, lead analysis, content generation, data transformation, or any repetitive task that needs to happen at scale.
+
+## When to Use Swarms
+
+### Perfect Use Cases
+
+- **Document Processing**: Analyze hundreds of contracts, reports, or resumes
+- **Lead Qualification**: Process large lists of prospects with AI research
+- **Content Generation**: Create personalized emails, reports, or social posts
+- **Data Analysis**: Extract insights from multiple data sources simultaneously
+- **Quality Control**: Review and categorize large volumes of content
+
+### Swarms vs Single Runs
+
+- **Single Runs**: Perfect for testing, one-off tasks, or real-time processing
+- **Swarms**: Ideal for bulk operations, data migrations, or recurring large-scale tasks
+
+## Setting Up a Swarm
+
+### Create Your Base Workflow
+
+First, build and test a workflow that handles one input perfectly. Make sure it works reliably before scaling to multiple inputs.
+
+<Frame>
+  <img src="/images/swarm/base-workflow.png" alt="Single workflow ready for swarm processing" />
+</Frame>
+
+### Launch Swarm Mode
+
+From any working workflow, click **Create Swarm** to set up parallel processing for multiple inputs.
+
+<Frame>
+  <img src="/images/swarm/create-swarm-button.png" alt="Create swarm button on workflow" />
+</Frame>
+
+### Configure Input Mapping
+
+Map your workflow inputs to the columns or files you'll be processing. Keyflow supports multiple input types:
+
+<Frame>
+  <img src="/images/swarm/input-mapping.png" alt="Mapping workflow inputs to swarm data sources" />
+</Frame>
+
+## Input Methods
+
+### File Upload Processing
+
+Upload multiple files and your workflow will process each one independently. Perfect for document analysis, image processing, or data extraction.
+
+<Frame>
+  <img src="/images/swarm/file-upload-swarm.png" alt="Multiple files uploaded for swarm processing" />
+</Frame>
+
+### CSV Data Processing
+
+Upload a CSV where each row becomes one workflow execution. Supported data types include:
+
+- **Text**: Names, descriptions, URLs, content
+- **Numbers**: IDs, scores, quantities, measurements
+- **Dates**: Timestamps, deadlines, creation dates
+- **Files**: Referenced file paths or uploaded attachments
+
+<Frame>
+  <img src="/images/swarm/csv-upload-swarm.png" alt="CSV upload interface with column mapping" />
+</Frame>
+
+### Mixed Input Types
+
+Combine different input types in a single swarm - some inputs from CSV columns, others from uploaded files. This flexibility handles complex real-world scenarios.
+
+## Running Your Swarm
+
+### One-Click Deployment
+
+Once your inputs are configured, launch the entire swarm with a single click. Keyflow automatically:
+
+- **Distributes work** across available compute resources
+- **Runs workflows in parallel** for maximum speed
+- **Handles errors gracefully** without stopping other processes
+- **Tracks progress** in real-time
+
+<Frame>
+  <img src="/images/swarm/swarm-execution.png" alt="Swarm running with progress tracking" />
+</Frame>
+
+### Real-Time Monitoring
+
+Watch your swarm progress with live updates:
+
+- **Overall progress** percentage and estimated completion time
+- **Individual status** for each workflow instance
+- **Error tracking** with details for failed items
+- **Resource usage** showing compute consumption
+
+<Frame>
+  <img src="/images/swarm/swarm-monitoring.png" alt="Real-time swarm progress dashboard" />
+</Frame>
+
+## Results and Management
+
+### Table View Results
+
+All results appear in an organized table where you can:
+
+- **Review outputs** for each processed item
+- **Filter by status** (completed, failed, running)
+- **Sort and search** through large result sets
+- **Export data** in various formats
+
+<Frame>
+  <img src="/images/swarm/results-table.png" alt="Swarm results displayed in sortable table" />
+</Frame>
+
+### Error Handling
+
+When individual workflows fail, the swarm continues processing other items. You can:
+
+- **Review error details** to understand what went wrong
+- **Fix issues** and re-run failed items
+- **Update workflows** and restart the entire swarm if needed
+
+### Downloading Results
+
+Export your processed data as CSV, JSON, or other formats. Perfect for importing into other systems or sharing with team members.
+
+## Performance and Scaling
+
+### Default Batch Sizes
+
+Keyflow automatically optimizes batch sizes based on your workflow complexity and current system load. Typical defaults:
+
+- **Simple workflows**: 50-100 parallel executions
+- **AI-heavy workflows**: 10-25 parallel executions
+- **Integration-heavy workflows**: 5-15 parallel executions
+
+### Enterprise Scaling
+
+For larger processing needs, enterprise plans offer:
+
+- **Higher batch sizes**: Process hundreds of items simultaneously
+- **Compute reservation**: Dedicated resources for your swarms
+- **Priority processing**: Skip queues for time-sensitive jobs
+- **Custom limits**: Tailored to your specific use cases
+
+<Frame>
+  <img src="/images/swarm/enterprise-scaling.png" alt="Enterprise scaling options and compute reservation" />
+</Frame>
+
+Contact us to discuss enterprise options for large-scale processing requirements.
+
+## Advanced Swarm Strategies
+
+### Staged Processing
+
+Break large jobs into smaller swarms for better control and monitoring. Process 1,000 items in 10 swarms of 100 rather than one massive batch.
+
+### Quality Sampling
+
+Run small test swarms first to validate your workflow before processing large datasets. This catches issues early and saves compute resources.
+
+### Hybrid Approaches
+
+Combine swarms with other deployment methods - use swarms for bulk processing and apps for real-time individual cases.
+
+## Ready to Build More?
+
+Explore other advanced workflow capabilities:
+
+<CardGroup cols={2}>
+  <Card
+    title="Nesting Flows"
+    icon="share-nodes"
+    href="/app/flows/nesting-flows"
+  >
+    Use workflows inside other workflows for complex systems
+  </Card>
+  
+  <Card
+    title="Managing Flows"
+    icon="cog"
+    href="/app/flows/managing-flows"
+  >
+    Organize and maintain your workflows effectively
+  </Card>
+</CardGroup>
