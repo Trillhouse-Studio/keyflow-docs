@@ -12,21 +12,21 @@ Creates files from text content in multiple formats including PDF, DOCX, TXT, CS
 
 ### Inputs
 
-<ParamField query="File Name" type="string" required>
+<ParamField query="File Name" type="Text" required>
   The name of the file to be created (without the file extension). Maximum 100 characters allowed.
 </ParamField>
 
-<ParamField query="File Contents" type="string" required>
+<ParamField query="File Contents" type="Text" required>
   The text content that will be saved in the generated file. Cannot be empty.
 </ParamField>
 
-<ParamField query="File Type" type="string" default=".txt">
+<ParamField query="File Type" type="Text" default=".txt">
   The format for your generated file. Available options: `.pdf`, `.docx`, `.txt`, `.csv`, `.md`
 </ParamField>
 
 ### Outputs
 
-<ParamField query="generated_file_name" type="file">
+<ParamField query="generated_file_name" type="File">
   The generated file containing your content in the specified format, ready for download or further processing.
 </ParamField>
 

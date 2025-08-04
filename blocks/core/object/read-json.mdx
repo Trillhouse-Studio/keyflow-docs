@@ -2,30 +2,108 @@
 title: Read JSON
 ---
 
-### **Overview:**
+### Overview
 
-The `Read JSON` block simplifies the extraction of specific values from a JSON object, enabling efficient data analysis, reporting, and preprocessing in data pipelines.
+Extracts specific values from a JSON object using key paths. This block allows you to retrieve multiple values at once and supports nested object access using dot notation.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature       | Type   | Simple Explanation                                                                                  |
-| ------ | ------------- | ------ | --------------------------------------------------------------------------------------------------- |
-| input  | `keys`        | string | A list of comma-separated keys to specify which values to extract from the JSON object.             |
-| input  | `json`        | object | The source JSON object containing the data you want to extract values from.                         |
-| output | `json_values` | string | A consolidated string of all extracted values corresponding to the specified keys in the JSON data. |
+<Tip>Perfect for extracting specific data points from API responses or complex JSON structures.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Here are practical scenarios where this block can be incredibly useful:
+<ParamField query="JSON" type="Object" required>
+  The JSON object to read values from.
+</ParamField>
 
-- **Data Extraction:** When operational teams require specific information (like sales figures or customer details) from complex JSON responses received from APIs, this block enables straightforward retrieval.
-- **Data Analysis:** If your analytics team needs to pull certain metrics (like clicks or conversions) for deeper insights without dealing with every part of a verbose dataset, this tool streamlines that process.
-- **Reporting Needs:** For creating reports based on key performance indicators gathered in a structured format like JSON, use this block to focus on only the relevant parts for your stakeholders.
+<ParamField query="Keys" type="List">
+  A list of keys to retrieve values from the JSON object. Supports dot notation for nested properties (e.g., `user.name`, `data.items.0`).
+</ParamField>
 
-- **Data Pipeline Preprocessing:** In environments where you manage incoming data flows that may include redundant information or excessive detail (such as logs), utilizing this feature allows for efficient slicing down to essential elements needed for further processing.
+### Outputs
 
-In conclusion, whenever there's a need to simplify value extraction from complex JSON structures while preparing data for analysis or reporting tasks, the `Read JSON` block proves invaluable!
+The outputs are dynamically generated based on the keys you specify. Each key becomes an output handle with the corresponding value from the JSON object.
+
+<ParamField query="Dynamic Outputs" type="Any">
+  One output handle is created for each key in your Keys list, containing the extracted value.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Use Descriptive Key Names">
+    Choose clear, meaningful names for your keys to make your workflow easier to understand.
+    ```text ⚠️ Bad Example wrap
+    Keys: ["a", "b", "x"]
+    ```
+    ```text ✅ Good Example wrap
+    Keys: ["user_name", "email", "account_status"]
+    ```
+  </Step>
+
+  <Step title="Leverage Dot Notation for Nested Data">
+    Use dot notation to access nested properties without multiple Read JSON blocks.
+    ```text ✅ Good Example wrap
+    Keys: ["user.profile.name", "user.profile.email", "settings.theme"]
+    ```
+  </Step>
+
+  <Step title="Handle Missing Keys Gracefully">
+    The block returns `"unknown"` for missing keys, so plan your downstream logic accordingly.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting 'unknown' as output?">
+    The key you specified doesn't exist in the JSON object. Check your key names and JSON structure.
+    
+    ```json Example Solution wrap
+    {
+      "user": {
+        "name": "John",
+        "email": "john@example.com"
+      }
+    }
+    // Use key: "user.name" not "username"
+    ```
+  </Accordion>
+
+  <Accordion title="How do I access array elements?">
+    <Tip>Use array index notation with dots</Tip>
+    For arrays, use the index number: `items.0` for the first item, `items.1` for the second, etc.
+    
+    ```json Example wrap
+    {
+      "items": ["apple", "banana", "cherry"]
+    }
+    // Use key: "items.0" to get "apple"
+    ```
+  </Accordion>
+
+  <Accordion title="Can I read multiple levels of nesting?">
+    Yes! Chain as many levels as needed with dot notation.
+    
+    ```json Example wrap
+    {
+      "data": {
+        "user": {
+          "profile": {
+            "personal": {
+              "name": "John"
+            }
+          }
+        }
+      }
+    }
+    // Use key: "data.user.profile.personal.name"
+    ```
+    
+    <Info>There's no limit to nesting depth with dot notation</Info>
+  </Accordion>
+</AccordionGroup>

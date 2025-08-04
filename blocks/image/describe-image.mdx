@@ -12,29 +12,29 @@ Generate detailed AI-powered descriptions of images. Perfect for accessibility, 
 
 ### Inputs
 
-<ParamField query="File name" type="file" required>
+<ParamField query="File name" type="File" required>
   The image file you want to analyze and describe. Supports common image formats like PNG, JPG, GIF, etc.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Model" type="string" default="GPT-4 1 Nano">
+  <ParamField query="Model" type="Select">
     The AI model to use for image analysis. Different models offer varying levels of detail and accuracy.
   </ParamField>
 
-  <ParamField query="Account" type="string">
+  <ParamField query="Account" type="Select">
     Select the AI credentials to use for the image analysis.
   </ParamField>
 
-  <ParamField query="Cache Response" type="boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     If checked, identical images will be cached to improve performance and reduce costs.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="Image Description" type="string">
+<ParamField query="Image Description" type="Text">
   A detailed description of what the AI sees in the image, including objects, people, scenes, and context.
 </ParamField>
 

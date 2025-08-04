@@ -12,7 +12,7 @@ Creates AI-generated images from text descriptions using advanced image generati
 
 ### Inputs
 
-<ParamField query="Prompt" type="string" required>
+<ParamField query="Prompt" type="Text" required>
   Detailed description of the image you want to generate. Be specific about style, objects, colors, and composition.
 </ParamField>
 
@@ -20,33 +20,33 @@ Creates AI-generated images from text descriptions using advanced image generati
   Number of images to generate (1-4). Multiple images provide variety and options to choose from.
 </ParamField>
 
-<ParamField query="Use Reference Image" type="boolean" default="false">
+<ParamField query="Use Reference Image" type="Toggle" >
   Enable to upload a reference image that guides the style and composition of generated images.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Image Quality" type="string" default="auto">
+  <ParamField query="Image Quality" type="Text" default="auto">
     Quality level for generated images. Options: high, medium, low, auto.
   </ParamField>
 
-  <ParamField query="Image Size" type="string" default="auto">
+  <ParamField query="Image Size" type="Text" default="auto">
     Dimensions of generated images. Options: auto, 1024x1024, 1024x1536, 1536x1024.
   </ParamField>
 
-  <ParamField query="Cache Response" type="boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     Whether to cache the response for future use to improve performance.
   </ParamField>
 
-  <ParamField query="Account" type="string">
+  <ParamField query="Account" type="Select">
     Select the API credentials to use for image generation.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="image_urls" type="file">
+<ParamField query="image_urls" type="File">
   Generated image files. Returns single file if generating 1 image, or array of files for multiple images.
 </ParamField>
 

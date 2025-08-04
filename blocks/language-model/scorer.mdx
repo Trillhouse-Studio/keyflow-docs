@@ -12,44 +12,44 @@ The Scorer block uses AI to assign a numerical score (1-100) to any content base
 
 ### Inputs
 
-<ParamField query="Data" type="string" required>
+<ParamField query="Data" type="Text" required>
   The content you want to score - can be articles, emails, products, or any text you need evaluated.
 </ParamField>
 
-<ParamField query="Criteria" type="string" required>
+<ParamField query="Criteria" type="Text" required>
   Define the scoring criteria such as "quality of writing", "conciseness", "relevance", or any custom evaluation standards.
 </ParamField>
 
-<ParamField query="Include Justification" type="boolean" default="false">
+<ParamField query="Include Justification" type="Toggle" >
   If checked, the model will provide detailed reasoning for why it assigned the specific score.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Model" type="string" default="gpt-4o-mini">
+  <ParamField query="Model" type="Select">
     The AI model to use for scoring. Choose based on your accuracy and cost requirements.
   </ParamField>
 
-  <ParamField query="Cache Response" type="boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     If checked, identical scoring requests will be cached to save costs.
   </ParamField>
 
-  <ParamField query="API Keys" type="credential">
+  <ParamField query="API Keys" type="Select">
     Select the API credentials you want to use for the chosen model.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="Score" type="string">
+<ParamField query="Score" type="Text">
   A numerical score between 1 and 100 based on how well the content meets your specified criteria.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Additional Outputs">
-  <ParamField query="Justification" type="string">
+  <ParamField query="Justification" type="Text">
     Detailed explanation for why the AI assigned this score (only when Include Justification is enabled).
   </ParamField>
 </Accordion>

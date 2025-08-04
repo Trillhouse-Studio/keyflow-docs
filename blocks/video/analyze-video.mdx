@@ -20,12 +20,12 @@ Analyze Video uses Google's Gemini AI models to extract insights, descriptions, 
   MP4.
 </ParamField>
 
-<ParamField query="Prompt" type="String" required>
+<ParamField query="Prompt" type="Text" required>
   Describe the analysis you want to perform on the video. Be specific about what
   information you need.
 </ParamField>
 
-<ParamField query="Model" type="String" default="Gemini 2.5 Flash Preview">
+<ParamField query="Model" type="Select">
   Choose the AI model for video analysis. Flash models are faster while Pro
   models provide more detailed analysis.
 </ParamField>
@@ -33,18 +33,18 @@ Analyze Video uses Google's Gemini AI models to extract insights, descriptions, 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Cache Response" type="Boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     Enable caching to store the model response for future use, improving performance for repeated analyses.
   </ParamField>
 
-  <ParamField query="Account" type="String">
+  <ParamField query="Account" type="Select">
     Select the Google Gemini API credentials to use for authentication.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="Transcript" type="String">
+<ParamField query="Transcript" type="Text">
   The AI-generated analysis, description, or transcript based on your prompt and
   video content.
 </ParamField>

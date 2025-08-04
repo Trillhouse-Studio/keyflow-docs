@@ -12,7 +12,7 @@ Filter List uses AI to intelligently filter items from a list based on your cust
 
 ### Inputs
 
-<ParamField query="Value" type="Array" required>
+<ParamField query="Value" type="List" required>
   The list of items you want to filter. Can contain text, objects, numbers, or any type of data.
 </ParamField>
 
@@ -20,25 +20,25 @@ Filter List uses AI to intelligently filter items from a list based on your cust
   The filtering condition written in natural language. Examples: "Is greater than 80", "Contains positive sentiment", "Has urgent priority".
 </ParamField>
 
-<ParamField query="Model" type="Dropdown" default="GPT-4 1 Nano">
+<ParamField query="Model" type="Dropdown">
   The AI model to use for filtering. More powerful models provide better accuracy for complex conditions.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Output Blank Value" type="Boolean" default="false">
+  <ParamField query="Output Blank Value" type="Toggle" >
     When enabled, outputs a blank value (empty string) for items that don't match the condition, maintaining the original list length. When disabled, only returns matching items in a shorter list.
   </ParamField>
 
-  <ParamField query="Cache Response" type="Boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     Caches the AI response to improve performance and reduce costs for repeated identical requests.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="Filtered Output" type="Array">
+<ParamField query="Filtered Output" type="List">
   The filtered list containing only items that match your condition, or a list with blank values (empty strings) if "Output Blank Value" is enabled.
 </ParamField>
 
@@ -49,11 +49,11 @@ Filter List uses AI to intelligently filter items from a list based on your cust
     The cost of the AI API call in dollars.
   </ParamField>
 
-  <ParamField query="Model" type="Text">
+  <ParamField query="Model" type="Select">
     The AI model that was used for filtering.
   </ParamField>
 
-  <ParamField query="Cache Hit" type="Boolean">
+  <ParamField query="Cache Hit" type="Toggle">
     Whether the response was served from cache (true) or required a new AI call (false).
   </ParamField>
 

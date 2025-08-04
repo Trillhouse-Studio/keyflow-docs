@@ -12,18 +12,18 @@ Extract text content from any website by providing a URL. This block can handle 
 
 ### Inputs
 
-<ParamField query="URL" type="string" required>
+<ParamField query="URL" type="Text" required>
   The HTTPS URL of the website you want to scrape. Must start with `https://`.
 </ParamField>
 
-<ParamField query="Advanced Scraping" type="boolean" default="false">
+<ParamField query="Advanced Scraping" type="Toggle" >
   Enable enhanced scraping capabilities for JavaScript-heavy sites and complex page structures. Uses multiple scraping methods for better accuracy.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Browser cookies" type="boolean" default="false">
+  <ParamField query="Browser cookies" type="Toggle" >
     Use browser cookies for authentication when scraping protected content. Requires Advanced Scraping to be enabled.
   </ParamField>
 
@@ -34,7 +34,7 @@ Extract text content from any website by providing a URL. This block can handle 
 
 ### Outputs
 
-<ParamField query="website_content" type="string">
+<ParamField query="website_content" type="Text">
   The extracted text content from the website, converted to clean markdown format for easy processing.
 </ParamField>
 

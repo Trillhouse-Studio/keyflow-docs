@@ -2,37 +2,100 @@
 title: If Else
 ---
 
-### **Overview:**
+### Overview
 
-The `Conditional Execution` block allows for the evaluation of specific conditions to determine the flow of execution. This block effectively directs operations based on whether the specified condition is fulfilled, providing flexibility in processing data dynamically.
+Evaluates conditions and directs workflow execution based on whether the conditions are met. This block supports complex conditional logic with multiple conditions, logical operators, and custom output paths.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature           | Type     | Simple Explanation                                              |
-| ------ | ----------------- | -------- | --------------------------------------------------------------- |
-| input  | `condition_type`  | selector | Defines which type of condition is applied for filtering.       |
-| input  | `condition`       | string   | The specific condition required to trigger a particular action. |
-| input  | `value`           | any      | The data that needs to be evaluated against the condition.      |
-| input  | `condition_value` | string   | The standard or benchmark used for comparison with the value.   |
-| output | `if_true`         | any      | Returns this value if the conditions are met successfully.      |
-| output | _else_            | _any_    | _Returns this value if the conditions are not met._             |
-
-<Note>
-  When a provided condition evaluates to true, only the subflow connected to
-  `if_true` will be executed. Conversely, if it evaluates to false, only the
-  subflow connected to _else_ will proceed.
-</Note>
+<Tip>Essential for creating branching logic, data validation, and conditional processing in your workflows.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can enhance operational efficiency in various situations:
+<ParamField query="Conditions" type="Complex" required>
+  Define conditional blocks with IF, ELSE IF, and ELSE statements. Each block can contain multiple conditions combined with AND/OR operators.
+</ParamField>
 
-- **Conditional Workflow Management:** When developing workflows that require different actions based on user inputs or environmental factors, this block allows seamless transitions between those paths.
-- **Dynamic Content Generation:** In scenarios like personalized marketing offers, depending on whether a user meets certain criteria (like age or spending habits), different offers can be generated automatically.
-- **Automated Alerting System:** For monitoring applications, conditional execution enables real-time alerts when specific thresholds are crossed—such as notifying support teams when system errors occur.
+### Outputs
 
-In summary, whenever there’s a necessity for directing processes based on varying conditions, the `Conditional Execution` block proves invaluable!
+The outputs are dynamically generated based on your conditional blocks. Each condition block creates its own output path, plus a default "else" path.
+
+<ParamField query="Dynamic Outputs" type="Any">
+  Output paths are created for each named condition block (e.g., "if", "else", custom names). The workflow will follow the path of the first condition that evaluates to true.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Use Descriptive Condition Names">
+    Give your condition blocks meaningful names that describe what they're checking.
+    ```text ⚠️ Bad Example wrap
+    Condition blocks: "Case 1", "Case 2", "Case 3"
+    ```
+    ```text ✅ Good Example wrap
+    Condition blocks: "high_priority", "medium_priority", "low_priority"
+    ```
+  </Step>
+
+  <Step title="Order Conditions by Priority">
+    Place the most important or most likely conditions first, as the block stops at the first match.
+    ```text ✅ Good Example wrap
+    1. IF: urgent_flag is true
+    2. ELSE IF: priority > 5
+    3. ELSE: default_processing
+    ```
+  </Step>
+
+  <Step title="Combine Conditions Logically">
+    Use AND for conditions that must all be true, OR for conditions where any can be true.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my condition not working correctly?">
+    Check that your condition type matches your data type and that comparison values are formatted correctly.
+    
+    ```text Example Solution wrap
+    For numbers: Use "[Number] is greater than" with numeric comparison value "10"
+    For text: Use "[Text] contains" with text comparison value "error"
+    For booleans: Use "[Boolean] is true" (no comparison value needed)
+    ```
+  </Accordion>
+
+  <Accordion title="How do I create complex conditions with AND/OR?">
+    <Tip>Add multiple conditions within a single block and specify operators</Tip>
+    Example: Check if (score > 80 AND status = "active") OR (priority = "high")
+    
+    Conditions:
+    1. score > 80 (AND)
+    2. status = "active" (OR) 
+    3. priority = "high"
+    
+    <Info>The block processes conditions left to right with the operators you specify</Info>
+  </Accordion>
+
+  <Accordion title="What condition types are available?">
+    **Number conditions:** greater than, less than, equal to
+    **Text conditions:** exact match, contains, starts with, ends with, is in, is not in
+    **Boolean conditions:** is true, is false
+    **General conditions:** is empty, is not empty
+    
+    <Warning>Make sure your data type matches the condition type you choose</Warning>
+  </Accordion>
+
+  <Accordion title="Why does my workflow always go to 'else'?">
+    This happens when none of your conditions evaluate to true. Common causes:
+    1. Data type mismatch (text vs number)
+    2. Incorrect comparison values
+    3. Missing or null input data
+    4. Case-sensitive text comparisons
+    
+    <Info>Add logging before the If-Else block to verify your input data</Info>
+  </Accordion>
+</AccordionGroup>

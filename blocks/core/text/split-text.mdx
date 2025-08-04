@@ -12,18 +12,18 @@ Divides text into separate parts using specified delimiters, converting strings 
 
 ### Inputs
 
-<ParamField query="String" type="string" required>
+<ParamField query="String" type="Text" required>
   The text you want to split into an array of separate strings.
 </ParamField>
 
-<ParamField query="Split Characters" type="string" default="space">
+<ParamField query="Split Characters" type="Text" default="space">
   Characters that define where the text should be divided. Common examples include commas, semicolons, or pipes.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Newline Split" type="boolean" default="false">
+  <ParamField query="Newline Split" type="Toggle" >
     When enabled, splits the text on newline characters (`\n`) instead of the specified split characters. Useful for processing multi-line text or lists.
   </ParamField>
 </Accordion>

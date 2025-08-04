@@ -12,29 +12,29 @@ Create interactive forms that pause your workflow and request input from team me
 
 ### Inputs
 
-<ParamField query="Assign To" type="object" default="Current user">
+<ParamField query="Assign To" type="Object">
   Select which team member should receive and complete this action.
 </ParamField>
 
-<ParamField query="Context" type="string">
+<ParamField query="Context" type="Text">
     Additional context or background information to help the assigned person understand the action. This generates a contextual report.
 </ParamField>
 
-<ParamField query="Action Input" type="array">
+<ParamField query="Action Input" type="List">
     Define custom form fields that the assigned person will fill out. Configure field types, labels, and requirements.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Cache Response" type="boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     Cache the form response for faster processing in future similar requests.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="Response" type="object">
+<ParamField query="Response" type="Object">
     The completed form data submitted by the assigned team member.
 </ParamField>
 

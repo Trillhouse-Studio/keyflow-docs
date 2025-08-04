@@ -12,33 +12,33 @@ The Research Company block uses AI to generate a detailed report on a company's 
 
 ### Inputs
 
-<ParamField query="Company Info" type="string" required>
+<ParamField query="Company Info" type="Text" required>
   Provide all information you have about the company - name, address, industry, etc.
 </ParamField>
 
-<ParamField query="Smart Search" type="boolean" default="true">
+<ParamField query="Smart Search" type="Toggle">
   Uses enrichment techniques to find information. If enrichment is missing information you requested, it will trigger a deep research to find that information.
 </ParamField>
 
-<ParamField query="Deep Research Condition" type="boolean" default="true">
+<ParamField query="Deep Research Condition" type="Toggle">
     Condition that should trigger a deep research if its missing from enrichment results.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Research Type" type="Dropdown" default="Enrichment">
+  <ParamField query="Research Type" type="Dropdown">
     Manually pick between simple enrichment or deep research. Only visible when Smart Search is disabled.
   </ParamField>
 
-  <ParamField query="Account" type="credential">
+  <ParamField query="Account" type="Select">
     Select the API credentials you want to use for the chosen model.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="Report" type="string">
+<ParamField query="Report" type="Text">
   A comprehensive report on the company's background, products, and competitors, ready for sharing.
 </ParamField>
 

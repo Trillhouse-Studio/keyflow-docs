@@ -12,11 +12,11 @@ Apply standardized formatting transformations to text strings. Choose from five 
 
 ### Inputs
 
-<ParamField query="Value" type="string" required>
+<ParamField query="Value" type="Text" required>
   The text string you want to format or modify.
 </ParamField>
 
-<ParamField query="Formatter" type="string" default="Trim Spaces">
+<ParamField query="Formatter" type="Text" default="Trim Spaces">
   The formatting operation to apply to your text. Choose from:
   - **Trim Spaces**: Remove leading and trailing whitespace
   - **To Lowercase**: Convert all letters to lowercase
@@ -35,7 +35,7 @@ Apply standardized formatting transformations to text strings. Choose from five 
 
 ### Outputs
 
-<ParamField query="formatted_value" type="string">
+<ParamField query="formatted_value" type="Text">
   The text after applying the selected formatting operation.
 </ParamField>
 

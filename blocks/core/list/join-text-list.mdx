@@ -16,21 +16,21 @@ Combines multiple text items from a list into a single string with customizable 
   The list of text items to combine into a single string.
 </ParamField>
 
-<ParamField query="Join Characters" type="string" default="">
+<ParamField query="Join Characters" type="Text">
   Characters used to separate each text item in the final output. Leave empty to join without separators.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Join By New Line" type="boolean" default="false">
+  <ParamField query="Join By New Line" type="Toggle" >
     When enabled, each text item will be separated by a new line instead of the join characters. This setting takes priority over join characters.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="joined_string" type="string">
+<ParamField query="joined_string" type="Text">
   The combined text string with all list items joined using the specified separator.
 </ParamField>
 

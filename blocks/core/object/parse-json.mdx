@@ -2,28 +2,145 @@
 title: Parse JSON
 ---
 
-### **Overview:**
+### Overview
 
-The `Parse JSON` block is essential for converting valid JSON strings into structured JSON objects. This functionality is crucial for integrating data from various systems and streamlining data processing workflows.
+The Parse JSON block converts valid JSON strings into structured objects or arrays, enabling seamless data processing and integration within your workflows. This block intelligently handles both single objects and arrays, with automatic output type detection based on your configuration.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature       | Type   | Simple Explanation                                                  |
-| ------ | ------------- | ------ | ------------------------------------------------------------------- |
-| input  | `json_string` | string | The valid JSON string you want to convert into a JSON object.       |
-| output | `json_object` | object | The resulting structured JSON object created from the input string. |
+<Tip>Essential for working with API responses, configuration files, and any JSON-formatted data in your flows.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can enhance efficiency in several scenarios:
+<ParamField query="JSON String" type="Text" required>
+  The JSON string you want to parse. Must be valid JSON format to avoid parsing errors.
+</ParamField>
 
-- **API Integration:** When interacting with APIs, this block allows you to easily parse and extract relevant information from complex JSON responses.
-- **Data Processing:** If you're working with datasets formatted as JSON, it helps transform the raw data into accessible structures for analysis or visualization.
-- **Configuration Parsing:** In applications where settings are stored in a JSON format, use this tool to extract configuration details seamlessly.
-- **Database Interfacing:** Prior to storing or manipulating data within databases, utilize this block to ensure that the incoming JSON strings are correctly parsed into objects.
+<ParamField query="Value is array?" type="Toggle">
+  **Advanced Setting**: Specify whether the output should be treated as an array. When enabled:
+  - If the parsed JSON is already an array, it remains unchanged
+  - If the parsed JSON is a single object, it gets wrapped in an array
+  
+  This setting affects the output data type and is useful for ensuring consistent array handling in downstream blocks.
+</ParamField>
 
-In summary, whenever there's a need to convert unstructured text data in the form of a JSON string into usable JavaScript objects, the `Parse JSON` block is invaluable!
+<br></br>
+
+### Outputs
+
+<ParamField query="json" type="object | array">
+  The parsed JSON data. Output type depends on the input data and configuration:
+  - **Object**: When parsing single JSON objects (default behavior)
+  - **Array**: When parsing JSON arrays or when "Value is array?" is enabled
+  - **Batch Mode**: Output types are automatically adjusted for batch processing
+</ParamField>
+
+
+### Usage Examples
+
+<CodeGroup>
+```json Simple Object
+{
+  "name": "John Doe",
+  "age": 30,
+  "city": "New York"
+}
+```
+
+```json Array of Objects
+[
+  {"id": 1, "name": "Product A", "price": 29.99},
+  {"id": 2, "name": "Product B", "price": 39.99}
+]
+```
+
+```json Nested Structure
+{
+  "user": {
+    "profile": {
+      "name": "Jane Smith",
+      "preferences": ["reading", "hiking"]
+    }
+  },
+  "metadata": {
+    "created": "2024-01-01",
+    "version": "1.0"
+  }
+}
+```
+</CodeGroup>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Validate JSON Format">
+    Ensure your JSON string is properly formatted before parsing. Invalid JSON will cause the block to fail with an error.
+  </Step>
+  
+  <Step title="Use Array Setting Strategically">
+    Enable "Value is array?" when you need consistent array output for downstream processing, even when dealing with single objects.
+  </Step>
+  
+  <Step title="Handle Batch Mode Appropriately">
+    Consider how batch mode affects your output types when designing flows that process multiple JSON strings.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting 'Invalid JSON string' error?">
+    This error occurs when the input string is not valid JSON format. Common issues include:
+    
+    ```json Examples of Invalid JSON
+    // Missing quotes around property names
+    {name: "John", age: 30}
+    
+    // Trailing commas
+    {"name": "John", "age": 30,}
+    
+    // Single quotes instead of double quotes
+    {'name': 'John', 'age': 30}
+    
+    // Unescaped special characters
+    {"message": "He said "Hello""}
+    ```
+    
+    <Tip>Use a JSON validator to check your string format before parsing</Tip>
+  </Accordion>
+
+  <Accordion title="What happens with empty or null input?">
+    The block will throw an error with the message "Please provide a valid json string" when:
+    - Input is null or undefined
+    - Input is an empty string
+    - Input is whitespace only
+    
+    <Warning>Always ensure your JSON string input is populated before parsing</Warning>
+  </Accordion>
+
+  <Accordion title="How does the 'Value is array?' setting work?">
+    This advanced setting controls output formatting:
+    
+    <Info>
+    **Disabled (default)**: Output matches input structure
+    - `{"name": "John"}` → Object output
+    - `[{"name": "John"}]` → Array output
+    
+    **Enabled**: Ensures array output
+    - `{"name": "John"}` → Array output `[{"name": "John"}]`
+    - `[{"name": "John"}]` → Array output (unchanged)
+    </Info>
+  </Accordion>
+
+  <Accordion title="Why is my output type different in batch mode?">
+    Batch mode automatically adjusts output types to handle multiple inputs:
+    - Single object becomes object array
+    - Single array becomes array of arrays
+    
+    This ensures consistent data structures when processing multiple JSON strings simultaneously.
+  </Accordion>
+</AccordionGroup>

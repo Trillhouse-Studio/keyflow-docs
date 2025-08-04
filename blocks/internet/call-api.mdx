@@ -12,15 +12,15 @@ Make HTTP requests to external APIs and web services. This versatile block enabl
 
 ### Inputs
 
-<ParamField query="Method" type="string" required>
+<ParamField query="Method" type="Text" required>
   The HTTP method for your request. Choose from GET, POST, PUT, PATCH, or DELETE.
 </ParamField>
 
-<ParamField query="URL" type="string" required>
+<ParamField query="URL" type="Text" required>
   The complete URL endpoint for your API request. Must be a valid HTTPS URL.
 </ParamField>
 
-<ParamField query="Headers" type="object">
+<ParamField query="Headers" type="Object">
   HTTP headers to include with your request. Common headers include authentication tokens, content-type specifications, and custom API headers.
   
   Example format:
@@ -33,7 +33,7 @@ Make HTTP requests to external APIs and web services. This versatile block enabl
   ```
 </ParamField>
 
-<ParamField query="Body" type="object">
+<ParamField query="Body" type="Object">
   Request body data for POST, PUT, and PATCH requests. Can be a JSON object, form data, or raw text depending on your API requirements.
   
   Example format:
@@ -48,11 +48,11 @@ Make HTTP requests to external APIs and web services. This versatile block enabl
 
 ### Outputs
 
-<ParamField query="API Response" type="object">
+<ParamField query="API Response" type="Object">
   The complete response data returned by the API, parsed as a JSON object when possible.
 </ParamField>
 
-<ParamField query="Status Code" type="string">
+<ParamField query="Status Code" type="Text">
   The HTTP status code returned by the API (e.g., "200" for success, "404" for not found, "500" for server error).
 </ParamField>
 

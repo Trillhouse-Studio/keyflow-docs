@@ -12,36 +12,36 @@ The Text to Speech block converts written text into natural-sounding audio using
 
 ### Inputs
 
-<ParamField query="Text" type="string" required>
+<ParamField query="Text" type="Text" required>
   The text you want to convert into speech. Can be sentences, paragraphs, or longer content.
 </ParamField>
 
-<ParamField query="New File Name" type="string" required>
+<ParamField query="New File Name" type="Text" required>
   The name for the generated audio file. Will automatically add .mp3 extension if not included.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Cache Response" type="boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     Whether to cache the response for future use to save costs on identical text-to-speech requests.
   </ParamField>
 
-  <ParamField query="Account" type="credential">
+  <ParamField query="Account" type="Select">
     Select the ElevenLabs credentials you want to use for voice generation.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="MP3 File Name" type="file">
+<ParamField query="MP3 File Name" type="File">
   The generated audio file containing the spoken version of your text, saved as an MP3 format.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Additional Outputs">
-  <ParamField query="Cache Hit" type="boolean">
+  <ParamField query="Cache Hit" type="Toggle">
     Whether this response was retrieved from cache to save on costs.
   </ParamField>
 </Accordion>

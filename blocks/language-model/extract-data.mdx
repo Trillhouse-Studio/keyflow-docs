@@ -12,7 +12,7 @@ Extracts structured data from unstructured text using AI. Define a custom schema
 
 ### Inputs
 
-<ParamField query="Text" type="String" required>
+<ParamField query="Text" type="Text" required>
   The unstructured text you want to extract data from.
 </ParamField>
 
@@ -20,22 +20,22 @@ Extracts structured data from unstructured text using AI. Define a custom schema
   Define the structure and fields of data you want to extract. Create custom fields with descriptions to guide the extraction process.
 </ParamField>
 
-<ParamField query="Additional Context" type="String">
+<ParamField query="Additional Context" type="Text">
   Provide additional rules or context to guide the extraction process.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Model" type="String" default="gpt-4-1-nano">
+  <ParamField query="Model" type="Select">
     The AI model to use for data extraction. Choose based on complexity and accuracy needs.
   </ParamField>
 
-  <ParamField query="Cache Response" type="Boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     Whether to cache the response for future use to improve performance and reduce costs.
   </ParamField>
 
-  <ParamField query="Account" type="String">
+  <ParamField query="Account" type="Select">
     Select the AI credentials you want to use for the extraction.
   </ParamField>
 </Accordion>

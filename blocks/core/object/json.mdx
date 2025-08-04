@@ -2,48 +2,94 @@
 title: JSON
 ---
 
-### **Overview:**
+### Overview
 
-The `JSON` block facilitates the construction of JSON objects that can be utilized as input for other blocks that require JSON data. This block provides a flexible hybrid approach, allowing you to define headers and body content for the Call API block efficiently.
+Creates and manipulates JSON objects, enabling structured data handling and transformation. The JSON block provides flexible methods for building JSON objects from static values, dynamic inputs, or a combination of both.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature | Type   | Simple Explanation                                                 |
-| ------ | ------- | ------ | ------------------------------------------------------------------ |
-| input  | `data`  | object | The properties that will be included in the resulting JSON object. |
-| output | `json`  | object | The generated JSON object, ready for use in subsequent blocks.     |
+<Tip>Perfect for building API request bodies, configuration objects, or structured data for other blocks that require JSON input.</Tip>
 
 ---
 
-### Adding Properties
+### Inputs
 
-You can specify properties for the `data` input using several approaches:
+<ParamField query="data" type="Object" required>
+  A list of key-value pairs that define the properties of the resulting JSON object. Each property can be configured with:
+  - **Key**: The property name in the JSON object
+  - **Value**: The property value (can be static text or left empty for dynamic input)
+  - **Type**: Data type conversion (string, number, boolean, object)
+</ParamField>
 
-1. **Static:** You manually set predefined properties from the side panel.
-2. **Dynamic:** You pass an entire object into the block during runtime.
-3. **Hybrid:** Some properties are predefined while others are accepted dynamically at runtime.
+<br></br>
 
-#### Method 1 - Static
+### Outputs
 
-To use static methods, click on the block to access the side panel. Locate the data section where you can click "+ Add data" to add header properties or click "X" to remove any existing property.
-
-#### Method 3 - Hybrid
-
-In a hybrid setup, start by defining certain static properties and allow dynamic inputs from other blocks during execution. Click on "+ Add data" within the side panel to add a property and enter any static values as outlined in Method 1 above.
-
-For dynamic values, only provide a key and leave its value blank; this will create a new handle named `data.YOUR_KEY_NAME`. You can then connect outputs from various blocks as needed.
+<ParamField query="json" type="Object">
+  The generated JSON object containing all configured properties with their values properly typed and formatted.
+</ParamField>
 
 ---
 
-### Use Cases
+### Best Practices
 
-Consider how this block streamlines processes in various scenarios:
+<Steps>
+  <Step title="Choose Appropriate Data Types">
+    Always specify the correct data type for each property to ensure proper JSON formatting and prevent type-related errors in downstream blocks.
+  </Step>
+  
+  <Step title="Use Meaningful Property Names">
+    Choose descriptive property names that clearly indicate the data they contain, especially when creating dynamic input handles.
+  </Step>
+  
+  <Step title="Validate Complex Objects">
+    When using object type properties, ensure the input JSON strings are properly formatted to avoid parsing errors.
+  </Step>
+  
+  <Step title="Plan for Scalability">
+    Use the hybrid approach when you need a mix of static and dynamic properties, allowing for flexible data structures that can adapt to different scenarios.
+  </Step>
+</Steps>
 
-- **API Interaction:** When developing applications that call external APIs, this block simplifies building complex headers and nested body structures critical for many modern API specifications.
-- **Dynamic Form Submission:** In scenarios where forms need to send structured data dynamically based on user input or previous actions within your application flow.
-- **Data Transformation Tasks:** Aiding situations where needed parameters change frequently; thus requiring rapid adjustments without rewriting configurations continuously.
-- **Configuration Management**: When there is a necessity to manage configuration settings stored as JSON; easily customize settings based on different environments (like development, testing, production).
+---
 
-In conclusion, with its versatile handling of JSON objects combined with both static and dynamic capabilities—this `JSON` block is essential whenever structured communication via APIs is required!
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my number showing as a string in the output?">
+    Ensure you've selected "number" as the data type for numeric properties. If the type is set to "string", all values will be treated as text.
+    
+    <Warning>Check that your input values are valid numbers when using the number type</Warning>
+  </Accordion>
+  
+  <Accordion title="How do I create nested JSON objects?">
+    For nested objects, use the "object" data type and provide a valid JSON string as the value:
+    ```json
+    {"key": "value", "nested": {"innerKey": "innerValue"}}
+    ```
+    
+    <Tip>You can also connect the output of another JSON block to create nested structures</Tip>
+  </Accordion>
+  
+  <Accordion title="What happens if I don't connect a dynamic input?">
+    Properties with unconnected dynamic inputs will have `null` values in the output JSON object.
+    
+    <Info>This behavior allows for optional properties that may not always have values</Info>
+  </Accordion>
+  
+  <Accordion title="Can I modify existing JSON objects?">
+    The JSON block creates new objects rather than modifying existing ones. To modify JSON objects, consider using the Write JSON block instead.
+    
+    <Note>For simple property additions, you can use the hybrid approach with the existing object as a base</Note>
+  </Accordion>
+  
+  <Accordion title="How do I handle boolean values correctly?">
+    For boolean properties:
+    - Use the "boolean" data type
+    - Input "true" or "false" as text values
+    - The block will convert these to proper JSON boolean values
+    
+    ```json
+    Correct: {"isActive": true}
+    Incorrect: {"isActive": "true"}
+    ```
+  </Accordion>
+</AccordionGroup>

@@ -282,9 +282,9 @@
           "group": "Basics",
           "pages": [
             "blocks/core/note",
-            "blocks/core/advanced/wait",
-            "blocks/core/advanced/current-datetime",
-            "blocks/core/advanced/current-run-info"
+            "blocks/core/basics/wait",
+            "blocks/core/basics/datetime",
+            "blocks/core/basics/current-run-info"
           ]
         },
         {

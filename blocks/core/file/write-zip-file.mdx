@@ -12,7 +12,7 @@ The Generate Zip File block compresses multiple files into a ZIP archive, enabli
 
 ### Inputs
 
-<ParamField query="Zip File Name" type="string" required>
+<ParamField query="Zip File Name" type="Text" required>
   The name for your ZIP file. The `.zip` extension will be automatically added if not included.
 </ParamField>
 
@@ -27,14 +27,14 @@ The Generate Zip File block compresses multiple files into a ZIP archive, enabli
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="File Type" type="selector" default=".txt">
+  <ParamField query="File Type" type="Select" default=".txt">
     The file extension to apply to all files in the ZIP. Options include `.pdf`, `.json`, `.csv`, `.txt`, `.html`, and `.docx`. Extensions are automatically added to file names if not already present.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="Zip File Name" type="file">
+<ParamField query="Zip File Name" type="File">
   The generated ZIP file containing all specified files with their contents, ready for download or further processing.
 </ParamField>
 

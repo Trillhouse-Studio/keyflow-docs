@@ -12,7 +12,7 @@ Performs Google searches and retrieves search results, enabling automated resear
 
 ### Inputs
 
-<ParamField query="Query" type="string" required>
+<ParamField query="Query" type="Text" required>
   The search term or query for Google. Maximum length of 256 characters.
 </ParamField>
 
@@ -23,7 +23,7 @@ Performs Google searches and retrieves search results, enabling automated resear
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Account" type="string">
+  <ParamField query="Account" type="Select">
     Select the SerpAPI credentials to use for performing searches. If not specified, Keyflow's shared API key will be used (costs credits).
   </ParamField>
 </Accordion>
@@ -45,11 +45,11 @@ Performs Google searches and retrieves search results, enabling automated resear
     An array of text excerpts or descriptions from each web page in the search results.
   </ParamField>
 
-  <ParamField query="current_page_link" type="string">
+  <ParamField query="current_page_link" type="Text">
     The direct Google search URL for the performed query.
   </ParamField>
 
-  <ParamField query="next_page_link" type="string">
+  <ParamField query="next_page_link" type="Text">
     URL for the next page of search results, if available. Empty if no additional results exist.
   </ParamField>
 </Accordion>

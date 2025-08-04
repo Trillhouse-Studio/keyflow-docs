@@ -12,7 +12,7 @@ Systematically explores websites to discover and extract all linked pages within
 
 ### Inputs
 
-<ParamField query="URL" type="string" required>
+<ParamField query="URL" type="Text" required>
   The starting web address to begin crawling from. Must be a valid HTTPS URL.
 </ParamField>
 
@@ -23,7 +23,7 @@ Systematically explores websites to discover and extract all linked pages within
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Domain Whitelist" type="array">
+  <ParamField query="Domain Whitelist" type="List">
     Restrict crawling to specific domains only. Leave empty to crawl any domain found in links. Enter domains like `keyflow.space` or `docs.keyflow.space`.
   </ParamField>
 </Accordion>

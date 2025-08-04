@@ -2,29 +2,99 @@
 title: Write JSON
 ---
 
-### **Overview:**
+### Overview
 
-The `Write JSON` block enables users to efficiently add or update key-value pairs within a JSON object. This block eliminates the need for manual interventions or custom coding, making it particularly useful for automation and data management.
+Adds or modifies data within a JSON object by specifying key paths and values. This block supports both simple key-value operations and nested object manipulation using dot notation.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature        | Type   | Simple Explanation                                                                                                                    |
-| ------ | -------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| input  | `key`          | string | A list of comma-separated keys that specify which keys in the JSON object will have their values added or updated.                    |
-| input  | `json`         | object | The original JSON data designated for updating. If this is absent, a new JSON object will be created instead.                         |
-| input  | `json_value`   | string | A list of comma-separated values to be added or updated in conjunction with the specified keys; can represent new or existing values. |
-| output | `updated_json` | object | The modified version of the original JSON that reflects all changes made by updating or adding values for the specified keys.         |
+<Tip>Perfect for building configuration objects, updating API payloads, or creating structured data from individual values.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can streamline various processes:
+<ParamField query="JSON" type="Object">
+  The original JSON object to modify. If not provided, a new empty object will be created.
+</ParamField>
 
-- **Updating Configuration Settings:** When managing application settings, use this block to effortlessly inject new parameters into your configuration without manually editing files.
-- **Modifying API Response Data:** If you're working with responses from external APIs, apply this block to ensure that your data remains current by updating key information right away.
-- **Dynamic Updating of JSON Content:** In automated workflows where you frequently modify data structures, use this tool to maintain up-to-date records without extensive coding efforts.
+<ParamField query="Values" type="Text" required>
+  The values to write to the JSON object. For multiple values, use comma-separated format.
+</ParamField>
 
-In summary, whenever there's a need to adjust key-value pairs within a JSON structure, the `Write JSON` block provides an effective solution!
+<ParamField query="Key" type="Text" required>
+  The key path where to write the value. Supports dot notation for nested objects (e.g., `user.profile.name`). For multiple keys, use comma-separated format.
+</ParamField>
+
+### Outputs
+
+<ParamField query="updated_json" type="Object">
+  The modified JSON object with the new or updated key-value pairs.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Match Keys with Values">
+    Ensure the number of keys matches the number of values when using comma-separated lists.
+    ```text ⚠️ Bad Example wrap
+    Key: "name, email, age"
+    Values: "John, john@example.com"  // Missing age value
+    ```
+    ```text ✅ Good Example wrap
+    Key: "name, email, age"
+    Values: "John, john@example.com, 25"  // All values provided
+    ```
+  </Step>
+
+  <Step title="Use Dot Notation for Nested Objects">
+    Create nested structures efficiently with dot notation instead of multiple Write JSON blocks.
+    ```text ✅ Good Example wrap
+    Key: "user.profile.name, user.settings.theme"
+    Values: "John Smith, dark"
+    ```
+  </Step>
+
+  <Step title="Handle Missing Input Gracefully">
+    The block creates a new empty object if no JSON input is provided, making it perfect for building objects from scratch.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my nested object not being created?">
+    Check that you're using proper dot notation and that your key path is correctly formatted.
+    
+    ```json Example Solution wrap
+    // To create: {"user": {"profile": {"name": "John"}}}
+    // Use Key: "user.profile.name"
+    // Use Values: "John"
+    ```
+  </Accordion>
+
+  <Accordion title="What happens if I have more keys than values?">
+    <Warning>Extra keys will receive undefined values</Warning>
+    Always ensure your comma-separated keys and values lists have the same number of items.
+    
+    ```text Good Practice wrap
+    Key: "name, email"
+    Values: "John, john@example.com"
+    // Both have 2 items ✅
+    ```
+  </Accordion>
+
+  <Accordion title="Can I overwrite existing values?">
+    Yes! The block will update existing keys with new values while preserving other properties.
+    
+    ```json Example wrap
+    // Original: {"name": "Old Name", "email": "test@example.com"}
+    // Key: "name", Values: "New Name"
+    // Result: {"name": "New Name", "email": "test@example.com"}
+    ```
+    
+    <Info>Existing nested objects are preserved when updating specific nested properties</Info>
+  </Accordion>
+</AccordionGroup>

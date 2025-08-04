@@ -16,7 +16,7 @@ Converts PDF documents into structured markdown text using AI vision models. The
   Upload the PDF file you want to analyze. Supports any PDF document including scanned documents and images.
 </ParamField>
 
-<ParamField query="Model" type="Selector" default="GPT-4.1 Mini">
+<ParamField query="Model" type="Select">
   Choose the AI model to analyze your PDF. Higher-tier models provide more accurate text extraction and better formatting preservation.
 </ParamField>
 
@@ -27,18 +27,18 @@ Converts PDF documents into structured markdown text using AI vision models. The
     Specify which pages to analyze using comma-separated page numbers (e.g., "1,3,5" or "1,2,3"). Leave empty to analyze all pages.
   </ParamField>
 
-  <ParamField query="Maintain Format" type="Boolean" default="false">
+  <ParamField query="Maintain Format" type="Toggle">
     When enabled, ensures consistent markdown formatting across all pages. Useful for multi-page documents where formatting consistency matters.
   </ParamField>
 
-  <ParamField query="Cache Response" type="Boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     Saves processing time and costs by returning cached results when analyzing the same PDF with identical settings.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="Page Analysis" type="String Array">
+<ParamField query="Page Analysis" type="Text List">
   An array containing the markdown content for each analyzed page. Each element represents one page of your PDF converted to structured text.
 </ParamField>
 

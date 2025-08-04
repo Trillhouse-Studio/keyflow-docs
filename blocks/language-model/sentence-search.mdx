@@ -12,11 +12,11 @@ Searches through large text documents using AI embeddings to find the most relev
 
 ### Inputs
 
-<ParamField query="Text" type="String" required>
+<ParamField query="Text" type="Text" required>
   The document or text content you want to search through.
 </ParamField>
 
-<ParamField query="Query" type="String" required>
+<ParamField query="Query" type="Text" required>
   Your search query - the system will find text sections most semantically similar to this query.
 </ParamField>
 
@@ -34,7 +34,7 @@ Searches through large text documents using AI embeddings to find the most relev
 
 ### Outputs
 
-<ParamField query="Relevant Chunks" type="String Array">
+<ParamField query="Relevant Chunks" type="Text List">
   Array of text chunks that are most semantically relevant to your query, ordered by similarity.
 </ParamField>
 

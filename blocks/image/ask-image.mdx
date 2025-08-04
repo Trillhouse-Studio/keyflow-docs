@@ -12,33 +12,33 @@ The Ask Image block allows you to analyze images using advanced AI vision models
 
 ### Inputs
 
-<ParamField query="File name" type="file" required>
+<ParamField query="File name" type="File" required>
   The image file you want to analyze. Supports common image formats like PNG, JPG, JPEG, and GIF.
 </ParamField>
 
-<ParamField query="Prompt" type="string" required>
+<ParamField query="Prompt" type="Text" required>
   Describe the analysis you want to perform on the image. Be specific about what you want to know or extract.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Model" type="string" default="gpt-4-vision-preview">
+  <ParamField query="Model" type="Select">
     The AI model to use for image analysis. Choose based on your needs for accuracy and capabilities.
   </ParamField>
 
-  <ParamField query="Cache Response" type="boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     If checked, the model response will be cached for future use to save costs on identical requests.
   </ParamField>
 
-  <ParamField query="Account" type="credential">
+  <ParamField query="Account" type="Select">
     Select the API credentials you want to use for the chosen model provider.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="Answer" type="string">
+<ParamField query="Answer" type="Text">
   The AI-generated response to your prompt about the image, containing the analysis or information you requested.
 </ParamField>
 

@@ -1,0 +1,105 @@
+---
+title: Current Run Info
+---
+
+### Overview
+
+Provides metadata and information about the currently executing workflow run. This block is useful for logging, debugging, and creating audit trails in your workflows.
+
+<Tip>Essential for tracking workflow execution, creating logs, and building monitoring dashboards.</Tip>
+
+---
+
+### Inputs
+
+This block requires no inputs and automatically generates metadata about the current workflow execution.
+
+### Outputs
+
+<ParamField query="flow_name" type="Text">
+  The name of the workflow that is currently running.
+</ParamField>
+
+<ParamField query="trigger_method" type="Text">
+  How the workflow was triggered (e.g., "MANUAL", "API", "SCHEDULE").
+</ParamField>
+
+<ParamField query="start_time" type="Text">
+  ISO timestamp of when the workflow execution started.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="run_link" type="Text">
+    Direct URL link to view this specific workflow run in the Keyflow interface.
+  </ParamField>
+
+  <ParamField query="version_link" type="Text">
+    URL link to the workflow version that is being executed.
+  </ParamField>
+
+  <ParamField query="user_email" type="Text">
+    Email address of the user who initiated the workflow run.
+  </ParamField>
+
+  <ParamField query="space_name" type="Text">
+    Name of the workspace/space where the workflow is running.
+  </ParamField>
+
+  <ParamField query="deployment_tag" type="Text">
+    The deployment tag associated with this workflow execution.
+  </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Use for Comprehensive Logging">
+    Include workflow metadata in your logs to make debugging and monitoring easier.
+    ```text ✅ Good Example wrap
+    Log message: "Processing started in {flow_name} by {user_email} at {start_time}"
+    ```
+  </Step>
+
+  <Step title="Create Audit Trails">
+    Use run information to maintain detailed records of workflow executions for compliance and tracking.
+  </Step>
+
+  <Step title="Build Monitoring Dashboards">
+    Leverage the metadata to create dashboards that track workflow performance and usage patterns.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why are some outputs empty or null?">
+    Some metadata fields may be empty depending on how the workflow was triggered or configured.
+    
+    <Info>deployment_tag will be empty for workflows not associated with a specific deployment</Info>
+  </Accordion>
+
+  <Accordion title="How can I use the run_link and version_link?">
+    <Tip>These links are perfect for notifications and reports</Tip>
+    Use these URLs in notifications, emails, or reports to provide direct access to the workflow execution details.
+    
+    ```text Example Usage wrap
+    Send email: "Workflow completed successfully. View details: {run_link}"
+    ```
+  </Accordion>
+
+  <Accordion title="What trigger methods are available?">
+    Common trigger methods include:
+    - MANUAL: Started by a user clicking "Run"
+    - API: Triggered via API call
+    - SCHEDULE: Started by a scheduled trigger
+    - WEBHOOK: Triggered by an incoming webhook
+    
+    <Warning>The exact trigger method names may vary based on your Keyflow configuration</Warning>
+  </Accordion>
+</AccordionGroup>

@@ -2,34 +2,103 @@
 title: Switch
 ---
 
-### **Overview:**
+### Overview
 
-The `Switch` block is designed to execute specific subflows based on a defined criterion evaluated against a list of cases. This functionality enables dynamic and conditional processing, allowing for tailored actions based on varying input scenarios.
+Routes workflow execution to different paths based on matching a value against predefined cases. This block compares an input value against a list of cases and directs data to the matching output path.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature                           | Type   | Simple Explanation                                                   |
-| ------ | --------------------------------- | ------ | -------------------------------------------------------------------- |
-| input  | `cases`                           | list   | A collection of cases used for comparison against the criterion.     |
-| input  | `criterion`                       | string | The value that will be compared with each case in the provided list. |
-| output | `{case_name}` (dynamically named) | any    | Executes the connected subflow corresponding to the matched case.    |
-
-<Note>
-  Only the subflow connected to the output handle corresponding to the matched
-  case will be executed.
-</Note>
+<Tip>Perfect for multi-way branching logic when you need to route data based on specific values rather than complex conditions.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block can enhance your workflows in practical situations:
+<ParamField query="Value" type="Any" required>
+  The data that will be passed through to the matching output path.
+</ParamField>
 
-- **Dynamic Case-based Processing:** In a customer support application, you might want different responses triggered depending on issue categories (like billing, technical support, etc.), enabling targeted assistance without manual intervention.
-- **Conditional Data Routing:** For an e-commerce platform, use this block to navigate orders through various processing lanes based on criteria such as payment status (e.g., pending payment versus confirmed), ensuring efficient order management.
+<ParamField query="Criterion" type="Text" required>
+  The value to match against your defined cases. This determines which output path will be activated.
+</ParamField>
 
-- **Multi-Scenario Handling:** Imagine a health monitoring app that sends alerts according to different patient data readings; by employing this block, you can process multiple condition evaluations seamlessly within one flow and respond accordingly.
+<ParamField query="Cases" type="List">
+  Define the cases to match against. Each case creates a corresponding output path.
+</ParamField>
 
-In general, whenever decisions need to be made or actions taken based on varying conditions or scenarios, the `Case Evaluator` block serves as an essential tool!
+### Outputs
+
+The outputs are dynamically generated based on your defined cases, plus a default path for unmatched values.
+
+<ParamField query="Default" type="Any">
+  Receives the input value when no cases match the criterion.
+</ParamField>
+
+<br></br>
+
+<Accordion title="Additional Outputs">
+  <ParamField query="Dynamic Case Outputs" type="Any">
+    One output is created for each case you define. The matching case output receives the input value.
+  </ParamField>
+</Accordion>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Use Descriptive Case Names">
+    Choose clear case names that indicate what they represent for easier workflow understanding.
+    ```text ⚠️ Bad Example wrap
+    Cases: ["A", "B", "C"]
+    ```
+    ```text ✅ Good Example wrap
+    Cases: ["high_priority", "medium_priority", "low_priority"]
+    ```
+  </Step>
+
+  <Step title="Plan for the Default Case">
+    Always connect the Default output to handle values that don't match any defined cases.
+    ```text ✅ Good Example wrap
+    Cases: ["approved", "pending", "rejected"]
+    Default: Handle unexpected status values
+    ```
+  </Step>
+
+  <Step title="Keep Cases Simple and Exact">
+    Use exact text matches. For complex matching logic, consider using the If-Else block instead.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why does my data always go to Default?">
+    The criterion value doesn't exactly match any of your defined cases. Check for exact spelling, capitalization, and spacing.
+    
+    ```text Example Solution wrap
+    Criterion: "High Priority"
+    Cases: ["high priority"] ← Won't match due to capitalization
+    
+    Fix: Make cases match exactly: ["High Priority"]
+    ```
+  </Accordion>
+
+  <Accordion title="How do I add or remove cases?">
+    <Tip>Use the Cases configuration panel</Tip>
+    In the Cases field, you can add new case objects or remove existing ones. Each case automatically creates a corresponding output handle.
+    
+    <Info>Output handles update automatically when you modify cases</Info>
+  </Accordion>
+
+  <Accordion title="Can I match numbers or other data types?">
+    The Switch block compares the criterion as text. For numeric or complex comparisons, use the If-Else block instead.
+    
+    ```text When to use Switch vs If-Else wrap
+    Switch: Exact text matching ("status", "category", "type")
+    If-Else: Complex conditions (number > 10, contains text, etc.)
+    ```
+    
+    <Warning>Numeric values are converted to strings for comparison</Warning>
+  </Accordion>
+</AccordionGroup>

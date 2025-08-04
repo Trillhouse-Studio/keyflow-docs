@@ -1,0 +1,95 @@
+---
+title: Datetime
+---
+
+### Overview
+
+Generates the current date and time in your specified format and timezone. This block is essential for timestamps, logging, and time-based operations in your workflows.
+
+<Tip>Perfect for adding timestamps to data, scheduling operations, or creating time-based file names.</Tip>
+
+---
+
+### Inputs
+
+<ParamField query="Format" type="Text" default="YYYY-MM-DD HH:MM:SS">
+  Choose from predefined date formats or select "Custom" to define your own format.
+</ParamField>
+
+<ParamField query="Timezone" type="Text" default="America/Toronto">
+  The timezone from which to get the date and time. Uses standard timezone identifiers like "America/New_York" or "Asia/Kolkata".
+</ParamField>
+
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Custom Format" type="Text">
+    Your custom date and time format string. Only appears when Format is set to "Custom". Use tokens like DD/MM/YY HH:MM.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="date_time" type="Text">
+  The formatted current date and time string according to your specified format and timezone.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Choose Appropriate Format for Your Use Case">
+    Different formats work better for different purposes - logs, file names, or user display.
+    ```text ⚠️ Bad Example wrap
+    Using default format for file names: "2024-01-15 14:30:25"
+    ```
+    ```text ✅ Good Example wrap
+    Using custom format for file names: "20240115_143025"
+    ```
+  </Step>
+
+  <Step title="Specify Correct Timezone">
+    Always use the proper timezone identifier to ensure accurate timestamps.
+    ```text ✅ Good Example wrap
+    Format: "YYYY-MM-DD HH:MM:SS"
+    Timezone: "America/New_York"
+    ```
+  </Step>
+
+  <Step title="Test Custom Formats">
+    When using custom formats, verify the output matches your expectations before using in production workflows.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why is my custom format not working?">
+    Check that you've selected "Custom" in the Format field and that your format string uses valid tokens.
+    
+    ```text Example Solution wrap
+    Valid tokens: YYYY (year), MM (month), DD (day), HH (hour), MM (minute), SS (second)
+    Example: "DD/MM/YYYY HH:MM:SS"
+    ```
+  </Accordion>
+
+  <Accordion title="How do I find the correct timezone identifier?">
+    <Tip>Use standard IANA timezone names</Tip>
+    Common formats: Continent/City (e.g., "America/New_York", "Europe/London", "Asia/Tokyo")
+    
+    <Info>The block defaults to your browser's detected timezone if available</Info>
+  </Accordion>
+
+  <Accordion title="What predefined formats are available?">
+    The block includes several common date formats:
+    - YYYY-MM-DD HH:MM:SS (ISO-like format)
+    - DD-MM-YYYY HH:MM:SS (European format)  
+    - MM-DD-YYYY HH:MM:SS (US format)
+    - Custom (define your own)
+    
+    <Warning>Custom format requires the Custom Format field to be filled</Warning>
+  </Accordion>
+</AccordionGroup>

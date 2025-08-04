@@ -12,44 +12,44 @@ Automatically classify text data into predefined categories using AI. Perfect fo
 
 ### Inputs
 
-<ParamField query="Input" type="string" required>
+<ParamField query="Input" type="Text" required>
   The text you want to classify into one of your predefined categories.
 </ParamField>
 
-<ParamField query="Categories" type="object" required>
+<ParamField query="Categories" type="Object" required>
   Define the categories for classification. Each category should have a name and optional description.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Model" type="string" default="GPT-4 1 Nano">
+  <ParamField query="Model" type="Select">
     The AI model to use for categorization. Faster models work well for simple categorization tasks.
   </ParamField>
 
-  <ParamField query="Include Justification" type="boolean" default="false">
+  <ParamField query="Include Justification" type="Toggle" >
     If checked, the AI will provide reasoning for why it chose the specific category.
   </ParamField>
 
-  <ParamField query="Cache Response" type="boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     If checked, identical input/category combinations will be cached to improve performance and reduce costs.
   </ParamField>
 
-  <ParamField query="Account" type="string">
+  <ParamField query="Account" type="Select">
     Select the AI credentials to use for the categorization.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="Selected Category" type="string">
+<ParamField query="Selected Category" type="Text">
   The category name that best matches the input text.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Additional Outputs">
-  <ParamField query="Justification" type="string">
+  <ParamField query="Justification" type="Text">
     Explanation for why the AI chose this category (only when Include Justification is enabled).
   </ParamField>
 </Accordion>

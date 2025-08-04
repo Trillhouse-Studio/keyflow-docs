@@ -20,7 +20,7 @@ AI Filter uses artificial intelligence to evaluate whether input data meets a sp
   or other data types.
 </ParamField>
 
-<ParamField query="Condition" type="String" required>
+<ParamField query="Condition" type="Text" required>
   Describe the criteria the input should meet in natural language. Be specific
   about what you're looking for.
 </ParamField>
@@ -28,16 +28,16 @@ AI Filter uses artificial intelligence to evaluate whether input data meets a sp
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Model" type="String" default="GPT-4 1 Nano">
+  <ParamField query="Model" type="Select">
     Choose the AI model for evaluation. Faster models work well for simple
     conditions.
   </ParamField>
 
-  <ParamField query="Account" type="String">
+  <ParamField query="Account" type="Select">
     Select the AI credentials to use for authentication with the chosen model.
   </ParamField>
 
-  <ParamField query="Cache Response" type="Boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     Enable caching to store results for identical input/condition pairs,
     improving performance and reducing costs.
   </ParamField>
@@ -45,7 +45,7 @@ AI Filter uses artificial intelligence to evaluate whether input data meets a sp
 
 ### Outputs
 
-<ParamField query="Filtered Output" type="String">
+<ParamField query="Filtered Output" type="Text">
   Returns the original input if it meets the condition, or "false" if it
   doesn't meet the criteria.
 </ParamField>

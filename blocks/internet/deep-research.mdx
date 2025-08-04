@@ -12,40 +12,40 @@ Performs comprehensive research on any topic using advanced AI models that can s
 
 ### Inputs
 
-<ParamField query="Query" type="String" required>
+<ParamField query="Query" type="Text" required>
   The research question or topic you want to investigate in depth.
 </ParamField>
 
-<ParamField query="Model" type="String" default="sonar-deep-research">
+<ParamField query="Model" type="Select">
   The AI model to use for deep research (sonar-deep-research, o3-deep-research, or o4-mini-deep-research).
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Account" type="String">
+  <ParamField query="Account" type="Select">
     Select the Perplexity or OpenAI API credentials you want to use.
   </ParamField>
 
-  <ParamField query="Cache Response" type="Boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     If checked, the model response will be cached for future use.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="Response" type="String">
+<ParamField query="Response" type="Text">
   The comprehensive research findings and analysis.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Additional Outputs">
-  <ParamField query="Reasoning" type="String">
+  <ParamField query="Reasoning" type="Text">
     The model's reasoning process and methodology used during research.
   </ParamField>
 
-  <ParamField query="Citations" type="String Array">
+  <ParamField query="Citations" type="Text List">
     Array of source citations and references used in the research.
   </ParamField>
 </Accordion>

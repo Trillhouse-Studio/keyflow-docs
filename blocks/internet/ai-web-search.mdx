@@ -12,18 +12,18 @@ Use AI-powered search to find highly relevant websites based on natural language
 
 ### Inputs
 
-<ParamField query="Query" type="string" required>
+<ParamField query="Query" type="Text" required>
   Enter your search query in natural language. The AI will understand the intent and find the most relevant websites.
 </ParamField>
 
-<ParamField query="Url" type="string">
+<ParamField query="Url" type="Text">
   Provide a URL to find websites similar to it. Use this instead of Query to find related content.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Account" type="string">
+  <ParamField query="Account" type="Select">
     Select your Exa API credentials. Required for authentication with the Exa search service.
   </ParamField>
 
@@ -31,7 +31,7 @@ Use AI-powered search to find highly relevant websites based on natural language
     Specify how many search results you want to retrieve (minimum 1).
   </ParamField>
 
-  <ParamField query="Cache Response" type="boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     If checked, identical queries will be cached to improve performance and reduce API costs.
   </ParamField>
 </Accordion>

@@ -2,34 +2,96 @@
 title: Join Path
 ---
 
-### **Overview:**
+### Overview
 
-The `Join Path` block is designed to take multiple inputs and output the first non-null value among them. It efficiently manages scenarios involving varied data sources, prioritizing values based on their availability. This block is particularly useful when integrated with a [**Switch Block**](/blocks/flow-control/switch) to enable intelligent decision-making based on specific conditions.
+Takes multiple inputs and outputs the first non-empty value among them. This block acts as a multiplexer, allowing you to merge different execution paths and prioritize data from multiple sources.
 
----
-
-### Inputs & Outputs
-
-| I/O    | Feature   | Type | Simple Explanation                                                   |
-| ------ | --------- | ---- | -------------------------------------------------------------------- |
-| input  | `input_1` | any  | The first input value that will be evaluated for non-nullity.        |
-| input  | `input_2` | any  | The second input value to be assessed alongside the first one.       |
-| output | `output`  | any  | The first non-null value identified among all provided input values. |
-
-<Note>
-  To allow accepting more than two inputs, you can click the "+" or "-" icon
-  below the input name to add or remove new input handles that you can connect
-  other blocks to.
-</Note>
+<Tip>Essential for combining parallel workflow paths and handling fallback scenarios with multiple data sources.</Tip>
 
 ---
 
-### Use Cases
+### Inputs
 
-Consider how this block enhances efficiency in various situations:
+<ParamField query="Input 1" type="Any" required>
+  The first input value to be evaluated.
+</ParamField>
 
-- **Data Prioritization:** When integrating information from sensors in a smart home system, use this block to select the most relevant reading available, ensuring optimal responsiveness.
-- **Error Handling:** In scenarios where an application retrieves user profile images from multiple sources (like local storage and cloud), utilize this block to display the first successfully loaded image while bypassing nulls.
-- **Config Management:** For dynamically adjusting configurations based on different parameters across environments (development vs production), this tool helps prioritize values effectively without manual oversight.
+<ParamField query="Input 2" type="Any" required>
+  The second input value to be evaluated.
+</ParamField>
 
-In summary, whenever your workflow involves needing a reliable single datum out of several alternatives, the `Mux (Multiplexer)` block proves invaluable!
+<br></br>
+
+<Accordion title="Advanced Settings">
+  <ParamField query="Additional Inputs" type="Any">
+    You can add more inputs (up to 10) using the "+" button. Each input will be evaluated in order.
+  </ParamField>
+</Accordion>
+
+### Outputs
+
+<ParamField query="data" type="Any">
+  The first non-empty value found among all connected inputs, evaluated in order from Input 1 to the last input.
+</ParamField>
+
+---
+
+### Best Practices
+
+<Steps>
+  <Step title="Order Inputs by Priority">
+    Connect your most preferred data source to Input 1, second preference to Input 2, and so on.
+    ```text ⚠️ Bad Example wrap
+    Input 1: Fallback data source
+    Input 2: Primary data source
+    ```
+    ```text ✅ Good Example wrap
+    Input 1: Primary data source
+    Input 2: Secondary data source
+    Input 3: Fallback data source
+    ```
+  </Step>
+
+  <Step title="Use for Merging Parallel Paths">
+    Perfect for combining different execution branches from If-Else or Switch blocks back into a single workflow path.
+  </Step>
+
+  <Step title="Handle Empty vs. Null Values">
+    The block checks for truly empty values (null, undefined, empty strings). Make sure your upstream blocks handle data appropriately.
+  </Step>
+</Steps>
+
+---
+
+### Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why am I getting no output from Join Path?">
+    All your inputs are likely empty or null. Check that at least one connected block is providing valid data.
+    
+    ```text Example Solution wrap
+    Ensure at least one input has non-empty data:
+    Input 1: null
+    Input 2: "valid data" ← This will be the output
+    Input 3: "backup data"
+    ```
+  </Accordion>
+
+  <Accordion title="How do I add more than 2 inputs?">
+    <Tip>Use the dynamic input feature</Tip>
+    Click the "+" button below the inputs to add more input handles. You can have up to 10 inputs total.
+    
+    <Info>Inputs are evaluated in order - the first non-empty value wins</Info>
+  </Accordion>
+
+  <Accordion title="What counts as 'empty' for this block?">
+    The block treats these values as empty and will skip them:
+    - null
+    - undefined  
+    - Empty strings ("")
+    - Empty arrays ([])
+    - Empty objects ({})
+    
+    <Warning>The number 0 and boolean false are considered valid values, not empty</Warning>
+  </Accordion>
+</AccordionGroup>

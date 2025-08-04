@@ -12,29 +12,29 @@ Extracts structured data from unstructured text and automatically organizes it i
 
 ### Inputs
 
-<ParamField query="Text" type="String" required>
+<ParamField query="Text" type="Text" required>
   The unstructured text data that you want to extract and organize into table format.
 </ParamField>
 
-<ParamField query="doc_link" type="String" required>
+<ParamField query="doc_link" type="Text" required>
   The Google Sheets file where the extracted data will be added. Must be a valid Google Sheets URL or file ID.
 </ParamField>
 
-<ParamField query="sheet_name" type="String">
+<ParamField query="sheet_name" type="Text">
   The specific sheet name within the Google Sheets file to write data to. If not specified, data will be written to the first sheet.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Account" type="String">
+  <ParamField query="Account" type="Select">
     Select the Google Sheets credentials you want to use to access and write to your Google Sheets documents.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="doc_link" type="String">
+<ParamField query="doc_link" type="Text">
   Returns the same Google Sheets URL that was provided as input, confirming where the data was successfully written.
 </ParamField>
 

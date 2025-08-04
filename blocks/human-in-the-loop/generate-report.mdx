@@ -12,32 +12,32 @@ The Generate Report block creates comprehensive, structured reports for your tea
 
 ### Inputs
 
-<ParamField query="Prompt" type="string" required>
+<ParamField query="Prompt" type="Text" required>
   Provide details to generate the report. Include what type of report you want, data sources, and specific requirements.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Advanced Settings">
-  <ParamField query="Cache Response" type="boolean" default="true">
+  <ParamField query="Cache Response" type="Toggle">
     If checked, the model response will be cached for future use, improving performance for similar requests.
   </ParamField>
 </Accordion>
 
 ### Outputs
 
-<ParamField query="response" type="string">
+<ParamField query="response" type="Text">
   The complete generated report content in markdown format, ready for viewing or further processing.
 </ParamField>
 
 <br></br>
 
 <Accordion title="Additional Outputs">
-  <ParamField query="status" type="string">
+  <ParamField query="status" type="Text">
     The execution status of the report generation process.
   </ParamField>
 
-  <ParamField query="url" type="string">
+  <ParamField query="url" type="Text">
     Direct link to view the generated report in your workspace.
   </ParamField>
 </Accordion>

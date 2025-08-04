@@ -12,17 +12,17 @@ The Speech to Text block converts audio files into written text using Google Clo
 
 ### Inputs
 
-<ParamField query="Media File" type="file" required>
+<ParamField query="Media File" type="File" required>
   The audio file you want to convert into text. Supports MP3, WAV, and other common audio formats.
 </ParamField>
 
-<ParamField query="Language" type="string" default="en-US">
+<ParamField query="Language" type="Text" default="en-US">
   The language of the audio for accurate transcription. Choose from supported languages like English, Spanish, Chinese, and more.
 </ParamField>
 
 ### Outputs
 
-<ParamField query="Transcription" type="string">
+<ParamField query="Transcription" type="Text">
   The written text extracted from the audio file, formatted as a readable transcript.
 </ParamField>
 

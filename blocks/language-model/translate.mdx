@@ -12,17 +12,17 @@ Translates text between different languages using AI translation models, enablin
 
 ### Inputs
 
-<ParamField query="Text" type="string" required>
+<ParamField query="Text" type="Text" required>
   The text you want to translate. Can be a single word, sentence, paragraph, or entire document.
 </ParamField>
 
-<ParamField query="Output Language" type="selector" required>
+<ParamField query="Output Language" type="Select" required>
   The target language for translation. Choose from 130+ supported languages including English, Spanish, French, German, Chinese, Japanese, and many more.
 </ParamField>
 
 ### Outputs
 
-<ParamField query="translated_text" type="string">
+<ParamField query="translated_text" type="Text">
   The translated text in your specified target language, maintaining the original formatting and context.
 </ParamField>
 
