@@ -1,16 +1,13 @@
 ---
 title: "Welcome 👋"
-description: "Keyflow lets you rapidly and visually create intelligent systems to automate work"
 ---
 
-Most business processes are just patterns - read documents, analyze data, make decisions, update systems.
+Keyflow lets you rapidly and visually create intelligent systems to automate work
 
-<Tip>
-Instead of doing this manually over and over, you build smart processes that handle it automatically.
-</Tip>
+Most business processes are just patterns - read documents, analyze data, make decisions, update systems. **Instead of doing this manually over and over, you build smart processes that handle it automatically.**
 
 
-<Frame>
+<Frame caption="A flow using research agents to enrich leads and accounts">
   <img
     className="block dark:hidden"
     src="/images/hero-light.png"
@@ -23,11 +20,101 @@ Instead of doing this manually over and over, you build smart processes that han
   />
 </Frame>
 
-Think of it as connecting blocks that each do something specific: analyze text with AI, pull data from APIs, send emails, or request human input for complex decisions. These processes can include both AI and human intelligence in the loop - letting you automate what's routine while keeping humans involved where judgment matters.
+In Keyflow, you build workflows by connecting blocks that each do something specific: analyze text with AI, pull data from APIs, send emails, or request human input for complex decisions. These processes can include both AI and human intelligence in the loop - letting you automate what's routine while keeping humans involved where judgment matters.
 
-Once built, you can deploy these flows as internal apps, trigger them via APIs, or integrate them with existing systems using automation triggers. 
+<Tip>Spending one day to build a flow can save you thousands of hours of work throughout the year</Tip>
 
-<Tip> Build the process once, use it everywhere. </Tip>
+### Using Keyflow
+
+Flows in Keyflow can be used in mutiple ways:
+
+<Tabs>
+  <Tab title="App" icon="cube">
+    Create internal tools, or sharable mini-apps. Some common use cases are - document analysis, transcript processing, marketing asset generation, web scraping and research agents.
+    <Frame>
+      <img
+        className="block dark:hidden"
+        src="/images/app-light.png"
+        alt="Keyflow Canvas Demo"
+      />
+      <img
+        className="hidden dark:block"
+        src="/images/app-dark.png"
+        alt="Keyflow Canvas Demo"
+      />
+    </Frame>
+  </Tab>
+  <Tab title="Swarm" icon="bee">
+    Run a flow at scale on multiple documents or data in spreadsheet. Some common use cases are - document extraction, data enrichment, LLM evals, synthetic data generation. 
+    <Frame>
+      <img
+        className="block dark:hidden"
+        src="/images/app-light.png"
+        alt="Keyflow Canvas Demo"
+      />
+      <img
+        className="hidden dark:block"
+        src="/images/app-dark.png"
+        alt="Keyflow Canvas Demo"
+      />
+    </Frame>
+  </Tab>
+  <Tab title="Schedule" icon="clock">
+    You can schedule flows to run at specific times or on specific days. Some common user cases are - weekly email reports, personalized newsletter, automated data extractors. 
+    <Frame>
+      <img
+        className="block dark:hidden"
+        src="/images/schedule-light.png"
+        alt="Keyflow Canvas Demo"
+      />
+      <img
+        className="hidden dark:block"
+        src="/images/schedule-dark.png"
+        alt="Keyflow Canvas Demo"
+      />
+    </Frame>
+  </Tab>
+  <Tab title="API" icon="code">
+    You can remotely trigger your flows from anywhere using our API Trigger. Some common use cases are - AI pipelines, web form processors, stable backend for vibe coded apps.
+    <Frame>
+      <img
+        className="block dark:hidden"
+        src="/images/api-light.png"
+        alt="Keyflow Canvas Demo"
+      />
+      <img
+        className="hidden dark:block"
+        src="/images/api-dark.png"
+        alt="Keyflow Canvas Demo"
+      />
+    </Frame>
+  </Tab>
+  <Tab title="MCP Tookits" icon="pickaxe">
+    You can package flows into toolkits and bring them to your favourite AI Chat app - Cursor, Claude, Windsurf, Claude Code, etc.
+      <Frame>
+      <img
+        className="block "
+        src="/images/claude-mcp.png"
+        alt="Keyflow Canvas Demo"
+      />
+    </Frame>
+  </Tab>
+  <Tab title="Automations" icon="bolt">
+    You can set up triggers to run flows when events occur in third party apps like - Gmail, Google Drive, Slack, Airtable. Some common use cases are - email triaging, automated file processing.
+    <Frame>
+      <img
+        className="block dark:hidden"
+        src="/images/automation-light.png"
+        alt="Keyflow Canvas Demo"
+      />
+      <img
+        className="hidden dark:block"
+        src="/images/automation-dark.png"
+        alt="Keyflow Canvas Demo"
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 
 ## Get Started
 
@@ -41,23 +128,23 @@ Once built, you can deploy these flows as internal apps, trigger them via APIs, 
   </Card>
   <Card
     title="Explore Templates"
-    icon="template"
+    icon="list-tree"
     href="/templates"
   >
-    Start with prebuilt flows to get inspired
+    Checkout our prebuilt templates for inspiration
+  </Card>
+  <Card
+    title="Explore Blocks"
+    icon="block"
+    href="/blocks/language-model/ask-ai"
+  >
+    Learn about the building blocks that make up Keyflow
   </Card>
   <Card
     title="Build Custom Blocks"
     icon="code"
-    href="/sdk"
+    href="/sdk/block/block-sdk" 
   >
-    Use our SDK to extend Keyflow with your own logic
-  </Card>
-  <Card
-    title="Deploy & Integrate"
-    icon="plug"
-    href="/app/deployment"
-  >
-    Use your flows in production or integrate with existing tools
+    Use our SDK to extend Keyflow with your own components
   </Card>
 </CardGroup>

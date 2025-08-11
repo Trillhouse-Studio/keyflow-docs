@@ -315,6 +315,13 @@
             ] 
         },
         {
+          "group": "Google Drive",
+          "pages": [
+              "blocks/integrations/google-drive/read-from-google-drive",
+              "blocks/integrations/google-drive/write-to-google-drive"
+          ] 
+        },
+        {
             "group": "Google Docs",
             "pages": [
                 "blocks/integrations/google-docs/read-from-google-docs",
@@ -322,27 +329,26 @@
             ] 
         },
         {
-          "group": "Google Drive",
+          "group": "Google Sheets",
           "pages": [
-              "blocks/integrations/google-drive/read-from-google-drive",
-              "blocks/integrations/google-drive/write-to-google-drive"
+              "blocks/integrations/google-sheets/read-from-google-sheets",
+              "blocks/integrations/google-sheets/write-to-google-sheets"
           ] 
-          },
-          {
-            "group": "Google Sheets",
-            "pages": [
-                "blocks/integrations/google-sheets/read-from-google-sheets",
-                "blocks/integrations/google-sheets/write-to-google-sheets"
-            ] 
-          },
-          {
-            "group": "Notion",
-            "pages": [
-                "blocks/integrations/notion/read-notion-page",
-                "blocks/integrations/notion/write-notion-page",
-                "blocks/integrations/notion/read-notion-database",
-                "blocks/integrations/notion/write-notion-database"
-            ] 
+        },
+        {
+          "group": "Hacker News",
+          "pages": [
+              "blocks/integrations/hacker-news/read-hacker-news"
+          ] 
+        },
+        {
+          "group": "Notion",
+          "pages": [
+              "blocks/integrations/notion/read-notion-page",
+              "blocks/integrations/notion/write-notion-page",
+              "blocks/integrations/notion/read-notion-database",
+              "blocks/integrations/notion/write-notion-database"
+          ] 
         },
         {
           "group": "Outlook",
@@ -350,7 +356,19 @@
               "blocks/integrations/outlook/read-outlook",
               "blocks/integrations/outlook/send-outlook"
           ] 
-      },
+        },
+        {
+          "group": "Postgres",
+          "pages": [
+              "blocks/integrations/postgres/postgressql"
+          ] 
+        },
+        {
+          "group": "Reddit",
+          "pages": [
+              "blocks/integrations/reddit/scrape-reddit"
+          ] 
+        },       
         {
             "group": "Slack",
             "pages": [
@@ -358,9 +376,27 @@
             ] 
         },        
         {
+          "group": "Typeform",
+          "pages": [
+              "blocks/integrations/typeform/get-typeform-responses"
+          ] 
+        },       
+        {
             "group": "WhatsApp",
             "pages": [
                 "blocks/integrations/whatsapp/send-whatsapp"
+            ] 
+        },
+        {
+          "group": "X (Twitter)",
+          "pages": [
+              "blocks/integrations/x/tweet"
+          ] 
+        },
+        {
+            "group": "YouTube",
+            "pages": [
+                "blocks/integrations/youtube/get-youtube-transcript"
             ] 
         }
       ]
